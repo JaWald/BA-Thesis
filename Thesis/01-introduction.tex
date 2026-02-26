@@ -6,11 +6,15 @@
 
 \section{Motivation}
 \label{sec:introduction:motivation}
+In the past decades, processor speeds have vastly increased due to higher cycle rates and higher core counts, while DRAM has not been able to keep up. This phenomenon is colloquially known as the "memory wall". The resulting problem is that execution speed may no longer be limited by processing power, but by the processor having to wait for data from the DRAM \cite{drepper2007every}. To address this gap, modern software development has to take into consideration the underlying hardware constraints. 
 
-\section{Objectives and Approach}
+\section{The Shift to DOP}
+\label{sec:introduction:shift-dop}
+Object-oriented programming has enjoyed wide adoption and is usually taught long before Data-oriented programming in most curricula. However, OOP poses challenges when it comes to cache-optimization, for example, due to a high degree of coupling \cite{harkonen2019advantages}. More modern approaches, such as Data-oriented programming, aim to mitigate challenges such as these by decoupling logic and data. However, there are more mechanisms that DOP employs to improve cache efficiency and execution time, some of the more significant ones being SIMD vectorization (\autoref{sec:theoretical-background:simd}) and use of the Entity Component System (ECS)  software architecture design pattern (\autoref{sec:theoretical-background:ecs}).
+
+
+\section{Objectives and Methodology}
 \label{sec:introduction:objectives}
-
-\section{Outline}
-\label{sec:introduction:outline}
+The aim of this thesis is to measure the difference in execution time between OOP and DOP approaches, as the exact difference is hardly ever quantified. The created benchmarks aim to reflect realistic use cases and lean towards the gaming industry, as there has been a significant push in recent years to adopt the ECS pattern. Rust will act as the programming language with the Bevy engine providing the framework. Rust has many characteristics that lend itself well as a benchmarking language \cite{klabnik2023rust}. The same holds for Bevy, employing one of the best ECS systems to date. More intricate details of Rust and Bevy are explained and elaborated on further in \autoref{sec:theoretical-background:rustandbevy}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
