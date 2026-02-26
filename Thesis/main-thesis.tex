@@ -1,0 +1,80 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,oneside,10pt,ngerman,english]{scrbook} % <----------------------------- !!!!!!!!!!!!!
+
+\usepackage[utf8]{inputenc}
+\usepackage[bathesis,fancyfonts,TNF]{jkureport}
+\usepackage{csquotes}
+\usepackage[backend=biber,citestyle=numeric,sortcites=true,maxcitenames=2,style=ACM-Reference-Format]{biblatex}
+
+\setcounter{biburlnumpenalty}{100} %% reducing biburl* penalties improves URL placement in bibliography
+\setcounter{biburllcpenalty}{100}
+\setcounter{biburlucpenalty}{100}
+
+\usepackage{todonotes}
+\usepackage{import}
+\usepackage{amsfonts}
+\usepackage{subfigure}
+%\usepackage{acronym}
+
+\addbibresource{references.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\frontmatter
+
+\title{Performance Analysis of Data-oriented Programming in Rust}
+\author{ Jakob~Waldhäusl \matno{12015832}}
+\supervisor{\prefix{Dipl.-Ing.} Thomas~Schrott \suffix{BSc.}}
+\degree{Bachelor of Science}{Computer Science}
+\submissiondepartment{Institute for System Software (SSW)}
+\date{2026-08-01}
+\keywords{Performance Analysis, Rust, DOP, ECS, SIMD} % <------------------------------------- !!!!!!!!!!!!!
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\import{./}{0000-abstract}
+%\import{./}{000-acknowledgements} % <----------------------------------------------------------- !!!!!!!!!!!!!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoubleoddpage
+\tableofcontents
+
+%\cleardoubleoddpage
+%\listoftables     % <------------------------------------------------------------------------- !!!!!!!!!!!!!
+
+%\cleardoubleoddpage
+%\listoffigures      % <----------------------------------------------------------------------- !!!!!!!!!!!!!
+
+%\cleardoubleoddpage
+%\import{./}{00-acronyms} % <---------------------------------------------------------------- !!!!!!!!!!!!!
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mainmatter
+
+\import{./}{01-introduction}
+\import{./}{02-theoretical-background}
+\import{./}{03-practical-part}
+\import{./}{09-conclusion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoubleoddpage
+\printbibliography
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\appendix                % <---------------------------------------------------------------- !!!!!!!!!!!!!
+%\import{./}{91-appendix} % <---------------------------------------------------------------- !!!!!!!!!!!!!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoubleoddpage
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

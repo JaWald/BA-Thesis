@@ -1,0 +1,39 @@
+---------------------------------------------------------------------------
+|				3. MEETING				  |
+|				27.02.2026				  |
+---------------------------------------------------------------------------
+
+Fragen: 
+1. Acknowledgements?
+2. List of Figures?
+3. List of Tables?
+4. List of Acronyms?
+5. Twosided / Onesided?
+6. Keywords?
+7. Appendix?
+8. BibTex von Google Scholar direkt übernehmen?
+
+---------------------------------------------------------------------------
+|				2. MEETING				  |
+|				13.02.2026				  |
+---------------------------------------------------------------------------
+
+Besprochen:
+- In Kurs zurgeteilt, noch was zu erledigen? 	--> No
+- Exposeé					--> Fertig
+- Meilensteinliste				--> Passt
+- Verhältnis theoretischer/praktischer Teil	--> Theorie ~ 5 Seiten
+- Übermittlung der Arbeit via Email? 		--> Praktisches live
+						 -> Geschriebenes via Email
+
+---------------------------------------------------------------------------
+|				1. MEETING				  |
+|				30.01.2026				  |
+---------------------------------------------------------------------------
+
+Assembly Debugger für RustRover finden/verstehen
+Linux Dual Boot Desktop/Laptop
+
+TODO: 
+- Google Doc checken
+- Literaturrecherche (Quellen raussuchen)

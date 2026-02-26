@@ -1,0 +1,67 @@
+------------------------------------------------------------------------------
+			    Performance Analysis of 
+			Data-Oriented Programming in Rust
+------------------------------------------------------------------------------
+
+(0) Abstract
+Challenge high framerate, complex computation vs limited hardware
+DOP becoming more popular
+How much faster is it?
+
+------------------------------------------------------------------------------
+
+1. Einleitung 
+2. Theoretical Background
+2.1 DOP 
+	Wieso überhaupt DOP?
+	Ursprungsgeschichte
+	Vergleich mit OOP
+	Vorteile/Nachteile
+	Moderne Anwendungen
+	Überleitung zu SIMD
+2.2 SIMD Vectorization
+	Funktionsweise
+	Voraussetzungen
+	SoA vs AoS
+2.2 ECS
+	Wieso ECS?
+	Funktionsweise von ECS
+	Anwedungsbereiche von ECS
+	Überleitung zu Rust und Bevy
+2.3 Rust (inkl. Bevy)
+	Kurze Erläuterung Vorteile Rust
+	Exposition von Bevy, super ECS, Datenorientiert, etc
+
+------------------------------------------------------------------------------
+
+3. Praktischer Teil
+3.1 Design
+	Erläuterung des Ziels der Arbeit
+	Was wird gemessen?
+	Wie wird es gemessen?
+	Woran wird es gemessen?
+	Wie werden die Benchmarks erstellt?
+	Eigenschaften der Benchmarks (Reproduzierbarkeit)
+
+3.2 Benchmarks
+	Jeweils DOP und OOP Benchmarks einfügen
+	Code insgesamt High level erklären (sodass man auch ohne Bevy Kenntnisse versteht)
+	Einzelne wichtige Teile genauer erklären
+	Unterschiede der Benchmarks herausheben (wieso ist DOP DOP, wieso ist OOP OOP)
+
+3.3 Resultate
+	Messergebnisse der Benchmarks als Diagramme
+	Beschreibung der Ergebnisse
+
+------------------------------------------------------------------------------
+
+4. Interpretation
+	Was bedeuten die Resultate?
+	Sind sie gemäß der Erwartungen ausgefallen?
+	Wodurch kommen die Unterschiede zu Stande?
+
+------------------------------------------------------------------------------
+
+5. Literatur
+
+------------------------------------------------------------------------------
