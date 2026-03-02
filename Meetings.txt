@@ -1,17 +1,42 @@
 ---------------------------------------------------------------------------
+|				4. MEETING				  |
+|				17.03.2026				  |
+---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
 |				3. MEETING				  |
 |				27.02.2026				  |
 ---------------------------------------------------------------------------
 
 Fragen: 
-1. Acknowledgements?
-2. List of Figures?
-3. List of Tables?
-4. List of Acronyms?
-5. Twosided / Onesided?
-6. Keywords?
-7. Appendix?
-8. BibTex von Google Scholar direkt übernehmen?
+N 		1. Acknowledgements?
+Nach Bedarf 	2. List of Figures?
+Nach Bedarf 	3. List of Tables?
+Y 		4. List of Acronyms?
+		5. Onesided
+N 		6. Keywords?
+Wahrscheinlich nicht 7. Appendix?
+Bissl verfeiner 8. BibTex von Google Scholar direkt übernehmen?
+
+Chapter 3 Benchmark Design und Implementation
+Chapter 4 Results
+Conclusion und Outlook ggf. splitten
+Future Work, ggf related work
+
+Genaue Gedanken zu möglichen Störvariablen
+CPU-Frequenz locken und Core Count
+Linux statt Win11
+Automatisieren mit Scripts
+Warmup Runs
+todonotes package Latex
+
+Grobe Gedanken zu Benchmarks bis 4. Meeting (welche Szenarien, was wird gemessen)
+Kollisionsbenchmark: Je nach framerate hat man nach jedem frame einen anderen zustand
+Zeitdelta rausbekommen (Bevy Funktionalität?)
+
+Über Assembly SIMD-Instruktionen verifizieren/suchen
+Speicher mit Benchmarken zusätzlich zu Performance, RSS / MAX RSS
 
 ---------------------------------------------------------------------------
 |				2. MEETING				  |

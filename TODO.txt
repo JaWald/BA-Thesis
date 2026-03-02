@@ -1,0 +1,31 @@
+TODO bis 4tes Meeting:
+
+Latex:
+	[X] Acknowledgements löschen
+	[X] List of Figures/Tables auskommentieren
+	[X] List of Acronyms einfügen
+	[X] Auf onesided stellen
+	[X] Keywords löschen
+	[X] Appendix auskommentieren
+	[X] todonotes package
+
+	[X] BibTex cleanup
+	[X] Chapter 3 Benchmark Design / Implementation
+	[X] Chapter 4 Results
+	[X] Conclusion und Outlook splitten
+	[X] Future Work
+
+	[] VSC LateX aufsetzen
+	[] 4 Seiten Theorie
+		- Nur so viel wie notwendig
+		- Thomas solls verstehen
+
+General:
+	[] Linux Dualboot einrichten
+	[] Execute Skripts für Benchmarks erstellen
+	[] Plan für 3 Benchmarks haben
+		- Szenario
+		- Metriken
+		- Störvariablen
+		- Profiler für CPU und Speicher
+	[] Rust Assembly Debugger aufsetzen

@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[a4paper,oneside,10pt,ngerman,english]{scrbook} % <----------------------------- !!!!!!!!!!!!!
+\documentclass[a4paper,oneside,10pt,ngerman,english]{scrbook}
 
 \usepackage[utf8]{inputenc}
 \usepackage[bathesis,fancyfonts,TNF]{jkureport}
@@ -15,7 +15,8 @@
 \usepackage{import}
 \usepackage{amsfonts}
 \usepackage{subfigure}
-%\usepackage{acronym}
+\usepackage{todonotes}
+\usepackage{acronym}
 
 \addbibresource{references.bib}
 
@@ -30,49 +31,43 @@
 \degree{Bachelor of Science}{Computer Science}
 \submissiondepartment{Institute for System Software (SSW)}
 \date{2026-08-01}
-\keywords{Performance Analysis, Rust, DOP, ECS, SIMD} % <------------------------------------- !!!!!!!!!!!!!
 
 \maketitle
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\import{./}{0000-abstract}
-%\import{./}{000-acknowledgements} % <----------------------------------------------------------- !!!!!!!!!!!!!
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\import{./}{000-abstract}
 
 \cleardoubleoddpage
 \tableofcontents
 
-%\cleardoubleoddpage
-%\listoftables     % <------------------------------------------------------------------------- !!!!!!!!!!!!!
-
-%\cleardoubleoddpage
-%\listoffigures      % <----------------------------------------------------------------------- !!!!!!!!!!!!!
-
-%\cleardoubleoddpage
-%\import{./}{00-acronyms} % <---------------------------------------------------------------- !!!!!!!!!!!!!
- 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \mainmatter
 
 \import{./}{01-introduction}
 \import{./}{02-theoretical-background}
-\import{./}{03-practical-part}
-\import{./}{09-conclusion}
+\import{./}{03-benchmarks}
+\import{./}{04-results}
+\import{./}{05-conclusion}
+\import{./}{06-outlook}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\cleardoubleoddpage
+%\listoftables
+
+%\cleardoubleoddpage
+%\listoffigures
 
 \cleardoubleoddpage
 \printbibliography
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cleardoubleoddpage
+\import{./}{00-acronyms}
 
-%\appendix                % <---------------------------------------------------------------- !!!!!!!!!!!!!
-%\import{./}{91-appendix} % <---------------------------------------------------------------- !!!!!!!!!!!!!
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\appendix
+%\import{./}{91-appendix}
 
 \cleardoubleoddpage
 \end{document}
