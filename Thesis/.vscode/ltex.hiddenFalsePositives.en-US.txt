@@ -1,0 +1,5 @@
+{"rule":"BACHELOR_ABBR","sentence":"^\\QThomas Schrott BSc. \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+\\QBachelor of Science Computer Science Institute for System Software (SSW) 2026-08-01\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QScenario description Description of corresponding benchmark\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QScenario Y.\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QScenario Z.\\E$"}
+{"rule":"REPEATED_VERBS","sentence":"^\\Qbodies: Body[1000] for body in bodies body.update();\\E$"}

@@ -1,0 +1,16 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+
+\PYG{n}{Struct} \PYG{n}{Body} \PYG{p}{\PYGZob{}}
+    \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{z}\PYG{p}{:} \PYG{n}{f64}\PYG{p}{;}
+    \PYG{n}{vx}\PYG{p}{,} \PYG{n}{vy}\PYG{p}{,} \PYG{n}{vz}\PYG{p}{:} \PYG{n}{f64}\PYG{p}{;}
+    \PYG{n}{mass}\PYG{p}{:} \PYG{n}{f64}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{update}\PYG{p}{()} \PYG{o}{//} \PYG{n}{compute} \PYG{n}{gravitational} \PYG{n}{pull}
+
+\PYG{n}{bodies}\PYG{p}{:} \PYG{n}{Body}\PYG{p}{[}\PYG{l+m+mi}{1000}\PYG{p}{]}
+\PYG{k}{for} \PYG{n}{body} \PYG{o+ow}{in} \PYG{n}{bodies} \PYG{p}{\PYGZob{}}
+    \PYG{n}{body}\PYG{o}{.}\PYG{n}{update}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+
+\end{MintedVerbatim}
