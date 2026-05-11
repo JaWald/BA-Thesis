@@ -1,0 +1,77 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,oneside,10pt,ngerman,english]{scrbook}
+
+\usepackage[utf8]{inputenc}
+\usepackage[bathesis,fancyfonts,TNF]{jkureport}
+\usepackage{csquotes}
+\usepackage[backend=biber,citestyle=numeric,sortcites=true,maxcitenames=2,style=ACM-Reference-Format]{biblatex}
+
+\setcounter{biburlnumpenalty}{100} %% reducing biburl* penalties improves URL placement
+\setcounter{biburllcpenalty}{100}
+\setcounter{biburlucpenalty}{100}
+
+\usepackage{todonotes}
+\usepackage{import}
+\usepackage{amsfonts}
+\usepackage{subfigure}
+\usepackage{todonotes}
+\usepackage{acronym}
+\usepackage[nameinlink]{cleveref}   % enables capitalized Section references
+                                    % nameinlink so that not just number is clickable
+
+\addbibresource{references.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\frontmatter
+
+\title{Performance Analysis of Data-oriented Programming in Rust}
+\author{ Jakob~Waldhäusl \matno{12015832}}
+\supervisor{\prefix{Dipl.-Ing.} Thomas~Schrott \suffix{BSc.}}
+\degree{Bachelor of Science}{Computer Science}
+\submissiondepartment{Institute for System Software (SSW)}
+\date{2026-08-01}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\import{./}{000-abstract}
+
+\cleardoubleoddpage
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mainmatter
+
+\import{./}{01-introduction}
+\import{./}{02-background}
+\import{./}{03-benchmarks}
+\import{./}{04-evaluation}
+\import{./}{05-analysis}
+\import{./}{06-limitations}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoubleoddpage
+\printbibliography
+
+%\cleardoubleoddpage
+%\listoftables
+
+%\cleardoubleoddpage
+\listoffigures
+
+\cleardoubleoddpage
+\import{./}{00-acronyms}
+
+%\appendix
+%\import{./}{91-appendix}
+
+\cleardoubleoddpage
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,15 @@
+[package]
+name = "Benchmarks"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+rand = "0.10.0"
+asm = "0.3.0"
+clap = { version = "4.6.0", features = ["derive"] }
+bevy = { path = "bevy-contiguous", default-features = true, features = ["dynamic_linking"] }
+
+[profile.o3]
+inherits = "release"
+debug = false
+opt-level = 3

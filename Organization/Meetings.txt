@@ -1,0 +1,151 @@
+---------------------------------------------------------------------------
+|				7. MEETING				  |
+|				28.04.2026				  |
+---------------------------------------------------------------------------
+[X] S2: 2er Potenzen überprüfen auf Spikes (512, 4096, vielfache von 1024)
+[ ] S2: Diagramm für 200.000 Bytes payload mitnehmen
+
+[ ] S2: Nachschauen, wie viele Planeten es gibt, deren floats auf 2 Pages liegen
+[ ] S2: Sind die Spikes OS/Prozessor abhängig?
+	[X] Laptop (Win11, Ryzen 7 5800H)
+	[] Desktop (Win11, Ryzen 7 5800X)
+	[]esktop (Ubuntu, Ryzen 7 5800X)
+[ ] S2: Wieso OOP langsamer trotz Payload überspringen?
+[ ] S3: Wieso PC schneller? Immutable Default planet vllt der Grund
+[ ] S3: Aufpassen ob Default werte nicht wegoptimiert werden
+---------------------------------------------------------------------------
+|				6. MEETING				  |
+|				14.04.2026				  |
+---------------------------------------------------------------------------
+Vielleicht sinnvoll zwecks Debugging: inlined update loop
+S2: payload variieren
+S1: planet_count variieren
+lstopo für Cache Level Verteilung
+Herausfinden: Wieso skaliert OOP in S2 so schlecht? Läuft über ganzen Payload?
+
+[X] Bevy SIMD für S1
+[X] S3: Machen
+[X] Linux Distro aufsetzen mit Perf (auch für S2)
+[X] Control Flow Graph für x86 (Nodes = Sprungmarken)
+[X] Struktur für praktischen Teil überlegen
+[] S2: Grund für Performance Einbuße herausfinden (laut asm überspringt er Payload)
+
+---------------------------------------------------------------------------
+|				5. MEETING				  |
+|				02.04.2026				  |
+---------------------------------------------------------------------------
+spezifischen update() je nach Benchmark
+Shuffle() bei allen implementieren (bei DOP auf Reihenfolge achten)
+Nicht alle SIMD Instruktion sind wirklich multiple data -> SIMD Instruktionen an relevanten Stellen die parallelisieren
+objdump --dissasemble [symbolname = Methodenname]
+
+TODO:
+[X] update_planets() soll ganzen Vektor bekommen statt nur einen Planeten
+[X] benchmark 1: herausfinden ob/wie SIMD Vektorisierung stattfindet
+- benchmark 2: Cache missest via Perf
+- benchmark 3: Schreiben, was soll genau gemessen werden (fixer/dynamischer vektor)
+[X] Linux Zeit Auflösung rausfinden, möglichst exakte Zeiterfassung in Rust 
+- Unterschied update() Aufruf Count im vergleich/zusätzlich Planetencount
+[X] matplotlib
+- Linux Distro
+[X] wsl am Laptop (asm in IDE)
+[X] Pointer Chasing überprüfen auf Validität
+Optional: Unterschiedliche Typen in Boxes, mit Trait Function drüber arbeiten
+
+---------------------------------------------------------------------------
+|				4. MEETING				  |
+|				17.03.2026				  |
+---------------------------------------------------------------------------
+Sections: Rust / Bevy am Anfang (vom großen ganzen auf die Details runter)
+Ein großes Beispiel für ALLE sections
+Sachen erklären wenn sie genannt werden
+Bücher: IMMER ISBN
+Online only: urldate
+siunitx package
+Schriftart bei Grafiken an Text anpassen
+
+Szenario 1: Überlegen wegen static calls
+Szenarien 1 und 2: Vielleicht CPU Frequenz throttlen, da je nach Performance andere Zustände zum Berechnungszeitpunkt vorherrschen könnten
+Szenario 3: Äquivalente OOP Implementierung erarbeiten
+Bei allen: Use Cases finden / Praxisbezug herstellen
+	
+Prüfen: Macht ECS Unterschied für Rendering? Koordinaten an Shader?
+	Szenario 4 oder Ersatz für 3
+
+Prüfen: Objekt instantieren/initialisieren vs Entities
+
+Benchmarks: Zeit variieren nur zum herausfinden zwecks Stabilität
+	    Skalierverhalten darstellen Skalierung Untersuchungsobjekte
+	    Objekte/Entities zur Laufzeit erstellen
+		ist eventuell AoS schneller statt SoA?
+	    debuginfo/symbols drinlassen
+	    objdump
+	    in IDE Assembly Darstellung möglich?
+	    
+Ziele: 
+[ X ] Konkrete 3. Szenario
+[ X ] Code für 1. / 2. Benchmark
+[ - ] Benchmark Environment herstellen (Linux)
+[ X ] Wird bei benchmark 1 wirklich SIMD optimiert
+[ X ] Wird bei benchmark 2 wirklich Cache Pollution reduziert?
+[ X ] uProf vs Perf (was eignet sich besser?)
+[ X ] Vllt andere Dinge noch messen? (uProf Features)
+
+---------------------------------------------------------------------------
+|				3. MEETING				  |
+|				27.02.2026				  |
+---------------------------------------------------------------------------
+
+Fragen: 
+N 		1. Acknowledgements?
+Nach Bedarf 	2. List of Figures?
+Nach Bedarf 	3. List of Tables?
+Y 		4. List of Acronyms?
+		5. Onesided
+N 		6. Keywords?
+Wahrscheinlich nicht 7. Appendix?
+Bissl verfeiner 8. BibTex von Google Scholar direkt übernehmen?
+
+Chapter 3 Benchmark Design und Implementation
+Chapter 4 Results
+Conclusion und Outlook ggf. splitten
+Future Work, ggf related work
+
+Genaue Gedanken zu möglichen Störvariablen
+CPU-Frequenz locken und Core Count
+Linux statt Win11
+Automatisieren mit Scripts
+Warmup Runs
+todonotes package Latex
+
+Grobe Gedanken zu Benchmarks bis 4. Meeting (welche Szenarien, was wird gemessen)
+Kollisionsbenchmark: Je nach framerate hat man nach jedem frame einen anderen zustand
+Zeitdelta rausbekommen (Bevy Funktionalität?)
+
+Über Assembly SIMD-Instruktionen verifizieren/suchen
+Speicher mit Benchmarken zusätzlich zu Performance, RSS / MAX RSS
+
+---------------------------------------------------------------------------
+|				2. MEETING				  |
+|				13.02.2026				  |
+---------------------------------------------------------------------------
+
+Besprochen:
+- In Kurs zurgeteilt, noch was zu erledigen? 	--> No
+- Exposeé					--> Fertig
+- Meilensteinliste				--> Passt
+- Verhältnis theoretischer/praktischer Teil	--> Theorie ~ 5 Seiten
+- Übermittlung der Arbeit via Email? 		--> Praktisches live
+						 -> Geschriebenes via Email
+
+---------------------------------------------------------------------------
+|				1. MEETING				  |
+|				30.01.2026				  |
+---------------------------------------------------------------------------
+
+Assembly Debugger für RustRover finden/verstehen
+Linux Dual Boot Desktop/Laptop
+
+TODO: 
+- Google Doc checken
+- Literaturrecherche (Quellen raussuchen)

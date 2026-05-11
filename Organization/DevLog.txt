@@ -1,0 +1,84 @@
+--------------------------------------------------------------------------------------------------
+11.05.2026
+1KiB + x*4KiB ist wenig langsamer
+2KiB + x*4KiB ist mäßig langsamer
+4KiB + x*4KiB ist  viel langsamer
+
+
+Mold Linker auf Linux probieren
+
+--------------------------------------------------------------------------------------------------
+27.03.2026
+ASM Control Flow Graph mit IDA
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process 	(für Ausführen von Scripts)
+
+perf record -e cycles -g -- ./target/o3/benchmarks -b s2 -a aos -p 10000 -i 5000 (führt profiling aus)
+perf report (zeigt Ergebnisse, mit '/' kann man nach Funktionen suchen) 
+mit q kann man aus der performance aussicht austreten, zurück zu den funktionsnamen
+
+TODO:
+- Higher Order Functions verwenden
+- Architecture cli arg einführen für perf profiling (Cache)
+--------------------------------------------------------------------------------------------------
+23.04.2025:
+S3 implementiert
+Skript zur Ausführung von S2 erstellt (derzeit noch PowerShell, Proof of Concept)
+warmups durch erneute bench aufrufe getauscht
+Bei S2 interessantes Phänomen entdeckt: Bei 2er Potenzen (zB 1024, 2048) an Struct Size bricht
+	Performance bei AoS ein, laut AI wegen Cache Sets (??)
+--------------------------------------------------------------------------------------------------
+16.04.2026:
+bevy benches nutzen nun contiguous iter, ermöglicht bessere Vektorisierung
+Cargo asm: --this-workspace entfernt library calls wenn man --rust für interleaved code verwendet
+
+--------------------------------------------------------------------------------------------------
+14.04.2026:
+In-dev bevy build mit (vielleicht) SIMD kompatibler iter functionality
+Ordentliches SoA Layout
+Warmups gemerged
+CSV Dateien erstellen und löschen
+Bevy braucht so lang wegen (1) Iterator Overhead und (2) Vec3 = [x, y, z, x, y, z, …] im Speicher
+--------------------------------------------------------------------------------------------------
+13.04.2026:
+
+Refactor mit cli, Setup, warmup und bench.rs
+TODO:	- ausbauen auf 3x f32
+	- komplexerer compute
+--------------------------------------------------------------------------------------------------
+10.04.2026:
+
+Rebuilding from ground up according to YT Video
+Update Funktion bekommt nun ganze Datenstruktur übermittelt
+Verschiedene Buildprofile brauchen inherits, übernehmen jeweilige Compiler flags
+<float>.mul_add(<float>, <float>) erzwingt vfmadd213ps (fused multiply-add)
+
+END: 	4 Herangehensweisen grob implementiert und mit asm verifiziert 
+TODO: 	- Messung von Zeit und printing in eigene Funktionen auslagern (main zamräumen)
+	- Compute bound und Memory bound Szenarien sicherstellen
+	- Clap integrieren
+	- Ordentliche Projektstruktur erstellen (probably cli, setup und bench files)
+
+COMMANDS:
+	cargo asm 					// funktionsnamen anzeigen lassen
+	cargo asm "<FUNKTION>" --rust 			// zeigt interleaved code an -> hot loop finden
+	cargo asm "<F>" --profile <PROFILNAME> 		// switched zwischen profiles
+
+	cargo run --profile <PROFILNAME>		// führt program mit jeweiligem profil aus
+	$env:RUSTFLAGS="-c target-cpu=native";		// optimiert für curr proc architektur
+	$env:RUSTFLAGS="-c target-cpu=znver3";		// Ryzen 7 5800X usw.
+	$env:RUSTFLAGS="-c target-feature=+avx2,+fma";	// verwendet AVX2 und Fused Multiply Adds
+--------------------------------------------------------------------------------------------------
+01.04.2026:
+
+S1: Compute Bound
+Gravitations/Beschleunigungsberechnung von Planeten um schwarzes Loch
+
+OOP Pointer Chasing: 
+Shuffle notwendig um Pointer Chasing hervorzurufen, da ansonsten Lucky Allocation passieren kann. 
+Simuliert somit lang lebende Applikation
+
+Problematik: 	Vec3 eventuell nicht vektorisierbar
+		Vec3A -> Alle um 33% schneller (bei [u8; 256 000] payload
+		Bei [u8; 256] payload Bevy = DOP = OOP < OOP PC
+		Lösung probieren: Statt Vec3A einfach jeweils 3x f32 werte nehmen
+--------------------------------------------------------------------------------------------------
