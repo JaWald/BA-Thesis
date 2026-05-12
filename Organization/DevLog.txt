@@ -4,7 +4,7 @@
 2KiB + x*4KiB ist mäßig langsamer
 4KiB + x*4KiB ist  viel langsamer
 
-Compile times auf Bruchteil reduziert: 4.00s auf 0.7s (Mold/LLD)
+Compile times auf Bruchteil reduziert: 4.00s auf 1.0s (Mold/LLD)
 
 --------------------------------------------------------------------------------------------------
 27.03.2026
