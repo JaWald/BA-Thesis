@@ -3,13 +3,13 @@
 |				28.04.2026				  |
 ---------------------------------------------------------------------------
 [X] S2: 2er Potenzen überprüfen auf Spikes (512, 4096, vielfache von 1024)
-[ ] S2: Diagramm für 200.000 Bytes payload mitnehmen
-
-[ ] S2: Nachschauen, wie viele Planeten es gibt, deren floats auf 2 Pages liegen
-[ ] S2: Sind die Spikes OS/Prozessor abhängig?
+[X] S2: Diagramm für 200.000 Bytes payload mitnehmen
+[X] S2: Sind die Spikes OS/Prozessor abhängig?
 	[X] Laptop (Win11, Ryzen 7 5800H)
 	[] Desktop (Win11, Ryzen 7 5800X)
 	[]esktop (Ubuntu, Ryzen 7 5800X)
+
+[ ] S2: Nachschauen, wie viele Planeten es gibt, deren floats auf 2 Pages liegen
 [ ] S2: Wieso OOP langsamer trotz Payload überspringen?
 [ ] S3: Wieso PC schneller? Immutable Default planet vllt der Grund
 [ ] S3: Aufpassen ob Default werte nicht wegoptimiert werden

@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -31,23 +32,25 @@ for label, file in files_lw.items():
 
 df = pd.concat(dataframes, ignore_index=True)
 df['time_us'] = df['time_ns'] / df['iterations'] / 1000
+df['payload_kib'] = df['payload'] / 1024
 
 sns.set_theme(style="whitegrid")
 plt.figure(figsize=(12, 7))
 
 ax = sns.lineplot(
     data=df,
-    x='payload',
+    x='payload_kib',
     y='time_us',
     hue='architecture',
     style='architecture',
     markers=True,
     dashes=False,
-    palette="viridis"
+    palette="magma"
 )
 
 plt.title('Scenario 2: Impact of Payload Size', fontsize=15)
-plt.xlabel('Payload Size [Bytes]', fontsize=12)
+plt.xticks(np.arange(0, df['payload_kib'].max() + 1, 1))
+plt.xlabel('Payload Size [KiB]', fontsize=12)
 plt.ylabel('Average Time per Iteration [µs]', fontsize=12)
 plt.legend(title='Architecture')
 
