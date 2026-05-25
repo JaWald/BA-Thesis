@@ -24,8 +24,22 @@ files_lw = {
     'PC': 'laptop_windows/pc.csv'
 }
 
+files_lm = {
+    #'Bevy': 'laptop_m5/bevy.csv',
+    #'SoA': 'laptop_m5/soa.csv',
+    'AoS': 'laptop_m5/aos.csv',
+    #'PC': 'laptop_m5/pc.csv'
+}
+
+files_li = {
+    'Bevy': 'laptop_i5/bevy.csv',
+    'SoA': 'laptop_i5/soa.csv',
+    'AoS': 'laptop_i5/aos.csv',
+    'PC': 'laptop_i5/pc.csv'
+}
+
 dataframes = []
-for label, file in files_dw.items():
+for label, file in files_lm.items():
     temp_df = pd.read_csv(file)
     temp_df['architecture'] = label
     dataframes.append(temp_df)
@@ -33,6 +47,8 @@ for label, file in files_dw.items():
 df = pd.concat(dataframes, ignore_index=True)
 df['time_us'] = df['time_ns'] / df['iterations'] / 1000
 df['payload_kib'] = df['payload'] / 1024
+
+df = df[df['payload_kib'] <= 16]
 
 sns.set_theme(style="whitegrid")
 plt.figure(figsize=(12, 7))
@@ -49,7 +65,7 @@ ax = sns.lineplot(
 )
 
 plt.title('Scenario 2: Impact of Payload Size', fontsize=15)
-plt.xticks(np.arange(0, df['payload_kib'].max() + 2, 10))
+plt.xticks(np.arange(0, df['payload_kib'].max() + 2, 0.1))
 plt.xlabel('Payload Size [KiB]', fontsize=12)
 plt.ylabel('Average Time per Iteration [µs]', fontsize=12)
 plt.legend(title='Architecture')
