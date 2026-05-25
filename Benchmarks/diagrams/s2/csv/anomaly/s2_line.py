@@ -24,8 +24,15 @@ files_lw = {
     'PC': 'laptop_windows/pc.csv'
 }
 
+files_lm = {
+    'Bevy': 'laptop_m5/bevy.csv',
+    'SoA': 'laptop_m5/soa.csv',
+    'AoS': 'laptop_m5/aos.csv',
+    'PC': 'laptop_m5/pc.csv'
+}
+
 dataframes = []
-for label, file in files_dw.items():
+for label, file in files_lw.items():
     temp_df = pd.read_csv(file)
     temp_df['architecture'] = label
     dataframes.append(temp_df)
