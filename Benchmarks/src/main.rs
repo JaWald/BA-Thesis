@@ -111,7 +111,8 @@ fn run_s2(args: &Args) {
         save_iteration_times("diagrams/s2/csv/pc.csv", "PC", args.planet_count, args.iterations, args.chunk_size, PAYLOAD_SIZE, time_pc);
     }
 
-    bench_s2_aos(args.warmups, &mut planets_aos, black_box(DT));    for _ in 0..args.samples {
+    bench_s2_aos(args.warmups, &mut planets_aos, black_box(DT));
+    for _ in 0..args.samples {
         let time_aos = bench_s2_aos(args.iterations, &mut planets_aos, black_box(DT));
         time_aos_sum.push(time_aos);
         save_iteration_times("diagrams/s2/csv/aos.csv", "AoS", args.planet_count, args.iterations, args.chunk_size, PAYLOAD_SIZE, time_aos);
