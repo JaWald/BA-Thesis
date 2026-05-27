@@ -40,6 +40,7 @@ for label, file in files_lm.items():
 df = pd.concat(dataframes, ignore_index=True)
 df['time_us'] = df['time_ns'] / df['iterations'] / 1000
 df['payload_kib'] = df['payload'] / 1024
+df = df[df['payload_kib'] <= 16]
 
 sns.set_theme(style="whitegrid")
 plt.figure(figsize=(12, 7))
@@ -50,7 +51,7 @@ ax = sns.lineplot(
     y='time_us',
     hue='architecture',
     style='architecture',
-    markers=True,
+    markers=False,
     dashes=False,
     palette="magma"
 )
