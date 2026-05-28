@@ -1,19 +1,13 @@
 use std::fs;
-use std::io::Write;
 use std::fs::OpenOptions;
+use std::io::Write;
+use crate::cli::Args;
 
 pub fn print_summary(scenario: &str, time_pc: Vec<u128>, time_aos: Vec<u128>, time_soa: Vec<u128>, time_bevy: Vec<u128>) {
-    let mut pc = 0;
-    let mut aos = 0;
-    let mut soa = 0;
-    let mut bevy = 0;
-
-    for i in 0..time_pc.len() {
-        pc += time_pc[i];
-        aos += time_aos[i];
-        soa += time_soa[i];
-        bevy += time_bevy[i];
-    }
+    let pc: u128 = time_pc.iter().sum();
+    let aos: u128 = time_aos.iter().sum();
+    let soa: u128 = time_soa.iter().sum();
+    let bevy: u128 = time_bevy.iter().sum();
 
     println!("-------- \x1b[0;32m{:?}\x1b[0m --------", scenario.to_string());
     println!("      \x1b[0;33mPC\x1b[0m: {:>6.2} s", (pc as f64) / 1000000000.0);
@@ -26,9 +20,7 @@ pub fn print_summary(scenario: &str, time_pc: Vec<u128>, time_aos: Vec<u128>, ti
 pub fn save_iteration_times(
     file_path: &str,
     architecture: &str,
-    planet_count: usize,
-    iterations: usize,
-    chunk_size: usize,
+    args: &Args,
     payload: usize,
     time: u128,
 ) {
@@ -46,26 +38,21 @@ pub fn save_iteration_times(
     writeln!(
         file,
         "{},{},{},{},{},{}",
-        architecture, planet_count, iterations, chunk_size, payload, time
+        architecture, args.planet_count, args.iterations, args.chunk_size, payload, time
     ).unwrap();
 }
 
 pub fn delete_csv() {
     let files = ["bevy.csv", "soa.csv", "aos.csv", "pc.csv"];
-    let base_path_s1 = "diagrams/s1/csv";
-    let base_path_s2 = "diagrams/s2/csv";
-    let base_path_s3 = "diagrams/s3/csv";
+    let directories = ["diagrams/s1/csv", "diagrams/s2/csv", "diagrams/s3/csv"];
 
-    for file in files {
-        let path = format!("{}/{}", base_path_s1, file);
-        let _ = fs::remove_file(path);
-
-        let path = format!("{}/{}", base_path_s2, file);
-        let _ = fs::remove_file(path);
-
-        let path = format!("{}/{}", base_path_s3, file);
-        let _ = fs::remove_file(path);
+    for dir in directories {
+        for file in files {
+            let path = format!("{}/{}", dir, file);
+            let _ = fs::remove_file(path);
+        }
     }
+
     println!("----------------------");
     println!(" \x1b[0;31m[DELETED]\x1b[0m  CSV files")
 }

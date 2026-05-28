@@ -60,33 +60,28 @@ fn run_s1(args: &Args) {
     let mut time_soa_sum: Vec<u128> = Vec::with_capacity(args.samples);
     let mut time_bevy_sum: Vec<u128> = Vec::with_capacity(args.samples);
 
-    bench_s1_pc(args.warmups, &mut planets_pc, black_box(DT));
     for _ in 0..args.samples {
+        bench_s1_pc(args.warmups, &mut planets_pc, black_box(DT));
         let time_pc = bench_s1_pc(args.iterations, &mut planets_pc, black_box(DT));
         time_pc_sum.push(time_pc);
-        save_iteration_times("diagrams/s1/csv/pc.csv", "PC", args.planet_count, args.iterations, args.chunk_size, PAYLOAD_SIZE, time_pc);
-    }
+        save_iteration_times("diagrams/s1/csv/pc.csv", "PC", args, PAYLOAD_SIZE, time_pc);
 
-    bench_s1_aos(args.warmups, &mut planets_aos, black_box(DT));
-    for _ in 0..args.samples {
+        bench_s1_aos(args.warmups, &mut planets_aos, black_box(DT));
         let time_aos = bench_s1_aos(args.iterations, &mut planets_aos, black_box(DT));
         time_aos_sum.push(time_aos);
-        save_iteration_times("diagrams/s1/csv/aos.csv", "AoS", args.planet_count, args.iterations, args.chunk_size, PAYLOAD_SIZE, time_aos);
-    }
+        save_iteration_times("diagrams/s1/csv/aos.csv", "AoS", args, PAYLOAD_SIZE, time_aos);
 
-    bench_s1_soa(args.warmups, &mut planets_soa, black_box(DT));
-    for _ in 0..args.samples {
+        bench_s1_soa(args.warmups, &mut planets_soa, black_box(DT));
         let time_soa = bench_s1_soa(args.iterations, &mut planets_soa, black_box(DT));
         time_soa_sum.push(time_soa);
-        save_iteration_times("diagrams/s1/csv/soa.csv", "SoA", args.planet_count, args.iterations, args.chunk_size, PAYLOAD_SIZE, time_soa);
-    }
+        save_iteration_times("diagrams/s1/csv/soa.csv", "SoA", args, PAYLOAD_SIZE, time_soa);
 
-    bench_s1_bevy(args.warmups, &mut world, &mut query, black_box(DT));
-    for _ in 0..args.samples {
+        bench_s1_bevy(args.warmups, &mut world, &mut query, black_box(DT));
         let time_bevy = bench_s1_bevy(args.iterations, &mut world, &mut query, black_box(DT));
         time_bevy_sum.push(time_bevy);
-        save_iteration_times("diagrams/s1/csv/bevy.csv","Bevy",  args.planet_count, args.iterations, args.chunk_size, PAYLOAD_SIZE, time_bevy);
+        save_iteration_times("diagrams/s1/csv/bevy.csv","Bevy", args, PAYLOAD_SIZE, time_bevy);
     }
+
     if args.debug_print {
         print_summary("S1", time_pc_sum, time_aos_sum, time_soa_sum, time_bevy_sum);
     }
@@ -103,34 +98,29 @@ fn run_s2(args: &Args) {
     let mut time_aos_sum: Vec<u128> = Vec::with_capacity(args.samples);
     let mut time_soa_sum: Vec<u128> = Vec::with_capacity(args.samples);
     let mut time_bevy_sum: Vec<u128> = Vec::with_capacity(args.samples);
-    
-    bench_s2_pc(args.warmups, &mut planets_pc, black_box(DT));
+
     for _ in 0..args.samples {
+        bench_s2_pc(args.warmups, &mut planets_pc, black_box(DT));
         let time_pc = bench_s2_pc(args.iterations, &mut planets_pc, black_box(DT));
         time_pc_sum.push(time_pc);
-        save_iteration_times("diagrams/s2/csv/pc.csv", "PC", args.planet_count, args.iterations, args.chunk_size, PAYLOAD_SIZE, time_pc);
-    }
+        save_iteration_times("diagrams/s2/csv/pc.csv", "PC", args, PAYLOAD_SIZE, time_pc);
 
-    bench_s2_aos(args.warmups, &mut planets_aos, black_box(DT));
-    for _ in 0..args.samples {
+        bench_s2_aos(args.warmups, &mut planets_aos, black_box(DT));
         let time_aos = bench_s2_aos(args.iterations, &mut planets_aos, black_box(DT));
         time_aos_sum.push(time_aos);
-        save_iteration_times("diagrams/s2/csv/aos.csv", "AoS", args.planet_count, args.iterations, args.chunk_size, PAYLOAD_SIZE, time_aos);
-    }
+        save_iteration_times("diagrams/s2/csv/aos.csv", "AoS", args, PAYLOAD_SIZE, time_aos);
 
-    bench_s2_soa(args.warmups, &mut planets_soa, black_box(DT));
-    for _ in 0..args.samples {
+        bench_s2_soa(args.warmups, &mut planets_soa, black_box(DT));
         let time_soa = bench_s2_soa(args.iterations, &mut planets_soa, black_box(DT));
         time_soa_sum.push(time_soa);
-        save_iteration_times("diagrams/s2/csv/soa.csv", "SoA", args.planet_count, args.iterations, args.chunk_size, PAYLOAD_SIZE, time_soa);
-    }
+        save_iteration_times("diagrams/s2/csv/soa.csv", "SoA", args, PAYLOAD_SIZE, time_soa);
 
-    bench_s2_bevy(args.warmups, &mut world, &mut query, black_box(DT));
-    for _ in 0..args.samples {
+        bench_s2_bevy(args.warmups, &mut world, &mut query, black_box(DT));
         let time_bevy = bench_s2_bevy(args.iterations, &mut world, &mut query, black_box(DT));
         time_bevy_sum.push(time_bevy);
-        save_iteration_times("diagrams/s2/csv/bevy.csv","Bevy",  args.planet_count, args.iterations, args.chunk_size, PAYLOAD_SIZE, time_bevy);
+        save_iteration_times("diagrams/s2/csv/bevy.csv","Bevy", args, PAYLOAD_SIZE, time_bevy);
     }
+
     if args.debug_print {
         print_summary("S2", time_pc_sum, time_aos_sum, time_soa_sum, time_bevy_sum);
     }
@@ -147,33 +137,28 @@ fn run_s3(args: &Args) {
     let mut time_soa_sum: Vec<u128> = Vec::with_capacity(args.samples);
     let mut time_bevy_sum: Vec<u128> = Vec::with_capacity(args.samples);
 
-    bench_s3_pc(args.warmups, args.chunk_size, &mut planets_pc);
     for _ in 0..args.samples {
+        bench_s3_pc(args.warmups, args.chunk_size, &mut planets_pc);
         let time_pc = bench_s3_pc(args.iterations, args.chunk_size, &mut planets_pc);
         time_pc_sum.push(time_pc);
-        save_iteration_times("diagrams/s3/csv/pc.csv", "PC", args.planet_count, args.iterations, args.chunk_size, PAYLOAD_SIZE, time_pc);
-    }
+        save_iteration_times("diagrams/s3/csv/pc.csv", "PC", args, PAYLOAD_SIZE, time_pc);
 
-    bench_s3_aos(args.warmups, args.chunk_size, &mut planets_aos);
-    for _ in 0..args.samples {
+        bench_s3_aos(args.warmups, args.chunk_size, &mut planets_aos);
         let time_aos = bench_s3_aos(args.iterations, args.chunk_size, &mut planets_aos);
         time_aos_sum.push(time_aos);
-        save_iteration_times("diagrams/s3/csv/aos.csv", "AoS", args.planet_count, args.iterations, args.chunk_size, PAYLOAD_SIZE, time_aos);
-    }
+        save_iteration_times("diagrams/s3/csv/aos.csv", "AoS", args, PAYLOAD_SIZE, time_aos);
 
-    bench_s3_soa(args.warmups, args.chunk_size, &mut planets_soa);
-    for _ in 0..args.samples {
+        bench_s3_soa(args.warmups, args.chunk_size, &mut planets_soa);
         let time_soa = bench_s3_soa(args.iterations, args.chunk_size, &mut planets_soa);
         time_soa_sum.push(time_soa);
-        save_iteration_times("diagrams/s3/csv/soa.csv", "SoA", args.planet_count, args.iterations, args.chunk_size, PAYLOAD_SIZE, time_soa);
-    }
+        save_iteration_times("diagrams/s3/csv/soa.csv", "SoA", args, PAYLOAD_SIZE, time_soa);
 
-    bench_s3_bevy(args.warmups, args.chunk_size, &mut world);
-    for _ in 0..args.samples {
+        bench_s3_bevy(args.warmups, args.chunk_size, &mut world);
         let time_bevy = bench_s3_bevy(args.iterations, args.chunk_size, &mut world);
         time_bevy_sum.push(time_bevy);
-        save_iteration_times("diagrams/s3/csv/bevy.csv","Bevy",  args.planet_count, args.iterations, args.chunk_size, PAYLOAD_SIZE, time_bevy);
+        save_iteration_times("diagrams/s3/csv/bevy.csv","Bevy", args, PAYLOAD_SIZE, time_bevy);
     }
+
     if args.debug_print {
         print_summary("S3", time_pc_sum, time_aos_sum, time_soa_sum, time_bevy_sum);
     }

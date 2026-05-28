@@ -44,9 +44,9 @@ files_aos = {
     #'SoA': 'desktop_linux/soa.csv',
     #'Aligned SoA': 'desktop_linux_aligned/soa.csv',
     'AoS': 'desktop_linux/aos.csv',
-    'Aligned AoS': 'desktop_linux_aligned/aos.csv',
+    'AoS Aligned': 'desktop_linux_aligned/aos.csv',
     'PC': 'desktop_linux/pc.csv',
-    'Aligned PC': 'desktop_linux_aligned/pc.csv',
+    'PC Aligned': 'desktop_linux_aligned/pc.csv',
 
     #'Desktop Windows': 'desktop_windows/aos.csv',
     #'Laptop Windows': 'laptop_windows/aos.csv',
@@ -64,13 +64,13 @@ df = pd.concat(dataframes, ignore_index=True)
 df['time_us'] = df['time_ns'] / df['iterations'] / 1000
 df['object_size'] = df['payload'] + 24 #/ 1024
 
-start = 1024
+start = 0
 stop = 2048
 
 df = df[df['object_size'].between(start, stop)]
 
 sns.set_theme(style="whitegrid")
-plt.figure(figsize=(20, 12))
+plt.figure(figsize=(14, 7))
 
 ax = sns.lineplot(
     data=df,
@@ -84,7 +84,7 @@ ax = sns.lineplot(
 )
 
 plt.title('Scenario 2: Impact of Payload Size', fontsize=15)
-plt.xticks(np.arange(start, stop, 32))
+plt.xticks(np.arange(start, stop + 1, 128))
 #plt.ylim(0, 30)
 plt.xlabel('Object Size [Byte]', fontsize=12)
 plt.ylabel('Average Time per Iteration [µs]', fontsize=12)
