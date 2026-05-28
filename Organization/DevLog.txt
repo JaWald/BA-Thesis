@@ -4,7 +4,7 @@
 - i5 gebenched, zu viel jitter (?, vermutlich weil U = Ultra Low Power)
 - Spikes auch bei 64, 128, 256 und 512 Bytes bei Desktop Linux (vllt Cache Lins relevant?)
 - Dessertation gefunden, "Cache Conflicts"
-
+- S3: Remove() ewig langsam, swap_remove() geht zugunsten von Bevy
 
 
 

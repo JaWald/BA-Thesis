@@ -1,5 +1,5 @@
 #!/bin/bash
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")/../.."
 
 for i in $(seq 100 1000 10000); do
     echo -e "\e[33m>>> Starting benchmark with: $i Planets\e[0m"

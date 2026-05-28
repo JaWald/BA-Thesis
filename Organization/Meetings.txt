@@ -2,12 +2,12 @@
 |				8. MEETING				  |
 |				28.04.2026				  |
 ---------------------------------------------------------------------------
-[ ] ALL: sample Count in script herbeiführen statt in CLI
+[X] ALL: sample Count in script herbeiführen statt in CLI
 [ ] ALL: nicht 3 Scenario à 4 Architectures, sondern ledig 16 Architectures
 	 für besseres Debugging
 [ ] ALL: Diagramm Verwaltung aufräumen
 
-[ ] S3: Objekte werdn am Ende entfernt, vllt innen entfernen
+[X] S3: Objekte werdn am Ende entfernt, vllt innen entfernen
 [ ] S3: Aufpassen ob Default werte nicht wegoptimiert werden
 
 [X] S2: Anderer CPU noch testen bezüglich (Brüder)

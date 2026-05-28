@@ -1,12 +1,14 @@
 use std::hint::black_box;
 use std::time::Instant;
 use bevy::prelude::{Vec3, Vec3A, World};
+use rand::RngExt;
+use rand::rngs::StdRng;
 use crate::PAYLOAD_SIZE;
 use crate::setup::*;
 
 #[unsafe(no_mangle)]
 #[inline(never)]
-pub fn bench_s3_pc(iterations: usize, chunk_size: usize, planets: &mut Vec<Box<PlanetAoS>>) -> u128 {
+pub fn bench_s3_pc(iterations: usize, chunk_size: usize, planets: &mut Vec<Box<PlanetAoS>>, rng: &mut StdRng) -> u128 {
     let now = Instant::now();
     for _ in 0..iterations {
         for _ in 0..chunk_size {
@@ -17,6 +19,8 @@ pub fn bench_s3_pc(iterations: usize, chunk_size: usize, planets: &mut Vec<Box<P
             }))
         }
         for _ in 0..chunk_size {
+            //let index = rng.random_range(0..planets.len());
+            //black_box(planets.swap_remove(index));
             black_box(planets.pop());
         }
     }
@@ -25,7 +29,7 @@ pub fn bench_s3_pc(iterations: usize, chunk_size: usize, planets: &mut Vec<Box<P
 
 #[unsafe(no_mangle)]
 #[inline(never)]
-pub fn bench_s3_aos(iterations: usize, chunk_size: usize, planets: &mut Vec<PlanetAoS>) -> u128 {
+pub fn bench_s3_aos(iterations: usize, chunk_size: usize, planets: &mut Vec<PlanetAoS>, rng: &mut StdRng) -> u128 {
     let now = Instant::now();
     for _ in 0..iterations {
         for _ in 0..chunk_size {
@@ -36,6 +40,8 @@ pub fn bench_s3_aos(iterations: usize, chunk_size: usize, planets: &mut Vec<Plan
             })
         }
         for _ in 0..chunk_size {
+            //let index = rng.random_range(0..planets.len());
+            //black_box(planets.swap_remove(index));
             black_box(planets.pop());
         }
     }
@@ -44,7 +50,7 @@ pub fn bench_s3_aos(iterations: usize, chunk_size: usize, planets: &mut Vec<Plan
 
 #[unsafe(no_mangle)]
 #[inline(never)]
-pub fn bench_s3_soa(iterations: usize, chunk_size: usize, planets: &mut PlanetsSoA) -> u128 {
+pub fn bench_s3_soa(iterations: usize, chunk_size: usize, planets: &mut PlanetsSoA, rng: &mut StdRng) -> u128 {
     let now = Instant::now();
     for _ in 0..iterations {
         for _ in 0..chunk_size {
@@ -56,8 +62,19 @@ pub fn bench_s3_soa(iterations: usize, chunk_size: usize, planets: &mut PlanetsS
             planets.velocities_z.push(0.0);
             planets.payloads.push([0; PAYLOAD_SIZE]);
         }
+
+        /*
         for _ in 0..chunk_size {
-            black_box(planets.positions_x.pop());
+            let index = rng.random_range(0..planets.positions_x.len());            black_box(planets.positions_x.remove(index));
+            black_box(planets.positions_y.swap_remove(index));
+            black_box(planets.positions_z.swap_remove(index));
+            black_box(planets.velocities_x.swap_remove(index));
+            black_box(planets.velocities_y.swap_remove(index));
+            black_box(planets.velocities_z.swap_remove(index));
+            black_box(planets.payloads.swap_remove(index));
+        }
+        */
+        for _ in 0..chunk_size {
             black_box(planets.positions_y.pop());
             black_box(planets.positions_z.pop());
             black_box(planets.velocities_x.pop());
@@ -75,6 +92,7 @@ pub fn bench_s3_bevy(
     iterations: usize,
     chunk_size: usize,
     world: &mut World,
+    rng: &mut StdRng
 ) -> u128 {
     let mut entities = Vec::with_capacity(chunk_size);
     let now = Instant::now();
@@ -87,8 +105,11 @@ pub fn bench_s3_bevy(
             )).id();
             entities.push(id);
         }
-        for id in entities.drain(..) {
-            world.despawn(id);
+        for _ in 0..chunk_size {
+            //let index = rng.random_range(0..entities.len());
+            //let del_entity = entities.swap_remove(index);
+            //world.despawn(del_entity);
+            world.despawn(entities.pop().unwrap());
         }
     }
     now.elapsed().as_nanos()
