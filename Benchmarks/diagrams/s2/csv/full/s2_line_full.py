@@ -4,10 +4,10 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 files_dl = {
-    #'Bevy': 'desktop_linux/bevy.csv',
-    #'SoA': 'desktop_linux/soa.csv',
+    'Bevy': 'desktop_linux/bevy.csv',
+    'SoA': 'desktop_linux/soa.csv',
     'AoS': 'desktop_linux/aos.csv',
-    #'PC': 'desktop_linux/pc.csv'
+    'PC': 'desktop_linux/pc.csv'
 }
 
 files_dw = {
@@ -58,7 +58,10 @@ df['time_us'] = df['time_ns'] / df['iterations'] / 1000
 df['object_size'] = df['payload'] + 24 #/ 1024
 
 start = 1024
-stop = 2048
+stop = (1024+512)
+
+start_y = 0
+stop_y = 20
 
 df = df[df['object_size'].between(start, stop)]
 
@@ -77,10 +80,11 @@ ax = sns.lineplot(
 )
 
 plt.title('Scenario 2: Impact of Payload Size', fontsize=15)
-plt.xticks(np.arange(start, stop, 128))
+plt.xticks(np.arange(start, stop, 32))
+plt.ylim(0, 30)
 plt.xlabel('Object Size [Byte]', fontsize=12)
 plt.ylabel('Average Time per Iteration [µs]', fontsize=12)
 plt.legend(title='Architecture')
 
-plt.savefig('../../svg/S2_Line_200k.svg', bbox_inches='tight')
+plt.savefig('../../svg/S2_Line_full.svg', bbox_inches='tight')
 plt.show()
