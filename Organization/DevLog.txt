@@ -1,4 +1,15 @@
 --------------------------------------------------------------------------------------------------
+28.05.2026
+- M5 gebenched, 16 KiB Page macht Unterschied
+- i5 gebenched, zu viel jitter (?, vermutlich weil U = Ultra Low Power)
+- Spikes auch bei 64, 128, 256 und 512 Bytes bei Desktop Linux (vllt Cache Lins relevant?)
+- Dessertation gefunden, "Cache Conflicts"
+
+
+
+
+
+--------------------------------------------------------------------------------------------------
 11.05.2026
 1KiB + x*4KiB ist wenig langsamer
 2KiB + x*4KiB ist mäßig langsamer
