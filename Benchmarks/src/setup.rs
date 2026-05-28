@@ -1,12 +1,12 @@
-use bevy::prelude::{Component, World, Vec3};
+use bevy::prelude::{Component, World, Vec3, Vec3A};
 use rand::prelude::{SliceRandom, StdRng};
 use rand::{RngExt, SeedableRng};
 use crate::PAYLOAD_SIZE;
 
 #[allow(dead_code)]
 pub struct PlanetAoS {
-    pub velocity: Vec3,
-    pub position: Vec3,
+    pub velocity: Vec3A,
+    pub position: Vec3A,
     pub payload: [u8; PAYLOAD_SIZE],
 }
 
@@ -31,8 +31,8 @@ pub fn setup_pc(planet_count: usize) -> Vec<Box<PlanetAoS>> {
     let mut planets: Vec<Box<PlanetAoS>> = Vec::new();
     for _ in 0..planet_count {
         planets.push(Box::new(PlanetAoS {
-            velocity: random_vec3(&mut rng),
-            position: random_vec3(&mut rng),
+            velocity: Vec3A::from(random_vec3(&mut rng)),
+            position: Vec3A::from(random_vec3(&mut rng)),
             payload: [0; PAYLOAD_SIZE]
         }))
     }
@@ -45,8 +45,8 @@ pub fn setup_aos(planet_count: usize) -> Vec<PlanetAoS> {
     let mut rng: StdRng = SeedableRng::seed_from_u64(42);
     for _ in 0..planet_count {
         planets.push(PlanetAoS {
-            velocity: random_vec3(&mut rng),
-            position: random_vec3(&mut rng),
+            velocity: Vec3A::from(random_vec3(&mut rng)),
+            position: Vec3A::from(random_vec3(&mut rng)),
             payload: [0; PAYLOAD_SIZE]
         });
     }

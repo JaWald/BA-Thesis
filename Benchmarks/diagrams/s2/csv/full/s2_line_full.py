@@ -39,16 +39,23 @@ files_li = {
 }
 
 files_aos = {
-    'Desktop Linux': 'desktop_linux/aos.csv',
-    'Desktop Windows': 'desktop_windows/aos.csv',
-    'Laptop Windows': 'laptop_windows/aos.csv',
-    'Laptop M5': 'laptop_m5/aos.csv',
-    'Laptop i5': 'laptop_i5/aos.csv'
+    #'Bevy': 'desktop_linux/bevy.csv',
+    #'Aligned Bevy': 'desktop_linux_aligned/bevy.csv',
+    #'SoA': 'desktop_linux/soa.csv',
+    #'Aligned SoA': 'desktop_linux_aligned/soa.csv',
+    'AoS': 'desktop_linux/aos.csv',
+    'Aligned AoS': 'desktop_linux_aligned/aos.csv',
+    'PC': 'desktop_linux/pc.csv',
+    'Aligned PC': 'desktop_linux_aligned/pc.csv',
 
+    #'Desktop Windows': 'desktop_windows/aos.csv',
+    #'Laptop Windows': 'laptop_windows/aos.csv',
+    #'Laptop M5': 'laptop_m5/aos.csv',
+    #'Laptop i5': 'laptop_i5/aos.csv'
 }
 
 dataframes = []
-for label, file in files_dl.items():
+for label, file in files_aos.items():
     temp_df = pd.read_csv(file)
     temp_df['architecture'] = label
     dataframes.append(temp_df)
@@ -58,15 +65,12 @@ df['time_us'] = df['time_ns'] / df['iterations'] / 1000
 df['object_size'] = df['payload'] + 24 #/ 1024
 
 start = 1024
-stop = (1024+512)
-
-start_y = 0
-stop_y = 20
+stop = 2048
 
 df = df[df['object_size'].between(start, stop)]
 
 sns.set_theme(style="whitegrid")
-plt.figure(figsize=(12, 7))
+plt.figure(figsize=(20, 12))
 
 ax = sns.lineplot(
     data=df,
@@ -81,7 +85,7 @@ ax = sns.lineplot(
 
 plt.title('Scenario 2: Impact of Payload Size', fontsize=15)
 plt.xticks(np.arange(start, stop, 32))
-plt.ylim(0, 30)
+#plt.ylim(0, 30)
 plt.xlabel('Object Size [Byte]', fontsize=12)
 plt.ylabel('Average Time per Iteration [µs]', fontsize=12)
 plt.legend(title='Architecture')

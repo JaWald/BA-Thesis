@@ -1,6 +1,6 @@
 use std::hint::black_box;
 use std::time::Instant;
-use bevy::prelude::{Vec3, World};
+use bevy::prelude::{Vec3, Vec3A, World};
 use crate::PAYLOAD_SIZE;
 use crate::setup::*;
 
@@ -11,8 +11,8 @@ pub fn bench_s3_pc(iterations: usize, chunk_size: usize, planets: &mut Vec<Box<P
     for _ in 0..iterations {
         for _ in 0..chunk_size {
             planets.push(Box::new(PlanetAoS {
-                position: Vec3::default(),
-                velocity: Vec3::default(),
+                position: Vec3A::default(),
+                velocity: Vec3A::default(),
                 payload: [0; PAYLOAD_SIZE],
             }))
         }
@@ -30,8 +30,8 @@ pub fn bench_s3_aos(iterations: usize, chunk_size: usize, planets: &mut Vec<Plan
     for _ in 0..iterations {
         for _ in 0..chunk_size {
             planets.push(PlanetAoS {
-                position: Vec3::default(),
-                velocity: Vec3::default(),
+                position: Vec3A::default(),
+                velocity: Vec3A::default(),
                 payload: [0; PAYLOAD_SIZE],
             })
         }
