@@ -1,6 +1,6 @@
 Set-Location "$PSScriptRoot/../.."
 
-for($i = 0; $i -le 200000; $i += 1) {
+for($i = 0; $i -le 200; $i += 1) {
     Write-Host ">>> Starting benchmark with: $i Bytes Payload" -ForegroundColor Yellow
     "pub const PAYLOAD_SIZE: usize = $i;" | Out-File -FilePath "src/payload.rs" -Encoding utf8
 

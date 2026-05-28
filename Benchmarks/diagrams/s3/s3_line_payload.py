@@ -1,16 +1,24 @@
+import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-files = {
-    'Bevy': 'csv/bevy.csv',
-    'SoA': 'csv/soa.csv',
-    'AoS': 'csv/aos.csv',
-    'PC': 'csv/pc.csv'
+files_pop = {
+    'Bevy': 'csv/pop/bevy.csv',
+    'SoA': 'csv/pop/soa.csv',
+    'AoS': 'csv/pop/aos.csv',
+    'PC': 'csv/pop/pc.csv'
+}
+
+files_swap_remove = {
+    'Bevy': 'csv/swap_remove/bevy.csv',
+    'SoA': 'csv/swap_remove/soa.csv',
+    'AoS': 'csv/swap_remove/aos.csv',
+    'PC': 'csv/swap_remove/pc.csv'
 }
 
 dataframes = []
-for label, file in files.items():
+for label, file in files_pop.items():
     temp_df = pd.read_csv(file)
     temp_df['architecture'] = label
     dataframes.append(temp_df)
@@ -18,6 +26,11 @@ for label, file in files.items():
 df = pd.concat(dataframes, ignore_index=True)
 
 df['time_us'] = df['time_ns'] / df['iterations'] / 1000
+
+df['object_size'] = df['payload'] + 24 #/ 1024
+start = 0
+stop = 20480
+df = df[df['object_size'].between(start, stop)]
 
 sns.set_theme(style="whitegrid")
 plt.figure(figsize=(12, 7))
@@ -36,7 +49,7 @@ ax = sns.lineplot(
 plt.title('Scenario 3: Allocation', fontsize=15)
 plt.xlabel('Payload Size [Bytes]', fontsize=12)
 plt.ylabel('Average Time per Iteration [µs]', fontsize=12)
-
+plt.xticks(np.arange(start, stop + 1, 2048))
 plt.legend(title='Architecture')
 plt.savefig('svg/S3_Line_Payload.svg', bbox_inches='tight')
 plt.show()

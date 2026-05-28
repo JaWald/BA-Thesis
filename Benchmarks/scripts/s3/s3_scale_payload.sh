@@ -1,5 +1,5 @@
 #!/bin/bash
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")/../.."
 
 for i in $(seq 0 1000 20000); do
     echo -e "\e[33m>>> Starting benchmark with: $i Bytes Payload\e[0m"

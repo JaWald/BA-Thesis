@@ -1,4 +1,4 @@
-Set-Location "$PSScriptRoot/.."
+Set-Location "$PSScriptRoot/../.."
 
 for($i = 100; $i -le 1000; $i += 100) {
     Write-Host ">>> Starting benchmark with: $i Chunk Size" -ForegroundColor Yellow
