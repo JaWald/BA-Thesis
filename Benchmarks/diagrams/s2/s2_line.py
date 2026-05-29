@@ -32,7 +32,7 @@ files_lm = {
 }
 
 dataframes = []
-for label, file in files_lm.items():
+for label, file in files_dl.items():
     temp_df = pd.read_csv(file)
     temp_df['architecture'] = label
     dataframes.append(temp_df)
