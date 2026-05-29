@@ -38,10 +38,10 @@ files_li = {
     'PC': 'csv/full/laptop_i5/pc.csv'
 }
 
-files_aos = {
+files_hw = {
     'Desktop Linux': 'csv/full/desktop_linux/aos.csv',
     #'Desktop Windows': 'csv/full/desktop_windows/aos.csv',
-    'Laptop Windows': 'csv/full/laptop_windows/aos.csv',
+    #'Laptop Windows': 'csv/full/laptop_windows/aos.csv',
     'Laptop M5': 'csv/full/laptop_m5/aos.csv',
     #'Laptop i5': 'csv/full/laptop_i5/aos.csv'
 }
@@ -55,24 +55,23 @@ files_aligned = {
     'AoS Aligned': 'csv/full/desktop_linux_aligned/aos.csv',
     'PC': 'csv/full/desktop_linux/pc.csv',
     'PC Aligned': 'csv/full/desktop_linux_aligned/pc.csv',
-
 }
 
 dataframes = []
-for label, file in files_lm.items():
+for label, file in files_dl.items():
     temp_df = pd.read_csv(file)
     temp_df['architecture'] = label
     dataframes.append(temp_df)
 
 df = pd.concat(dataframes, ignore_index=True)
 df['time_us'] = df['time_ns'] / df['iterations'] / 1000
-df['object_size'] = (df['payload'] + 24) / 1024
+df['object_size'] = (df['payload'] + 24) #/ 1024
 
-start = 5
-stop = 7
+start = 0
+stop = 10240
 
 df = df[df['object_size'].between(start, stop)]
-
+#df['object_size'] = (df['object_size'] - start)
 df_agg = df.groupby(['architecture', 'object_size'], as_index=False)['time_us'].mean()
 order = ['Bevy', 'SoA', 'AoS', 'PC']
 
@@ -90,13 +89,15 @@ ax = sns.lineplot(
     markers=False,
     dashes=False,
     palette="magma",
-    errorbar=None
+    errorbar=None,
+    alpha=0.9,
 )
 
 plt.title('Scenario 2: Performance Impact of Payload Size (Ryzen 7 5800X)', fontsize=16)
-plt.xticks(np.arange(start, stop + 1, 1))
-#plt.ylim(0, 30)
-plt.xlabel('Planet Size [KiB]', fontsize=12)
+plt.xticks(np.arange(start, stop + 1, 256))
+#plt.xticks(np.arange(start-start, stop-start + 1, 64))
+#plt.ylim(15, 35)
+plt.xlabel('Planet Size [Bytes] (+8KiB)', fontsize=12)
 plt.ylabel('Average Time per Iteration [µs]', fontsize=12)
 plt.legend(title='Architecture', loc='upper left', fontsize=12)
 
