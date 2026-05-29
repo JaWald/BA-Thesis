@@ -1,6 +1,17 @@
 ---------------------------------------------------------------------------
+|				9. MEETING				  |
+|				29.05.2026				  |
+---------------------------------------------------------------------------
+[] S1: Mit payload durchführen bei konstantem Planeten Count
+[] S1: daten erheben
+[] S2: Linux Perf: Cache Miss Rate messen bei Peaks und daneben (wegen Conflict misses)
+[] S3: asm von Memory Layouts 
+[] S3: Vektoren Pop/swap remove: 0 überschreiben oder nur index Anpassung?
+
+[] Struktur der Arbeit überlegen mit Seitenzahl und welcher Inhalt wo
+---------------------------------------------------------------------------
 |				8. MEETING				  |
-|				28.04.2026				  |
+|				12.05.2026				  |
 ---------------------------------------------------------------------------
 [X] ALL: sample Count in script herbeiführen statt in CLI
 [X] ALL: Diagramm Verwaltung aufräumen
@@ -15,11 +26,11 @@
 [X] S2: Bereich vergrößern bei Spikes (4KiB anscheinend breiter als 1KiB)
 [X] S2: 200k Bench genauer durchführen
 [X] S2: anomaly mit mehr payload durchführen
-[ ] S2: Linux Perf: Vllt Cache Sets anzeigen?
-[ ] S2: Paper genauer untersuchen, vielleicht 4x 1KiB ergibt genau 1 Page
-[ ] S2: S2 AoS in C programmieren, vllt Rust das Problem
+[X] S2: Linux Perf: Vllt Cache Sets anzeigen?
+[X] S2: Paper genauer untersuchen, vielleicht 4x 1KiB ergibt genau 1 Page
 
 OPTIONAL:
+[ ] S2: S2 AoS in C programmieren, vllt Rust das Problem
 [ ] S2: Linux Einbruch bei 128KiB. Payload halbieren, Planeten doppeln.
 	Vllt RAM Swap der Grund?
 [ ] S2: Nachschauen, wie viele Planeten es gibt, deren floats auf 2 Pages liegen

@@ -25,10 +25,10 @@ files_lw = {
 }
 
 files_lm = {
-    #'Bevy': 'csv/full/laptop_m5/bevy.csv',
-    #'SoA': 'csv/full/laptop_m5/soa.csv',
+    'Bevy': 'csv/full/laptop_m5/bevy.csv',
+    'SoA': 'csv/full/laptop_m5/soa.csv',
     'AoS': 'csv/full/laptop_m5/aos.csv',
-    #'PC': 'csv/full/laptop_m5/pc.csv'
+    'PC': 'csv/full/laptop_m5/pc.csv'
 }
 
 files_li = {
@@ -70,10 +70,10 @@ for label, file in files_lm.items():
 
 df = pd.concat(dataframes, ignore_index=True)
 df['time_us'] = df['time_ns'] / df['iterations'] / 1000
-df['object_size'] = (df['payload'] + 24) / 1024
+df['object_size'] = (df['payload'] + 24) #/ 1024
 
 start = 0
-stop = 27
+stop = 4096
 
 df = df[df['object_size'].between(start, stop)]
 df['object_size'] = (df['object_size'] - start)
@@ -100,7 +100,7 @@ ax = sns.lineplot(
 
 plt.title('Scenario 2: Performance Impact of Payload Size (Ryzen 7 5800X)', fontsize=16)
 #plt.xticks(np.arange(start, stop + 1, 256))
-plt.xticks(np.arange(start-start, stop-start + 1, 1))
+plt.xticks(np.arange(start-start, stop-start + 1, 256))
 #plt.ylim(14, 23)
 plt.xlabel('Planet Size [Bytes] (+8KiB)', fontsize=12)
 plt.ylabel('Average Time per Iteration [µs]', fontsize=12)
