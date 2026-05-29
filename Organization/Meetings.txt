@@ -3,9 +3,9 @@
 |				28.04.2026				  |
 ---------------------------------------------------------------------------
 [X] ALL: sample Count in script herbeiführen statt in CLI
-[ ] ALL: nicht 3 Scenario à 4 Architectures, sondern ledig 16 Architectures
+[X] ALL: Diagramm Verwaltung aufräumen
+[ ] ALL: nicht 3 Scenario à 4 Architectures, sondern ledig 12 Architectures
 	 für besseres Debugging
-[ ] ALL: Diagramm Verwaltung aufräumen
 
 [X] S3: Objekte werdn am Ende entfernt, vllt innen entfernen
 [ ] S3: Aufpassen ob Default werte nicht wegoptimiert werden
@@ -19,7 +19,7 @@
 [ ] S2: Paper genauer untersuchen, vielleicht 4x 1KiB ergibt genau 1 Page
 [ ] S2: S2 AoS in C programmieren, vllt Rust das Problem
 
-
+OPTIONAL:
 [ ] S2: Linux Einbruch bei 128KiB. Payload halbieren, Planeten doppeln.
 	Vllt RAM Swap der Grund?
 [ ] S2: Nachschauen, wie viele Planeten es gibt, deren floats auf 2 Pages liegen
