@@ -4,10 +4,32 @@
 - i5 gebenched, zu viel jitter (?, vermutlich weil U = Ultra Low Power)
 - Spikes auch bei 64, 128, 256 und 512 Bytes bei Desktop Linux (vllt Cache Lins relevant?)
 - Dessertation gefunden, "Cache Conflicts"
+- Paper zu Cache Conflict Misses, dürfte es echt sein.
 - S3: Remove() ewig langsam, swap_remove() geht zugunsten von Bevy
 
+- Große Spikes bei 4 KiB bzw 16 KiB kommen hauptsächlich durch Translation Lookaside Buffer (TLB)
+  Misses zu Stande. Der L1 Prefetcher sieht dass die Daten die Page überschreiten und sucht nach der 
+  nächsten Page im TLB, findet sie aber auf Grund der großen Datenmenge nicht (einige MB vs 10.000x
+  1KiB zB). Möglicher Lösungsansatz wären anscheinend Large (2MB) bzw Huge (1GB) Pages.
 
+- Kleine Spikes kommen bei Zweierpotenzen zu Stande, da anscheinend Modulo 64 gerechnet wird, siehe
+  Conflict Miss Paper. Cache Size / (Ways * Line Size) = 32768 / (8*64) = 64 = Set Count. Im Prinzip 
+  funktionierts genau wie bereits besprochen, Daten sollen in das gleiche Cache set geladen werden 
+  und müssen dann verschoben werden (Cache eviction bzw thrashing). 
 
+  Planeten liegen folgend je nach Größe (Stride Length) im Speicher und ergeben % 64 eine Anzahl an Sets.
+  128 / 64 = 2 -> 4 -> 6 -> 8 -> 10 ...
+  256 / 64 = 4 -> 8 -> 12 -> 16 -> 20 ...
+  512 / 64 = 8 -> 16 -> 24 -> 32 -> 40 ...
+ 1024 / 64 = 16 -> 32 -> 48 -> 0 -> 16 ...
+ 2048 / 64 = 32 -> 0 -> 32 -> 0 -> 32 ...
+ 4096 / 64 = 64 -> 0 -> 0 -> 0 -> 0 ...
+ -----> bei 4096 wollen alle daten ins selbe set, bei 2048 wollen alle daten in 2 sets usw.
+ / 64 weil eine Cache Line 64 Byte hat und es somit um den Datenblock geht.
+
+- Siehe Comp Org von Henessy S.499		(Berechnung)
+- Siehe Cache Placement Policies auf Wikipedia  (Berechnung und Bits)
+- Siehe Cpu World                               (8 way set assoc with 64byte line size)
 
 --------------------------------------------------------------------------------------------------
 11.05.2026
