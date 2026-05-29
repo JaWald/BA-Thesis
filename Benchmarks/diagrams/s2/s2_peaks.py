@@ -3,7 +3,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 
-file_aos = 'laptop_i5/aos.csv'
+file_aos = 'csv/anomaly/laptop_i5/aos.csv'
 df = pd.read_csv(file_aos)
 df['time_us'] = df['time_ns'] / df['iterations'] / 1000
 
@@ -74,5 +74,5 @@ ax.legend(
     loc='upper left'
 )
 
-plt.savefig('../../svg/S2_Peaks_Anomaly_.svg', bbox_inches='tight')
+plt.savefig('svg/S2_Peaks_Anomaly_.svg', bbox_inches='tight')
 plt.show()

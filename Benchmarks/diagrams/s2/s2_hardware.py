@@ -4,11 +4,11 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 files = {
-    'Desktop Linux': 'desktop_linux/aos.csv',
-    'Desktop Windows': 'desktop_windows/aos.csv',
-    'Laptop Windows': 'laptop_windows/aos.csv',
-    'Laptop M5' : 'laptop_m5/aos.csv',
-    'Laptop i5' : 'laptop_i5/aos.csv',
+    'Desktop Linux': 'csv/full/desktop_linux/aos.csv',
+    'Desktop Windows': 'csv/full/desktop_windows/aos.csv',
+    'Laptop Windows': 'csv/full/laptop_windows/aos.csv',
+    'Laptop M5' : 'csv/full/laptop_m5/aos.csv',
+    #'Laptop i5' : 'csv/full/laptop_i5/aos.csv',
 }
 
 dataframes = []
@@ -68,10 +68,10 @@ plt.axvline(x=18.5, color='lightgray', linestyle='-', alpha=0.7)
 plt.axvline(x=19.5, color='lightgray', linestyle='-', alpha=0.7)
 plt.axvline(x=20.5, color='lightgray', linestyle='-', alpha=0.7)
 
-plt.title('S2: AoS Plateau Values', fontsize=15)
-plt.xlabel('Payload Size [MiB]', fontsize=12)
+plt.title('S2: AoS Performance by Hardware', fontsize=16)
+plt.xlabel('Payload Size [KiB]', fontsize=12)
 plt.ylabel('Time per Iteration [µs]', fontsize=12)
 plt.legend(title='System', loc='upper left')
 
-plt.savefig('../../svg/S2_AoS.svg', bbox_inches='tight')
+plt.savefig('svg/S2_AoS.svg', bbox_inches='tight')
 plt.show()
