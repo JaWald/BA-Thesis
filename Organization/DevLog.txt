@@ -7,15 +7,15 @@
 - Paper zu Cache Conflict Misses, dürfte es echt sein.
 - S3: Remove() ewig langsam, swap_remove() geht zugunsten von Bevy
 
-- Große Spikes bei 4 KiB bzw 16 KiB kommen hauptsächlich durch Translation Lookaside Buffer (TLB)
-  Misses zu Stande. Der L1 Prefetcher sieht dass die Daten die Page überschreiten und sucht nach der 
+- Große Spikes bei 4 KiB bzw 16 KiB könnten hauptsächlich durch Translation Lookaside Buffer (TLB)
+  Misses zu Stande kommen. Der L1 Prefetcher sieht dass die Daten die Page überschreiten und sucht nach der 
   nächsten Page im TLB, findet sie aber auf Grund der großen Datenmenge nicht (einige MB vs 10.000x
   1KiB zB). Möglicher Lösungsansatz wären anscheinend Large (2MB) bzw Huge (1GB) Pages.
 
 - Kleine Spikes kommen bei Zweierpotenzen zu Stande, da anscheinend Modulo 64 gerechnet wird, siehe
   Conflict Miss Paper. Cache Size / (Ways * Line Size) = 32768 / (8*64) = 64 = Set Count. Im Prinzip 
   funktionierts genau wie bereits besprochen, Daten sollen in das gleiche Cache set geladen werden 
-  und müssen dann verschoben werden (Cache eviction bzw thrashing). 
+  und müssen dann verschoben werden (Cache eviction bzw thrashing).       
 
   Planeten liegen folgend je nach Größe (Stride Length) im Speicher und ergeben % 64 eine Anzahl an Sets.
   128 / 64 = 2 -> 4 -> 6 -> 8 -> 10 ...
@@ -30,6 +30,14 @@
 - Siehe Comp Org von Henessy S.499		(Berechnung)
 - Siehe Cache Placement Policies auf Wikipedia  (Berechnung und Bits)
 - Siehe Cpu World                               (8 way set assoc with 64byte line size)
+
+- M5: 128KiB L1 Cache: 131072 / (8*64) = 256 sets -> deswegen keine Peaks unter 256 Schritten
+  https://theapplewiki.com/wiki/M5
+  4096 / 64 = 64 -> 128 -> 192 -> 0 -> 64 ...
+  8192 / 64 = 128 -> 0 -> 128 -> 0 -> 128 ...
+ 16384 / 64 = 256 -> 0 -> 0 -> 0 -> 0 -> 0 ...
+
+Pages könnten irrelevant sein
 
 --------------------------------------------------------------------------------------------------
 11.05.2026
