@@ -87,6 +87,11 @@ fn run_s1(args: &Args) {
     if args.debug_print {
         print_summary("S1", time_pc_sum, time_aos_sum, time_soa_sum, time_bevy_sum);
     }
+
+    black_box(planets_pc);
+    black_box(planets_aos);
+    black_box(planets_soa);
+    black_box(world);
 }
 
 fn run_s2(args: &Args) {

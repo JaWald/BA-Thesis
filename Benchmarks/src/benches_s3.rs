@@ -1,20 +1,20 @@
 use std::hint::black_box;
 use std::time::Instant;
-use bevy::prelude::{Vec3, Vec3A, World};
-use rand::RngExt;
+use bevy::prelude::{Vec3, World};
+//use rand::RngExt;
 use rand::rngs::StdRng;
 use crate::PAYLOAD_SIZE;
 use crate::setup::*;
 
 #[unsafe(no_mangle)]
 #[inline(never)]
-pub fn bench_s3_pc(iterations: usize, chunk_size: usize, planets: &mut Vec<Box<PlanetAoS>>, rng: &mut StdRng) -> u128 {
+pub fn bench_s3_pc(iterations: usize, chunk_size: usize, planets: &mut Vec<Box<PlanetAoS>>, _rng: &mut StdRng) -> u128 {
     let now = Instant::now();
     for _ in 0..iterations {
         for _ in 0..chunk_size {
             planets.push(Box::new(PlanetAoS {
-                position: Vec3A::default(),
-                velocity: Vec3A::default(),
+                position: Vec3::default(),
+                velocity: Vec3::default(),
                 payload: [0; PAYLOAD_SIZE],
             }))
         }
@@ -29,13 +29,13 @@ pub fn bench_s3_pc(iterations: usize, chunk_size: usize, planets: &mut Vec<Box<P
 
 #[unsafe(no_mangle)]
 #[inline(never)]
-pub fn bench_s3_aos(iterations: usize, chunk_size: usize, planets: &mut Vec<PlanetAoS>, rng: &mut StdRng) -> u128 {
+pub fn bench_s3_aos(iterations: usize, chunk_size: usize, planets: &mut Vec<PlanetAoS>, _rng: &mut StdRng) -> u128 {
     let now = Instant::now();
     for _ in 0..iterations {
         for _ in 0..chunk_size {
             planets.push(PlanetAoS {
-                position: Vec3A::default(),
-                velocity: Vec3A::default(),
+                position: Vec3::default(),
+                velocity: Vec3::default(),
                 payload: [0; PAYLOAD_SIZE],
             })
         }
@@ -50,7 +50,7 @@ pub fn bench_s3_aos(iterations: usize, chunk_size: usize, planets: &mut Vec<Plan
 
 #[unsafe(no_mangle)]
 #[inline(never)]
-pub fn bench_s3_soa(iterations: usize, chunk_size: usize, planets: &mut PlanetsSoA, rng: &mut StdRng) -> u128 {
+pub fn bench_s3_soa(iterations: usize, chunk_size: usize, planets: &mut PlanetsSoA, _rng: &mut StdRng) -> u128 {
     let now = Instant::now();
     for _ in 0..iterations {
         for _ in 0..chunk_size {
@@ -92,15 +92,15 @@ pub fn bench_s3_bevy(
     iterations: usize,
     chunk_size: usize,
     world: &mut World,
-    rng: &mut StdRng
+    _rng: &mut StdRng
 ) -> u128 {
     let mut entities = Vec::with_capacity(chunk_size);
     let now = Instant::now();
     for _ in 0..iterations {
         for _ in 0..chunk_size {
             let id = world.spawn((
-                Position(Vec3::new(0.0, 0.0, 0.0)),
-                Velocity(Vec3::new(0.0, 0.0, 0.0)),
+                Position(Vec3::new(0.0, 0.0, 0.0).to_vec3a()),
+                Velocity(Vec3::new(0.0, 0.0, 0.0).to_vec3a()),
                 Payload([0u8; PAYLOAD_SIZE]),
             )).id();
             entities.push(id);

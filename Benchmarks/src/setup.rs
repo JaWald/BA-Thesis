@@ -5,8 +5,8 @@ use crate::PAYLOAD_SIZE;
 
 #[allow(dead_code)]
 pub struct PlanetAoS {
-    pub velocity: Vec3A,
-    pub position: Vec3A,
+    pub velocity: Vec3,
+    pub position: Vec3,
     pub payload: [u8; PAYLOAD_SIZE],
 }
 
@@ -23,16 +23,16 @@ pub struct PlanetsSoA {
 
 #[allow(dead_code)]
 #[derive(Component)] pub struct Payload(pub [u8; PAYLOAD_SIZE]);
-#[derive(Component)] pub struct Position(pub Vec3);
-#[derive(Component)] pub struct Velocity(pub Vec3);
+#[derive(Component)] pub struct Position(pub Vec3A);
+#[derive(Component)] pub struct Velocity(pub Vec3A);
 
 pub fn setup_pc(planet_count: usize) -> Vec<Box<PlanetAoS>> {
     let mut rng: StdRng = SeedableRng::seed_from_u64(42);
     let mut planets: Vec<Box<PlanetAoS>> = Vec::new();
     for _ in 0..planet_count {
         planets.push(Box::new(PlanetAoS {
-            velocity: Vec3A::from(random_vec3(&mut rng)),
-            position: Vec3A::from(random_vec3(&mut rng)),
+            velocity: random_vec3(&mut rng),
+            position: random_vec3(&mut rng),
             payload: [0; PAYLOAD_SIZE]
         }))
     }
@@ -45,8 +45,8 @@ pub fn setup_aos(planet_count: usize) -> Vec<PlanetAoS> {
     let mut rng: StdRng = SeedableRng::seed_from_u64(42);
     for _ in 0..planet_count {
         planets.push(PlanetAoS {
-            velocity: Vec3A::from(random_vec3(&mut rng)),
-            position: Vec3A::from(random_vec3(&mut rng)),
+            velocity: random_vec3(&mut rng),
+            position: random_vec3(&mut rng),
             payload: [0; PAYLOAD_SIZE]
         });
     }
@@ -87,8 +87,8 @@ pub fn setup_bevy(planet_count: usize) -> World {
 
     for _ in 0..planet_count {
         world.spawn((
-            Velocity(random_vec3(&mut rng)),
-            Position(random_vec3(&mut rng)),
+            Velocity(random_vec3(&mut rng).to_vec3a()),
+            Position(random_vec3(&mut rng).to_vec3a()),
             Payload([0u8; PAYLOAD_SIZE]),
         ));
     }

@@ -28,9 +28,9 @@ ax = sns.lineplot(
     y='time_us',
     hue='architecture',
     style='architecture',
-    markers=True,
+    markers=False,
     dashes=False,
-    palette="viridis"
+    palette="magma"
 )
 
 plt.title('Scenario 1: Compute Bound', fontsize=15)

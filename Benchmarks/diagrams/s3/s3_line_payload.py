@@ -17,8 +17,15 @@ files_swap_remove = {
     'PC': 'csv/swap_remove/pc.csv'
 }
 
+files_test = {
+    'Bevy': 'csv/bevy.csv',
+    'SoA': 'csv/soa.csv',
+    'AoS': 'csv/aos.csv',
+    'PC': 'csv/pc.csv'
+}
+
 dataframes = []
-for label, file in files_pop.items():
+for label, file in files_test.items():
     temp_df = pd.read_csv(file)
     temp_df['architecture'] = label
     dataframes.append(temp_df)
