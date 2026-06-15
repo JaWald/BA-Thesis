@@ -1,4 +1,8 @@
 --------------------------------------------------------------------------------------------------
+08.06.2026
+ScienceOS für Literatursuche
+1 Introduction AND MOTIVATION, inkl. Auflistung der Contributions
+--------------------------------------------------------------------------------------------------
 28.05.2026
 - M5 gebenched, 16 KiB Page macht Unterschied
 - i5 gebenched, zu viel jitter (?, vermutlich weil U = Ultra Low Power)
