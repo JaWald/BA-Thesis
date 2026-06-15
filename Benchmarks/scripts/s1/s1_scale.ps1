@@ -1,6 +1,6 @@
 Set-Location "$PSScriptRoot/../.."
 
-for($i = 100; $i -le 10000; $i += 100) {
+for($i = 5; $i -le 100000; $i += 5) {
     Write-Host ">>> Starting benchmark with: $i Planets" -ForegroundColor Yellow
 
     $env:RUSTFLAGS="-C target-cpu=native"

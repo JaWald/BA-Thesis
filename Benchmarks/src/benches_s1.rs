@@ -72,6 +72,7 @@ pub fn bench_s1_bevy(
     dt: f32
 ) -> u128 {
     let now = Instant::now();
+
     /*
     for _ in 0..iterations {
         for (mut pos, mut vel) in query.iter_mut(&mut world) {
@@ -84,6 +85,7 @@ pub fn bench_s1_bevy(
         }
     }
     */
+    // /*
     for _ in 0..iterations {
         for (mut pos_slice, mut vel_slice) in query.contiguous_iter_mut(&mut world).unwrap() {
             for (pos, vel) in pos_slice.iter_mut().zip(vel_slice.iter_mut()) {
@@ -96,5 +98,6 @@ pub fn bench_s1_bevy(
             }
         }
     }
+    // */
     now.elapsed().as_nanos()
 }

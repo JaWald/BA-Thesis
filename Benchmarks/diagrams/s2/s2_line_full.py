@@ -62,8 +62,15 @@ files_stride = {
     '5800X': 'csv/full/desktop_linux/aos.csv',
 }
 
+files_test = {
+    #'Bevy': 'csv/bevy.csv',
+    #'SoA': 'csv//soa.csv',
+    'AoS': 'csv/aos.csv',
+    #'PC': 'csv/pc.csv'
+}
+
 dataframes = []
-for label, file in files_lm.items():
+for label, file in files_test.items():
     temp_df = pd.read_csv(file)
     temp_df['architecture'] = label
     dataframes.append(temp_df)
@@ -73,7 +80,7 @@ df['time_us'] = df['time_ns'] / df['iterations'] / 1000
 df['object_size'] = (df['payload'] + 24) #/ 1024
 
 start = 0
-stop = 4096
+stop = 2048
 
 df = df[df['object_size'].between(start, stop)]
 df['object_size'] = (df['object_size'] - start)
