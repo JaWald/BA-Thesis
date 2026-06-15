@@ -1,0 +1,49 @@
+--------------------------------------------------------------------------------------
+|					BA STRUKTUR		 	             |
+--------------------------------------------------------------------------------------
+| "(~"<PagesInChapter>"C / " <TotalPageCount>"T)"                      	             |
+--------------------------------------------------------------------------------------
+
+1. Introduction (~2C / 2T)
+	- Motivation (Memory Wall, Nachfrage nach hoher Performance)
+	- Shift to DOD (kurze Gegenüberstellugn DOD vs OOP, zum Einordnen)
+	- Objectives/Methodology (Zielsetzung = Quantifizierung Performance Delta,
+				  Auswirkung Cache Pollution & SIMD Vektorisierung)
+	- Contributions (? Identifikation Cache Conflict Misses durch gewisse Payloads)
+
+2. Background (~6C / 8T)
+	- DOD & Memory Layouts (AoS vs SoA, Memory Indirection)
+	- Caching / HW Archit. (mainly S2, L1/L2 Caches, C. Lines, Set-Associativity,
+				     Translation Lookaside Buffers (TLB), Paging etc)
+	- SIMD (Registergrößen, Instruction Sets, wies SoA notwendig ist)
+	- ECS (Notwendigkeit bzw Nutzen erklären, Pattern selbst mit kurzem Beispiel)
+	- Rust und Bevy (Kurz grobe relevante Eigenschaften erklären)
+
+3. Benchmark Design and Implementation (~5C / 13T)
+	- Architectures Evaluated (PC, AOS, SOA, Bevy: Eigenschaften, Relevanz etc)
+	- "Simulation" (Planetenbeispiel erklären)
+	- Scenario 1 - Compute Bound (Setup und Update Logik erklären, SIMD)
+	- Scenario 2 - Memory Bound (-//-, Cache Pollution/Memory Wall)
+	- Scenario 3 - Allocation (-//-, swap_remove vs pop)
+	- Environment and Tooling (Specs, Compiler Flags, SIMD Features, warmups,
+				   profiling / asm tools etc)
+
+4. Evaluation/Results (~5C / 18T)
+	- Scenario 1 Results (Diagramme, Skalierung)
+	- Scenario 2 Results (Diagramme, Skalierung, "Anomalien")
+	- Scenario 3 Results (Diagramme, Skalierung)
+	
+5. Discussion (~5C / 23T)
+	- SIMD Vektorisierung (Hats geklappt? Wie groß war impact? Mittels asm)
+	- Cache Conflict Misses (Stride Impact aufschlüsseln, warum bei 2er Potenzen,
+				 einfluss Cache größe, memory wall)
+	- Allocation Overhead (TODO: Genauer ermitteln was wieso wie schnell ist)
+
+6. Conclusion (~2C / 25T)
+	- Summary (Haupterkenntnisse, wann ist DOD / OOP besser?)
+	- Limitations (Grenzen der Arbeit, was war der Fokus und was nicht, eventuell
+			Threats to Validity)
+	- Future Work
+
+--------------------------------------------------------------------------------------
+	

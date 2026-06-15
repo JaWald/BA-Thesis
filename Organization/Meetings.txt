@@ -6,9 +6,12 @@
 [] S1: daten erheben
 [] S2: Linux Perf: Cache Miss Rate messen bei Peaks und daneben (wegen Conflict misses)
 [] S3: asm von Memory Layouts 
-[] S3: Vektoren Pop/swap remove: 0 überschreiben oder nur index Anpassung?
+[X] S3: Vektoren Pop/swap remove: 0 überschreiben oder nur index Anpassung?
+	- len-1 -> Bits des letztem Elements bleiben aber as-is im speicher,
+	  capacity bleibt also gleich. Memory wird erst freigegeben wenn der 
+	  Vektor gedropped wird bzw er seinen scope verlässt.
 
-[] Struktur der Arbeit überlegen mit Seitenzahl und welcher Inhalt wo
+[X] Struktur der Arbeit überlegen mit Seitenzahl und welcher Inhalt wo
 ---------------------------------------------------------------------------
 |				8. MEETING				  |
 |				12.05.2026				  |
