@@ -30,7 +30,8 @@ ax = sns.lineplot(
     style='architecture',
     markers=False,
     dashes=False,
-    palette="magma"
+    palette="magma",
+    errorbar=None
 )
 
 plt.title('Scenario 1: Compute Bound', fontsize=15)
