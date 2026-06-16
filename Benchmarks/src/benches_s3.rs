@@ -75,6 +75,7 @@ pub fn bench_s3_soa(iterations: usize, chunk_size: usize, planets: &mut PlanetsS
         }
         */
         for _ in 0..chunk_size {
+            black_box(planets.positions_x.pop());
             black_box(planets.positions_y.pop());
             black_box(planets.positions_z.pop());
             black_box(planets.velocities_x.pop());

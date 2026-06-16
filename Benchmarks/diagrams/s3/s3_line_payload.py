@@ -48,9 +48,9 @@ ax = sns.lineplot(
     y='time_us',
     hue='architecture',
     style='architecture',
-    markers=True,
+    markers=False,
     dashes=False,
-    palette="viridis"
+    palette="magma"
 )
 
 plt.title('Scenario 3: Allocation', fontsize=15)
@@ -58,5 +58,5 @@ plt.xlabel('Payload Size [Bytes]', fontsize=12)
 plt.ylabel('Average Time per Iteration [µs]', fontsize=12)
 plt.xticks(np.arange(start, stop + 1, 2048))
 plt.legend(title='Architecture')
-plt.savefig('svg/S3_Line_Payload.svg', bbox_inches='tight')
+plt.savefig('svg/S3_Line_Payload_____.svg', bbox_inches='tight')
 plt.show()

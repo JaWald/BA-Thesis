@@ -11,5 +11,5 @@ bevy = { path = "bevy-contiguous", default-features = false }
 
 [profile.o3]
 inherits = "release"
-debug = false
+debug = true
 opt-level = 3
