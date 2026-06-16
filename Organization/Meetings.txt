@@ -1,17 +1,53 @@
 ---------------------------------------------------------------------------
+|				10. MEETING				  |
+|				16.06.2026				  |
+---------------------------------------------------------------------------
+
+
+
+---------------------------------------------------------------------------
 |				9. MEETING				  |
 |				29.05.2026				  |
 ---------------------------------------------------------------------------
-[] S1: Mit payload durchführen bei konstantem Planeten Count
-[] S1: daten erheben
-[] S2: Linux Perf: Cache Miss Rate messen bei Peaks und daneben (wegen Conflict misses)
-[] S3: asm von Memory Layouts 
+[X] S1: daten erheben
+[X] S2: Linux Perf: Cache Miss Rate messen: Peaks/daneben (Conflict misses)
+	-------------------------------------------------
+	|	Payload 998	||	Payload 1010	|
+	-------------------------------------------------
+	| 	|  CPI	|  %L1	|| 	|  CPI	|  %L1	|
+	-------------------------------------------------
+	|    PC	| 1.079	| 21.19	||   PC	| 1.049	| 21.23	|
+	|   AoS	| 1.474	| 26.67	||  AoS	| 0.709	| 20.88 |
+	|   SoA	| 0.786	| 32.25	||  SoA	| 0.767	| 31.80	|
+	|  Bevy	| 0.644	| 18.86	|| Bevy	| 0.659	| 18.93	|
+	-------------------------------------------------
+	|	Payload 2022	||	Payload 2034	|
+	-------------------------------------------------
+	| 	|  CPI	|  %L1	|| 	|  CPI	|  %L1	|
+	-------------------------------------------------
+	|    PC	| 1.267 | 25.52	||   PC	| 1.284	| 26.04	|
+	|   AoS	| 6.426	| 77.11	||  AoS	| 0.721	| 21.10	|
+	|   SoA	| 0.679	| 31.66	||  SoA	| 0.976	| 37.18	|
+	|  Bevy	| 0.579	| 18.86	|| Bevy	| 0.564	| 18.77	|
+	-------------------------------------------------
+	|	Payload 4070	||	Payload 4082	|
+	-------------------------------------------------
+	| 	|  CPI	|  %L1	|| 	|  CPI	|  %L1	|
+	-------------------------------------------------
+	|    PC	| 1.552	| 29.97	||   PC	| 1.754	| 33.10	|
+	|   AoS	| 12.68	| 96.79	||  AoS	| 0.812	| 23.83	|
+	|   SoA	| 0.771	| 31.66	||  SoA	| 0.750	| 31.57	|
+	|  Bevy	| 0.726	| 18.94	|| Bevy	| 0.553	| 19.10	|
+	-------------------------------------------------
+[X] S3: asm von Memory Layouts 
 [X] S3: Vektoren Pop/swap remove: 0 überschreiben oder nur index Anpassung?
 	- len-1 -> Bits des letztem Elements bleiben aber as-is im speicher,
 	  capacity bleibt also gleich. Memory wird erst freigegeben wenn der 
 	  Vektor gedropped wird bzw er seinen scope verlässt.
-
 [X] Struktur der Arbeit überlegen mit Seitenzahl und welcher Inhalt wo
+
+OPTIONAL
+[ ] S1: Mit payload durchführen bei konstantem Planeten Count
 ---------------------------------------------------------------------------
 |				8. MEETING				  |
 |				12.05.2026				  |
