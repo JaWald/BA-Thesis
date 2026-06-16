@@ -1,6 +1,7 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import numpy as np
 
 files = {
     'Bevy': 'csv/bevy.csv',
@@ -14,6 +15,9 @@ for label, file in files.items():
     temp_df = pd.read_csv(file)
     temp_df['architecture'] = label
     dataframes.append(temp_df)
+
+start = 0
+stop = 20000
 
 df = pd.concat(dataframes, ignore_index=True)
 
@@ -36,6 +40,7 @@ ax = sns.lineplot(
 
 plt.title('Scenario 1: Compute Bound', fontsize=15)
 plt.xlabel('Planet Count', fontsize=12)
+plt.xticks(np.arange(start-start, stop-start + 1, 2000))
 plt.ylabel('Average Time per Iteration [µs]', fontsize=12)
 
 plt.legend(title='Architecture')

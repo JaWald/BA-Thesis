@@ -2,7 +2,11 @@
 |				10. MEETING				  |
 |				16.06.2026				  |
 ---------------------------------------------------------------------------
-
+[ ] S1: Anstatt ermitteln bwz Grund davon
+[ ] S3: - black_box bei pop() enfernen -> impliziert schließlich verwendung des
+	  gepoppten elements, stattdessen beispiel Partikelsystem wo nichts
+	  mehr verwendet wird
+	- Zusätzlich Planeten randomisieren oder black_box bei Planeten erstellung
 
 
 ---------------------------------------------------------------------------
