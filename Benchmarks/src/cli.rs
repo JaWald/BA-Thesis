@@ -23,6 +23,9 @@ pub struct Args {
 
     #[arg(short = 'd', long = "debug", help = "Print runtime summary")]
     pub debug_print: bool,
+
+    #[arg(short = 'r', long = "reuse", help = "Reuse popped S3 values")]
+    pub reuse: bool,
 }
 
 #[derive(ValueEnum, Debug, Clone)]

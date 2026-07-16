@@ -1,1 +1,1 @@
-﻿pub const PAYLOAD_SIZE: usize = 19600;
+﻿pub const PAYLOAD_SIZE: usize = 20000;

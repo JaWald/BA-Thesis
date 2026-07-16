@@ -147,23 +147,23 @@ fn run_s3(args: &Args) {
     let mut rng: StdRng = SeedableRng::seed_from_u64(42);
 
     for _ in 0..args.samples {
-        bench_s3_pc(args.warmups, args.chunk_size, &mut planets_pc, &mut rng);
-        let time_pc = bench_s3_pc(args.iterations, args.chunk_size, &mut planets_pc, &mut rng);
+        bench_s3_pc(args.warmups, args.chunk_size, args.reuse, &mut planets_pc, &mut rng);
+        let time_pc = bench_s3_pc(args.iterations, args.chunk_size, args.reuse, &mut planets_pc, &mut rng);
         time_pc_sum.push(time_pc);
         save_iteration_times("diagrams/s3/csv/pc.csv", "PC", args, PAYLOAD_SIZE, time_pc);
 
-        bench_s3_aos(args.warmups, args.chunk_size, &mut planets_aos, &mut rng);
-        let time_aos = bench_s3_aos(args.iterations, args.chunk_size, &mut planets_aos, &mut rng);
+        bench_s3_aos(args.warmups, args.chunk_size, args.reuse, &mut planets_aos, &mut rng);
+        let time_aos = bench_s3_aos(args.iterations, args.chunk_size, args.reuse, &mut planets_aos, &mut rng);
         time_aos_sum.push(time_aos);
         save_iteration_times("diagrams/s3/csv/aos.csv", "AoS", args, PAYLOAD_SIZE, time_aos);
 
-        bench_s3_soa(args.warmups, args.chunk_size, &mut planets_soa, &mut rng);
-        let time_soa = bench_s3_soa(args.iterations, args.chunk_size, &mut planets_soa, &mut rng);
+        bench_s3_soa(args.warmups, args.chunk_size, args.reuse, &mut planets_soa, &mut rng);
+        let time_soa = bench_s3_soa(args.iterations, args.chunk_size, args.reuse, &mut planets_soa, &mut rng);
         time_soa_sum.push(time_soa);
         save_iteration_times("diagrams/s3/csv/soa.csv", "SoA", args, PAYLOAD_SIZE, time_soa);
 
-        bench_s3_bevy(args.warmups, args.chunk_size, &mut world, &mut rng);
-        let time_bevy = bench_s3_bevy(args.iterations, args.chunk_size, &mut world, &mut rng);
+        bench_s3_bevy(args.warmups, args.chunk_size, args.reuse, &mut world, &mut rng);
+        let time_bevy = bench_s3_bevy(args.iterations, args.chunk_size, args.reuse, &mut world, &mut rng);
         time_bevy_sum.push(time_bevy);
         save_iteration_times("diagrams/s3/csv/bevy.csv","Bevy", args, PAYLOAD_SIZE, time_bevy);
     }
