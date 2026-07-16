@@ -53,7 +53,7 @@ ax = sns.lineplot(
     palette="magma"
 )
 
-plt.title('Scenario 3: Allocation', fontsize=15)
+plt.title('Scenario 3: Allocation - Payload Scaling / Drop', fontsize=15)
 plt.xlabel('Payload Size [Bytes]', fontsize=12)
 plt.ylabel('Average Time per Iteration [µs]', fontsize=12)
 plt.xticks(np.arange(start, stop + 1, 2048))
