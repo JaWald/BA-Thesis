@@ -1,4 +1,11 @@
 --------------------------------------------------------------------------------------------------
+14.07.2026
+S3: Auf 2 Subvarianten splitten? Wiederverwendung und ohne
+S1: Unterschiedliche Arithmetik (3 Div 1 Mul vs 1 Div 3 Mul)
+
+
+
+--------------------------------------------------------------------------------------------------
 08.06.2026
 ScienceOS für Literatursuche
 1 Introduction AND MOTIVATION, inkl. Auflistung der Contributions

@@ -44,5 +44,5 @@ plt.xticks(np.arange(start-start, stop-start + 1, 2000))
 plt.ylabel('Average Time per Iteration [µs]', fontsize=12)
 
 plt.legend(title='Architecture')
-plt.savefig('svg/S1_Line.svg', bbox_inches='tight')
+plt.savefig('svg/S1_.svg', bbox_inches='tight')
 plt.show()
