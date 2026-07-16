@@ -49,11 +49,15 @@ pub fn bench_s1_soa(iterations: usize, planets: &mut PlanetsSoA, dt: f32) -> u12
 
             let r_sq = px * px + py * py + pz * pz;
             let r = r_sq.sqrt();
-            let accel_factor = G / (r_sq * r);
+            let a_scalar = G / r_sq;
 
-            planets.velocities_x[i] -= px * accel_factor * dt;
-            planets.velocities_y[i] -= py * accel_factor * dt;
-            planets.velocities_z[i] -= pz * accel_factor * dt;
+            let nx = -px / r;
+            let ny = -py / r;
+            let nz = -pz / r;
+
+            planets.velocities_x[i] += nx * a_scalar * dt;
+            planets.velocities_y[i] += ny * a_scalar * dt;
+            planets.velocities_z[i] += nz * a_scalar * dt;
 
             planets.positions_x[i] += planets.velocities_x[i] * dt;
             planets.positions_y[i] += planets.velocities_y[i] * dt;
