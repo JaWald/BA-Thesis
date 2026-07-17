@@ -28,12 +28,12 @@ ax = sns.lineplot(
     y='time_us',
     hue='architecture',
     style='architecture',
-    markers=True,
+    markers=False,
     dashes=False,
     palette="viridis"
 )
 
-plt.title('Scenario 3: Allocation - Chunk Scaling / Drop', fontsize=15)
+plt.title('Scenario 3: Allocation - Chunk Scaling / Reuse / 19.6k', fontsize=15)
 plt.xlabel('Chunk Size', fontsize=12)
 plt.ylabel('Average Time per Iteration [µs]', fontsize=12)
 
