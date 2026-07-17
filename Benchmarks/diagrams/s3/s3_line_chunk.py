@@ -33,7 +33,7 @@ ax = sns.lineplot(
     palette="viridis"
 )
 
-plt.title('Scenario 3: Allocation - Chunk Scaling / Reuse / 19.6k', fontsize=15)
+plt.title('Scenario 3: Allocation - Chunk Scaling / Reuse / 10k', fontsize=15)
 plt.xlabel('Chunk Size', fontsize=12)
 plt.ylabel('Average Time per Iteration [µs]', fontsize=12)
 
