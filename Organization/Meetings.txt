@@ -3,11 +3,24 @@
 |				16.06.2026				  |
 ---------------------------------------------------------------------------
 [ ] S1: Anstatt ermitteln bwz Grund davon
-[ ] S3: - black_box bei pop() enfernen -> impliziert schließlich verwendung des
+[X] S3: - black_box bei pop() enfernen -> impliziert schließlich verwendung des
 	  gepoppten elements, stattdessen beispiel Partikelsystem wo nichts
 	  mehr verwendet wird
 	- Zusätzlich Planeten randomisieren oder black_box bei Planeten erstellung
 
+S3 Payload Reuse:
+   AoS und SoA langsamer als PC auf grund von memcopy (PC arbeitet mit Pointer, dropped nur Pointer)
+   Bevy zusätzlich langsamer auf grund der framework get/copy calls
+S3 Payload Drop:
+   pop() Seite bei allen langsam
+   push() bei SoA schneller, da keine Structs gehandled werden müssen
+   PC langsam auf Grund von Heap Allocation, Bevy wieder auf grund von framework
+
+!!!!! 19600 Payload...
+S3 Chunk Reuse:
+   PC explodiert abhängig von Allokationsanzahl, nicht Allokationsgröße
+   PC anfangs schnell, da PC nur pointer statt dem payload kopieren muss
+   
 
 ---------------------------------------------------------------------------
 |				9. MEETING				  |
