@@ -34,7 +34,7 @@
 	- Methodology (Benchmark Setup, Hardware/System generell, etc.)
 	- Scenario 1 Results + Analysis (Diagramme, Skalierung, SIMD Details)
 	- Scenario 2 Results + Analysis (Diagramme, Skalierung, "Anomalien"/Cache)
-	- Scenario 3 Results + Analysis (Diagramme, Skalierung, Pop/swap_remove vergleich, black_box ja/nein vergleich)
+	- Scenario 3 Results + Analysis (Diagramme, Skalierung, black_box ja/nein vergleich)
 	- Discussion (Vogelperspektive vergleich high level / Zusammenfassung)
 	- Limitations
 

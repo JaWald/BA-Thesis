@@ -1,4 +1,27 @@
 ---------------------------------------------------------------------------
+|				11. MEETING				  |
+|				17.07.2026				  |
+---------------------------------------------------------------------------
+S3: heatmap mit payload/chunk variation
+    Payload Drop: Wieso AoS so viel langsamer als SoA? Wäre auch nur Vec 
+                  Dekrementierung
+    turboboost deaktivieren
+    frequency locken (cpupower tool, kann sein dass ned funktioniert, verifizieren)
+    core pinnen
+
+Struktur:
+  - chache zeug in background
+
+
+[ ] S3:   Payload Szenario mit Drop: Wieso ist AoS so viel langsamer als SoA?
+[ ] S3:   Heatmap
+[ ] Alle: Feine Daten mit möglichst perfektem Environment
+[ ] Chapter: Implementation und Design FERTIG
+[ ] Chapter: Evaluation/Results angefangen
+[ ] Generell: Erste schöne Diagramme fertig
+
+
+---------------------------------------------------------------------------
 |				10. MEETING				  |
 |				16.06.2026				  |
 ---------------------------------------------------------------------------
