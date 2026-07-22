@@ -3,19 +3,19 @@ use clap::{Parser, ValueEnum};
 #[derive(Parser, Debug)]
 #[command(version="1.2", about, long_about = None)]
 pub struct Args {
-    #[arg(short = 'b', long = "benchmark", help = "Benchmark Scenario (includes csv delete)")]
+    #[arg(short = 'b', long = "benchmark", help = "Benchmark Scenario")]
     pub scenario: Scenario,
 
     #[arg(short = 'p', long = "planets", default_value = "10000", help = "Planet Count")]
     pub planet_count: usize,
 
-    #[arg(short = 'w', long = "warmups", default_value = "5000", help = "Warmup Iterations")]
+    #[arg(short = 'w', long = "warmups", default_value = "2500", help = "Warmup Iterations")]
     pub warmups: usize,
 
     #[arg(short = 'i', long = "iterations", default_value = "5000", help = "Iterations")]
     pub iterations: usize,
     
-    #[arg(short = 's', long = "samples", default_value = "1", help = "Data Samples")]
+    #[arg(short = 's', long = "samples", default_value = "5", help = "Data Samples")]
     pub samples: usize,
 
     #[arg(short = 'c', long = "chunksize", default_value = "100", help = "Chunk Size (S3)")]
