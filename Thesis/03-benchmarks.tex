@@ -1,24 +1,73 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \cleardoubleoddpage
-\chapter{Benchmarks}
+\chapter{Benchmark Design and Implementation}
 \label{sec:benchmarks}
 
-\section{Architecture}
-\label{sec:benchmarks:architecture}
+\section{Architectures Evaluated}
+\label{sec:benchmarks:architectures}
 \begin{itemize}
-    \item Comparison of architectures (diagrams memory layout)
-    \item Program architecture (what crates, rough program flow) 
+    \item Transition from OOP vs DOP to the necissity of using certain data layouts to measure performance, from which The 4 architectures are gathered
+    \item PC, AoS, SoA, Bevy
 \end{itemize}
 
-\section{Environment}
-\label{sec:benchmarks:Environment}
-Description of the setup including:
+\section{Simulation}
+\label{sec:benchmarks:simulation}
 \begin{itemize}
-    \item OS (Ubuntu 26.04)
-    \item Hardware (CPU model/clock speed/core count, RAM, etc.)
-    \item Compiler settings
-    \item Versions of bevy, rapier, criterion etc.
-    \item Execution procedure
+    \item Describe planet calculation
 \end{itemize}
+
+\section{Scenario 1: Compute-Bound}
+\label{sec:benchmarks:scenario1}
+\begin{itemize}
+    \item Setup and Update Logic, SIMD
+\end{itemize}
+
+\section{Scenario 2: Memory-Bound}
+\label{sec:benchmarks:scenario2}
+\begin{itemize}
+    \item Setup and Update Logic, Cache Pollution / Memory Wall
+\end{itemize}
+
+\section{Scenario 3: Allocation and Deallocation}
+\label{sec:benchmarks:scenario3}
+\begin{itemize}
+    \item Setup and Update Logic, Drop vs Reuse
+\end{itemize}
+
+\section{Execution and Configuration}
+\label{sec:benchmarks:execution}
+All architectures and benchmarks are compiled into a single executable located at \texttt{../Benchmarks/target/}. An individual benchmark run is configured almost entirely through \ac{CLI} arguments, with the parsing of the commands being handled by the \texttt{clap} crate \cite{clap}. Table \ref{tab:cli-args} lists the available arguments. 
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{llll}
+        \toprule
+        \textbf{Short} & \textbf{\hphantom{M..}Long} & \textbf{Default} & \textbf{Description} \\
+        \midrule
+        \texttt{  -b} & \texttt{-{}-benchmark}  & required       & Scenario: \texttt{s1}, \texttt{s2}, \texttt{s3} or \texttt{reset} \\
+        \texttt{  -p} & \texttt{-{}-planets}    & \num{10000}    & Number of planets created during setup \\
+        \texttt{  -w} & \texttt{-{}-warmups}    & \num{2500}     & Warmup iterations, results discarded \\
+        \texttt{  -i} & \texttt{-{}-iterations} & \num{5000}     & Measured iterations per sample \\
+        \texttt{  -s} & \texttt{-{}-samples}    & \num{5}        & Number of samples per invocation \\
+        \texttt{  -c} & \texttt{-{}-chunksize}  & \num{100}      & Elements added and removed per iteration (S3) \\
+        \texttt{  -r} & \texttt{-{}-reuse}      & \texttt{false} & Enables the reuse variant (S3) \\
+        \texttt{  -d} & \texttt{-{}-debug}      & \texttt{false} & Prints a runtime summary to the console \\
+        \bottomrule
+    \end{tabular}
+    \caption{Command-line arguments for configuring the benchmark executable}
+    \label{tab:cli-args}
+\end{table}
+
+
+The program itself does not contain the functionality of parameter sweeping, i.e. varying parameter values within defined ranges. Instead, PowerShell and bash scripts are provided which repeatedly execute the benchmark with varying values. This keeps the measured code free from any sweeping logic and makes every measurement reproducible from its arguments alone. In addition, the scripts recompile the benchmarks with varying payload sizes for Scenarios 2 and 3, as the payload size is a compile-time constant and thus must be defined before the execution of the benchmarks. 
+
+A single invocation executes all four architectures in sequence. For every architecture and for every sample, the corresponding benchmark function is called twice: once with the number of warumup iterations and once with the number of benchmark iterations. Calling the same function for both warmup- and benchmark iterations ensures that the cache is in a comparable state when the measurements begin. A typical invocation is shown below.
+
+\begin{verbatim}
+    cargo run --profile o3 -- -b s3 -w 1000 -i 5000 -s 5 -c 500 -r -d
+\end{verbatim}
+
+Measurement results are appended to a \ac{CSV} file per architecture and scenario. For example, the above invocation would append the measurements to the files \texttt{bevy.csv, soa.csv, etc.} located at \texttt{../Benchmarks/diagrams/s3/csv/}. Each line contains an entry for the respective architecture, planet count, number of iterations, chunk size, payload size in bytes as well as the elapsed time in nanoseconds. In order to delete the generated \ac{CSV} files, the \texttt{reset} value for the \texttt{benchmark} argument may be used. This acts as a way to create a clean slate and prevent appending measurements to those of previous benchmarks, should the \ac{CSV} files not have been moved yet. 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

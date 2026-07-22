@@ -10,9 +10,7 @@
 1. Introduction (~1-2C / 2T)
 	- Motivation (Memory Wall, Nachfrage nach hoher Performance)
 	- Shift to DOD (kurze Gegenüberstellugn DOD vs OOP, zum Einordnen)
-	- Goals (Zielsetzung = Quantifizierung Performance Delta,
-		 Auswirkung Cache Pollution & SIMD Vektorisierung)
-	- Contributions (? Identifikation Cache Conflict Misses durch gewisse Payloads)
+	- Objectives and Methodology
 
 2. Background (4-5C / 8T)
 	- DOD & Memory Layouts (AoS vs SoA, Memory Indirection)
@@ -27,7 +25,7 @@
 	- "Simulation" (Planetenbeispiel erklären)
 	- Scenario 1 - Compute Bound (Setup und Update Logik erklären, SIMD)
 	- Scenario 2 - Memory Bound (-//-, Cache Pollution/Memory Wall)
-	- Scenario 3 - Allocation (-//-, swap_remove vs pop)
+	- Scenario 3 - Allocation (-//-, Drop vs Reuse)
 	- Execution/CLI (zwecks Reproduzierbarkeit, kurz gehalten)
 
 4. Evaluation/Results (~10C / 18T)
