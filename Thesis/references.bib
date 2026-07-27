@@ -1,162 +1,161 @@
+% ── Books ────────────────────────────────────────────────────────────────────────────────────────────────────────────
 @book{hennessy2011computer,
-  author       = {John L. Hennessy and 
-                  David A. Patterson},
-  title        = {Computer Architecture - {A} Quantitative Approach, 5th Edition},
+  author       = {John L. Hennessy and David A. Patterson},
+  title        = {Computer Architecture: {A} Quantitative Approach},
+  edition      = {5},
   publisher    = {Morgan Kaufmann},
-  year         = {2012},
+  address      = {Waltham, MA},
+  year         = {2011},
   isbn         = {978-0-12-383872-8},
-  url          = {https://www.academia.edu/download/54617908/CS6143_Computer_Architecture_-_A_Quantitative_Approach_5e.pdf},
-  biburl       = {https://dblp.org/rec/books/daglib/0028244.bib},
-  bibsource    = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{wulf1995hitting,
-author        = {Wulf, Wm. A. and 
-                  McKee, Sally A.},
-title         = {Hitting the memory wall: implications of the obvious},
-year          = {1995},
-publisher     = {Association for Computing Machinery},
-address       = {New York, NY, USA},
-volume        = {23},
-number        = {1},
-issn          = {0163-5964},
-url           = {https://doi.org/10.1145/216585.216588},
-doi           = {10.1145/216585.216588},
-journal       = {SIGARCH Comput. Archit. News},
-pages         = {20–24},
-numpages      = {5}
-}
-
-@inproceedings{drepper2007every,
-  title         = {What every programmer should know about memory},
-  author        = {Drepper, Ulrich},
-  journal       = {Red Hat, Inc},
-  volume        = {11},
-  year          = {2007},
-  url           = {https://people.freebsd.org/~lstewart/articles/cpumemory.pdf}
-}
-
-@article{fabian2018data,
-  title   = {Data-oriented design},
-  author  = {Fabian, Richard},
-  journal = {framework},
-  volume  = {21},
-  year    = {2018},
-  url     = {https://dataorienteddesign.com/dodbook.pdf},
-}
-
-@article{harkonen2019advantages,
-  title   = {Advantages and Implementation of Entity-Component-Systems},
-  author  = {H{\"a}rk{\"o}nen, Toni},
-  journal = {Tampere University, Tampere, Finland},
-  volume  = {6},
-  year    = {2019},
-  url     = {https://urn.fi/URN:NBN:fi:tty-201905231735},
-}
-
-@techreport{albrecht2008pitfalls,
-  author    = {Tony Albrecht},
-  title     = {Pitfalls of Object-oriented Programming},
-  publisher = {Sony Computer Entertainment Europe},
-  year      = {2008},
-  url       = {https://www.slideshare.net/guestfe5b0d/pitfalls-of-object-oriented-programming-presentation}
 }
 
 @book{klabnik2023rust,
   title     = {The Rust Programming Language},
-  author    = {Klabnik, Steve and 
-                Nichols, Carol},
+  author    = {Klabnik, Steve and Nichols, Carol},
+  edition   = {2},
   year      = {2023},
   publisher = {No Starch Press},
-  isbn      = {978-1-71-850444-8},
-  url       = {https://doc.rust-lang.org/book/}
+  address   = {San Francisco, CA},
+  isbn      = {978-1-7185-0310-6},
+  note      = {Cited from the free online edition},
+  url       = {https://doc.rust-lang.org/book/},
+  urldate   = {2026-03-07}
 }
 
-@manual{bevy_quickstart,
-  author       = {{Bevy Project Contributors}},
-  title        = {Bevy Quick Start Guide},
-  year         = {2026}, 
-  urldate      = {2026-03-10},
-  url          = {https://bevyengine.org/learn/book/introduction/},
-  organization = {Bevy Engine}
+@book{fabian2018data,
+  title     = {Data-oriented Design: Software Engineering for Limited Resources and Short Schedules},
+  author    = {Fabian, Richard},
+  year      = {2018},
+  publisher = {Richard Fabian},
+  isbn      = {978-1-916478-70-1},
+  note      = {Cited from the free online edition},
+  url       = {https://dataorienteddesign.com/dodbook.pdf},
+  urldate   = {2026-07-27}
 }
 
-@article{pennycook2013investigation,
-  author       = {Simon J. Pennycook and
-                  Simon D. Hammond and
-                  Steven A. Wright and
-                  J. A. Herdman and
-                  I. Miller and
-                  Stephen A. Jarvis},
-  title        = {An investigation of the performance portability of OpenCL},
-  journal      = {J. Parallel Distributed Comput.},
-  volume       = {73},
-  number       = {11},
-  pages        = {1439--1450},
-  year         = {2013},
-  url          = {https://doi.org/10.1016/j.jpdc.2012.07.005},
-  doi          = {10.1016/J.JPDC.2012.07.005},
-  timestamp    = {Wed, 19 May 2021 08:30:49 +0200},
-  biburl       = {https://dblp.org/rec/journals/jpdc/PennycookHWHMJ13.bib},
-  bibsource    = {dblp computer science bibliography, https://dblp.org}
+% ── Technical Reports / Talks ────────────────────────────────────────────────────────────────────────────────────────
+@techreport{drepper2007every,
+  title         = {What Every Programmer Should Know About Memory},
+  author        = {Drepper, Ulrich},
+  institution   = {Red Hat, Inc.},
+  year          = {2007},
+  month         = {11},
+  url           = {https://people.freebsd.org/~lstewart/articles/cpumemory.pdf},
+  urldate       = {2026-03-06}
 }
 
-@inproceedings{tian2013simd,
-  author       = {Xinmin Tian and
-                  Hideki Saito and
-                  Serguei Preis and
-                  Eric N. Garcia and
-                  Sergey Kozhukhov and
-                  Matt Masten and
-                  Aleksei G. Cherkasov and
-                  Nikolay Panchenko},
-  title        = {Practical {SIMD} Vectorization Techniques for Intel{\textregistered}
-                  Xeon Phi Coprocessors},
-  booktitle    = {2013 {IEEE} International Symposium on Parallel {\&} Distributed
-                  Processing, Workshops and Phd Forum, Cambridge, MA, USA, May 20-24,
-                  2013},
-  pages        = {1149--1158},
-  publisher    = {{IEEE}},
-  year         = {2013},
-  url          = {https://doi.org/10.1109/IPDPSW.2013.245},
-  doi          = {10.1109/IPDPSW.2013.245},
-  timestamp    = {Fri, 24 Mar 2023 00:01:59 +0100},
-  biburl       = {https://dblp.org/rec/conf/ipps/TianSPGKMCP13.bib},
-  bibsource    = {dblp computer science bibliography, https://dblp.org}
+@misc{albrecht2009pitfalls,
+  author       = {Albrecht, Tony},
+  title        = {Pitfalls of Object Oriented Programming},
+  year         = {2009},
+  howpublished = {Presented at Game Connect: Asia Pacific (GCAP) 2009},
+  organization = {Sony Computer Entertainment Europe, Research \& Development Division},
+  url          = {https://www.gamedevs.org/uploads/pitfalls-of-object-oriented-programming.pdf},
+  urldate      = {2026-07-27}
+}
+
+@misc{bilas2002data,
+  author       = {Bilas, Scott},
+  title        = {A Data-Driven Game Object System},
+  year         = {2002},
+  howpublished = {Presented at the Game Developers Conference (GDC) 2002},
+  organization = {Gas Powered Games},
+  url          = {https://www.gamedevs.org/uploads/data-driven-game-object-system.pdf},
+  urldate      = {2026-03-11},
+}
+
+% ── Thesis ───────────────────────────────────────────────────────────────────────────────────────────────────────────
+@thesis{harkonen2019advantages,
+  title   = {Advantages and Implementation of Entity-Component-Systems},
+  author  = {H{\"a}rk{\"o}nen, Toni},
+  type    = {Bachelor's thesis},
+  school  = {Tampere University},
+  year    = {2019},
+  month   = {4},
+  url     = {https://urn.fi/URN:NBN:fi:tty-201905231735},
+  urldate = {2026-07-27}
+}
+
+% ── Articles ─────────────────────────────────────────────────────────────────────────────────────────────────────────
+@article{wulf1995hitting,
+  author    = {Wulf, Wm. A. and McKee, Sally A.},
+  title     = {Hitting the memory wall: implications of the obvious}, 
+  journal   = {ACM SIGARCH Computer Architecture News},
+  volume    = {23},
+  number    = {1},
+  pages     = {20--24},
+  year      = {1995},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  issn      = {0163-5964},
+  doi       = {10.1145/216585.216588}
 }
 
 @article{redmond2025ecs,
-  author       = {Patrick Redmond and
-                  Jonathan Castello and
-                  Jos{\'{e}} Manuel Calder{\'{o}}n Trilla and
-                  Lindsey Kuper},
-  title        = {Exploring the Theory and Practice of Concurrency in the Entity-Component-System
-                  Pattern},
-  journal      = {Proc. {ACM} Program. Lang.},
-  volume       = {9},
-  number       = {{OOPSLA2}},
-  pages        = {1--28},
-  year         = {2025},
-  url          = {https://doi.org/10.1145/3763050},
-  doi          = {10.1145/3763050},
-  timestamp    = {Wed, 25 Feb 2026 08:22:19 +0100},
-  biburl       = {https://dblp.org/rec/journals/pacmpl/RedmondCTK25.bib},
-  bibsource    = {dblp computer science bibliography, https://dblp.org}
+  author  = {Patrick Redmond and Jonathan Castello and Jos{\'{e}} Manuel Calder{\'{o}}n Trilla and Lindsey Kuper},
+  title   = {Exploring the Theory and Practice of Concurrency in the Entity-Component-System Pattern},
+  journal = {Proceedings of the ACM on Programming Languages},
+  volume  = {9},
+  number  = {{OOPSLA2}},
+  pages   = {1--28},
+  year    = {2025},
+  doi     = {10.1145/3763050}
 }
 
-@inproceedings{bilas2002data,
-  title     = {A data-driven game object system},
-  author    = {Bilas, Scott},
-  booktitle = {Game Developers Conference Proceedings},
-  year      = {2002},
-  urldate   = {2026-03-11},
-  url       = {https://www.gamedevs.org/uploads/data-driven-game-object-system.pdf},
+@article{pennycook2013investigation,
+  author  = {Simon J. Pennycook and Simon D. Hammond and Steven A. Wright and J. A. Herdman and I. Miller and Stephen A. Jarvis},
+  title   = {An investigation of the performance portability of {OpenCL}},
+  journal = {Journal of Parallel and Distributed Computing},
+  volume  = {73},
+  number  = {11},
+  pages   = {1439--1450},
+  year    = {2013},
+  doi     = {10.1016/j.jpdc.2012.07.005}
 }
 
-@misc{clap,
-  author = {Kevin Knapp},
-  title = {Clap 4.6.0},
-  year = {2026},
+@inproceedings{tian2013simd,
+  author    = {Xinmin Tian and Hideki Saito and Serguei Preis and Eric N. Garcia and Sergey Kozhukhov and Matt Masten and Aleksei G. Cherkasov and Nikolay Panchenko},
+  title     = {Practical {SIMD} Vectorization Techniques for Intel{\textregistered} Xeon Phi Coprocessors},
+  booktitle = {2013 {IEEE} International Symposium on Parallel {\&} Distributed Processing, Workshops and PhD Forum},
+  pages     = {1149--1158},
+  publisher = {{IEEE}},
+  address   = {Cambridge, MA, USA},
+  year      = {2013},
+  doi       = {10.1109/IPDPSW.2013.245}
+}
+
+% ── Software-Docs ────────────────────────────────────────────────────────────────────────────────────────────────────
+@manual{bevy_quickstart_ecs,
+  author       = {{Bevy Project Contributors}},
+  title = {Bevy Quick Start Guide: ECS},
+  year         = {2026}, 
+  urldate      = {2026-07-27},
+  url          = {https://bevy.org/learn/quick-start/getting-started/ecs/},
+  organization = {Bevy Engine}
+}
+
+@manual{bevy_storage,
+  author  = {{Bevy Project Contributors}},
+  title   = {\texttt{bevy::ecs::storage::Table} --- Bevy API Documentation},
+  year    = {2026},
+  url     = {https://docs.rs/bevy/0.19.0/bevy/ecs/storage/struct.Table.html},
+  urldate = {2026-07-27}
+}
+
+@manual{clap,
+  author  = {Knapp, Kevin and {clap Contributors}},
+  title   = {\texttt{clap} --- Command Line Argument Parser for Rust},
+  year    = {2026},
   urldate = {2026-07-22},
-  url = {https://crates.io/crates/clap/4.6.0},
+  url     = {https://docs.rs/clap/4.6.0/clap/}
 }
+
+@manual{glam_vec3a,
+  author  = {Hart, Cameron},
+  title   = {\texttt{glam::Vec3A} --- API Documentation},
+  year    = {2026},
+  urldate = {2026-07-27},
+  url     = {https://docs.rs/glam/0.32.1/glam/f32/struct.Vec3A.html}
+}
+
+% ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────

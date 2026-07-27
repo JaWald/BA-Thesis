@@ -3,3 +3,5 @@
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QScenario Y.\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QScenario Z.\\E$"}
 {"rule":"REPEATED_VERBS","sentence":"^\\Qbodies: Body[1000] for body in bodies body.update();\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QLastly, in Scenario 3, an arbitrary amount of planets can be generated, allocated and then deallocated to simulate a particle system.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QThe \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Atrapa-|Dummy\\+|Dummy's\\+)[0-9]+\\Q architecture stores the identical PlanetAoS struct directly in a Vec<PlanetAoS>, i.e. without any indirection.\\E$"}

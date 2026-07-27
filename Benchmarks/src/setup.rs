@@ -28,7 +28,7 @@ pub struct PlanetsSoA {
 
 pub fn setup_pc(planet_count: usize) -> Vec<Box<PlanetAoS>> {
     let mut rng: StdRng = SeedableRng::seed_from_u64(42);
-    let mut planets: Vec<Box<PlanetAoS>> = Vec::new();
+    let mut planets: Vec<Box<PlanetAoS>> = Vec::with_capacity(planet_count);
     for _ in 0..planet_count {
         planets.push(Box::new(PlanetAoS {
             velocity: random_vec3(&mut rng),
@@ -56,12 +56,12 @@ pub fn setup_aos(planet_count: usize) -> Vec<PlanetAoS> {
 pub fn setup_soa(planet_count: usize) -> PlanetsSoA {
     let mut rng = SeedableRng::seed_from_u64(42);
     let mut soa = PlanetsSoA {
-        positions_x: Vec::with_capacity(planet_count),
-        positions_y: Vec::with_capacity(planet_count),
-        positions_z: Vec::with_capacity(planet_count),
         velocities_x: Vec::with_capacity(planet_count),
         velocities_y: Vec::with_capacity(planet_count),
         velocities_z: Vec::with_capacity(planet_count),
+        positions_x: Vec::with_capacity(planet_count),
+        positions_y: Vec::with_capacity(planet_count),
+        positions_z: Vec::with_capacity(planet_count),
         payloads: Vec::with_capacity(planet_count),
     };
 

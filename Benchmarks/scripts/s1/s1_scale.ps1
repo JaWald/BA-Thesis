@@ -1,5 +1,6 @@
 Set-Location "$PSScriptRoot/../.."
 
+"pub const PAYLOAD_SIZE: usize = 0;" | Out-File -FilePath "src/payload.rs" -Encoding utf8
 for($i = 5; $i -le 100000; $i += 500) {
     Write-Host ">>> Starting benchmark with: $i Planets" -ForegroundColor Yellow
 
