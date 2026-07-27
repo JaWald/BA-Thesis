@@ -19,7 +19,7 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global/global}
-    \entry{albrecht2008pitfalls}{report}{}{}
+    \entry{albrecht2009pitfalls}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=6bfdd7b048ac00eda2252d558674583d}{%
            family={Albrecht},
@@ -27,8 +27,8 @@
            given={Tony},
            giveni={T\bibinitperiod}}}%
       }
-      \list{publisher}{1}{%
-        {Sony Computer Entertainment Europe}%
+      \list{organization}{1}{%
+        {Sony Computer Entertainment Europe, Research \& Development Division}%
       }
       \strng{namehash}{6bfdd7b048ac00eda2252d558674583d}
       \strng{fullhash}{6bfdd7b048ac00eda2252d558674583d}
@@ -42,17 +42,21 @@
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Pitfalls of Object-oriented Programming}
-      \field{type}{techreport}
-      \field{year}{2008}
+      \field{howpublished}{Presented at Game Connect: Asia Pacific (GCAP) 2009}
+      \field{title}{Pitfalls of Object Oriented Programming}
+      \field{urlday}{27}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
+      \field{year}{2009}
+      \field{urldateera}{ce}
       \verb{urlraw}
-      \verb https://www.slideshare.net/guestfe5b0d/pitfalls-of-object-oriented-programming-presentation
+      \verb https://www.gamedevs.org/uploads/pitfalls-of-object-oriented-programming.pdf
       \endverb
       \verb{url}
-      \verb https://www.slideshare.net/guestfe5b0d/pitfalls-of-object-oriented-programming-presentation
+      \verb https://www.gamedevs.org/uploads/pitfalls-of-object-oriented-programming.pdf
       \endverb
     \endentry
-    \entry{bevy_quickstart}{manual}{}{}
+    \entry{bevy_quickstart_ecs}{manual}{}{}
       \name{author}{1}{}{%
         {{hash=da7e81fb21da9b24ef5bc2e9608d524d}{%
            family={{Bevy Project Contributors}},
@@ -69,30 +73,66 @@
       \strng{authornamehash}{da7e81fb21da9b24ef5bc2e9608d524d}
       \strng{authorfullhash}{da7e81fb21da9b24ef5bc2e9608d524d}
       \strng{authorfullhashraw}{da7e81fb21da9b24ef5bc2e9608d524d}
+      \field{extraname}{1}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Bevy Quick Start Guide}
-      \field{urlday}{10}
-      \field{urlmonth}{3}
+      \field{title}{Bevy Quick Start Guide: ECS}
+      \field{urlday}{27}
+      \field{urlmonth}{7}
       \field{urlyear}{2026}
       \field{year}{2026}
       \field{urldateera}{ce}
       \verb{urlraw}
-      \verb https://bevyengine.org/learn/book/introduction/
+      \verb https://bevy.org/learn/quick-start/getting-started/ecs/
       \endverb
       \verb{url}
-      \verb https://bevyengine.org/learn/book/introduction/
+      \verb https://bevy.org/learn/quick-start/getting-started/ecs/
       \endverb
     \endentry
-    \entry{bilas2002data}{inproceedings}{}{}
+    \entry{bevy_storage}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=da7e81fb21da9b24ef5bc2e9608d524d}{%
+           family={{Bevy Project Contributors}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{da7e81fb21da9b24ef5bc2e9608d524d}
+      \strng{fullhash}{da7e81fb21da9b24ef5bc2e9608d524d}
+      \strng{fullhashraw}{da7e81fb21da9b24ef5bc2e9608d524d}
+      \strng{bibnamehash}{da7e81fb21da9b24ef5bc2e9608d524d}
+      \strng{authorbibnamehash}{da7e81fb21da9b24ef5bc2e9608d524d}
+      \strng{authornamehash}{da7e81fb21da9b24ef5bc2e9608d524d}
+      \strng{authorfullhash}{da7e81fb21da9b24ef5bc2e9608d524d}
+      \strng{authorfullhashraw}{da7e81fb21da9b24ef5bc2e9608d524d}
+      \field{extraname}{2}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{\texttt{bevy::ecs::storage::Table} --- Bevy API Documentation}
+      \field{urlday}{27}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://docs.rs/bevy/0.19.0/bevy/ecs/storage/struct.Table.html
+      \endverb
+      \verb{url}
+      \verb https://docs.rs/bevy/0.19.0/bevy/ecs/storage/struct.Table.html
+      \endverb
+    \endentry
+    \entry{bilas2002data}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=451d5d45f7cc47e504c8f0022c8c6b08}{%
            family={Bilas},
            familyi={B\bibinitperiod},
            given={Scott},
            giveni={S\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Gas Powered Games}%
       }
       \strng{namehash}{451d5d45f7cc47e504c8f0022c8c6b08}
       \strng{fullhash}{451d5d45f7cc47e504c8f0022c8c6b08}
@@ -106,8 +146,8 @@
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Game Developers Conference Proceedings}
-      \field{title}{A data-driven game object system}
+      \field{howpublished}{Presented at the Game Developers Conference (GDC) 2002}
+      \field{title}{A Data-Driven Game Object System}
       \field{urlday}{11}
       \field{urlmonth}{3}
       \field{urlyear}{2026}
@@ -120,13 +160,16 @@
       \verb https://www.gamedevs.org/uploads/data-driven-game-object-system.pdf
       \endverb
     \endentry
-    \entry{drepper2007every}{inproceedings}{}{}
+    \entry{drepper2007every}{report}{}{}
       \name{author}{1}{}{%
         {{hash=bdb9c3658f483c939f0f649e51d31f2a}{%
            family={Drepper},
            familyi={D\bibinitperiod},
            given={Ulrich},
            giveni={U\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Red Hat, Inc.}%
       }
       \strng{namehash}{bdb9c3658f483c939f0f649e51d31f2a}
       \strng{fullhash}{bdb9c3658f483c939f0f649e51d31f2a}
@@ -140,10 +183,14 @@
       \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Red Hat, Inc}
-      \field{title}{What every programmer should know about memory}
-      \field{volume}{11}
+      \field{month}{11}
+      \field{title}{What Every Programmer Should Know About Memory}
+      \field{type}{techreport}
+      \field{urlday}{6}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
       \field{year}{2007}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://people.freebsd.org/~lstewart/articles/cpumemory.pdf
       \endverb
@@ -151,13 +198,16 @@
       \verb https://people.freebsd.org/~lstewart/articles/cpumemory.pdf
       \endverb
     \endentry
-    \entry{fabian2018data}{article}{}{}
+    \entry{fabian2018data}{book}{}{}
       \name{author}{1}{}{%
         {{hash=cd3656ff5be58df20f78a6d481e0df54}{%
            family={Fabian},
            familyi={F\bibinitperiod},
            given={Richard},
            giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Richard Fabian}%
       }
       \strng{namehash}{cd3656ff5be58df20f78a6d481e0df54}
       \strng{fullhash}{cd3656ff5be58df20f78a6d481e0df54}
@@ -171,10 +221,14 @@
       \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{framework}
-      \field{title}{Data-oriented design}
-      \field{volume}{21}
+      \field{isbn}{978-1-916478-70-1}
+      \field{note}{Cited from the free online edition}
+      \field{title}{Data-oriented Design: Software Engineering for Limited Resources and Short Schedules}
+      \field{urlday}{27}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
       \field{year}{2018}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://dataorienteddesign.com/dodbook.pdf
       \endverb
@@ -182,13 +236,16 @@
       \verb https://dataorienteddesign.com/dodbook.pdf
       \endverb
     \endentry
-    \entry{harkonen2019advantages}{article}{}{}
+    \entry{harkonen2019advantages}{thesis}{}{}
       \name{author}{1}{}{%
         {{hash=4c7aaf198234e665ca87231c10f408df}{%
            family={Härkönen},
            familyi={H\bibinitperiod},
            given={Toni},
            giveni={T\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Tampere University}%
       }
       \strng{namehash}{4c7aaf198234e665ca87231c10f408df}
       \strng{fullhash}{4c7aaf198234e665ca87231c10f408df}
@@ -202,15 +259,52 @@
       \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Tampere University, Tampere, Finland}
+      \field{month}{4}
       \field{title}{Advantages and Implementation of Entity-Component-Systems}
-      \field{volume}{6}
+      \field{type}{Bachelor's thesis}
+      \field{urlday}{27}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
       \field{year}{2019}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://urn.fi/URN:NBN:fi:tty-201905231735
       \endverb
       \verb{url}
       \verb https://urn.fi/URN:NBN:fi:tty-201905231735
+      \endverb
+    \endentry
+    \entry{glam_vec3a}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=5d1b3dd3ef6e5c6dde9d85240c47492f}{%
+           family={Hart},
+           familyi={H\bibinitperiod},
+           given={Cameron},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{5d1b3dd3ef6e5c6dde9d85240c47492f}
+      \strng{fullhash}{5d1b3dd3ef6e5c6dde9d85240c47492f}
+      \strng{fullhashraw}{5d1b3dd3ef6e5c6dde9d85240c47492f}
+      \strng{bibnamehash}{5d1b3dd3ef6e5c6dde9d85240c47492f}
+      \strng{authorbibnamehash}{5d1b3dd3ef6e5c6dde9d85240c47492f}
+      \strng{authornamehash}{5d1b3dd3ef6e5c6dde9d85240c47492f}
+      \strng{authorfullhash}{5d1b3dd3ef6e5c6dde9d85240c47492f}
+      \strng{authorfullhashraw}{5d1b3dd3ef6e5c6dde9d85240c47492f}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{\texttt{glam::Vec3A} --- API Documentation}
+      \field{urlday}{27}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://docs.rs/glam/0.32.1/glam/f32/struct.Vec3A.html
+      \endverb
+      \verb{url}
+      \verb https://docs.rs/glam/0.32.1/glam/f32/struct.Vec3A.html
       \endverb
     \endentry
     \entry{hennessy2011computer}{book}{}{}
@@ -225,6 +319,9 @@
            familyi={P\bibinitperiod},
            given={David\bibnamedelima A.},
            giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Waltham, MA}%
       }
       \list{publisher}{1}{%
         {Morgan Kaufmann}%
@@ -241,15 +338,10 @@
       \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{edition}{5}
       \field{isbn}{978-0-12-383872-8}
-      \field{title}{Computer Architecture - {A} Quantitative Approach, 5th Edition}
-      \field{year}{2012}
-      \verb{urlraw}
-      \verb https://www.academia.edu/download/54617908/CS6143_Computer_Architecture_-_A_Quantitative_Approach_5e.pdf
-      \endverb
-      \verb{url}
-      \verb https://www.academia.edu/download/54617908/CS6143_Computer_Architecture_-_A_Quantitative_Approach_5e.pdf
-      \endverb
+      \field{title}{Computer Architecture: {A} Quantitative Approach}
+      \field{year}{2011}
     \endentry
     \entry{klabnik2023rust}{book}{}{}
       \name{author}{2}{}{%
@@ -263,6 +355,9 @@
            familyi={N\bibinitperiod},
            given={Carol},
            giveni={C\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {San Francisco, CA}%
       }
       \list{publisher}{1}{%
         {No Starch Press}%
@@ -279,9 +374,15 @@
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{isbn}{978-1-71-850444-8}
+      \field{edition}{2}
+      \field{isbn}{978-1-7185-0310-6}
+      \field{note}{Cited from the free online edition}
       \field{title}{The Rust Programming Language}
+      \field{urlday}{7}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
       \field{year}{2023}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://doc.rust-lang.org/book/
       \endverb
@@ -289,37 +390,40 @@
       \verb https://doc.rust-lang.org/book/
       \endverb
     \endentry
-    \entry{clap}{misc}{}{}
-      \name{author}{1}{}{%
+    \entry{clap}{manual}{}{}
+      \name{author}{2}{}{%
         {{hash=4e1aeff63379203de89c697fe5d2e65d}{%
            family={Knapp},
            familyi={K\bibinitperiod},
            given={Kevin},
            giveni={K\bibinitperiod}}}%
+        {{hash=6f534950b1fabcb67ebdc5572a98c659}{%
+           family={{clap Contributors}},
+           familyi={c\bibinitperiod}}}%
       }
-      \strng{namehash}{4e1aeff63379203de89c697fe5d2e65d}
-      \strng{fullhash}{4e1aeff63379203de89c697fe5d2e65d}
-      \strng{fullhashraw}{4e1aeff63379203de89c697fe5d2e65d}
-      \strng{bibnamehash}{4e1aeff63379203de89c697fe5d2e65d}
-      \strng{authorbibnamehash}{4e1aeff63379203de89c697fe5d2e65d}
-      \strng{authornamehash}{4e1aeff63379203de89c697fe5d2e65d}
-      \strng{authorfullhash}{4e1aeff63379203de89c697fe5d2e65d}
-      \strng{authorfullhashraw}{4e1aeff63379203de89c697fe5d2e65d}
+      \strng{namehash}{c9f6401f032cfb5bdd0dae5157fc6ae8}
+      \strng{fullhash}{c9f6401f032cfb5bdd0dae5157fc6ae8}
+      \strng{fullhashraw}{c9f6401f032cfb5bdd0dae5157fc6ae8}
+      \strng{bibnamehash}{c9f6401f032cfb5bdd0dae5157fc6ae8}
+      \strng{authorbibnamehash}{c9f6401f032cfb5bdd0dae5157fc6ae8}
+      \strng{authornamehash}{c9f6401f032cfb5bdd0dae5157fc6ae8}
+      \strng{authorfullhash}{c9f6401f032cfb5bdd0dae5157fc6ae8}
+      \strng{authorfullhashraw}{c9f6401f032cfb5bdd0dae5157fc6ae8}
       \field{sortinit}{K}
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Clap 4.6.0}
+      \field{title}{\texttt{clap} --- Command Line Argument Parser for Rust}
       \field{urlday}{22}
       \field{urlmonth}{7}
       \field{urlyear}{2026}
       \field{year}{2026}
       \field{urldateera}{ce}
       \verb{urlraw}
-      \verb https://crates.io/crates/clap/4.6.0
+      \verb https://docs.rs/clap/4.6.0/clap/
       \endverb
       \verb{url}
-      \verb https://crates.io/crates/clap/4.6.0
+      \verb https://docs.rs/clap/4.6.0/clap/
       \endverb
     \endentry
     \entry{pennycook2013investigation}{article}{}{}
@@ -367,21 +471,15 @@
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{J. Parallel Distributed Comput.}
+      \field{journaltitle}{Journal of Parallel and Distributed Computing}
       \field{number}{11}
-      \field{title}{An investigation of the performance portability of OpenCL}
+      \field{title}{An investigation of the performance portability of {OpenCL}}
       \field{volume}{73}
       \field{year}{2013}
       \field{pages}{1439\bibrangedash 1450}
       \range{pages}{12}
       \verb{doi}
-      \verb 10.1016/J.JPDC.2012.07.005
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1016/j.jpdc.2012.07.005
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1016/j.jpdc.2012.07.005
+      \verb 10.1016/j.jpdc.2012.07.005
       \endverb
     \endentry
     \entry{redmond2025ecs}{article}{}{}
@@ -419,7 +517,7 @@
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Proc. {ACM} Program. Lang.}
+      \field{journaltitle}{Proceedings of the ACM on Programming Languages}
       \field{number}{{OOPSLA2}}
       \field{title}{Exploring the Theory and Practice of Concurrency in the Entity-Component-System Pattern}
       \field{volume}{9}
@@ -428,12 +526,6 @@
       \range{pages}{28}
       \verb{doi}
       \verb 10.1145/3763050
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1145/3763050
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1145/3763050
       \endverb
     \endentry
     \entry{tian2013simd}{inproceedings}{}{}
@@ -479,6 +571,9 @@
            given={Nikolay},
            giveni={N\bibinitperiod}}}%
       }
+      \list{location}{1}{%
+        {Cambridge, MA, USA}%
+      }
       \list{publisher}{1}{%
         {IEEE}%
       }
@@ -494,19 +589,13 @@
       \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{2013 {IEEE} International Symposium on Parallel {\&} Distributed Processing, Workshops and Phd Forum, Cambridge, MA, USA, May 20-24, 2013}
+      \field{booktitle}{2013 {IEEE} International Symposium on Parallel {\&} Distributed Processing, Workshops and PhD Forum}
       \field{title}{Practical {SIMD} Vectorization Techniques for Intel{®} Xeon Phi Coprocessors}
       \field{year}{2013}
       \field{pages}{1149\bibrangedash 1158}
       \range{pages}{10}
       \verb{doi}
       \verb 10.1109/IPDPSW.2013.245
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1109/IPDPSW.2013.245
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1109/IPDPSW.2013.245
       \endverb
     \endentry
     \entry{wulf1995hitting}{article}{}{}
@@ -541,9 +630,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0163-5964}
-      \field{journaltitle}{SIGARCH Comput. Archit. News}
+      \field{journaltitle}{ACM SIGARCH Computer Architecture News}
       \field{number}{1}
-      \field{numpages}{5}
       \field{title}{Hitting the memory wall: implications of the obvious}
       \field{volume}{23}
       \field{year}{1995}
@@ -551,12 +639,6 @@
       \range{pages}{5}
       \verb{doi}
       \verb 10.1145/216585.216588
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1145/216585.216588
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1145/216585.216588
       \endverb
     \endentry
   \enddatalist

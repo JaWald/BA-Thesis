@@ -1,6 +1,7 @@
 #!/bin/bash
 cd "$(dirname "$0")/../.."
 
+echo "pub const PAYLOAD_SIZE: usize = 0;" > src/payload.rs
 for i in $(seq 2 2 100000); do
     echo -e "\e[33m>>> Starting benchmark with: $i Planets\e[0m"
 

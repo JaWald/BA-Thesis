@@ -6,7 +6,7 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Memory Layout Visualization: AoS vs. SoA (taken from \blx@tocontentsinit {0}\cite {pennycook2013investigation}) }}{2}{figure.2.1}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Visualization of the \ac {ECS} pattern depicting (1) Entities, (2) Components and (3) Systems (taken from \blx@tocontentsinit {0}\cite {redmond2025ecs}) }}{4}{figure.2.2}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Visualization of the \ac {ECS} pattern depicting (1) Entities, (2) Components and (3) Systems (taken from \blx@tocontentsinit {0}\cite {redmond2025ecs}) }}{5}{figure.2.2}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
