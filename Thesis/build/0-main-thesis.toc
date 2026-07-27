@@ -25,7 +25,7 @@
 \contentsline {paragraph}{\nonumberline Parametrization}{9}{paragraph*.18}%
 \contentsline {paragraph}{\nonumberline Update Logic}{9}{paragraph*.19}%
 \contentsline {paragraph}{\nonumberline Bevy Contiguous}{9}{paragraph*.20}%
-\contentsline {paragraph}{\nonumberline Measurements and Verification}{9}{paragraph*.21}%
+\contentsline {paragraph}{\nonumberline Verification}{9}{paragraph*.21}%
 \contentsline {section}{\numberline {3.4}Scenario 2: Memory-Bound}{9}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Scenario 3: Allocation and Deallocation}{9}{section.3.5}%
 \contentsline {section}{\numberline {3.6}Execution and Configuration}{9}{section.3.6}%
