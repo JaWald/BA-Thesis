@@ -1,9 +1,10 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 \cleardoubleoddpage
 \chapter{Benchmark Design and Implementation}
 \label{sec:benchmarks}
 
+% ── Simulation ───────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Simulation}
 \label{sec:benchmarks:simulation}
 To properly analyze the differences in performance between \ac{DOP} and \ac{OOP}, the simulation used must be conceptually and mathematically identical across all evaluated architectures. Otherwise, differences in performance cannot be reliably attributed to the effects of adhering to one paradigm or the other, as they could just as likely occur due to inhomogeneous workloads. Thus, all three scenarios will perform calculations and operations on the same core simulation. Additionally, the simulation must provide a workload that is non-trivial enough to cause the property under inspection to dominate the runtime, as well as enable all relevant properties to be inspected. For example, while a complex calculation may be non-trivial enough to dominate the runtime in a compute-bound scenario, it does not exercise the memory hierarchy sufficiently to inspect the performance differences of different memory layouts. 
@@ -19,6 +20,7 @@ Regarding the calculation of gravitational pull, the simulation assumes that all
 
 where $r$ is the distance between the planet and the centre, $\hat{d}$ is the unit vector pointing from the planet towards the centre, and $G$ subsumes both the gravitational constant and the (constant) central mass. The planet's velocity and position are then integrated over a fixed time step $\Delta t$.
 
+% ── Architectures ────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Architectures Evaluated}
 \label{sec:benchmarks:architectures}
 Chapter~\ref{sec:background} contrasted \ac{OOP} and \ac{DOP} on the level of paradigms. However, a paradigm itself cannot be benchmarked. Concepts such as
@@ -52,24 +54,51 @@ Enforcing a single representation would distort the comparison in one direction 
 
 The consequence of this decision is that the amount of hot data per planet is not identical across all architectures. Except for Bevy, which carries 32 bytes of position and velocity per planet, all architectures carry 24 bytes. Bevy therefore trades a larger data footprint for the alignment its layout exploits. The payload, in contrast, is identical across all architectures and, when varied, is varied for all four simultaneously. This is relevant insofar as it is one of the parameters varied in Scenarios~2 and~3.
 
+% ── Scenario 1 ───────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Scenario 1: Compute-Bound}
 \label{sec:benchmarks:scenario1}
-\begin{itemize}
-    \item Setup and Update Logic, SIMD
-\end{itemize}
+The first scenario aims to answer the question of how well the compiler can vectorize the update logic and how large the resulting performance difference is, depending on the architectures under inspection. Additionally, the results should show whether the \ac{SoA} memory layout is absolutely required for proper \ac{SIMD} vectorization as has been previously stated in Chapter~\ref{sec:background:dop}. In order to achieve this, this scenario features the entire calculation of gravitational pull (see \ref{sec:benchmarks:simulation}) and sets the payload deliberately to zero. Otherwise, the memory overhead could distort the results and not allow proper conclusions from the measurements.
 
+\paragraph{Parametrization}
+    %\item (2) Was wird parametrisiert, was nicht?
+    %\item (2) Wieso Planetenanzahl? -> Arbeitsumfang steigt ohne Memory Layout änderung
+In this instance, the number of planets is the only variable being parametrized. This way, the amount of calculations that the processor has to solve increases linearly with the memory footprint of a single planet remaining the same. This guarantees that all differences in performance
+
+\paragraph{Update Logic}
+    %\item (3) Gleichung aus 3.1 wird exakt zu code
+    %\item (3) AoS/PC/Bevy arbeiten mit Vektortypen, SoA mit skalarströmen -> gleiches ergebnis, andere datenbewegung
+    %\item (3) PC und AoS haben identischen Rechencode, unterscheiden sich nur im Container
+    %\item (3) Code Snippet des Update Loops von AoS und SoA
+    %\item (3) Alle 4 haben dieselbe Operationsfolge
+
+\paragraph{Bevy Contiguous}
+    %\item (4) iter_mut liefert elemente einzeln, contiguous_iter_mut leifert slices -> ermöglicht erst vektorisierung
+    %\item (4) Nennen dass noch in-dev
+    %\item (4) begründung wieso -> framework overhead nicht künstlich aufblasen, vektorisierung im ecs ermöglichen (ist ja DOP)
+
+\paragraph{Measurements and Verification}
+    %\item (5) Gemessen wird gesamte Iterationsschleife innerhalb der Benchmarkfunktion, Setup/Aufruf leigen außerhalb
+    %\item (5) black_box(DT)
+    %\item (5) \#[no_mangle] und \#[inline(never)] um im assembly besser auffindbar zu sein
+    %\item (5) asm Inspektion des hot loops, prüfung auf gepackte instruktionen und register
+    %\item (5) Compilerflags, sodass AVX2 freigeschaltet werden
+    
+
+% ── Scenario 2 ───────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Scenario 2: Memory-Bound}
 \label{sec:benchmarks:scenario2}
 \begin{itemize}
     \item Setup and Update Logic, Cache Pollution / Memory Wall
 \end{itemize}
 
+% ── Scenario 3 ───────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Scenario 3: Allocation and Deallocation}
 \label{sec:benchmarks:scenario3}
 \begin{itemize}
     \item Setup and Update Logic, Drop vs Reuse
 \end{itemize}
 
+% ── Execution and Configuration ──────────────────────────────────────────────────────────────────────────────────────
 \section{Execution and Configuration}
 \label{sec:benchmarks:execution}
 All architectures and benchmarks are compiled into a single executable located at \texttt{../Benchmarks/target/}. An individual benchmark run is configured almost entirely through \ac{CLI} arguments, with the parsing of the commands being handled by the \texttt{clap} crate \cite{clap}. Table \ref{tab:cli-args} lists the available arguments. 
@@ -105,4 +134,4 @@ A single invocation executes all four architectures in sequence. For every archi
 
 Measurement results are appended to a \ac{CSV} file per architecture and scenario. For example, the above invocation would append the measurements to the files \texttt{bevy.csv, soa.csv, etc.} located at \texttt{../Benchmarks/diagrams/s3/csv/}. Each line contains an entry for the respective architecture, planet count, number of iterations, chunk size, payload size in bytes as well as the elapsed time in nanoseconds. In order to delete the generated \ac{CSV} files, the \texttt{reset} value for the \texttt{benchmark} argument may be used. This acts as a way to create a clean slate and prevent appending measurements to those of previous benchmarks, should the \ac{CSV} files not have been moved yet. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
