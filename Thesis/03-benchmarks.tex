@@ -57,7 +57,7 @@ The consequence of this decision is that the amount of hot data per planet is no
 % ── Scenario 1 ───────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Scenario 1: Compute-Bound}
 \label{sec:benchmarks:scenario1}
-The first scenario aims to answer the question of how well the compiler can vectorize the update logic and how large the resulting performance difference is, depending on the architectures under inspection. Additionally, the results should show whether the \ac{SoA} memory layout is absolutely required for proper \ac{SIMD} vectorization as has been previously stated in Chapter~\ref{sec:background:dop}. In order to achieve this, this scenario features the entire calculation of gravitational pull (see \ref{sec:benchmarks:simulation}) and sets the payload deliberately to zero. Otherwise, the memory overhead could distort the results and not allow proper conclusions from the measurements.
+The first scenario aims to answer the question of how well the compiler can vectorize the update logic and how large the resulting performance difference is, depending on the architectures under inspection. Additionally, the results should show whether a \ac{SoA} layout is a precondition for effective \ac{SIMD} vectorization as has been previously stated in Section~\ref{sec:background:simd}. In order to achieve this, this scenario features the entire calculation of gravitational pull (see Section \ref{sec:benchmarks:simulation}) and sets the payload deliberately to zero. Otherwise, the memory overhead could distort the results and would not allow proper conclusions from the measurements.
 
 \paragraph{Parametrization}
     %\item (2) Was wird parametrisiert, was nicht?
@@ -76,7 +76,7 @@ In this instance, the number of planets is the only variable being parametrized.
     %\item (4) Nennen dass noch in-dev
     %\item (4) begründung wieso -> framework overhead nicht künstlich aufblasen, vektorisierung im ecs ermöglichen (ist ja DOP)
 
-\paragraph{Measurements and Verification}
+\paragraph{Verification}
     %\item (5) Gemessen wird gesamte Iterationsschleife innerhalb der Benchmarkfunktion, Setup/Aufruf leigen außerhalb
     %\item (5) black_box(DT)
     %\item (5) \#[no_mangle] und \#[inline(never)] um im assembly besser auffindbar zu sein
