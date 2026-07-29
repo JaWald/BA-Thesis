@@ -2,14 +2,15 @@
 
 \cleardoubleoddpage
 \chapter{Benchmark Design and Implementation}
-\label{sec:benchmarks}
+\label{ch:benchmarks}
+This chapter describes the benchmarks developed for this thesis. It first introduces the simulation on which all measurements are based, followed by the four architectures under comparison and the three scenarios in which they are measured. The chapter concludes with the configuration and execution of an individual benchmark run.
 
 % ── Simulation ───────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Simulation}
 \label{sec:benchmarks:simulation}
-To properly analyze the differences in performance between \ac{DOP} and \ac{OOP}, the simulation used must be conceptually and mathematically identical across all evaluated architectures. Otherwise, differences in performance cannot be reliably attributed to the effects of adhering to one paradigm or the other, as they could just as likely occur due to inhomogeneous workloads. Thus, all three scenarios will perform calculations and operations on the same core simulation. Additionally, the simulation must provide a workload that is non-trivial enough to cause the property under inspection to dominate the runtime, as well as enable all relevant properties to be inspected. For example, while a complex calculation may be non-trivial enough to dominate the runtime in a compute-bound scenario, it does not exercise the memory hierarchy sufficiently to inspect the performance differences of different memory layouts. 
+To properly analyze the differences in performance between \ac{DOP} and \ac{OOP}, the simulation used must be conceptually and mathematically identical across all evaluated architectures. Otherwise, differences in performance cannot be reliably attributed to the effects of adhering to one paradigm or the other, as they could just as likely occur due to inhomogeneous workloads. Additionally, the simulation must provide a workload that is non-trivial enough to cause the property under inspection to dominate the runtime, while still exercising all properties that are to be inspected. A complex calculation, for example, may dominate the runtime in a compute-bound scenario, yet it does not exercise the memory hierarchy sufficiently to expose the differences between memory layouts.
 
-The benchmark simulation performs gravitational calculations on a certain number of planets. These planets always have the same three conceptual attributes, a (1) 3D position in space, a (2) 3D velocity and (3) a payload that acts as a way to artificially inflate the size of the planet objects. The position and velocity of all planets are randomly generated during the setup phase with a seeded random number generator, while the payload is a known and fixed size at compile time. This design enables all three scenarios to work with the same underlying simulation. In Scenario 1, the gravitational calculation dominates the runtime. In Scenario 2, the payload is changed iteratively to inspect the performance differences in memory layouts. Lastly, in Scenario 3, an arbitrary number of planets can be generated, allocated and then deallocated to simulate a particle system.
+The benchmark simulation performs gravitational calculations on a certain number of planets. These planets always have the same three conceptual attributes, a (1) 3D position in space, a (2) 3D velocity and (3) a payload that acts as a way to artificially inflate the size of the planet objects. The position and velocity of all planets are randomly generated during the setup phase with a seeded random number generator, while the payload is a fixed size at compile time. This design enables all three scenarios to operate on the same underlying simulation, with each of them varying a different parameter of it.
 
 Regarding the calculation of gravitational pull, the simulation assumes that all planets are accelerated towards a central body of a large fixed mass (e.g. a black hole). Due to the planets being accelerated towards this central mass, the acceleration of a planet depends only on its position relative to that mass, not on its own mass: by Newton's second law the planet's mass cancels out. The mass of the central body is constant and is folded into the gravitational constant. The acceleration therefore simplifies to
 
@@ -18,7 +19,7 @@ Regarding the calculation of gravitational pull, the simulation assumes that all
     \label{eq:gravity}
 \end{equation}
 
-where $r$ is the distance between the planet and the centre, $\hat{d}$ is the unit vector pointing from the planet towards the centre, and $G$ subsumes both the gravitational constant and the (constant) central mass. The planet's velocity and position are then integrated over a fixed time step $\Delta t$.
+where $r$ is the distance between the planet and the center, $\hat{d}$ is the unit vector pointing from the planet towards the center, and $G$ subsumes both the gravitational constant and the (constant) central mass. The planet's velocity and position are then integrated over a fixed time step $\Delta t$.
 
 % ── Architectures ────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Architectures Evaluated}
@@ -27,28 +28,30 @@ Chapter~\ref{sec:background} contrasted \ac{OOP} and \ac{DOP} on the level of pa
 encapsulation or a data-oriented mindset leave no direct trace in hardware. What does reach the hardware is the resulting arrangement of data in memory and the
 pattern in which that data is accessed, which can then be measured. Thus, the comparison is reduced to representative implementations that differ precisely in these two properties. Since the simulated workload itself is identical across all of them (Section~\ref{sec:benchmarks:simulation}), any measured difference can be attributed to the layout rather than to the workload. In total, four architectures are evaluated, two of which represent \ac{OOP} and two of which represent \ac{DOP} design principles. They are arranged so that each of them differs from the preceding one in primarily one property, spanning a range from maximum indirection to maximum contiguity.
 
-\paragraph{\ac{PC}}
+\paragraph{(1) \ac{PC}}
 The \ac{PC} architecture stores planets as \texttt{Vec<Box<PlanetAoS>{}>}. Every planet is allocated individually on the heap, with the vector solely holding the pointers to said planets. In Rust, this indirection is provided by \texttt{Box<T>}, where the content of the box lives on the heap and the box itself is a pointer of known size referring to the content \cite{klabnik2023rust}. This architecture represents the reference semantics of common object-oriented languages such as Java or C\#, where objects are allocated individually and accessed through references.
 
-Since caches exploit spatial locality \cite{drepper2007every}, this layout is the least favorable one under inspection, as traversing the collection means following a pointer per element instead of having the data be laid out in a contiguous manner. This traversal pattern is commonly referred to as pointer chasing, and Drepper employs it in the same form, as a randomly ordered linked structure, to demonstrate the limits of hardware prefetching \cite{drepper2007every}. However, when objects are created within a single uninterrupted loop, a general-purpose allocator may place them in near-contiguous memory, in which case the indirection under inspection would not actually occur. To combat this, the vector is shuffled once after setup. This is also the more faithful representation of a long-living \ac{OOP} application, whose heap has become fragmented over time. Without it, the architecture would degenerate into the \ac{AoS} architecture described below and likely understate the performance differences.
+Since caches exploit spatial locality \cite{drepper2007every}, this layout is the least favorable one under inspection, as traversing the collection means following a pointer per element instead of having the data be laid out in a contiguous manner. This traversal pattern is commonly referred to as pointer chasing with Drepper using it to demonstrate the limits of hardware prefetching \cite{drepper2007every}. However, when objects are created within a single uninterrupted loop, a general-purpose allocator may place them in near-contiguous memory, in which case the architecture would degenerate into the \ac{AoS} architecture described below. To prevent this, the vector is shuffled once after setup, which also more faithfully represents a long-living \ac{OOP} application whose heap has become fragmented over time.
 
-\paragraph{Array of Structures (AoS)}
+\paragraph{(2) Array of Structures (AoS)}
 The \ac{AoS} architecture stores the identical \texttt{PlanetAoS} struct in a \texttt{Vec<PlanetAoS>}, i.e. without any indirection. The planets are laid out contiguously within the vector, whereas the fields of a single planet remain interleaved: position, velocity and payload of one planet are stored adjacently, followed by the fields of the next planet.
 
 This architecture therefore represents the best case an object-oriented layout can achieve. The indirection present in the \ac{PC} architecture is removed while retaining the conceptual properties of an object, namely that all of its data is kept together. As the \ac{AoS} and \ac{PC} architectures share the exact same \texttt{PlanetAoS} struct and differ solely in the presence of a \texttt{Box<T>}, any measured difference may be directly attributed to the indirection alone.
 
-\paragraph{Structure of Arrays (SoA)}
+\paragraph{(3) Structure of Arrays (SoA)}
 The \ac{SoA} architecture, in contrast to the previous two, adheres to \ac{DOP} principles. Instead of one vector holding whole planets, one vector is created per individual field. This results in three vectors for the x, y and z coordinates of a planet's position and in an additional three vectors for the x, y and z values of a planet's velocity. Together with a seventh vector holding the payloads, a planet is thus no longer a singular entity with inhomogeneous data, but an index shared across seven homogeneous vectors.
 
 This is the layout as described in Section~\ref{sec:background:dop} and represents the data-oriented ideal. It is implemented manually without any framework, so that it forms a lower bound. Any performance costs incurred by abstraction built on top of a \ac{SoA} layout are measured in relation to this baseline. However, manually managing and synchronizing seven parallel vectors is error-prone and cumbersome and does not reflect how data-oriented code is written in practice.
 
-\paragraph{Bevy ECS}
+\paragraph{(4) Bevy ECS}
 The Bevy architecture therefore represents the same idea as the \ac{SoA} architecture, but implemented with an ECS framework. Bevy groups entities (in this case planets) by archetypes, i.e. by their exact set of components \cite{redmond2025ecs}, and stores the components of an archetype in contiguous, per-component storages \cite{bevy_storage}. Since all planets in this simulation possess an identical combination of components (\texttt{Position}, \texttt{Velocity}, \texttt{Payload}), they occupy the same archetype and the resulting storage pattern is thus conceptually equivalent to that of the \ac{SoA} architecture.
 
-The difference to the \ac{SoA} architecture is therefore not the way the data is stored, but the surrounding abstraction required to make such a data-oriented layout maintainable. This includes entity identifiers, archetype metadata and especially the query mechanism through which components are accessed. Ultimately, Bevy represents \ac{DOP} as it is realistically adopted and the comparison with the \ac{SoA} architecture quantifies how much that convenience costs.
+The difference to the \ac{SoA} architecture is therefore not the way the data is stored, but the surrounding abstraction required to make such a data-oriented layout maintainable. This includes entity identifiers, archetype metadata and especially the query mechanism through which components are accessed. The idiomatic query iterator yields only the components of one entity at a time, which could hinder vectorization. Thus, the decision was made to use \texttt{contiguous\_iter\_mut} instead of the traditional \texttt{iter\_mut}, as this function returns slices containing homogeneous blocks of components on which the compiler may perform vectorization. This function is not part of a released version of the engine at the time of writing and is therefore taken from an in-development build (see Section~\ref{sec:evaluation:methodology}).
+
+Therefore, Bevy represents \ac{DOP} as it is realistically adopted and the comparison with the \ac{SoA} architecture quantifies how much that convenience costs.
 
 \paragraph{Vector Types and Comparability}
-The architectures do not only differ in memory layout, but also in their representation of position and velocity. While \ac{PC} and \ac{AoS} store them as \texttt{Vec3}, i.e. three consecutive \texttt{f32} values, the \ac{SoA} architecture stores the individual coordinates in separate vectors of \texttt{f32}. The Bevy architecture uses \texttt{Vec3A}, which extends the three \texttt{f32} values by four bytes of padding and is aligned to a 16-byte boundary \cite{glam_vec3a}. A single position or velocity value therefore occupies 16 bytes instead of the 12 bytes occupied by the three coordinates in the remaining architectures. This is a deliberate decision, as each architecture uses the representation that is idiomatic for it. The measurements thus reflect the performance of code as it would be written in practice, instead of code that has been homogenized for the sake of uniformity.
+These four architectures do not only differ in memory layout, but also in their representation of position and velocity. While \ac{PC} and \ac{AoS} store them as \texttt{Vec3}, i.e. three consecutive \texttt{f32} values, the \ac{SoA} architecture stores the individual coordinates in separate vectors of \texttt{f32}. The Bevy architecture uses \texttt{Vec3A}, which extends the three \texttt{f32} values by four bytes of padding and is aligned to a 16-byte boundary \cite{glam_vec3a}. A single position or velocity value therefore occupies 16 bytes instead of the 12 bytes occupied by the three coordinates in the remaining architectures. This is a deliberate decision, as each architecture uses the representation that is idiomatic for it. The measurements thus reflect the performance of code as it would be written in practice, instead of code that has been homogenized for the sake of uniformity.
 
 Enforcing a single representation would distort the comparison in one direction or the other. Forcing Bevy to use \texttt{Vec3} would deny it the aligned accesses that vectorized instructions rely on, since 16-byte memory accesses are expected to be 16-byte aligned and the instruction variants handling unaligned accesses are slower \cite{drepper2007every}. Conversely, using \texttt{Vec3A} throughout would add padding to the object-oriented structs and thereby inflate the size of the very objects whose size is under inspection.
 
@@ -60,28 +63,75 @@ The consequence of this decision is that the amount of hot data per planet is no
 The first scenario aims to answer the question of how well the compiler can vectorize the update logic and how large the resulting performance difference is, depending on the architectures under inspection. Additionally, the results should show whether a \ac{SoA} layout is a precondition for effective \ac{SIMD} vectorization as has been previously stated in Section~\ref{sec:background:simd}. In order to achieve this, this scenario features the entire calculation of gravitational pull (see Section \ref{sec:benchmarks:simulation}) and sets the payload deliberately to zero. Otherwise, the memory overhead could distort the results and would not allow proper conclusions from the measurements.
 
 \paragraph{Parametrization}
-    %\item (2) Was wird parametrisiert, was nicht?
-    %\item (2) Wieso Planetenanzahl? -> Arbeitsumfang steigt ohne Memory Layout änderung
-In this instance, the number of planets is the only variable being parametrized. This way, the amount of calculations that the processor has to solve increases linearly with the memory footprint of a single planet remaining the same. This guarantees that all differences in performance
+In this scenario, the number of planets is the only parameter being varied. It is swept from \num{1} planet up to \num{100000}, while the payload remains fixed at zero bytes and the number of warmup and measurement iterations as well as samples per invocation remain constant. Varying solely the planet count enables one to isolate the performance impact of scaling the arithmetic workload linearly, as the memory layout and footprint of a single planet remain identical throughout the sweep. Any difference between the architectures can therefore be attributed to how efficiently each of them executes the same arithmetic. Lastly, the sweep is performed in fine-grained steps rather than in orders of magnitude. This is deliberate, as this approach causes threshold effects to remain visible instead of being averaged away between two distant measurements.
 
 \paragraph{Update Logic}
-    %\item (3) Gleichung aus 3.1 wird exakt zu code
-    %\item (3) AoS/PC/Bevy arbeiten mit Vektortypen, SoA mit skalarströmen -> gleiches ergebnis, andere datenbewegung
-    %\item (3) PC und AoS haben identischen Rechencode, unterscheiden sich nur im Container
-    %\item (3) Code Snippet des Update Loops von AoS und SoA
-    %\item (3) Alle 4 haben dieselbe Operationsfolge
+Equation~\ref{eq:gravity} is translated directly into code. For every planet, the direction vector towards the center is obtained by negating the planet's position, from which the squared distance follows. The acceleration is then applied along the normalized direction. Lastly, velocity and position are updated over the fixed time step \texttt{dt}. Listing~\ref{lst:s1aos} shows the hot loop body being measured for the \ac{AoS} and \ac{PC} architectures. The sole difference between the two is the usage of \texttt{Box<T>} in the \ac{PC} architecture, which enables the isolation of the effect of the usage of pointers versus direct memory access. 
 
-\paragraph{Bevy Contiguous}
-    %\item (4) iter_mut liefert elemente einzeln, contiguous_iter_mut leifert slices -> ermöglicht erst vektorisierung
-    %\item (4) Nennen dass noch in-dev
-    %\item (4) begründung wieso -> framework overhead nicht künstlich aufblasen, vektorisierung im ecs ermöglichen (ist ja DOP)
+\begin{lstlisting}[language=C++, caption={Update loop of the AoS and PC architectures}, label={lst:s1aos}]
+for planet in planets.iter_mut() {
+    // calculates acceleration
+    let direction = -planet.position;
+    let r_squared = direction.length_squared();
+    let a_scalar = G / r_squared;
+    let a = a_scalar * direction.normalize();
+
+    // updates velocity and position
+    planet.velocity += a * dt;
+    planet.position += planet.velocity * dt;
+}
+\end{lstlisting}
+
+While there is a data dependency between the velocity and position of a planet, i.e. the velocity must be written before position can read it, it is not in the way of vectorization as it is contained within a planet. Whether \ac{SIMD} vectorization occurs therefore depends on the respective memory layout. 
+
+\clearpage
+\begin{lstlisting}[language=C++, caption={Update loop of the SoA architecture}, label={lst:s1soa}]
+for i in 0..planets.positions_x.len() {
+    let px = planets.positions_x[i];
+    let py = planets.positions_y[i];
+    let pz = planets.positions_z[i];
+    // calculates acceleration
+    let r_sq = px * px + py * py + pz * pz;
+    let r_recip = 1.0 / r_sq.sqrt();
+    let a_scalar = G / r_sq;
+    let nx = -px * r_recip;
+    let ny = -py * r_recip;
+    let nz = -pz * r_recip;
+    // updates velocity and position
+    planets.velocities_x[i] += nx * a_scalar * dt;
+    planets.velocities_y[i] += ny * a_scalar * dt;
+    planets.velocities_z[i] += nz * a_scalar * dt;
+    planets.positions_x[i] += planets.velocities_x[i] * dt;
+    planets.positions_y[i] += planets.velocities_y[i] * dt;
+    planets.positions_z[i] += planets.velocities_z[i] * dt;
+}
+\end{lstlisting}
+
+The \ac{SoA} implementation performs the same computation, but on six of the seven vectors introduced in Section~\ref{sec:benchmarks:architectures}, as the payload remains untouched. The difference to \ac{AoS} and \ac{PC} is therefore not what is computed, but which values lie next to one another while it is computed. There, the three coordinates of a single vector are adjacent and consecutive planets are separated by the stride of the entire struct. Here, it is the x, y and z values of consecutive planets that are adjacent and thus form homogeneous data streams that can be vectorized, at the cost of a markedly higher code complexity. To keep the arithmetic identical across architectures, \texttt{normalize()} is mirrored through \texttt{r\_recip}, as it is internally implemented as a multiplication by the reciprocal of the length rather than as three separate divisions.
+
+\begin{lstlisting}[language=C++, caption={Update loop of the Bevy architecture with contiguous component slices}, label={lst:s1bevy}]
+for (mut pos_slice, mut vel_slice) in query.contiguous_iter_mut(&mut world).unwrap() {
+    for (pos, vel) in pos_slice.iter_mut().zip(vel_slice.iter_mut()) {
+        // calculates acceleration
+        let direction = -pos.0;
+        let r_squared = direction.length_squared();
+        let a_scalar = G / r_squared;
+        let a = a_scalar * direction.normalize();
+        // updates velocity and position
+        vel.0 += a * dt;
+        pos.0 += vel.0 * dt;
+    }
+}
+\end{lstlisting}
+
+Finally, the Bevy architecture performs the same arithmetic and differs only in how the components are reached. As described in Section~\ref{sec:benchmarks:architectures}, \texttt{contiguous\_iter\_mut} yields slices rather than individual entities, over which the inner loop then iterates directly. Here, the trade-off again is between performance and code-complexity. Unlike the \ac{SoA} architecture however, Bevy may occupy what could best be called a middle ground.
 
 \paragraph{Verification}
-    %\item (5) Gemessen wird gesamte Iterationsschleife innerhalb der Benchmarkfunktion, Setup/Aufruf leigen außerhalb
-    %\item (5) black_box(DT)
-    %\item (5) \#[no_mangle] und \#[inline(never)] um im assembly besser auffindbar zu sein
-    %\item (5) asm Inspektion des hot loops, prüfung auf gepackte instruktionen und register
-    %\item (5) Compilerflags, sodass AVX2 freigeschaltet werden
+    %\item (4) Gemessen wird gesamte Iterationsschleife innerhalb der Benchmarkfunktion, Setup/Aufruf leigen außerhalb
+    %\item (4) black_box(DT)
+    %\item (4) \#[no_mangle] und \#[inline(never)] um im assembly besser auffindbar zu sein
+    %\item (4) asm Inspektion des hot loops, prüfung auf gepackte instruktionen und register
+    %\item (4) Compilerflags, sodass AVX2 freigeschaltet werden
     
 
 % ── Scenario 2 ───────────────────────────────────────────────────────────────────────────────────────────────────────

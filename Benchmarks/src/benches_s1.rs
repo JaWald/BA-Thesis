@@ -12,7 +12,8 @@ pub fn bench_s1_pc(iterations: usize, planets: &mut Vec<Box<PlanetAoS>>, dt: f32
             let direction = -planet.position;
             let r_squared = direction.length_squared();
             let a_scalar = G / r_squared;
-            let a = direction.normalize() * a_scalar;
+            let a = a_scalar * direction.normalize();
+
             planet.velocity += a * dt;
             planet.position += planet.velocity * dt;
         }
@@ -29,7 +30,8 @@ pub fn bench_s1_aos(iterations: usize, planets: &mut Vec<PlanetAoS>, dt: f32) ->
             let direction = -planet.position;
             let r_squared = direction.length_squared();
             let a_scalar = G / r_squared;
-            let a = direction.normalize() * a_scalar;
+            let a = a_scalar * direction.normalize();
+
             planet.velocity += a * dt;
             planet.position += planet.velocity * dt;
         }
@@ -48,10 +50,9 @@ pub fn bench_s1_soa(iterations: usize, planets: &mut PlanetsSoA, dt: f32) -> u12
             let pz = planets.positions_z[i];
 
             let r_sq = px * px + py * py + pz * pz;
-            let r = r_sq.sqrt();
+            let r_recip = 1.0 / r_sq.sqrt();
             let a_scalar = G / r_sq;
 
-            let r_recip = 1.0 / r;
             let nx = -px * r_recip;
             let ny = -py * r_recip;
             let nz = -pz * r_recip;
@@ -97,7 +98,8 @@ pub fn bench_s1_bevy(
                 let direction = -pos.0;
                 let r_squared = direction.length_squared();
                 let a_scalar = G / r_squared;
-                let a = direction.normalize() * a_scalar;
+                let a = a_scalar * direction.normalize();
+
                 vel.0 += a * dt;
                 pos.0 += vel.0 * dt;
             }
