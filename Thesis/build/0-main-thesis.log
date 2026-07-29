@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.10)  29 JUL 2026 10:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.10)  29 JUL 2026 14:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1619,10 +1619,11 @@ LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
 
 ]
 Package acronym Info: Label `acro:CLI' newly defined as it shall be overridden
-although it is yet undefined on input line 154.
+although it is yet undefined on input line 153.
+ [11]
 Package acronym Info: Label `acro:CSV' newly defined as it shall be overridden
-although it is yet undefined on input line 185.
- [11]) (././04-evaluation.tex [12]
+although it is yet undefined on input line 184.
+) (././04-evaluation.tex [12]
 chapter 4.
 ) (././05-relatedwork.tex [13
 
@@ -1704,18 +1705,18 @@ Package logreq Info: Writing requests to '0-main-thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 57058 strings out of 467525
- 1267908 string characters out of 5423209
- 2503817 words of memory out of 5000000
- 85033 multiletter control sequences out of 15000+600000
+ 57066 strings out of 467525
+ 1268218 string characters out of 5423209
+ 2504934 words of memory out of 5000000
+ 85039 multiletter control sequences out of 15000+600000
  666786 words of font info for 91 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,26n,121p,11240b,3648s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on build/0-main-thesis.pdf (24 pages, 347488 bytes).
+Output written on build/0-main-thesis.pdf (24 pages, 348931 bytes).
 PDF statistics:
- 689 PDF objects out of 1000 (max. 8388607)
- 611 compressed objects within 7 object streams
- 153 named destinations out of 1000 (max. 500000)
+ 699 PDF objects out of 1000 (max. 8388607)
+ 621 compressed objects within 7 object streams
+ 155 named destinations out of 1000 (max. 500000)
  321 words of extra memory for PDF output out of 10000 (max. 10000000)
 

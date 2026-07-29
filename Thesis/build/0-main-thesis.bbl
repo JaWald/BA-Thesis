@@ -343,6 +343,41 @@
       \field{title}{Computer Architecture: {A} Quantitative Approach}
       \field{year}{2011}
     \endentry
+    \entry{ida_free}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=e799a105c0d991e884ccd680da0481b8}{%
+           family={{Hex-Rays SA}},
+           familyi={H\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Hex-Rays}%
+      }
+      \strng{namehash}{e799a105c0d991e884ccd680da0481b8}
+      \strng{fullhash}{e799a105c0d991e884ccd680da0481b8}
+      \strng{fullhashraw}{e799a105c0d991e884ccd680da0481b8}
+      \strng{bibnamehash}{e799a105c0d991e884ccd680da0481b8}
+      \strng{authorbibnamehash}{e799a105c0d991e884ccd680da0481b8}
+      \strng{authornamehash}{e799a105c0d991e884ccd680da0481b8}
+      \strng{authorfullhash}{e799a105c0d991e884ccd680da0481b8}
+      \strng{authorfullhashraw}{e799a105c0d991e884ccd680da0481b8}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Version 9.4}
+      \field{title}{IDA Free}
+      \field{urlday}{29}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://hex-rays.com/ida-free
+      \endverb
+      \verb{url}
+      \verb https://hex-rays.com/ida-free
+      \endverb
+    \endentry
     \entry{klabnik2023rust}{book}{}{}
       \name{author}{2}{}{%
         {{hash=a41f7649d631481ec7b8c9984f13ca74}{%
@@ -424,6 +459,40 @@
       \endverb
       \verb{url}
       \verb https://docs.rs/clap/4.6.0/clap/
+      \endverb
+    \endentry
+    \entry{cargo_show_asm}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=247484cf069860fecf93005d1a66d96a}{%
+           family={pacac},
+           familyi={p\bibinitperiod},
+           given={{cargo-show-asm Contributors}},
+           giveni={c\bibinitperiod}}}%
+      }
+      \strng{namehash}{247484cf069860fecf93005d1a66d96a}
+      \strng{fullhash}{247484cf069860fecf93005d1a66d96a}
+      \strng{fullhashraw}{247484cf069860fecf93005d1a66d96a}
+      \strng{bibnamehash}{247484cf069860fecf93005d1a66d96a}
+      \strng{authorbibnamehash}{247484cf069860fecf93005d1a66d96a}
+      \strng{authornamehash}{247484cf069860fecf93005d1a66d96a}
+      \strng{authorfullhash}{247484cf069860fecf93005d1a66d96a}
+      \strng{authorfullhashraw}{247484cf069860fecf93005d1a66d96a}
+      \field{sortinit}{p}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Version 0.2.57}
+      \field{title}{\texttt{cargo-show-asm} --- Display Assembly Generated for Rust Source Code}
+      \field{urlday}{29}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://docs.rs/cargo-show-asm/0.2.57
+      \endverb
+      \verb{url}
+      \verb https://docs.rs/cargo-show-asm/0.2.57
       \endverb
     \endentry
     \entry{pennycook2013investigation}{article}{}{}
