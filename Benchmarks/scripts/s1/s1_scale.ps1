@@ -1,7 +1,7 @@
 Set-Location "$PSScriptRoot/../.."
 
 "pub const PAYLOAD_SIZE: usize = 0;" | Out-File -FilePath "src/payload.rs" -Encoding utf8
-for($i = 5; $i -le 100000; $i += 500) {
+for($i = 1; $i -le 100001; $i += 2000) {
     Write-Host ">>> Starting benchmark with: $i Planets" -ForegroundColor Yellow
 
     $env:RUSTFLAGS="-C target-cpu=native"

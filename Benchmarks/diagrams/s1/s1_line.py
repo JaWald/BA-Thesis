@@ -17,7 +17,7 @@ for label, file in files.items():
     dataframes.append(temp_df)
 
 start = 0
-stop = 20000
+stop = 100000
 
 df = pd.concat(dataframes, ignore_index=True)
 
@@ -40,7 +40,7 @@ ax = sns.lineplot(
 
 plt.title('Scenario 1: Compute Bound', fontsize=15)
 plt.xlabel('Planet Count', fontsize=12)
-plt.xticks(np.arange(start-start, stop-start + 1, 2000))
+plt.xticks(np.arange(start-start, stop-start + 1, 10000))
 plt.ylabel('Average Time per Iteration [µs]', fontsize=12)
 
 plt.legend(title='Architecture')

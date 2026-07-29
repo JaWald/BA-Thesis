@@ -13,33 +13,33 @@
 \contentsline {section}{\numberline {2.3}Data-Level Parallelism via SIMD}{3}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Entity Component Systems}{4}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Rust and Bevy engine}{4}{section.2.5}%
+\contentsline {paragraph}{\nonumberline Slices}{4}{paragraph*.12}%
 \contentsline {chapter}{\numberline {3}Benchmark Design and Implementation}{6}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Simulation}{6}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Architectures Evaluated}{7}{section.3.2}%
-\contentsline {paragraph}{\nonumberline \ac {PC}}{7}{paragraph*.12}%
-\contentsline {paragraph}{\nonumberline Array of Structures (AoS)}{7}{paragraph*.14}%
-\contentsline {paragraph}{\nonumberline Structure of Arrays (SoA)}{7}{paragraph*.15}%
-\contentsline {paragraph}{\nonumberline Bevy ECS}{8}{paragraph*.16}%
-\contentsline {paragraph}{\nonumberline Vector Types and Comparability}{8}{paragraph*.17}%
+\contentsline {paragraph}{\nonumberline (1) \ac {PC}}{7}{paragraph*.13}%
+\contentsline {paragraph}{\nonumberline (2) Array of Structures (AoS)}{7}{paragraph*.15}%
+\contentsline {paragraph}{\nonumberline (3) Structure of Arrays (SoA)}{7}{paragraph*.16}%
+\contentsline {paragraph}{\nonumberline (4) Bevy ECS}{8}{paragraph*.17}%
+\contentsline {paragraph}{\nonumberline Vector Types and Comparability}{8}{paragraph*.18}%
 \contentsline {section}{\numberline {3.3}Scenario 1: Compute-Bound}{9}{section.3.3}%
-\contentsline {paragraph}{\nonumberline Parametrization}{9}{paragraph*.18}%
-\contentsline {paragraph}{\nonumberline Update Logic}{9}{paragraph*.19}%
-\contentsline {paragraph}{\nonumberline Bevy Contiguous}{9}{paragraph*.20}%
-\contentsline {paragraph}{\nonumberline Verification}{9}{paragraph*.21}%
-\contentsline {section}{\numberline {3.4}Scenario 2: Memory-Bound}{9}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Scenario 3: Allocation and Deallocation}{9}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Execution and Configuration}{9}{section.3.6}%
-\contentsline {chapter}{\numberline {4}Evaluation}{11}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Methodology}{11}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Scenario 1: Compute-Bound}{11}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Scenario 2: Memory-Bound}{11}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Scenario 3: Allocation and Deallocation}{11}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Discussion}{11}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Limitations}{11}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Related Work}{12}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Future Work}{13}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Conclusion}{14}{chapter.7}%
-\contentsline {chapter}{\nonumberline Bibliography}{15}{chapter*.24}%
-\contentsline {chapter}{\nonumberline List of Figures}{17}{chapter*.25}%
-\contentsline {chapter}{\nonumberline List of Acronyms}{18}{chapter*.26}%
+\contentsline {paragraph}{\nonumberline Parametrization}{9}{paragraph*.19}%
+\contentsline {paragraph}{\nonumberline Update Logic}{9}{paragraph*.20}%
+\contentsline {paragraph}{\nonumberline Verification}{11}{paragraph*.21}%
+\contentsline {section}{\numberline {3.4}Scenario 2: Memory-Bound}{11}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Scenario 3: Allocation and Deallocation}{11}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Execution and Configuration}{11}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Evaluation}{13}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Methodology}{13}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Scenario 1: Compute-Bound}{13}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Scenario 2: Memory-Bound}{13}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Scenario 3: Allocation and Deallocation}{13}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Discussion}{13}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Limitations}{13}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Related Work}{14}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Future Work}{15}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Conclusion}{16}{chapter.7}%
+\contentsline {chapter}{\nonumberline Bibliography}{17}{chapter*.24}%
+\contentsline {chapter}{\nonumberline List of Figures}{19}{chapter*.25}%
+\contentsline {chapter}{\nonumberline List of Acronyms}{20}{chapter*.26}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
