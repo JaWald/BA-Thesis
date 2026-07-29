@@ -32,13 +32,13 @@ pub fn save_iteration_times(
         .expect("unable to open file");
 
     if !file_exists {
-        writeln!(file, "architecture,planets,iterations,chunk,payload,time_ns").unwrap();
+        writeln!(file, "architecture,planets,iterations,chunk,reuse,payload,time_ns").unwrap();
     }
 
     writeln!(
         file,
-        "{},{},{},{},{},{}",
-        architecture, args.planet_count, args.iterations, args.chunk_size, payload, time
+        "{},{},{},{},{},{},{}",
+        architecture, args.planet_count, args.iterations, args.chunk_size, args.reuse, payload, time
     ).unwrap();
 }
 

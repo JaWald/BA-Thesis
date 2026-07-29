@@ -17,9 +17,9 @@ Struktur:
 [ ] S3:   Heatmap
 [ ] Alle: Feine Daten mit möglichst perfektem Environment
 [ ] Chapter: Implementation und Design FERTIG
-   [ ] 3.1 Architectures Evaluated
-   [ ] 3.2 Simulation
-   [ ] 3.3 Scenario 1: Compute-Bound
+   [X] 3.1 Simulation
+   [X] 3.2 Architectures Evaluated
+   [X] 3.3 Scenario 1: Compute-Bound
    [ ] 3.4 Scenario 2: Memory-Bound
    [ ] 3.5 Scenario 3: Allocation and Deallocation
    [X] 3.6 Execution and Configuration
