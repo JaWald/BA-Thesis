@@ -2422,7 +2422,9 @@
     <bcf:citekey order="26" intorder="1">bevy_storage</bcf:citekey>
     <bcf:citekey order="27" intorder="1">glam_vec3a</bcf:citekey>
     <bcf:citekey order="28" intorder="1">drepper2007every</bcf:citekey>
-    <bcf:citekey order="29" intorder="1">clap</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">cargo_show_asm</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">ida_free</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">clap</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
