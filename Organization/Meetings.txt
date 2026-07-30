@@ -9,22 +9,20 @@ S3: heatmap mit payload/chunk variation
     frequency locken (cpupower tool, kann sein dass ned funktioniert, verifizieren)
     core pinnen
 
-Struktur:
-  - chache zeug in background
-
+S3: AoS/SoA: Vermutlich weil SoA den Payload direkt in einem Satz in den Payload Vector kopieren kann, während AoS wegen der Fragmentierung hier ineffizienzen hat, muss asm dafür checken
 
 [ ] S3:   Payload Szenario mit Drop: Wieso ist AoS so viel langsamer als SoA?
-[ ] S3:   Heatmap
-[ ] Alle: Feine Daten mit möglichst perfektem Environment
-[ ] Chapter: Implementation und Design FERTIG
+[~] S3:   Heatmap
+[~] Alle: Feine Daten mit möglichst perfektem Environment
+[X] Chapter: Implementation und Design FERTIG
    [X] 3.1 Simulation
    [X] 3.2 Architectures Evaluated
    [X] 3.3 Scenario 1: Compute-Bound
-   [ ] 3.4 Scenario 2: Memory-Bound
-   [ ] 3.5 Scenario 3: Allocation and Deallocation
+   [X] 3.4 Scenario 2: Memory-Bound
+   [X] 3.5 Scenario 3: Allocation and Deallocation
    [X] 3.6 Execution and Configuration
 [ ] Chapter: Evaluation/Results angefangen
-[ ] Generell: Erste schöne Diagramme fertig
+[~] Generell: Erste schöne Diagramme fertig
 
 ---------------------------------------------------------------------------
 |				10. MEETING				  |
