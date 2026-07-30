@@ -28,6 +28,7 @@ In \Cref{fig:aos_vs_soa}, both memory layouts are compared. On the conceptual le
 This is due to CPU caches exploiting a principle called spatial locality. Drepper argues \cite{drepper2007every} that since neighboring data is likely to be used together, it should be loaded into the cache together. This is what the entire idea of \ac{SoA} is based upon. If one wants to perform a read or write operation on only the \texttt{name} of these 1000 \texttt{Person} instances, the CPU can load much more relevant data than with the \ac{AoS} layout, as the cache is not clogged by the irrelevant \texttt{weight} and \texttt{hairColor} data. Thus, while the \ac{SoA} layout might appear confusing to programmers used to the \ac{AoS} layout, it is necessary in order to properly achieve the performance gains granted by \ac{SIMD} vectorization.
 
 \section{Caching and CPU-Architecture}
+\label{sec:background:cache}
 
 \section{Data-Level Parallelism via SIMD}
 \label{sec:background:simd}
