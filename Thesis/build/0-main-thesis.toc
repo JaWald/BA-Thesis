@@ -27,19 +27,25 @@
 \contentsline {paragraph}{\nonumberline Update Logic}{9}{paragraph*.20}%
 \contentsline {paragraph}{\nonumberline Verification}{11}{paragraph*.21}%
 \contentsline {section}{\numberline {3.4}Scenario 2: Memory-Bound}{11}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Scenario 3: Allocation and Deallocation}{11}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Execution and Configuration}{11}{section.3.6}%
-\contentsline {chapter}{\numberline {4}Evaluation}{13}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Methodology}{13}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Scenario 1: Compute-Bound}{13}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Scenario 2: Memory-Bound}{13}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Scenario 3: Allocation and Deallocation}{13}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Discussion}{13}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Limitations}{13}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Related Work}{14}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Future Work}{15}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Conclusion}{16}{chapter.7}%
-\contentsline {chapter}{\nonumberline Bibliography}{17}{chapter*.24}%
-\contentsline {chapter}{\nonumberline List of Figures}{19}{chapter*.25}%
-\contentsline {chapter}{\nonumberline List of Acronyms}{20}{chapter*.26}%
+\contentsline {paragraph}{\nonumberline Parametrization}{11}{paragraph*.22}%
+\contentsline {paragraph}{\nonumberline Update Logic}{11}{paragraph*.23}%
+\contentsline {paragraph}{\nonumberline Verification}{12}{paragraph*.24}%
+\contentsline {section}{\numberline {3.5}Scenario 3: Allocation and Deallocation}{13}{section.3.5}%
+\contentsline {paragraph}{\nonumberline Parametrization}{13}{paragraph*.25}%
+\contentsline {paragraph}{\nonumberline Update Logic}{13}{paragraph*.26}%
+\contentsline {paragraph}{\nonumberline Verification}{14}{paragraph*.27}%
+\contentsline {section}{\numberline {3.6}Execution and Configuration}{14}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Evaluation}{16}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Methodology}{16}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Scenario 1: Compute-Bound}{16}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Scenario 2: Memory-Bound}{16}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Scenario 3: Allocation and Deallocation}{16}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Discussion}{16}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Limitations}{16}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Related Work}{17}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Future Work}{18}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Conclusion}{19}{chapter.7}%
+\contentsline {chapter}{\nonumberline Bibliography}{20}{chapter*.30}%
+\contentsline {chapter}{\nonumberline List of Figures}{22}{chapter*.31}%
+\contentsline {chapter}{\nonumberline List of Acronyms}{23}{chapter*.32}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

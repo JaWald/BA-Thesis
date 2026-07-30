@@ -132,16 +132,70 @@ While substantially better performance of the \ac{DOP}-based architectures would
 % ── Scenario 2 ───────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Scenario 2: Memory-Bound}
 \label{sec:benchmarks:scenario2}
-\begin{itemize}
-    \item Setup and Update Logic, Cache Pollution / Memory Wall
-\end{itemize}
+As has been established in Section~\ref{sec:background:dop}, cache pollution is the phenomenon when an object's data fills the CPU cache with data that is not relevant to the operation. In this scenario, this additional yet irrelevant data is simulated by the payload field of the planet structs, which is never read and serves solely to increase the size of a planet. The goal is to measure how strongly this unused data affects execution time, and from which object size onwards it begins to do so. As the intent is to have this scenario memory-bound, the calculation of gravitational pull is reduced to the update of a planet's position based on its current velocity, so as not to distort the results of benchmark runs with little payload. Conceptually, the planets do not rotate around a large mass anymore but wander through space in straight lines. Scenario 1 and Scenario 2 are thus complementary: the former minimizes the payload to measure the arithmetic, while the latter minimizes the arithmetic to measure the memory footprint's impact. 
 
+\paragraph{Parametrization}
+In contrast to Scenario 1, the planet count remains fixed at \num{10000}, while the payload is the only parameter being varied, sweeping from \num{0} bytes up to \num{20000} bytes in steps of 2 bytes. The number of warmup and measurement iterations as well as the samples per invocation again remain constant. The payload is deliberately declared as an array of fixed length rather than as a heap-allocated vector, so that it is stored within the struct itself and thus actually increases the size of a planet. In contrast, a vector would merely add a small, fixed-size handle to the structs size and thus leave the struct small. As the array's length is part of its type and thus must be known at compile-time, it requires a re-compilation for every payload size (see Section~\ref{sec:benchmarks:execution}). The sweep is again performed in fine-grained steps, as the effects of cache conflict misses (see Section ~\ref{sec:background:cache}) are expected to appear at specific object sizes rather than gradually, and would be averaged away between two distant measurements.
+
+\paragraph{Update Logic}
+The core difference between architectures is now not directly visible in code anymore, as the differences are located in the underlying memory layout. For the \ac{PC} and \ac{AoS} architectures, the payload is directly part of the planet struct. Thus the structs have to be loaded in their entirety into the CPU-cache, wasting precious cache bandwidth with irrelevant data. In contrast to this, the \ac{SoA} and Bevy architectures have the payload isolated to a dedicated payload component. When performing an operation solely on the position and velocity vectors, only these relevant vectors may be loaded with the payload remaining untouched. Thus, the cache is filled only with relevant data, leading to potentially substantial performance improvements.
+
+\begin{lstlisting}[language=C++, caption={Update loop of all four architectures in Scenario 2}, label={lst:s2}]
+// PC and AoS
+for planet in planets.iter_mut() {
+    planet.position += planet.velocity * dt;
+}
+
+// SoA
+for i in 0..planets.positions_x.len() {
+    planets.positions_x[i] += planets.velocities_x[i] * dt;
+    planets.positions_y[i] += planets.velocities_y[i] * dt;
+    planets.positions_z[i] += planets.velocities_z[i] * dt;
+}
+
+// Bevy
+for (mut pos_arr, mut vel_arr) in query.contiguous_iter_mut(&mut world).unwrap() {
+    for (pos, vel) in pos_arr.iter_mut().zip(vel_arr.iter_mut()) {
+        pos.0 += vel.0 * dt;
+    }
+}
+\end{lstlisting}
+
+Listing~\ref{lst:s2} shows the reduced complexity of the update loop of all four architectures. The \ac{SoA} architecture uses a \texttt{PlanetsSoA} struct which contains seven vectors, six of which represent the x, y and z values of position and velocity of all planets, with the seventh containing the payload of all planets. As the payload is not required for the update on position, the array is simply not accessed and the cache is thus kept full with the relevant coordinate data. The Bevy architecture follows the same principle, querying only for the position and velocity components and never accessing the payload component. Bevy's idiomatic iterator (\texttt{query.iter\_mut}) closely resembles the \ac{OOP} update loop and would offer comparable syntactic simplicity. Here, however, the \texttt{contiguous\_iter\_mut} variant is used instead: while both iterators traverse the same contiguous \texttt{Table} storage, only \texttt{contiguous\_iter\_mut} exposes it as \texttt{\&mut [T]} slices. This slice-based access allows the compiler to vectorize the loop and thus increases comparability between the Bevy and \ac{SoA} architectures, at the cost of a more complex and verbose nested loop.
+
+\paragraph{Verification}
+While again the assembly code is inspected to verify the existence of vectorization, the main focus now lies on the cache miss rate, which is gathered with AMD~µProf~\cite{amd_uprof}. The cache miss rate would clearly indicate the cache being filled with irrelevant data, as a large payload size in relation to the relevant data leads to substantially more cache misses. As the effect of cache inefficiencies and cache conflict misses is highly dependent on the exact payload size used and different payload sizes necessitate separate binaries, it is not feasible to inspect every single binary created. Instead, the binaries at and around strong variations in performance are evaluated for \ac{SIMD} instructions and cache miss rate to confirm the variations occur due to the aforementioned reasons. 
+
+\clearpage
 % ── Scenario 3 ───────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Scenario 3: Allocation and Deallocation}
 \label{sec:benchmarks:scenario3}
-\begin{itemize}
-    \item Setup and Update Logic, Drop vs Reuse
-\end{itemize}
+With Scenario 1 measuring arithmetic and Scenario 2 measuring the memory footprint when reading data, Scenario 3 measures allocation and deallocation of data. This scenario simulates the repeated creation and destruction of planets. Practical implementations of this principle can be found with particle systems and projectiles in video games or simply short living entities in simulations. The core question that this scenario is designed to answer is how expensive this repeated creation and destruction is and especially how it scales with varying payload size and chunk size, with the chunk size declaring how many planets are created and destroyed within a loop. As the focus is on memory management, the arithmetic in the update loop is left out completely. Additionally, two subvariants of this scenario are inspected, namely by how much performance differs depending on whether the data of destroyed planets is reused after destruction or whether it is discarded.
+
+\paragraph{Parametrization}
+This scenario, contrary to Scenario 1 and 2, varies two parameters: payload size and chunk size. This results in a 2D parameter sweep which acts as the basis for a heatmap. The payload is swept from \num{0} bytes to \num{25000} bytes in less fine-grained \num{1000} byte steps, as the exact behaviour of cache conflict effects is already covered in Scenario 2 and the scaling behaviour is the main property under inspection. Chunk Size is swept from \num{25} to \num{1000} in steps of \num{25}. As with Scenario 2, every change in payload requires re-compilation. 
+
+\paragraph{Update Logic}
+As was previously stated, a distinction is made between discarding the popped objects and reusing their data. The discarding of data best represents conventional particle systems where particles are created, worked with and then destroyed. The reuse of data better represents entities in more complex simulations, where the data may want to be read after destruction. Listing~\ref{lst:s3aos} shows this difference in code, where in the reuse case the \texttt{planets.pop()} function is surrounded by a \texttt{black\_box}, which in this case simulates the usage of the planet's data. On the contrary, \texttt{let \_ = planets.pop();} discards the data immediately, simulating a particle system. This distinction and the usage of \texttt{black\_box} occurs analogously in the \ac{SoA} and Bevy architectures. For the creation of the planets, the coordinates are filled with \num{0}.
+
+\begin{lstlisting}[language=C++, caption={Deallocation of planets in \ac{PC} and \ac{AoS} architectures in Scenario 3}, label={lst:s3aos}]
+if reuse {
+    for _ in 0..chunk_size { 
+        black_box(planets.pop()); 
+    }
+} else {
+    for _ in 0..chunk_size { 
+        let _ = planets.pop(); 
+    }
+}
+\end{lstlisting}
+
+In the reuse case, the \ac{PC} and \ac{AoS} architectures differ notably. Popping a planet from the \ac{AoS} vector moves the whole struct out of storage, i.e. an implicit \texttt{memcpy} of the \num{24} coordinate bytes plus the full payload, so its cost grows with the payload size. In the \ac{PC} architecture, the same pop moves only the \num{8}-byte \texttt{Box} pointer while the data stays on the heap, making the cost payload-independent. This only shows in the reuse case, as \texttt{black\_box} forces the popped value to materialize; in the discard case the compiler may optimize the move away. This advantage is offset by allocation cost. In the \ac{PC} architecture, every \texttt{push()} triggers a \texttt{malloc} and every \texttt{pop()} a \texttt{free}, for each element in every cycle. The \ac{AoS} vector instead keeps its capacity across the cycles and thus barely allocates once it has grown. \ac{PC} therefore trades a cheap pop against constant \texttt{malloc} and \texttt{free} overhead, and which effect dominates is expected to depend on payload and chunk size.
+
+The difference between the \ac{AoS} and \ac{SoA} architectures lies in the \ac{AoS} architecture requiring only a single \texttt{push()} and \texttt{pop()} per planet, whereas the \ac{SoA} architecture requires seven such calls due to the split management of values across seven vectors. Bevy provides its own \texttt{spawn()} and \texttt{despawn()} functions; in the reuse case, however, explicit calls to \texttt{get::<Position>()}, \texttt{get::<Velocity>()} and \texttt{get::<Payload>()} are necessary, as \texttt{despawn()} does not return the component data of the removed entity.
+
+\paragraph{Verification}
+To verify the results, the assembly code is inspected to confirm that allocations and deallocations have been carried out as intended and have not been optimized away by the compiler. For this, \texttt{cargo show-asm} \cite{cargo_show_asm} is used. Additionally, the usage of the \texttt{memcpy} instruction is inspected in the \ac{AoS} architecture, to confirm the hypothesis of it requiring expensive memory movements instead of simple pointer popping. A heatmap is used to visualize the runtimes and more easily discern if any threshold effects or performance anomalies occur. 
 
 % ── Execution and Configuration ──────────────────────────────────────────────────────────────────────────────────────
 \section{Execution and Configuration}
@@ -177,7 +231,7 @@ A single invocation executes all four architectures in sequence. For every archi
     cargo run --profile o3 -- -b s3 -w 1000 -i 5000 -s 5 -c 500 -r -d
 \end{verbatim}
 
-Measurement results are appended to a \ac{CSV} file per architecture and scenario. For example, the above invocation would append the measurements to the files \texttt{bevy.csv, soa.csv, etc.} located at \texttt{../Benchmarks/diagrams/s3/csv/}. Each line contains an entry for the respective architecture, planet count, number of iterations, chunk size, payload size in bytes as well as the elapsed time in nanoseconds. In order to delete the generated \ac{CSV} files, the \texttt{reset} value for the \texttt{benchmark} argument may be used. This acts as a way to create a clean slate and prevent appending measurements to those of previous benchmarks, should the \ac{CSV} files not have been moved yet. 
+Measurement results are appended to a \ac{CSV} file per architecture and scenario. For example, the above invocation would append the measurements to the files \texttt{bevy.csv, soa.csv, etc.} located at \texttt{../Benchmarks/diagrams/s3/csv/}. Each line contains an entry for the respective architecture, planet count, number of iterations, chunk size, reuse of deallocated data in Scenario 3, payload size in bytes as well as the elapsed time in nanoseconds. In order to delete the generated \ac{CSV} files, the \texttt{reset} value for the \texttt{benchmark} argument may be used. This acts as a way to create a clean slate and prevent appending measurements to those of previous benchmarks, should the \ac{CSV} files not have been moved yet. 
 
 % black_box
 % no mangle

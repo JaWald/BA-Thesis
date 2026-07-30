@@ -19,6 +19,41 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global/global}
+    \entry{amd_uprof}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=fae7c9ebca8ba50b2be1187b90ba62ef}{%
+           family={{Advanced Micro Devices}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Advanced Micro Devices Inc.}%
+      }
+      \strng{namehash}{fae7c9ebca8ba50b2be1187b90ba62ef}
+      \strng{fullhash}{fae7c9ebca8ba50b2be1187b90ba62ef}
+      \strng{fullhashraw}{fae7c9ebca8ba50b2be1187b90ba62ef}
+      \strng{bibnamehash}{fae7c9ebca8ba50b2be1187b90ba62ef}
+      \strng{authorbibnamehash}{fae7c9ebca8ba50b2be1187b90ba62ef}
+      \strng{authornamehash}{fae7c9ebca8ba50b2be1187b90ba62ef}
+      \strng{authorfullhash}{fae7c9ebca8ba50b2be1187b90ba62ef}
+      \strng{authorfullhashraw}{fae7c9ebca8ba50b2be1187b90ba62ef}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Version 5.3}
+      \field{title}{Amd µProf}
+      \field{urlday}{30}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.amd.com/de/developer/uprof.html
+      \endverb
+      \verb{url}
+      \verb https://www.amd.com/de/developer/uprof.html
+      \endverb
+    \endentry
     \entry{albrecht2009pitfalls}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=6bfdd7b048ac00eda2252d558674583d}{%
