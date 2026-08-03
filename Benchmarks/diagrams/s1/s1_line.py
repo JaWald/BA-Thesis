@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 files = {
-    'Bevy': 'csv/bevy.csv',
-    'SoA': 'csv/soa.csv',
-    'AoS': 'csv/aos.csv',
-    'PC': 'csv/pc.csv'
+    'Bevy': 'csv/line/bevy.csv',
+    'SoA': 'csv/line/soa.csv',
+    'AoS': 'csv/line/aos.csv',
+    'PC': 'csv/line/pc.csv'
 }
 
 dataframes = []
@@ -17,7 +17,7 @@ for label, file in files.items():
     dataframes.append(temp_df)
 
 start = 0
-stop = 100000
+stop = 50000
 
 df = pd.concat(dataframes, ignore_index=True)
 

@@ -4,9 +4,18 @@
 2) Background:
   - cache conflict misses
   - cache miss ratio
-  - malloc/free/memcpy ?
+  - malloc/free/memcpy besser in S3 Evaluation ?
+
 3) Design
   - Beleg notwendig für Bevy contiguous erlaubt vektorisierung, normal nicht?
+
+4) Evaluation
+  - Mit sehr strengem Environment (SMT off, C-States off, frequency lock und PBO off) teils andere Ergebnisse
+  - S3: Sprung bleibt aus, einziger Unterschied obiges und weniger warmups/Iterations und Linux statt Win11
+  - S3: Heatmap oder Liniendiagramm? Liniendiagramm deutlich schneller iterierbar, Vllt herausfindbar woher Sprung kommt.
+        Heatmap kann mit einer Grafik nur 1 Architektur zeigen, Liniendiagramm mehrere, mit color shading auch mehrere payloads
+
+Zwingend: Warmup runs, samples und OS auch in CSV
 
 ────────────────────────────────────────────────────────────────────────────
 14.07.2026

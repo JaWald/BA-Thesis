@@ -1,1 +1,1 @@
-pub const PAYLOAD_SIZE: usize = 9500;
+pub const PAYLOAD_SIZE: usize = 0;

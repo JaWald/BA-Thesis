@@ -12,7 +12,7 @@ for j in $(seq 0 1000 25000); do
     echo -e "\e[33m>>> Payload: $j Bytes\e[0m"
     for k in $(seq 0 25 1000); do
         echo -e "\e[33m    Chunk: $k\e[0m"
-        taskset -c $CORE ./target/o3/Benchmarks -b s3 -w 500 -i 1000 -s 2 -c $k
+        taskset -c $CORE ./target/o3/Benchmarks -b s3 -w 500 -i 1000 -s 1 -c $k
     done
 done
 

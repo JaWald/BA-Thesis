@@ -3,8 +3,8 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-architecture = 'PC'
-file = 'csv/pc.csv'
+architecture = 'Bevy'
+file = 'csv/bevy.csv'
 
 df = pd.read_csv(file)
 
@@ -12,7 +12,7 @@ df['time_us'] = df['time_ns'] / df['iterations'] / 1000
 
 df['object_size'] = df['payload'] + 24
 start = 0
-stop = 20480
+stop = 25000
 df = df[df['object_size'].between(start, stop)]
 
 pivot = df.pivot_table(
@@ -31,7 +31,9 @@ sns.heatmap(
     cmap="magma",
     cbar_kws={'label': 'Average Time per Iteration [µs]'},
     square=False,
-    linewidths=0
+    linewidths=0,
+    linecolor='none',
+    rasterized=False,
 )
 
 ax.invert_yaxis()
