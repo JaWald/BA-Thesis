@@ -3,9 +3,9 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 
-warmups = '1000'
-iterations = '2000'
-samples = '10'
+warmups = '100'
+iterations = '100'
+samples = '1'
 suffix = f'_w-{warmups}_i-{iterations}_s-{samples}'
 
 files = {
