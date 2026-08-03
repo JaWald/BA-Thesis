@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.10)  31 JUL 2026 07:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.10)  3 AUG 2026 09:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1748,13 +1748,13 @@ Package logreq Info: Writing requests to '0-main-thesis.run.xml'.
 Here is how much of TeX's memory you used:
  57224 strings out of 467525
  1271722 string characters out of 5423209
- 2506490 words of memory out of 5000000
+ 2506491 words of memory out of 5000000
  85142 multiletter control sequences out of 15000+600000
  667163 words of font info for 92 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,27n,121p,11240b,3648s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on build/0-main-thesis.pdf (30 pages, 1814640 bytes).
+Output written on build/0-main-thesis.pdf (30 pages, 1814897 bytes).
 PDF statistics:
  13388 PDF objects out of 15390 (max. 8388607)
  9052 compressed objects within 91 object streams
