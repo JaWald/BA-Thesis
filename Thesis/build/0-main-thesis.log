@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.10)  30 JUL 2026 10:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.10)  31 JUL 2026 07:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1627,28 +1627,67 @@ Package acronym Info: Label `acro:CSV' newly defined as it shall be overridden
 although it is yet undefined on input line 234.
 ) (././04-evaluation.tex [15]
 chapter 4.
+<./images/S3_Heatmap_PC.pdf, id=495, 1011.78pt x 722.7pt>
+File: ./images/S3_Heatmap_PC.pdf Graphic file (type pdf)
+<use ./images/S3_Heatmap_PC.pdf>
+Package pdftex.def Info: ./images/S3_Heatmap_PC.pdf  used on input line 37.
+(pdftex.def)             Requested size: 384.11229pt x 274.36418pt.
+<./images/S3_Heatmap_AoS.pdf, id=496, 1011.78pt x 722.7pt>
+File: ./images/S3_Heatmap_AoS.pdf Graphic file (type pdf)
+<use ./images/S3_Heatmap_AoS.pdf>
+Package pdftex.def Info: ./images/S3_Heatmap_AoS.pdf  used on input line 45.
+(pdftex.def)             Requested size: 384.11229pt x 274.36418pt.
+<./images/S3_Heatmap_SoA.pdf, id=497, 1011.78pt x 722.7pt>
+File: ./images/S3_Heatmap_SoA.pdf Graphic file (type pdf)
+<use ./images/S3_Heatmap_SoA.pdf>
+Package pdftex.def Info: ./images/S3_Heatmap_SoA.pdf  used on input line 53.
+(pdftex.def)             Requested size: 384.11229pt x 274.36418pt.
+<./images/S3_Heatmap_Bevy.pdf, id=498, 1011.78pt x 722.7pt>
+File: ./images/S3_Heatmap_Bevy.pdf Graphic file (type pdf)
+<use ./images/S3_Heatmap_Bevy.pdf>
+Package pdftex.def Info: ./images/S3_Heatmap_Bevy.pdf  used on input line 61.
+(pdftex.def)             Requested size: 384.11229pt x 274.36418pt.
+<./images/S3_Line_Chunk_drop_19,6k.pdf, id=499, 735.8322pt x 455.636pt>
+File: ./images/S3_Line_Chunk_drop_19,6k.pdf Graphic file (type pdf)
+<use ./images/S3_Line_Chunk_drop_19,6k.pdf>
+Package pdftex.def Info: ./images/S3_Line_Chunk_drop_19,6k.pdf  used on input line 69.
+(pdftex.def)             Requested size: 384.11229pt x 237.84981pt.
+<./images/S3_Heatmap_PC_5x5.pdf, id=500, 1011.78pt x 722.7pt>
+File: ./images/S3_Heatmap_PC_5x5.pdf Graphic file (type pdf)
+<use ./images/S3_Heatmap_PC_5x5.pdf>
+Package pdftex.def Info: ./images/S3_Heatmap_PC_5x5.pdf  used on input line 77.
+(pdftex.def)             Requested size: 384.11229pt x 274.36418pt.
 ) (././05-relatedwork.tex [16
 
 
 
 
-]
+] [17 <./images/S3_Heatmap_PC.pdf> <./images/S3_Heatmap_AoS.pdf
+
+pdfTeX warning: pdflatex.exe (file ./images/S3_Heatmap_AoS.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>] [18 <./images/S3_Heatmap_SoA.pdf> <./images/S3_Heatmap_Bevy.pdf
+
+pdfTeX warning: pdflatex.exe (file ./images/S3_Heatmap_Bevy.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>] [19 <./images/S3_Line_Chunk_drop_19,6k.pdf> <./images/S3_Heatmap_PC_5x5.pdf
+
+pdfTeX warning: pdflatex.exe (file ./images/S3_Heatmap_PC_5x5.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
 chapter 5.
-) (././06-futurework.tex [17
+) (././06-futurework.tex [20
 
 
 
 
 ]
 chapter 6.
-) (././07-conclusion.tex [18
+) (././07-conclusion.tex [21
 
 
 
 
 ]
 chapter 7.
-) [19
+) [22
 
 
 
@@ -1660,14 +1699,14 @@ Underfull \hbox (badness 1275) in paragraph at lines 66--66
 []\T1/cmr/m/n/10 Steve Klab-nik and Carol Nichols. 2023. \T1/cmr/m/it/10 The Rust Pro-gram-ming Lan-guage\T1/cmr/m/n/10 .
  []
 
-[20
+[23
 
 
 
 
 ]
 Package cleveref Info: loaded `english' language definitions on input line 71.
- [21] (build/0-main-thesis.lof
+ [24] (build/0-main-thesis.lof
 Package cleveref Info: loaded `english' language definitions on input line 1.
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
 Package cleveref Info: loaded `english' language definitions on input line 5.
@@ -1675,7 +1714,7 @@ Package cleveref Info: loaded `english' language definitions on input line 5.
 \tf@lof=\write6
 \openout6 = `0-main-thesis.lof'.
 
- [22
+ [25
 
 
 ] (././00-acronyms.tex
@@ -1684,7 +1723,7 @@ chapter without number
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 ) (c:/texlive/2026/texmf-dist/tex/generic/stringenc/se-utf8.def
 File: se-utf8.def 2019/11/29 v1.12 stringenc: UTF-8
-) [23
+) [26
 
 
 
@@ -1707,18 +1746,18 @@ Package logreq Info: Writing requests to '0-main-thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 57143 strings out of 467525
- 1269447 string characters out of 5423209
- 2505630 words of memory out of 5000000
- 85076 multiletter control sequences out of 15000+600000
+ 57224 strings out of 467525
+ 1271722 string characters out of 5423209
+ 2506490 words of memory out of 5000000
+ 85142 multiletter control sequences out of 15000+600000
  667163 words of font info for 92 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,27n,121p,11240b,3648s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on build/0-main-thesis.pdf (27 pages, 364397 bytes).
+Output written on build/0-main-thesis.pdf (30 pages, 1814640 bytes).
 PDF statistics:
- 792 PDF objects out of 1000 (max. 8388607)
- 707 compressed objects within 8 object streams
- 194 named destinations out of 1000 (max. 500000)
- 321 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 13388 PDF objects out of 15390 (max. 8388607)
+ 9052 compressed objects within 91 object streams
+ 203 named destinations out of 1000 (max. 500000)
+ 351 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -11,5 +11,10 @@ bevy = { path = "bevy-contiguous", default-features = false }
 
 [profile.o3]
 inherits = "release"
+debug = false
+opt-level = 3
+
+[profile.asm]
+inherits = "release"
 debug = true
 opt-level = 3
