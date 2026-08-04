@@ -1,0 +1,57 @@
+========================================
+  BA TODO - S1 & S3
+========================================
+
+----------------------------------------
+S1 - Compute Bound
+----------------------------------------
+
+[ ] Finale Daten mit -s 5 und hoeheren Iterations (-i 500) neu ziehen;
+    aktuelle i50-Laeufe sind zu kurz, Rauschen ueberlebt die Mittelung.
+
+[ ] Median statt Mean in save_iteration_times erwaegen,
+    um die Einzelspikes bei SoA/Bevy strukturell zu entfernen.
+
+[ ] SoA ~1024er-Periodik verifizieren: Spike-Positionen extrahieren
+    und gegen Page-Grenzen (4 KB) halten -> Cache-Set-Aliasing belegen.
+
+[ ] PC-Bandverbreiterung ab ~16k mit perf stat untersuchen
+    (LLC-load-misses, dTLB-load-misses): Cache, Huge Pages oder Allokator?
+
+[ ] Klaeren warum PC-Streuung oberhalb 16k wieder abnimmt;
+    Counter ueber die Schwelle plotten statt zu vermuten.
+
+[ ] Alle Achsen konsistent beschriften ([x1000]-Notation),
+    einheitlich ueber S1/S2/S3 durchziehen.
+
+----------------------------------------
+S3 - Allocation
+----------------------------------------
+
+[ ] PC-Explosion bei ~4k Payload / kleinem Chunk verifizieren:
+    MALLOC_MMAP_THRESHOLD_=999999999 an/aus -> beweist ob mmap-Threshold Ursache.
+
+[ ] Payload-Schwelle eingrenzen: Zwischenwerte (1500, 2000, 2500, 3000, 3500)
+    messen, um festzustellen wo PC zu explodieren beginnt.
+
+[ ] Drop = Reuse-Befund absichern: sauberer Einzelsweep mit -s 5,
+    pruefen ob die 16000-Kante bestehen bleibt.
+
+[ ] Klaeren ob die 16000-Kante payload-fix (memcpy/non-temporal)
+    oder chunk-abhaengig (Cache-Grenze) ist.
+
+[ ] Windows-vs-Linux-Gegenueberstellung: sitzt die Kante bzw. Explosion
+    auf beiden Plattformen an der gleichen Stelle?
+
+[ ] CSV-Schema pruefen: reuse-Spalte im Header vorhanden,
+    damit drop- und reuse-Laeufe nicht ununterscheidbar mischen.
+
+----------------------------------------
+Uebergreifend / Methodik
+----------------------------------------
+
+[ ] Pinned-vs-unpinned-Inkonsistenz aufloesen: S1/S2 ohne CPU-Config,
+    S3 mit -> entweder S1/S2 nachziehen oder in Kap. 4 dokumentieren.
+
+[ ] Messbedingungen protokollieren (cpupower frequency-info, lscpu -e,
+    /proc/cpuinfo) als Beleg fuer das Setup in Kapitel 3.

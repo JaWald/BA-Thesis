@@ -1,6 +1,7 @@
 Set-Location "$PSScriptRoot/../.."
 
 $env:RUSTFLAGS = "-C target-cpu=native -C linker=rust-lld.exe"
+CORE=2
 cargo build --profile o3
 ./target/o3/Benchmarks -b reset
 

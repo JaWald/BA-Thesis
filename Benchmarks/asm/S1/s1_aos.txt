@@ -1,0 +1,126 @@
+bench_s1_aos:
+		// src/benches_s1.rs:26
+		pub fn bench_s1_aos(iterations: usize, planets: &mut Vec<PlanetAoS>, dt: f32) -> u128 {
+	push r14
+	push rbx
+	sub rsp, 40
+	vmovaps xmmword ptr [rsp + 16], xmm0
+	mov r14, rsi
+	mov rbx, rdi
+		// src/benches_s1.rs:27
+		let now = Instant::now();
+	call qword ptr [rip + <std::time::Instant>::now@GOTPCREL]
+	vmovaps xmm9, xmmword ptr [rsp + 16]
+	mov qword ptr [rsp], rax
+	mov dword ptr [rsp + 8], edx
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/cmp.rs:1916
+		fn lt(&self, other: &Self) -> bool { *self <  *other }
+	test rbx, rbx
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/iter/range.rs:772
+		if self.start < self.end {
+	je .LBB168_6
+	mov rcx, qword ptr [r14 + 16]
+	test rcx, rcx
+	je .LBB168_6
+	vmovss xmm1, dword ptr [rip + .LCPI168_0]
+	vmovss xmm2, dword ptr [rip + .LCPI168_1]
+	mov rax, qword ptr [r14 + 8]
+	shl rcx, 3
+	vbroadcastss xmm0, xmm9
+	xor edx, edx
+	lea rcx, [rcx + 2*rcx]
+.LBB168_4:
+	xor esi, esi
+.LBB168_5:
+		// src/benches_s1.rs:30
+		let direction = -planet.position;
+	vmovsd xmm5, qword ptr [rax + rsi + 12]
+	vmovss xmm3, dword ptr [rax + rsi + 20]
+		// ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/glam-0.32.1/src/f32/vec3.rs:251
+		(self.x * rhs.x) + (self.y * rhs.y) + (self.z * rhs.z)
+	vmulps xmm6, xmm5, xmm5
+	vmulss xmm4, xmm3, xmm3
+	vmovshdup xmm7, xmm6
+	vaddss xmm6, xmm6, xmm7
+	vaddss xmm4, xmm6, xmm4
+		// src/benches_s1.rs:32
+		let a_scalar = G / r_squared;
+	vdivss xmm6, xmm1, xmm4
+		// ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libm-0.2.16/src/math/arch/x86.rs:12
+		core::arch::asm!(
+	#APP
+
+	sqrtss xmm4, xmm4
+
+	#NO_APP
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/num/f32.rs:908
+		1.0 / self
+	vdivss xmm4, xmm2, xmm4
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ops/arith.rs:352
+		fn mul(self, other: $t) -> $t { self * other }
+	vbroadcastss xmm7, xmm4
+	vbroadcastss xmm8, xmm6
+	vmulss xmm4, xmm4, xmm3
+	vmulps xmm7, xmm7, xmm5
+	vmulss xmm4, xmm6, xmm4
+	vmulps xmm7, xmm8, xmm7
+	vmulss xmm4, xmm9, xmm4
+	vmulps xmm6, xmm0, xmm7
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ops/arith.rs:791
+		fn add_assign(&mut self, other: $t) { *self += other }
+	vmovsd xmm7, qword ptr [rax + rsi]
+	vsubps xmm6, xmm7, xmm6
+	vmovlps qword ptr [rax + rsi], xmm6
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ops/arith.rs:352
+		fn mul(self, other: $t) -> $t { self * other }
+	vmulps xmm6, xmm0, xmm6
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ops/arith.rs:791
+		fn add_assign(&mut self, other: $t) { *self += other }
+	vmovss xmm7, dword ptr [rax + rsi + 8]
+	vaddps xmm5, xmm5, xmm6
+	vsubss xmm4, xmm7, xmm4
+	vmovss dword ptr [rax + rsi + 8], xmm4
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ops/arith.rs:352
+		fn mul(self, other: $t) -> $t { self * other }
+	vmulss xmm4, xmm9, xmm4
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ops/arith.rs:791
+		fn add_assign(&mut self, other: $t) { *self += other }
+	vmovlps qword ptr [rax + rsi + 12], xmm5
+	vaddss xmm3, xmm3, xmm4
+	vmovss dword ptr [rax + rsi + 20], xmm3
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ptr/non_null.rs:1720
+		self.as_ptr() == other.as_ptr()
+	add rsi, 24
+	cmp rcx, rsi
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	jne .LBB168_5
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/num/uint_macros.rs:844
+		intrinsics::unchecked_add(self, rhs)
+	inc rdx
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/cmp.rs:1916
+		fn lt(&self, other: &Self) -> bool { *self <  *other }
+	cmp rdx, rbx
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/iter/range.rs:772
+		if self.start < self.end {
+	jne .LBB168_4
+.LBB168_6:
+	mov rdi, rsp
+		// src/benches_s1.rs:39
+		now.elapsed().as_nanos()
+	call qword ptr [rip + <std::time::Instant>::elapsed@GOTPCREL]
+	mov esi, 1000000000
+	mov ecx, edx
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/time.rs:632
+		self.secs as u128 * NANOS_PER_SEC as u128 + self.nanos.as_inner() as u128
+	mov rdx, rax
+	mov eax, ecx
+	mulx rdx, rsi, rsi
+	add rax, rsi
+	adc rdx, 0
+		// src/benches_s1.rs:40
+		}
+	add rsp, 40
+	pop rbx
+	pop r14
+	ret

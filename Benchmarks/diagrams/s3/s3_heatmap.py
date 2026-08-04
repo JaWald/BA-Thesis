@@ -10,8 +10,8 @@ reuse = 'false'
 suffix = f'_w-{warmups}_i-{iterations}_s-{samples}_r-{reuse}'
 variant = 'Reuse' if reuse == 'true' else 'Drop'
 
-architecture = 'PC'
-file = f'csv/PC___{suffix}.csv'
+architecture = 'Bevy'
+file = f'csv/Bevy{suffix}.csv'
 df = pd.read_csv(file)
 
 df['time_us'] = df['time_ns'] / df['iteration_count'] / 1000

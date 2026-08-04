@@ -1,0 +1,330 @@
+bench_s2_soa:
+		// src/benches_s2.rs:31
+		pub fn bench_s2_soa(iterations: usize, planets: &mut PlanetsSoA, dt: f32) -> u128 {
+	push rbp
+	push r15
+	push r14
+	push r13
+	push r12
+	push rbx
+	sub rsp, 168
+	vmovaps xmmword ptr [rsp + 144], xmm0
+	mov r14, rsi
+	mov rbx, rdi
+		// src/benches_s2.rs:32
+		let now = Instant::now();
+	call qword ptr [rip + <std::time::Instant>::now@GOTPCREL]
+	vmovaps xmm2, xmmword ptr [rsp + 144]
+	mov qword ptr [rsp + 128], rax
+	mov dword ptr [rsp + 136], edx
+	mov qword ptr [rsp + 112], rbx
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1916
+		fn lt(&self, other: &Self) -> bool { *self <  *other }
+	test rbx, rbx
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/range.rs:772
+		if self.start < self.end {
+	je .LBB175_16
+	mov rax, qword ptr [r14 + 88]
+	mov qword ptr [rsp + 56], rax
+	test rax, rax
+	je .LBB175_16
+	mov rax, qword ptr [rsp + 56]
+	mov r8, qword ptr [r14 + 136]
+	mov rdi, qword ptr [r14 + 64]
+	mov rsi, qword ptr [r14 + 112]
+	mov rdx, qword ptr [r14 + 40]
+	mov rcx, qword ptr [r14 + 16]
+	mov r15, qword ptr [r14 + 104]
+	mov r9, qword ptr [r14 + 80]
+	mov r11, qword ptr [r14 + 128]
+	mov r12, qword ptr [r14 + 8]
+	mov r10, qword ptr [r14 + 32]
+	mov r14, qword ptr [r14 + 56]
+	vbroadcastss ymm0, xmm2
+	lea r13, [rax - 1]
+	mov qword ptr [rsp + 48], rcx
+	mov qword ptr [rsp + 32], rsi
+	mov qword ptr [rsp + 40], rdx
+	mov qword ptr [rsp + 24], rdi
+	mov qword ptr [rsp + 16], r8
+	mov qword ptr [rsp + 96], r9
+	mov qword ptr [rsp + 88], r15
+	mov qword ptr [rsp + 80], r12
+	mov qword ptr [rsp + 72], r10
+	mov qword ptr [rsp + 64], r14
+	cmp r8, r13
+	cmovb r13, r8
+	cmp r13, rdi
+	cmovae r13, rdi
+	cmp r13, rsi
+	cmovae r13, rsi
+	cmp r13, rdx
+	cmovae r13, rdx
+	cmp r13, rcx
+	cmovae r13, rcx
+	lea rbx, [r15 + 4*r13 + 4]
+	lea rcx, [r9 + 4*r13 + 4]
+	lea rsi, [r11 + 4*r13 + 4]
+	lea rbp, [r14 + 4*r13 + 4]
+	cmp r9, rbx
+	setb al
+	cmp r15, rcx
+	setb dl
+	and dl, al
+	cmp r9, rsi
+	lea rsi, [r10 + 4*r13 + 4]
+	setb al
+	cmp r11, rcx
+	setb dil
+	and dil, al
+	lea rax, [r12 + 4*r13 + 4]
+	or dil, dl
+	cmp r9, rax
+	setb al
+	cmp r12, rcx
+	setb r8b
+	and r8b, al
+	cmp r9, rsi
+	setb al
+	cmp r10, rcx
+	setb dl
+	and dl, al
+	lea rax, [r11 + 4*r13 + 4]
+	or dl, r8b
+	or dl, dil
+	cmp r9, rbp
+	setb dil
+	cmp r14, rcx
+	setb cl
+	and cl, dil
+	cmp r15, rax
+	lea rax, [r12 + 4*r13 + 4]
+	setb dil
+	cmp r11, rbx
+	setb r8b
+	and r8b, dil
+	or r8b, cl
+	cmp r15, rax
+	setb dil
+	cmp r12, rbx
+	setb cl
+	and cl, dil
+	or cl, r8b
+	or cl, dl
+	cmp r15, rsi
+	setb dl
+	cmp r10, rbx
+	setb dil
+	and dil, dl
+	cmp r15, rbp
+	setb dl
+	cmp r14, rbx
+	mov rbx, r10
+	setb r8b
+	and r8b, dl
+	or r8b, dil
+	cmp r11, rax
+	lea rax, [r11 + 4*r13 + 4]
+	setb dl
+	cmp r12, rax
+	setb dil
+	and dil, dl
+	or dil, r8b
+	cmp r11, rsi
+	mov rsi, rax
+	setb dl
+	cmp r10, rax
+	setb r8b
+	and r8b, dl
+	or r8b, dil
+	or r8b, cl
+	cmp r11, rbp
+	lea rcx, [r13 + 1]
+	setb al
+	cmp r14, rsi
+	mov qword ptr [rsp + 104], rcx
+	setb dl
+	and dl, al
+	mov eax, ecx
+	mov ecx, 8
+	or dl, r8b
+	and eax, 7
+	cmovne rcx, rax
+	mov byte ptr [rsp + 15], dl
+	neg rcx
+	lea r13, [r13 + rcx + 1]
+	xor ecx, ecx
+.LBB175_3:
+	cmp qword ptr [rsp + 104], 17
+	setb al
+	or al, byte ptr [rsp + 15]
+	test al, 1
+	je .LBB175_5
+	xor r10d, r10d
+	jmp .LBB175_8
+.LBB175_5:
+	xor eax, eax
+.LBB175_6:
+		// src/benches_s2.rs:35
+		planets.positions_x[i] += planets.velocities_x[i] * dt;
+	vmulps ymm1, ymm0, ymmword ptr [r12 + 4*rax]
+	vaddps ymm1, ymm1, ymmword ptr [r9 + 4*rax]
+	vmovups ymmword ptr [r9 + 4*rax], ymm1
+		// src/benches_s2.rs:36
+		planets.positions_y[i] += planets.velocities_y[i] * dt;
+	vmulps ymm1, ymm0, ymmword ptr [rbx + 4*rax]
+	vaddps ymm1, ymm1, ymmword ptr [r15 + 4*rax]
+	vmovups ymmword ptr [r15 + 4*rax], ymm1
+		// src/benches_s2.rs:37
+		planets.positions_z[i] += planets.velocities_z[i] * dt;
+	vmulps ymm1, ymm0, ymmword ptr [r14 + 4*rax]
+	vaddps ymm1, ymm1, ymmword ptr [r11 + 4*rax]
+	vmovups ymmword ptr [r11 + 4*rax], ymm1
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs:844
+		intrinsics::unchecked_add(self, rhs)
+	add rax, 8
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/range.rs:772
+		if self.start < self.end {
+	cmp r13, rax
+	jne .LBB175_6
+	mov r10, r13
+.LBB175_8:
+	inc rcx
+	mov r8, qword ptr [rsp + 16]
+	mov rsi, qword ptr [rsp + 32]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/index.rs:272
+		&(*slice)[self]
+	lea rdx, [r14 + 4*r10]
+	mov r14, qword ptr [rsp + 48]
+	lea rbp, [r15 + 4*r10]
+	lea rdi, [rbx + 4*r10]
+	mov rbx, qword ptr [rsp + 40]
+	lea r15, [r9 + 4*r10]
+	mov r9, qword ptr [rsp + 56]
+	lea rax, [r11 + 4*r10]
+	lea r12, [r12 + 4*r10]
+	mov qword ptr [rsp + 120], rcx
+	mov rcx, qword ptr [rsp + 24]
+	sub r8, r10
+	sub rsi, r10
+	sub rbx, r10
+	sub r14, r10
+	sub r9, r10
+	sub rcx, r10
+	xor r10d, r10d
+.LBB175_9:
+	cmp r14, r10
+	je .LBB175_17
+		// src/benches_s2.rs:35
+		planets.positions_x[i] += planets.velocities_x[i] * dt;
+	vmulss xmm1, xmm2, dword ptr [r12 + 4*r10]
+	vaddss xmm1, xmm1, dword ptr [r15 + 4*r10]
+	vmovss dword ptr [r15 + 4*r10], xmm1
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/index.rs:272
+		&(*slice)[self]
+	cmp rbx, r10
+	je .LBB175_18
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/index.rs:278
+		&mut (*slice)[self]
+	cmp rsi, r10
+	je .LBB175_19
+		// src/benches_s2.rs:36
+		planets.positions_y[i] += planets.velocities_y[i] * dt;
+	vmulss xmm1, xmm2, dword ptr [rdi + 4*r10]
+	vaddss xmm1, xmm1, dword ptr [rbp + 4*r10]
+	vmovss dword ptr [rbp + 4*r10], xmm1
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/index.rs:272
+		&(*slice)[self]
+	cmp rcx, r10
+	je .LBB175_20
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/index.rs:278
+		&mut (*slice)[self]
+	cmp r8, r10
+	je .LBB175_21
+		// src/benches_s2.rs:37
+		planets.positions_z[i] += planets.velocities_z[i] * dt;
+	vmulss xmm1, xmm2, dword ptr [rdx + 4*r10]
+	vaddss xmm1, xmm1, dword ptr [rax + 4*r10]
+	vmovss dword ptr [rax + 4*r10], xmm1
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1916
+		fn lt(&self, other: &Self) -> bool { *self <  *other }
+	inc r10
+	cmp r9, r10
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/range.rs:772
+		if self.start < self.end {
+	jne .LBB175_9
+	mov rcx, qword ptr [rsp + 120]
+	mov r9, qword ptr [rsp + 96]
+	mov r15, qword ptr [rsp + 88]
+	mov r12, qword ptr [rsp + 80]
+	mov rbx, qword ptr [rsp + 72]
+	mov r14, qword ptr [rsp + 64]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1916
+		fn lt(&self, other: &Self) -> bool { *self <  *other }
+	cmp rcx, qword ptr [rsp + 112]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/range.rs:772
+		if self.start < self.end {
+	jne .LBB175_3
+.LBB175_16:
+	lea rdi, [rsp + 128]
+		// src/benches_s2.rs:40
+		now.elapsed().as_nanos()
+	vzeroupper
+	call qword ptr [rip + <std::time::Instant>::elapsed@GOTPCREL]
+	mov esi, 1000000000
+	mov ecx, edx
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/time.rs:632
+		self.secs as u128 * NANOS_PER_SEC as u128 + self.nanos.as_inner() as u128
+	mov rdx, rax
+	mov eax, ecx
+	mulx rdx, rsi, rsi
+	add rax, rsi
+	adc rdx, 0
+		// src/benches_s2.rs:41
+		}
+	add rsp, 168
+	pop rbx
+	pop r12
+	pop r13
+	pop r14
+	pop r15
+	pop rbp
+	ret
+.LBB175_21:
+	mov rdi, qword ptr [rsp + 16]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/index.rs:278
+		&mut (*slice)[self]
+	lea rdx, [rip + .Lanon.a14ddcae88e2af7f3f24af4503f44f52.191]
+	mov rsi, rdi
+	vzeroupper
+	call qword ptr [rip + core::panicking::panic_bounds_check@GOTPCREL]
+.LBB175_20:
+	mov rdi, qword ptr [rsp + 24]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/index.rs:272
+		&(*slice)[self]
+	lea rdx, [rip + .Lanon.a14ddcae88e2af7f3f24af4503f44f52.190]
+	mov rsi, rdi
+	vzeroupper
+	call qword ptr [rip + core::panicking::panic_bounds_check@GOTPCREL]
+.LBB175_19:
+	mov rdi, qword ptr [rsp + 32]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/index.rs:278
+		&mut (*slice)[self]
+	lea rdx, [rip + .Lanon.a14ddcae88e2af7f3f24af4503f44f52.189]
+	mov rsi, rdi
+	vzeroupper
+	call qword ptr [rip + core::panicking::panic_bounds_check@GOTPCREL]
+.LBB175_18:
+	mov rdi, qword ptr [rsp + 40]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/index.rs:272
+		&(*slice)[self]
+	lea rdx, [rip + .Lanon.a14ddcae88e2af7f3f24af4503f44f52.188]
+	mov rsi, rdi
+	vzeroupper
+	call qword ptr [rip + core::panicking::panic_bounds_check@GOTPCREL]
+.LBB175_17:
+	mov rdi, qword ptr [rsp + 48]
+	lea rdx, [rip + .Lanon.a14ddcae88e2af7f3f24af4503f44f52.187]
+	mov rsi, rdi
+	vzeroupper
+	call qword ptr [rip + core::panicking::panic_bounds_check@GOTPCREL]

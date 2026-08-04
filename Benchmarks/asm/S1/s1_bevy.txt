@@ -1,0 +1,470 @@
+bench_s1_bevy:
+		// src/benches_s1.rs:74
+		pub fn bench_s1_bevy(
+	push rbp
+	push r15
+	push r14
+	push r13
+	push r12
+	push rbx
+	sub rsp, 120
+	vmovdqa xmmword ptr [rsp + 16], xmm0
+	mov rbx, rdx
+	mov qword ptr [rsp + 8], rsi
+	mov r14, rdi
+		// src/benches_s1.rs:80
+		let now = Instant::now();
+	call qword ptr [rip + <std::time::Instant>::now@GOTPCREL]
+	mov qword ptr [rsp + 48], rax
+	mov dword ptr [rsp + 56], edx
+	mov qword ptr [rsp + 40], r14
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/cmp.rs:1916
+		fn lt(&self, other: &Self) -> bool { *self <  *other }
+	test r14, r14
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/iter/range.rs:772
+		if self.start < self.end {
+	je .LBB169_39
+	mov rax, qword ptr [rsp + 8]
+	vbroadcastss xmm3, dword ptr [rsp + 16]
+	movabs r12, 9223372036854775776
+	mov qword ptr [rsp + 16], 0
+	mov ebp, dword ptr [rax + 1408]
+	mov r15, qword ptr [rax + 360]
+	vmovaps xmmword ptr [rsp + 64], xmm3
+	vmovd xmm0, ebp
+	vpbroadcastd ymm4, xmm0
+	vmovdqu ymmword ptr [rsp + 80], ymm4
+	jmp .LBB169_3
+.LBB169_2:
+	mov rax, qword ptr [rsp + 16]
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/cmp.rs:1916
+		fn lt(&self, other: &Self) -> bool { *self <  *other }
+	cmp rax, qword ptr [rsp + 40]
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/iter/range.rs:772
+		if self.start < self.end {
+	je .LBB169_39
+.LBB169_3:
+	mov rsi, qword ptr [rsp + 8]
+		// bevy-contiguous/crates/bevy_ecs/src/query/state.rs:444
+		self.update_archetypes_unsafe_world_cell(world);
+	mov rdi, rbx
+	vzeroupper
+	call bevy_ecs::query::state::QueryState<D,F>::update_archetypes_unsafe_world_cell
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/bool.rs:66
+		if self { Some(f()) } else { None }
+	cmp byte ptr [rbx + 216], 0
+	je .LBB169_40
+	vmovaps xmm3, xmmword ptr [rsp + 64]
+	vmovdqu ymm4, ymmword ptr [rsp + 80]
+	vbroadcastss xmm5, dword ptr [rip + .LCPI169_2]
+	vmovss xmm6, dword ptr [rip + .LCPI169_1]
+	vbroadcastss xmm7, dword ptr [rip + .LCPI169_2]
+	inc qword ptr [rsp + 16]
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/alloc/src/raw_vec/mod.rs:612
+		self.ptr.cast().as_non_null_ptr()
+	mov rax, qword ptr [rbx + 200]
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/alloc/src/vec/mod.rs:1815
+		&*core::intrinsics::aggregate_raw_ptr::<*const [T], _, _>(self.as_ptr(), self.len)
+	mov rcx, qword ptr [rbx + 208]
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ptr/mut_ptr.rs:961
+		unsafe { intrinsics::offset(self, count) }
+	lea rcx, [rax + 4*rcx]
+		// src/benches_s1.rs:96
+		for (mut pos_slice, mut vel_slice) in query.contiguous_iter_mut(&mut world).unwrap() {
+	jmp .LBB169_7
+.LBB169_36:
+	xor r8d, r8d
+.LBB169_6:
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ptr/mut_ptr.rs:961
+		unsafe { intrinsics::offset(self, count) }
+	shl r8, 4
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:323
+		mem::transmute(simd_xor(a, b))
+	vxorps xmm0, xmm5, xmmword ptr [rdx + r8]
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:88
+		unsafe { simd_mul(a, b) }
+	vmulps xmm1, xmm0, xmm0
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:23
+		unsafe { simd_insert!(a, 0, _mm_cvtss_f32(a) + _mm_cvtss_f32(b)) }
+	vmovshdup xmm2, xmm1
+	vaddss xmm2, xmm1, xmm2
+	vshufpd xmm1, xmm1, xmm1, 1
+	vaddss xmm1, xmm1, xmm2
+		// src/benches_s1.rs:100
+		let a_scalar = G / r_squared;
+	vdivss xmm2, xmm6, xmm1
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:138
+		unsafe { simd_fsqrt(a) }
+	vsqrtss xmm1, xmm1, xmm1
+	vbroadcastss xmm1, xmm1
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:114
+		unsafe { simd_div(a, b) }
+	vdivps xmm0, xmm0, xmm1
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/simd.rs:56
+		unsafe { crate::intrinsics::simd::simd_splat(value) }
+	vbroadcastss xmm1, xmm2
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:88
+		unsafe { simd_mul(a, b) }
+	vmulps xmm0, xmm1, xmm0
+	vmulps xmm0, xmm3, xmm0
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:36
+		unsafe { simd_add(a, b) }
+	vaddps xmm0, xmm0, xmmword ptr [rsi + r8]
+		// ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/glam-0.32.1/src/f32/sse2/vec3a.rs:1670
+		self.0 = unsafe { _mm_add_ps(self.0, rhs.0) };
+	vmovaps xmmword ptr [rsi + r8], xmm0
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:88
+		unsafe { simd_mul(a, b) }
+	vmulps xmm0, xmm3, xmm0
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:36
+		unsafe { simd_add(a, b) }
+	vaddps xmm0, xmm0, xmmword ptr [rdx + r8]
+		// ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/glam-0.32.1/src/f32/sse2/vec3a.rs:1670
+		self.0 = unsafe { _mm_add_ps(self.0, rhs.0) };
+	vmovaps xmmword ptr [rdx + r8], xmm0
+.LBB169_7:
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ptr/non_null.rs:1720
+		self.as_ptr() == other.as_ptr()
+	cmp rax, rcx
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	je .LBB169_2
+		// bevy-contiguous/crates/bevy_ecs/src/query/iter.rs:1177
+		let table_id = unsafe { self.storage_id_iter.next()?.table_id };
+	mov edx, dword ptr [rax]
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ptr/non_null.rs:659
+		unsafe { transmute(intrinsics::offset(self.as_ptr(), count)) }
+	add rax, 4
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/slice/index.rs:219
+		if self < slice.len() {
+	lea rdx, [rdx + 8*rdx]
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/alloc/src/vec/mod.rs:2997
+		let len = self.len;
+	mov rdi, qword ptr [r15 + 8*rdx + 16]
+		// bevy-contiguous/crates/bevy_ecs/src/query/iter.rs:1181
+		if table.is_empty() {
+	test rdi, rdi
+	je .LBB169_7
+	lea rdx, [r15 + 8*rdx]
+		// bevy-contiguous/crates/bevy_ecs/src/query/iter.rs:1189
+		D::set_table(&mut self.fetch, &self.query_state.fetch_state, table);
+	mov rsi, qword ptr [rbx + 224]
+	mov r8, qword ptr [rbx + 232]
+		// bevy-contiguous/crates/bevy_ecs/src/storage/sparse_set.rs:575
+		self.sparse.get(index).map(|dense_index| {
+	mov r11, qword ptr [rdx + 56]
+	mov r10, qword ptr [rdx + 24]
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/option.rs:745
+		match *self {
+	mov rdx, qword ptr [r11 + 8*rsi]
+		// ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nonmax-0.5.5/src/lib.rs:154
+		self.0.get() ^ $primitive::MAX
+	not rdx
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/slice/index.rs:253
+		slice_get_unchecked(slice, self)
+	lea rsi, [rdx + 2*rdx]
+	shl rsi, 4
+		// bevy-contiguous/crates/bevy_ecs/src/storage/blob_array.rs:173
+		core::slice::from_raw_parts(self.data.as_ptr() as *const UnsafeCell<T>, slice_len)
+	mov rdx, qword ptr [r10 + rsi + 16]
+		// bevy-contiguous/crates/bevy_ecs/src/storage/thin_array_ptr.rs:275
+		unsafe { core::slice::from_raw_parts(self.data.as_ptr(), slice_len) }
+	mov r9, qword ptr [r10 + rsi + 40]
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/option.rs:745
+		match *self {
+	mov rsi, qword ptr [r11 + 8*r8]
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	lea r11, [4*rdi - 4]
+		// ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nonmax-0.5.5/src/lib.rs:154
+		self.0.get() ^ $primitive::MAX
+	not rsi
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/slice/index.rs:253
+		slice_get_unchecked(slice, self)
+	lea r8, [rsi + 2*rsi]
+	shl r8, 4
+		// bevy-contiguous/crates/bevy_ecs/src/storage/blob_array.rs:173
+		core::slice::from_raw_parts(self.data.as_ptr() as *const UnsafeCell<T>, slice_len)
+	mov rsi, qword ptr [r10 + r8 + 16]
+		// bevy-contiguous/crates/bevy_ecs/src/storage/thin_array_ptr.rs:275
+		unsafe { core::slice::from_raw_parts(self.data.as_ptr(), slice_len) }
+	mov r14, qword ptr [r10 + r8 + 40]
+	mov r8, r9
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	cmp r11, 12
+	jb .LBB169_20
+	mov r10, r11
+	shr r10, 2
+	inc r10
+	cmp r11, 124
+	jae .LBB169_15
+	xor r11d, r11d
+	jmp .LBB169_12
+.LBB169_15:
+	mov r11, r10
+	and r11, r12
+	xor r8d, r8d
+.LBB169_16:
+		// bevy-contiguous/crates/bevy_ecs/src/change_detection/params.rs:424
+		*t = this_run;
+	vmovdqu ymmword ptr [r9 + 4*r8], ymm4
+	vmovdqu ymmword ptr [r9 + 4*r8 + 32], ymm4
+	vmovdqu ymmword ptr [r9 + 4*r8 + 64], ymm4
+	vmovdqu ymmword ptr [r9 + 4*r8 + 96], ymm4
+	add r8, 32
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	cmp r11, r8
+	jne .LBB169_16
+	cmp r10, r11
+	je .LBB169_22
+	test r10b, 28
+	je .LBB169_19
+.LBB169_12:
+	lea r13, [r12 + 28]
+	and r13, r10
+	lea r8, [r9 + 4*r13]
+.LBB169_13:
+		// bevy-contiguous/crates/bevy_ecs/src/change_detection/params.rs:424
+		*t = this_run;
+	vmovdqu xmmword ptr [r9 + 4*r11], xmm4
+	add r11, 4
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	cmp r13, r11
+	jne .LBB169_13
+	cmp r10, r13
+	je .LBB169_22
+.LBB169_20:
+	lea r9, [r9 + 4*rdi]
+.LBB169_21:
+		// bevy-contiguous/crates/bevy_ecs/src/change_detection/params.rs:424
+		*t = this_run;
+	mov dword ptr [r8], ebp
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ptr/non_null.rs:659
+		unsafe { transmute(intrinsics::offset(self.as_ptr(), count)) }
+	add r8, 4
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ptr/non_null.rs:1720
+		self.as_ptr() == other.as_ptr()
+	cmp r8, r9
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	jne .LBB169_21
+.LBB169_22:
+		// src/benches_s1.rs:97
+		for (pos, vel) in pos_slice.iter_mut().zip(vel_slice.iter_mut()) {
+	lea r9, [4*rdi]
+	mov r8, r14
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	lea r11, [r9 - 4]
+	cmp r11, 12
+	jb .LBB169_33
+	mov r10, r11
+	shr r10, 2
+	inc r10
+	cmp r11, 124
+	jae .LBB169_28
+	xor r11d, r11d
+	jmp .LBB169_25
+.LBB169_28:
+	mov r11, r10
+	and r11, r12
+	xor r8d, r8d
+.LBB169_29:
+		// bevy-contiguous/crates/bevy_ecs/src/change_detection/params.rs:424
+		*t = this_run;
+	vmovdqu ymmword ptr [r14 + 4*r8], ymm4
+	vmovdqu ymmword ptr [r14 + 4*r8 + 32], ymm4
+	vmovdqu ymmword ptr [r14 + 4*r8 + 64], ymm4
+	vmovdqu ymmword ptr [r14 + 4*r8 + 96], ymm4
+	add r8, 32
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	cmp r11, r8
+	jne .LBB169_29
+	cmp r10, r11
+	je .LBB169_35
+	test r10b, 28
+	je .LBB169_32
+.LBB169_25:
+	lea r13, [r12 + 28]
+	and r13, r10
+	lea r8, [r14 + 4*r13]
+.LBB169_26:
+		// bevy-contiguous/crates/bevy_ecs/src/change_detection/params.rs:424
+		*t = this_run;
+	vmovdqu xmmword ptr [r14 + 4*r11], xmm4
+	add r11, 4
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	cmp r13, r11
+	jne .LBB169_26
+	cmp r10, r13
+	je .LBB169_35
+.LBB169_33:
+	add r14, r9
+.LBB169_34:
+		// bevy-contiguous/crates/bevy_ecs/src/change_detection/params.rs:424
+		*t = this_run;
+	mov dword ptr [r8], ebp
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ptr/non_null.rs:659
+		unsafe { transmute(intrinsics::offset(self.as_ptr(), count)) }
+	add r8, 4
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ptr/non_null.rs:1720
+		self.as_ptr() == other.as_ptr()
+	cmp r8, r14
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	jne .LBB169_34
+.LBB169_35:
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/iter/adapters/zip.rs:306
+		if self.index < self.len {
+	cmp rdi, 1
+	je .LBB169_36
+	movabs r8, 1152921504606846974
+	mov r9, rdi
+	mov r10d, 16
+	and r9, r8
+	xor r8d, r8d
+.LBB169_38:
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:323
+		mem::transmute(simd_xor(a, b))
+	vxorps xmm0, xmm7, xmmword ptr [rdx + r10 - 16]
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/iter/adapters/zip.rs:310
+		self.index += 1;
+	add r8, 2
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:88
+		unsafe { simd_mul(a, b) }
+	vmulps xmm1, xmm0, xmm0
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:23
+		unsafe { simd_insert!(a, 0, _mm_cvtss_f32(a) + _mm_cvtss_f32(b)) }
+	vmovshdup xmm2, xmm1
+	vaddss xmm2, xmm1, xmm2
+	vshufpd xmm1, xmm1, xmm1, 1
+	vaddss xmm1, xmm1, xmm2
+		// src/benches_s1.rs:100
+		let a_scalar = G / r_squared;
+	vdivss xmm2, xmm6, xmm1
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:138
+		unsafe { simd_fsqrt(a) }
+	vsqrtss xmm1, xmm1, xmm1
+	vbroadcastss xmm1, xmm1
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:114
+		unsafe { simd_div(a, b) }
+	vdivps xmm0, xmm0, xmm1
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/simd.rs:56
+		unsafe { crate::intrinsics::simd::simd_splat(value) }
+	vbroadcastss xmm1, xmm2
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:88
+		unsafe { simd_mul(a, b) }
+	vmulps xmm0, xmm1, xmm0
+	vmulps xmm0, xmm3, xmm0
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:36
+		unsafe { simd_add(a, b) }
+	vaddps xmm0, xmm0, xmmword ptr [rsi + r10 - 16]
+		// ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/glam-0.32.1/src/f32/sse2/vec3a.rs:1670
+		self.0 = unsafe { _mm_add_ps(self.0, rhs.0) };
+	vmovaps xmmword ptr [rsi + r10 - 16], xmm0
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:88
+		unsafe { simd_mul(a, b) }
+	vmulps xmm0, xmm3, xmm0
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:36
+		unsafe { simd_add(a, b) }
+	vaddps xmm0, xmm0, xmmword ptr [rdx + r10 - 16]
+		// ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/glam-0.32.1/src/f32/sse2/vec3a.rs:1670
+		self.0 = unsafe { _mm_add_ps(self.0, rhs.0) };
+	vmovaps xmmword ptr [rdx + r10 - 16], xmm0
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:323
+		mem::transmute(simd_xor(a, b))
+	vxorps xmm0, xmm7, xmmword ptr [rdx + r10]
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:88
+		unsafe { simd_mul(a, b) }
+	vmulps xmm1, xmm0, xmm0
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:23
+		unsafe { simd_insert!(a, 0, _mm_cvtss_f32(a) + _mm_cvtss_f32(b)) }
+	vmovshdup xmm2, xmm1
+	vaddss xmm2, xmm1, xmm2
+	vshufpd xmm1, xmm1, xmm1, 1
+	vaddss xmm1, xmm1, xmm2
+		// src/benches_s1.rs:100
+		let a_scalar = G / r_squared;
+	vdivss xmm2, xmm6, xmm1
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:138
+		unsafe { simd_fsqrt(a) }
+	vsqrtss xmm1, xmm1, xmm1
+	vbroadcastss xmm1, xmm1
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:114
+		unsafe { simd_div(a, b) }
+	vdivps xmm0, xmm0, xmm1
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/simd.rs:56
+		unsafe { crate::intrinsics::simd::simd_splat(value) }
+	vbroadcastss xmm1, xmm2
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:88
+		unsafe { simd_mul(a, b) }
+	vmulps xmm0, xmm1, xmm0
+	vmulps xmm0, xmm3, xmm0
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:36
+		unsafe { simd_add(a, b) }
+	vaddps xmm0, xmm0, xmmword ptr [rsi + r10]
+		// ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/glam-0.32.1/src/f32/sse2/vec3a.rs:1670
+		self.0 = unsafe { _mm_add_ps(self.0, rhs.0) };
+	vmovaps xmmword ptr [rsi + r10], xmm0
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:88
+		unsafe { simd_mul(a, b) }
+	vmulps xmm0, xmm3, xmm0
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:36
+		unsafe { simd_add(a, b) }
+	vaddps xmm0, xmm0, xmmword ptr [rdx + r10]
+		// ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/glam-0.32.1/src/f32/sse2/vec3a.rs:1670
+		self.0 = unsafe { _mm_add_ps(self.0, rhs.0) };
+	vmovaps xmmword ptr [rdx + r10], xmm0
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/iter/adapters/zip.rs:306
+		if self.index < self.len {
+	add r10, 32
+	cmp r9, r8
+	jne .LBB169_38
+	test dil, 1
+	je .LBB169_7
+	jmp .LBB169_6
+.LBB169_19:
+	lea r8, [r9 + 4*r11]
+	jmp .LBB169_20
+.LBB169_32:
+	lea r8, [r14 + 4*r11]
+	jmp .LBB169_33
+.LBB169_39:
+	lea rdi, [rsp + 48]
+		// src/benches_s1.rs:109
+		now.elapsed().as_nanos()
+	vzeroupper
+	call qword ptr [rip + <std::time::Instant>::elapsed@GOTPCREL]
+	mov esi, 1000000000
+	mov ecx, edx
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/time.rs:632
+		self.secs as u128 * NANOS_PER_SEC as u128 + self.nanos.as_inner() as u128
+	mov rdx, rax
+	mov eax, ecx
+	mulx rdx, rsi, rsi
+	add rax, rsi
+	adc rdx, 0
+		// src/benches_s1.rs:110
+		}
+	add rsp, 120
+	pop rbx
+	pop r12
+	pop r13
+	pop r14
+	pop r15
+	pop rbp
+	ret
+.LBB169_40:
+		// /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/result.rs:1233
+		Err(e) => unwrap_failed("called `Result::unwrap()` on an `Err` value", &e),
+	lea rdi, [rip + .Lanon.a14ddcae88e2af7f3f24af4503f44f52.82]
+	lea rcx, [rip + .Lanon.a14ddcae88e2af7f3f24af4503f44f52.83]
+	lea r8, [rip + .Lanon.a14ddcae88e2af7f3f24af4503f44f52.179]
+	lea rdx, [rsp + 7]
+	mov esi, 43
+	call qword ptr [rip + core::result::unwrap_failed@GOTPCREL]
