@@ -9,10 +9,10 @@ samples = '10'
 suffix = f'_w-{warmups}_i-{iterations}_s-{samples}'
 
 files = {
-    'Bevy': f'csv/line/Bevy{suffix}.csv',
-    'SoA': f'csv/line/SoA_{suffix}.csv',
-    'AoS': f'csv/line/AoS_{suffix}.csv',
-    'PC': f'csv/line/PC___{suffix}.csv'
+    'Bevy': f'csv/final/Bevy{suffix}.csv',
+    'SoA': f'csv/final/SoA_{suffix}.csv',
+    'AoS': f'csv/final/AoS_{suffix}.csv',
+    'PC': f'csv/final/PC___{suffix}.csv'
 }
 
 dataframes = []
@@ -44,10 +44,13 @@ ax = sns.lineplot(
 )
 
 plt.title('Scenario 1: Compute Bound', fontsize=15)
-plt.xlabel('Planet Count', fontsize=12)
-plt.xticks(np.arange(start, stop + 1, 2000))
+
+plt.xlabel('Planet Count [×1000]', fontsize=12)
+ticks = np.arange(start, stop + 1, 2000)
+plt.xticks(ticks, [f'{int(t/1000)}' for t in ticks])
+
 plt.ylabel('Average Time per Iteration [µs]', fontsize=12)
 
-plt.legend(title='Architecture')
+plt.legend(title='Architecture', fontsize=12)
 plt.savefig('svg/S1_.svg', bbox_inches='tight')
 plt.show()

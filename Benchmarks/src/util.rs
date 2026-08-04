@@ -60,7 +60,7 @@ pub fn file_name(architecture: &str, args: &Args) -> String {
     path.push_str("_s-");
     path.push_str(args.samples.to_string().as_str());
     if let Scenario::S3 = args.scenario {
-        path.push_str("_r");
+        path.push_str("_r-");
         path.push_str(args.reuse.to_string().as_str());
     }
     path.push_str(".csv");
