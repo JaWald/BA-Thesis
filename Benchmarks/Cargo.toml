@@ -16,5 +16,5 @@ opt-level = 3
 
 [profile.asm]
 inherits = "release"
-debug = true
+debug = 2
 opt-level = 3

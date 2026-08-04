@@ -1,0 +1,259 @@
+bench_s2_pc:
+		// src/benches_s2.rs:7
+		pub fn bench_s2_pc(iterations: usize, planets: &mut Vec<Box<PlanetAoS>>, dt: f32) -> u128 {
+	push r14
+	push rbx
+	sub rsp, 40
+	vmovaps xmmword ptr [rsp + 16], xmm0
+	mov r14, rsi
+	mov rbx, rdi
+		// src/benches_s2.rs:8
+		let now = Instant::now();
+	call qword ptr [rip + <std::time::Instant>::now@GOTPCREL]
+	vmovaps xmm4, xmmword ptr [rsp + 16]
+	mov qword ptr [rsp], rax
+	mov dword ptr [rsp + 8], edx
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1916
+		fn lt(&self, other: &Self) -> bool { *self <  *other }
+	test rbx, rbx
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/range.rs:772
+		if self.start < self.end {
+	je .LBB174_9
+	mov rax, qword ptr [r14 + 16]
+	test rax, rax
+	je .LBB174_9
+	mov rcx, qword ptr [r14 + 8]
+	vbroadcastss xmm0, xmm4
+	xor r8d, r8d
+	lea rdx, [rcx + 8*rax]
+	shl rax, 3
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	add rax, -8
+	mov esi, eax
+	shr esi, 3
+	mov edi, eax
+	and edi, 56
+	inc esi
+	and esi, 7
+	neg rsi
+	jmp .LBB174_4
+.LBB174_3:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs:844
+		intrinsics::unchecked_add(self, rhs)
+	inc r8
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1916
+		fn lt(&self, other: &Self) -> bool { *self <  *other }
+	cmp r8, rbx
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/range.rs:772
+		if self.start < self.end {
+	je .LBB174_9
+.LBB174_4:
+	mov r9, rcx
+	cmp edi, 56
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	je .LBB174_7
+	mov r10, rsi
+	mov r9, rcx
+.LBB174_6:
+		// src/benches_s2.rs:11
+		planet.position += planet.velocity * dt;
+	mov r11, qword ptr [r9]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/non_null.rs:659
+		unsafe { transmute(intrinsics::offset(self.as_ptr(), count)) }
+	add r9, 8
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	inc r10
+		// src/benches_s2.rs:11
+		planet.position += planet.velocity * dt;
+	vmovsd xmm2, qword ptr [r11]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:791
+		fn add_assign(&mut self, other: $t) { *self += other }
+	vmovsd xmm3, qword ptr [r11 + 12]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:352
+		fn mul(self, other: $t) -> $t { self * other }
+	vmulss xmm1, xmm4, dword ptr [r11 + 8]
+	vmulps xmm2, xmm0, xmm2
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:791
+		fn add_assign(&mut self, other: $t) { *self += other }
+	vaddps xmm2, xmm2, xmm3
+	vmovlps qword ptr [r11 + 12], xmm2
+	vaddss xmm1, xmm1, dword ptr [r11 + 20]
+	vmovss dword ptr [r11 + 20], xmm1
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	jne .LBB174_6
+.LBB174_7:
+	cmp rax, 56
+	jb .LBB174_3
+.LBB174_8:
+		// src/benches_s2.rs:11
+		planet.position += planet.velocity * dt;
+	mov r10, qword ptr [r9]
+	vmovsd xmm2, qword ptr [r10]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:791
+		fn add_assign(&mut self, other: $t) { *self += other }
+	vmovsd xmm3, qword ptr [r10 + 12]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:352
+		fn mul(self, other: $t) -> $t { self * other }
+	vmulss xmm1, xmm4, dword ptr [r10 + 8]
+	vmulps xmm2, xmm0, xmm2
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:791
+		fn add_assign(&mut self, other: $t) { *self += other }
+	vaddps xmm2, xmm2, xmm3
+	vmovlps qword ptr [r10 + 12], xmm2
+	vaddss xmm1, xmm1, dword ptr [r10 + 20]
+	vmovss dword ptr [r10 + 20], xmm1
+		// src/benches_s2.rs:11
+		planet.position += planet.velocity * dt;
+	mov r10, qword ptr [r9 + 8]
+	vmovsd xmm2, qword ptr [r10]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:791
+		fn add_assign(&mut self, other: $t) { *self += other }
+	vmovsd xmm3, qword ptr [r10 + 12]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:352
+		fn mul(self, other: $t) -> $t { self * other }
+	vmulss xmm1, xmm4, dword ptr [r10 + 8]
+	vmulps xmm2, xmm0, xmm2
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:791
+		fn add_assign(&mut self, other: $t) { *self += other }
+	vaddps xmm2, xmm2, xmm3
+	vmovlps qword ptr [r10 + 12], xmm2
+	vaddss xmm1, xmm1, dword ptr [r10 + 20]
+	vmovss dword ptr [r10 + 20], xmm1
+		// src/benches_s2.rs:11
+		planet.position += planet.velocity * dt;
+	mov r10, qword ptr [r9 + 16]
+	vmovsd xmm2, qword ptr [r10]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:791
+		fn add_assign(&mut self, other: $t) { *self += other }
+	vmovsd xmm3, qword ptr [r10 + 12]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:352
+		fn mul(self, other: $t) -> $t { self * other }
+	vmulss xmm1, xmm4, dword ptr [r10 + 8]
+	vmulps xmm2, xmm0, xmm2
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:791
+		fn add_assign(&mut self, other: $t) { *self += other }
+	vaddps xmm2, xmm2, xmm3
+	vmovlps qword ptr [r10 + 12], xmm2
+	vaddss xmm1, xmm1, dword ptr [r10 + 20]
+	vmovss dword ptr [r10 + 20], xmm1
+		// src/benches_s2.rs:11
+		planet.position += planet.velocity * dt;
+	mov r10, qword ptr [r9 + 24]
+	vmovsd xmm2, qword ptr [r10]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:791
+		fn add_assign(&mut self, other: $t) { *self += other }
+	vmovsd xmm3, qword ptr [r10 + 12]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:352
+		fn mul(self, other: $t) -> $t { self * other }
+	vmulss xmm1, xmm4, dword ptr [r10 + 8]
+	vmulps xmm2, xmm0, xmm2
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:791
+		fn add_assign(&mut self, other: $t) { *self += other }
+	vaddps xmm2, xmm2, xmm3
+	vmovlps qword ptr [r10 + 12], xmm2
+	vaddss xmm1, xmm1, dword ptr [r10 + 20]
+	vmovss dword ptr [r10 + 20], xmm1
+		// src/benches_s2.rs:11
+		planet.position += planet.velocity * dt;
+	mov r10, qword ptr [r9 + 32]
+	vmovsd xmm2, qword ptr [r10]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:791
+		fn add_assign(&mut self, other: $t) { *self += other }
+	vmovsd xmm3, qword ptr [r10 + 12]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:352
+		fn mul(self, other: $t) -> $t { self * other }
+	vmulss xmm1, xmm4, dword ptr [r10 + 8]
+	vmulps xmm2, xmm0, xmm2
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:791
+		fn add_assign(&mut self, other: $t) { *self += other }
+	vaddps xmm2, xmm2, xmm3
+	vmovlps qword ptr [r10 + 12], xmm2
+	vaddss xmm1, xmm1, dword ptr [r10 + 20]
+	vmovss dword ptr [r10 + 20], xmm1
+		// src/benches_s2.rs:11
+		planet.position += planet.velocity * dt;
+	mov r10, qword ptr [r9 + 40]
+	vmovsd xmm2, qword ptr [r10]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:791
+		fn add_assign(&mut self, other: $t) { *self += other }
+	vmovsd xmm3, qword ptr [r10 + 12]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:352
+		fn mul(self, other: $t) -> $t { self * other }
+	vmulss xmm1, xmm4, dword ptr [r10 + 8]
+	vmulps xmm2, xmm0, xmm2
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:791
+		fn add_assign(&mut self, other: $t) { *self += other }
+	vaddps xmm2, xmm2, xmm3
+	vmovlps qword ptr [r10 + 12], xmm2
+	vaddss xmm1, xmm1, dword ptr [r10 + 20]
+	vmovss dword ptr [r10 + 20], xmm1
+		// src/benches_s2.rs:11
+		planet.position += planet.velocity * dt;
+	mov r10, qword ptr [r9 + 48]
+	vmovsd xmm2, qword ptr [r10]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:791
+		fn add_assign(&mut self, other: $t) { *self += other }
+	vmovsd xmm3, qword ptr [r10 + 12]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:352
+		fn mul(self, other: $t) -> $t { self * other }
+	vmulss xmm1, xmm4, dword ptr [r10 + 8]
+	vmulps xmm2, xmm0, xmm2
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:791
+		fn add_assign(&mut self, other: $t) { *self += other }
+	vaddps xmm2, xmm2, xmm3
+	vmovlps qword ptr [r10 + 12], xmm2
+	vaddss xmm1, xmm1, dword ptr [r10 + 20]
+	vmovss dword ptr [r10 + 20], xmm1
+		// src/benches_s2.rs:11
+		planet.position += planet.velocity * dt;
+	mov r10, qword ptr [r9 + 56]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/non_null.rs:1720
+		self.as_ptr() == other.as_ptr()
+	add r9, 64
+		// src/benches_s2.rs:11
+		planet.position += planet.velocity * dt;
+	vmovsd xmm2, qword ptr [r10]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:791
+		fn add_assign(&mut self, other: $t) { *self += other }
+	vmovsd xmm3, qword ptr [r10 + 12]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:352
+		fn mul(self, other: $t) -> $t { self * other }
+	vmulss xmm1, xmm4, dword ptr [r10 + 8]
+	vmulps xmm2, xmm0, xmm2
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/arith.rs:791
+		fn add_assign(&mut self, other: $t) { *self += other }
+	vaddps xmm2, xmm2, xmm3
+	vmovlps qword ptr [r10 + 12], xmm2
+	vaddss xmm1, xmm1, dword ptr [r10 + 20]
+	vmovss dword ptr [r10 + 20], xmm1
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/non_null.rs:1720
+		self.as_ptr() == other.as_ptr()
+	cmp r9, rdx
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	jne .LBB174_8
+	jmp .LBB174_3
+.LBB174_9:
+	mov rdi, rsp
+		// src/benches_s2.rs:14
+		now.elapsed().as_nanos()
+	call qword ptr [rip + <std::time::Instant>::elapsed@GOTPCREL]
+	mov esi, 1000000000
+	mov ecx, edx
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/time.rs:632
+		self.secs as u128 * NANOS_PER_SEC as u128 + self.nanos.as_inner() as u128
+	mov rdx, rax
+	mov eax, ecx
+	mulx rdx, rsi, rsi
+	add rax, rsi
+	adc rdx, 0
+		// src/benches_s2.rs:15
+		}
+	add rsp, 40
+	pop rbx
+	pop r14
+	ret

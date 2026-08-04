@@ -3,11 +3,18 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+files_final = {
+    'Bevy': 'csv/final/desktop_linux/bevy.csv',
+    'SoA': 'csv/final/desktop_linux/soa.csv',
+    'AoS': 'csv/final/desktop_linux/aos.csv',
+    'PC': 'csv/final/desktop_linux/pc.csv'
+}
+
 files_dl = {
-    #'Bevy': 'csv/full/desktop_linux/bevy.csv',
-    #'SoA': 'csv/full/desktop_linux/soa.csv',
+    'Bevy': 'csv/full/desktop_linux/bevy.csv',
+    'SoA': 'csv/full/desktop_linux/soa.csv',
     'AoS': 'csv/full/desktop_linux/aos.csv',
-    #'PC': 'csv/full/desktop_linux/pc.csv'
+    'PC': 'csv/full/desktop_linux/pc.csv'
 }
 
 files_dw = {
@@ -62,25 +69,30 @@ files_stride = {
     '5800X': 'csv/full/desktop_linux/aos.csv',
 }
 
-files_test = {
-    #'Bevy': 'csv/bevy.csv',
-    #'SoA': 'csv//soa.csv',
-    'AoS': 'csv/aos.csv',
-    #'PC': 'csv/pc.csv'
+warmups = '200'
+iterations = '100'
+samples = '5'
+suffix = f'_w-{warmups}_i-{iterations}_s-{samples}'
+
+files = {
+    'Bevy': f'csv/Bevy{suffix}.csv',
+    'SoA': f'csv/SoA_{suffix}.csv',
+    'AoS': f'csv/AoS_{suffix}.csv',
+    'PC': f'csv/PC___{suffix}.csv'
 }
 
 dataframes = []
-for label, file in files_test.items():
+for label, file in files.items():
     temp_df = pd.read_csv(file)
     temp_df['architecture'] = label
     dataframes.append(temp_df)
 
 df = pd.concat(dataframes, ignore_index=True)
-df['time_us'] = df['time_ns'] / df['iterations'] / 1000
-df['object_size'] = (df['payload'] + 24) #/ 1024
+df['time_us'] = df['time_ns'] / df['iteration_count'] / 1000
+df['object_size'] = (df['payload']) #/ 1024
 
 start = 0
-stop = 2048
+stop = 1024 * 20
 
 df = df[df['object_size'].between(start, stop)]
 df['object_size'] = (df['object_size'] - start)
@@ -107,11 +119,11 @@ ax = sns.lineplot(
 
 plt.title('Scenario 2: Performance Impact of Payload Size (Ryzen 7 5800X)', fontsize=16)
 #plt.xticks(np.arange(start, stop + 1, 256))
-plt.xticks(np.arange(start-start, stop-start + 1, 256))
+plt.xticks(np.arange(start, stop + 1, 2048))
 #plt.ylim(14, 23)
-plt.xlabel('Planet Size [Bytes] (+8KiB)', fontsize=12)
+plt.xlabel('Planet Size [Bytes]', fontsize=12)
 plt.ylabel('Average Time per Iteration [µs]', fontsize=12)
 plt.legend(title='Architecture', loc='upper left', fontsize=12)
 
-plt.savefig('svg/S2_detail_.svg', bbox_inches='tight')
+plt.savefig('svg/S2_final_.svg', bbox_inches='tight')
 plt.show()

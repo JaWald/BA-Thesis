@@ -1,0 +1,423 @@
+bench_s2_bevy:
+		// src/benches_s2.rs:45
+		pub fn bench_s2_bevy(
+	push rbp
+	push r15
+	push r14
+	push r13
+	push r12
+	push rbx
+	sub rsp, 120
+	vmovdqa xmmword ptr [rsp + 16], xmm0
+	mov rbx, rdx
+	mov qword ptr [rsp + 8], rsi
+	mov r14, rdi
+		// src/benches_s2.rs:51
+		let now = Instant::now();
+	call qword ptr [rip + <std::time::Instant>::now@GOTPCREL]
+	mov qword ptr [rsp + 48], rax
+	mov dword ptr [rsp + 56], edx
+	mov qword ptr [rsp + 40], r14
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1916
+		fn lt(&self, other: &Self) -> bool { *self <  *other }
+	test r14, r14
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/range.rs:772
+		if self.start < self.end {
+	je .LBB173_40
+	mov rax, qword ptr [rsp + 8]
+	vbroadcastss xmm1, dword ptr [rsp + 16]
+	movabs r12, 9223372036854775776
+	mov qword ptr [rsp + 16], 0
+	mov ebp, dword ptr [rax + 1408]
+	mov r15, qword ptr [rax + 360]
+	vmovaps xmmword ptr [rsp + 64], xmm1
+	vmovd xmm0, ebp
+	vpbroadcastd ymm2, xmm0
+	vmovdqu ymmword ptr [rsp + 80], ymm2
+	jmp .LBB173_3
+.LBB173_2:
+	mov rax, qword ptr [rsp + 16]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1916
+		fn lt(&self, other: &Self) -> bool { *self <  *other }
+	cmp rax, qword ptr [rsp + 40]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/range.rs:772
+		if self.start < self.end {
+	je .LBB173_40
+.LBB173_3:
+	mov rsi, qword ptr [rsp + 8]
+		// bevy-contiguous/crates/bevy_ecs/src/query/state.rs:444
+		self.update_archetypes_unsafe_world_cell(world);
+	mov rdi, rbx
+	vzeroupper
+	call bevy_ecs::query::state::QueryState<D,F>::update_archetypes_unsafe_world_cell
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/bool.rs:66
+		if self { Some(f()) } else { None }
+	cmp byte ptr [rbx + 216], 0
+	je .LBB173_41
+	vmovaps xmm1, xmmword ptr [rsp + 64]
+	vmovdqu ymm2, ymmword ptr [rsp + 80]
+	inc qword ptr [rsp + 16]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/raw_vec/mod.rs:612
+		self.ptr.cast().as_non_null_ptr()
+	mov rax, qword ptr [rbx + 200]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1815
+		&*core::intrinsics::aggregate_raw_ptr::<*const [T], _, _>(self.as_ptr(), self.len)
+	mov rcx, qword ptr [rbx + 208]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/mut_ptr.rs:961
+		unsafe { intrinsics::offset(self, count) }
+	lea rcx, [rax + 4*rcx]
+.LBB173_8:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/non_null.rs:1720
+		self.as_ptr() == other.as_ptr()
+	cmp rax, rcx
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	je .LBB173_2
+		// bevy-contiguous/crates/bevy_ecs/src/query/iter.rs:1177
+		let table_id = unsafe { self.storage_id_iter.next()?.table_id };
+	mov edx, dword ptr [rax]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/non_null.rs:659
+		unsafe { transmute(intrinsics::offset(self.as_ptr(), count)) }
+	add rax, 4
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/index.rs:219
+		if self < slice.len() {
+	lea rdx, [rdx + 8*rdx]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2997
+		let len = self.len;
+	mov rdi, qword ptr [r15 + 8*rdx + 16]
+		// bevy-contiguous/crates/bevy_ecs/src/query/iter.rs:1181
+		if table.is_empty() {
+	test rdi, rdi
+	je .LBB173_8
+	lea rdx, [r15 + 8*rdx]
+		// bevy-contiguous/crates/bevy_ecs/src/query/iter.rs:1189
+		D::set_table(&mut self.fetch, &self.query_state.fetch_state, table);
+	mov rsi, qword ptr [rbx + 224]
+	mov r8, qword ptr [rbx + 232]
+		// bevy-contiguous/crates/bevy_ecs/src/storage/sparse_set.rs:575
+		self.sparse.get(index).map(|dense_index| {
+	mov r11, qword ptr [rdx + 56]
+	mov r10, qword ptr [rdx + 24]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/option.rs:745
+		match *self {
+	mov rdx, qword ptr [r11 + 8*rsi]
+		// ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nonmax-0.5.5/src/lib.rs:154
+		self.0.get() ^ $primitive::MAX
+	not rdx
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/index.rs:253
+		slice_get_unchecked(slice, self)
+	lea rsi, [rdx + 2*rdx]
+	shl rsi, 4
+		// bevy-contiguous/crates/bevy_ecs/src/storage/blob_array.rs:173
+		core::slice::from_raw_parts(self.data.as_ptr() as *const UnsafeCell<T>, slice_len)
+	mov rdx, qword ptr [r10 + rsi + 16]
+		// bevy-contiguous/crates/bevy_ecs/src/storage/thin_array_ptr.rs:275
+		unsafe { core::slice::from_raw_parts(self.data.as_ptr(), slice_len) }
+	mov r9, qword ptr [r10 + rsi + 40]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/option.rs:745
+		match *self {
+	mov rsi, qword ptr [r11 + 8*r8]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	lea r11, [4*rdi - 4]
+		// ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nonmax-0.5.5/src/lib.rs:154
+		self.0.get() ^ $primitive::MAX
+	not rsi
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/index.rs:253
+		slice_get_unchecked(slice, self)
+	lea r8, [rsi + 2*rsi]
+	shl r8, 4
+		// bevy-contiguous/crates/bevy_ecs/src/storage/blob_array.rs:173
+		core::slice::from_raw_parts(self.data.as_ptr() as *const UnsafeCell<T>, slice_len)
+	mov rsi, qword ptr [r10 + r8 + 16]
+		// bevy-contiguous/crates/bevy_ecs/src/storage/thin_array_ptr.rs:275
+		unsafe { core::slice::from_raw_parts(self.data.as_ptr(), slice_len) }
+	mov r14, qword ptr [r10 + r8 + 40]
+	mov r8, r9
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	cmp r11, 12
+	jb .LBB173_21
+	mov r10, r11
+	shr r10, 2
+	inc r10
+	cmp r11, 124
+	jae .LBB173_16
+	xor r11d, r11d
+	jmp .LBB173_13
+.LBB173_16:
+	mov r11, r10
+	and r11, r12
+	xor r8d, r8d
+.LBB173_17:
+		// bevy-contiguous/crates/bevy_ecs/src/change_detection/params.rs:424
+		*t = this_run;
+	vmovdqu ymmword ptr [r9 + 4*r8], ymm2
+	vmovdqu ymmword ptr [r9 + 4*r8 + 32], ymm2
+	vmovdqu ymmword ptr [r9 + 4*r8 + 64], ymm2
+	vmovdqu ymmword ptr [r9 + 4*r8 + 96], ymm2
+	add r8, 32
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	cmp r11, r8
+	jne .LBB173_17
+	cmp r10, r11
+	je .LBB173_23
+	test r10b, 28
+	je .LBB173_20
+.LBB173_13:
+	lea r13, [r12 + 28]
+	and r13, r10
+	lea r8, [r9 + 4*r13]
+.LBB173_14:
+		// bevy-contiguous/crates/bevy_ecs/src/change_detection/params.rs:424
+		*t = this_run;
+	vmovdqu xmmword ptr [r9 + 4*r11], xmm2
+	add r11, 4
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	cmp r13, r11
+	jne .LBB173_14
+	cmp r10, r13
+	je .LBB173_23
+.LBB173_21:
+	lea r9, [r9 + 4*rdi]
+.LBB173_22:
+		// bevy-contiguous/crates/bevy_ecs/src/change_detection/params.rs:424
+		*t = this_run;
+	mov dword ptr [r8], ebp
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/non_null.rs:659
+		unsafe { transmute(intrinsics::offset(self.as_ptr(), count)) }
+	add r8, 4
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/non_null.rs:1720
+		self.as_ptr() == other.as_ptr()
+	cmp r8, r9
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	jne .LBB173_22
+.LBB173_23:
+		// src/benches_s2.rs:61
+		for (pos, vel) in pos_arr.iter_mut().zip(vel_arr.iter_mut()) {
+	lea r9, [4*rdi]
+	mov r8, r14
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	lea r11, [r9 - 4]
+	cmp r11, 12
+	jb .LBB173_34
+	mov r10, r11
+	shr r10, 2
+	inc r10
+	cmp r11, 124
+	jae .LBB173_29
+	xor r11d, r11d
+	jmp .LBB173_26
+.LBB173_29:
+	mov r11, r10
+	and r11, r12
+	xor r8d, r8d
+.LBB173_30:
+		// bevy-contiguous/crates/bevy_ecs/src/change_detection/params.rs:424
+		*t = this_run;
+	vmovdqu ymmword ptr [r14 + 4*r8], ymm2
+	vmovdqu ymmword ptr [r14 + 4*r8 + 32], ymm2
+	vmovdqu ymmword ptr [r14 + 4*r8 + 64], ymm2
+	vmovdqu ymmword ptr [r14 + 4*r8 + 96], ymm2
+	add r8, 32
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	cmp r11, r8
+	jne .LBB173_30
+	cmp r10, r11
+	je .LBB173_36
+	test r10b, 28
+	je .LBB173_33
+.LBB173_26:
+	lea r13, [r12 + 28]
+	and r13, r10
+	lea r8, [r14 + 4*r13]
+.LBB173_27:
+		// bevy-contiguous/crates/bevy_ecs/src/change_detection/params.rs:424
+		*t = this_run;
+	vmovdqu xmmword ptr [r14 + 4*r11], xmm2
+	add r11, 4
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	cmp r13, r11
+	jne .LBB173_27
+	cmp r10, r13
+	je .LBB173_36
+.LBB173_34:
+	add r14, r9
+.LBB173_35:
+		// bevy-contiguous/crates/bevy_ecs/src/change_detection/params.rs:424
+		*t = this_run;
+	mov dword ptr [r8], ebp
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/non_null.rs:659
+		unsafe { transmute(intrinsics::offset(self.as_ptr(), count)) }
+	add r8, 4
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/non_null.rs:1720
+		self.as_ptr() == other.as_ptr()
+	cmp r8, r14
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/iter/macros.rs:180
+		if ptr == crate::intrinsics::transmute::<$ptr, NonNull<T>>(end_or_len) {
+	jne .LBB173_35
+.LBB173_36:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/adapters/zip.rs:306
+		if self.index < self.len {
+	mov r8d, edi
+	and r8d, 7
+	cmp rdi, 8
+	jae .LBB173_38
+	xor r9d, r9d
+	jmp .LBB173_6
+.LBB173_38:
+	movabs r9, 1152921504606846968
+	mov r10d, 112
+	and rdi, r9
+	xor r9d, r9d
+.LBB173_39:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:88
+		unsafe { simd_mul(a, b) }
+	vmulps xmm0, xmm1, xmmword ptr [rsi + r10 - 112]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/adapters/zip.rs:310
+		self.index += 1;
+	add r9, 8
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:36
+		unsafe { simd_add(a, b) }
+	vaddps xmm0, xmm0, xmmword ptr [rdx + r10 - 112]
+		// ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/glam-0.32.1/src/f32/sse2/vec3a.rs:1670
+		self.0 = unsafe { _mm_add_ps(self.0, rhs.0) };
+	vmovaps xmmword ptr [rdx + r10 - 112], xmm0
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:88
+		unsafe { simd_mul(a, b) }
+	vmulps xmm0, xmm1, xmmword ptr [rsi + r10 - 96]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:36
+		unsafe { simd_add(a, b) }
+	vaddps xmm0, xmm0, xmmword ptr [rdx + r10 - 96]
+		// ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/glam-0.32.1/src/f32/sse2/vec3a.rs:1670
+		self.0 = unsafe { _mm_add_ps(self.0, rhs.0) };
+	vmovaps xmmword ptr [rdx + r10 - 96], xmm0
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:88
+		unsafe { simd_mul(a, b) }
+	vmulps xmm0, xmm1, xmmword ptr [rsi + r10 - 80]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:36
+		unsafe { simd_add(a, b) }
+	vaddps xmm0, xmm0, xmmword ptr [rdx + r10 - 80]
+		// ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/glam-0.32.1/src/f32/sse2/vec3a.rs:1670
+		self.0 = unsafe { _mm_add_ps(self.0, rhs.0) };
+	vmovaps xmmword ptr [rdx + r10 - 80], xmm0
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:88
+		unsafe { simd_mul(a, b) }
+	vmulps xmm0, xmm1, xmmword ptr [rsi + r10 - 64]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:36
+		unsafe { simd_add(a, b) }
+	vaddps xmm0, xmm0, xmmword ptr [rdx + r10 - 64]
+		// ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/glam-0.32.1/src/f32/sse2/vec3a.rs:1670
+		self.0 = unsafe { _mm_add_ps(self.0, rhs.0) };
+	vmovaps xmmword ptr [rdx + r10 - 64], xmm0
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:88
+		unsafe { simd_mul(a, b) }
+	vmulps xmm0, xmm1, xmmword ptr [rsi + r10 - 48]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:36
+		unsafe { simd_add(a, b) }
+	vaddps xmm0, xmm0, xmmword ptr [rdx + r10 - 48]
+		// ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/glam-0.32.1/src/f32/sse2/vec3a.rs:1670
+		self.0 = unsafe { _mm_add_ps(self.0, rhs.0) };
+	vmovaps xmmword ptr [rdx + r10 - 48], xmm0
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:88
+		unsafe { simd_mul(a, b) }
+	vmulps xmm0, xmm1, xmmword ptr [rsi + r10 - 32]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:36
+		unsafe { simd_add(a, b) }
+	vaddps xmm0, xmm0, xmmword ptr [rdx + r10 - 32]
+		// ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/glam-0.32.1/src/f32/sse2/vec3a.rs:1670
+		self.0 = unsafe { _mm_add_ps(self.0, rhs.0) };
+	vmovaps xmmword ptr [rdx + r10 - 32], xmm0
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:88
+		unsafe { simd_mul(a, b) }
+	vmulps xmm0, xmm1, xmmword ptr [rsi + r10 - 16]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:36
+		unsafe { simd_add(a, b) }
+	vaddps xmm0, xmm0, xmmword ptr [rdx + r10 - 16]
+		// ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/glam-0.32.1/src/f32/sse2/vec3a.rs:1670
+		self.0 = unsafe { _mm_add_ps(self.0, rhs.0) };
+	vmovaps xmmword ptr [rdx + r10 - 16], xmm0
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:88
+		unsafe { simd_mul(a, b) }
+	vmulps xmm0, xmm1, xmmword ptr [rsi + r10]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:36
+		unsafe { simd_add(a, b) }
+	vaddps xmm0, xmm0, xmmword ptr [rdx + r10]
+		// ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/glam-0.32.1/src/f32/sse2/vec3a.rs:1670
+		self.0 = unsafe { _mm_add_ps(self.0, rhs.0) };
+	vmovaps xmmword ptr [rdx + r10], xmm0
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/adapters/zip.rs:306
+		if self.index < self.len {
+	sub r10, -128
+	cmp rdi, r9
+	jne .LBB173_39
+	test r8, r8
+	je .LBB173_8
+.LBB173_6:
+	shl r9, 4
+	shl r8d, 4
+	xor edi, edi
+	add rsi, r9
+	add rdx, r9
+.LBB173_7:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:88
+		unsafe { simd_mul(a, b) }
+	vmulps xmm0, xmm1, xmmword ptr [rsi + rdi]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/../../stdarch/crates/core_arch/src/x86/sse.rs:36
+		unsafe { simd_add(a, b) }
+	vaddps xmm0, xmm0, xmmword ptr [rdx + rdi]
+		// ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/glam-0.32.1/src/f32/sse2/vec3a.rs:1670
+		self.0 = unsafe { _mm_add_ps(self.0, rhs.0) };
+	vmovaps xmmword ptr [rdx + rdi], xmm0
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/adapters/zip.rs:306
+		if self.index < self.len {
+	add rdi, 16
+	cmp r8, rdi
+	jne .LBB173_7
+	jmp .LBB173_8
+.LBB173_20:
+	lea r8, [r9 + 4*r11]
+	jmp .LBB173_21
+.LBB173_33:
+	lea r8, [r14 + 4*r11]
+	jmp .LBB173_34
+.LBB173_40:
+	lea rdi, [rsp + 48]
+		// src/benches_s2.rs:66
+		now.elapsed().as_nanos()
+	vzeroupper
+	call qword ptr [rip + <std::time::Instant>::elapsed@GOTPCREL]
+	mov esi, 1000000000
+	mov ecx, edx
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/time.rs:632
+		self.secs as u128 * NANOS_PER_SEC as u128 + self.nanos.as_inner() as u128
+	mov rdx, rax
+	mov eax, ecx
+	mulx rdx, rsi, rsi
+	add rax, rsi
+	adc rdx, 0
+		// src/benches_s2.rs:67
+		}
+	add rsp, 120
+	pop rbx
+	pop r12
+	pop r13
+	pop r14
+	pop r15
+	pop rbp
+	ret
+.LBB173_41:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/result.rs:1233
+		Err(e) => unwrap_failed("called `Result::unwrap()` on an `Err` value", &e),
+	lea rdi, [rip + .Lanon.a14ddcae88e2af7f3f24af4503f44f52.82]
+	lea rcx, [rip + .Lanon.a14ddcae88e2af7f3f24af4503f44f52.83]
+	lea r8, [rip + .Lanon.a14ddcae88e2af7f3f24af4503f44f52.186]
+	lea rdx, [rsp + 7]
+	mov esi, 43
+	call qword ptr [rip + core::result::unwrap_failed@GOTPCREL]
