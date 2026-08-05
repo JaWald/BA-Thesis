@@ -70,7 +70,7 @@ files_stride = {
 }
 
 warmups = '200'
-iterations = '100'
+iterations = '200'
 samples = '5'
 suffix = f'_w-{warmups}_i-{iterations}_s-{samples}'
 
@@ -92,7 +92,7 @@ df['time_us'] = df['time_ns'] / df['iteration_count'] / 1000
 df['object_size'] = (df['payload']) #/ 1024
 
 start = 0
-stop = 1024 * 20
+stop = 1024 * 24
 
 df = df[df['object_size'].between(start, stop)]
 df['object_size'] = (df['object_size'] - start)
