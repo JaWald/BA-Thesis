@@ -92,7 +92,7 @@ df['time_us'] = df['time_ns'] / df['iteration_count'] / 1000
 df['object_size'] = (df['payload']) #/ 1024
 
 start = 0
-stop = 1024 * 24
+stop = 1024 * 20
 
 df = df[df['object_size'].between(start, stop)]
 df['object_size'] = (df['object_size'] - start)
@@ -117,7 +117,7 @@ ax = sns.lineplot(
     alpha=0.9,
 )
 
-plt.title('Scenario 2: Performance Impact of Payload Size (Ryzen 7 5800X)', fontsize=16)
+plt.title('Scenario 2: Memory Bound', fontsize=16)
 #plt.xticks(np.arange(start, stop + 1, 256))
 plt.xticks(np.arange(start, stop + 1, 2048))
 #plt.ylim(14, 23)
@@ -125,5 +125,5 @@ plt.xlabel('Planet Size [Bytes]', fontsize=12)
 plt.ylabel('Average Time per Iteration [µs]', fontsize=12)
 plt.legend(title='Architecture', loc='upper left', fontsize=12)
 
-plt.savefig('svg/S2_final_.svg', bbox_inches='tight')
+plt.savefig('svg/S2_Final.svg', bbox_inches='tight')
 plt.show()

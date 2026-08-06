@@ -9,12 +9,6 @@
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Visualization of the \ac {ECS} pattern depicting (1) Entities, (2) Components and (3) Systems (taken from \blx@tocontentsinit {0}\cite {redmond2025ecs}) }}{6}{figure.2.2}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces S3 PC: Drop }}{22}{figure.4.1}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces S3 AoS: Drop }}{23}{figure.4.2}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces S3 SoA: Drop }}{24}{figure.4.3}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces S3 Bevy: Drop }}{25}{figure.4.4}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces S3: Drop subscenario with payload of 19.6KB WITH PC performance anomaly (Windows 11) }}{25}{figure.4.5}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces S3 PC: Heatmap 5x5 WITH performance anomaly (linux) }}{26}{figure.4.6}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

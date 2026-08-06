@@ -166,7 +166,6 @@ Listing~\ref{lst:s2} shows the reduced complexity of the update loop of all four
 \paragraph{Verification}
 While again the assembly code is inspected to verify the existence of vectorization, the main focus now lies on the cache miss rate, which is gathered with AMD~µProf~\cite{amd_uprof}. The cache miss rate would clearly indicate the cache being filled with irrelevant data, as a large payload size in relation to the relevant data leads to substantially more cache misses. As the effect of cache inefficiencies and cache conflict misses is highly dependent on the exact payload size used and different payload sizes necessitate separate binaries, it is not feasible to inspect every single binary created. Instead, the binaries at and around strong variations in performance are evaluated for \ac{SIMD} instructions and cache miss rate to confirm the variations occur due to the aforementioned reasons. 
 
-\clearpage
 % ── Scenario 3 ───────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Scenario 3: Allocation and Deallocation}
 \label{sec:benchmarks:scenario3}

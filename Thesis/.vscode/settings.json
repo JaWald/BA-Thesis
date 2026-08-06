@@ -1,3 +1,27 @@
 {
-    "editor.wordWrap": "on"
+  "editor.wordWrap": "on",
+
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk-xelatex",
+     "command": "latexmk",
+     "args": [
+       "-xelatex",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+       "-file-line-error",
+       "-outdir=build",
+        "%DOC%"
+     ]
+   }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "xelatex",
+      "tools": ["latexmk-xelatex"]
+    }
+  ],
+  "latex-workshop.latex.recipe.default": "first",
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.outDir": "%DIR%/build"
 }

@@ -2,19 +2,19 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-warmups = '100'
+warmups = '50'
 iterations = '50'
-samples = '5'
+samples = '1'
 reuse = 'true'
 variant = 'Reuse' if reuse == 'true' else 'Drop'
 
 suffix = f'_w-{warmups}_i-{iterations}_s-{samples}_r-{reuse}'
 
 files = {
-    'Bevy': f'csv/Bevy{suffix}.csv',
-    'SoA': f'csv/SoA_{suffix}.csv',
-    'AoS': f'csv/AoS_{suffix}.csv',
-    'PC': f'csv/PC___{suffix}.csv'
+    'Bevy': f'csv/both_linux/Bevy{suffix}.csv',
+    'SoA': f'csv/both_linux/SoA_{suffix}.csv',
+    'AoS': f'csv/both_linux/AoS_{suffix}.csv',
+    'PC': f'csv/both_linux/PC___{suffix}.csv'
 }
 
 payloads_to_show = [4000]

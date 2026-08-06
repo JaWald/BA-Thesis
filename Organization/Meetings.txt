@@ -1,4 +1,19 @@
 ---------------------------------------------------------------------------
+|				12. MEETING				  |
+|				31.07.2026				  |
+---------------------------------------------------------------------------
+S3: malloc/free/memcpy nicht in Background sondern in Chapter 4 inline erklären
+S2: Bei Bevy Contiguous Performance Tabelle verlinken als Beweis für Vektorisierung
+
+Generell: Bei Rust Crates noch crates.io hinzufügen
+Related Work: ~1 Seite
+Future Work: ~1 Seite
+Conclusion: Forschungsfrage, Inplementation, Ergebnisse, Schlussfolgerung
+Discussion: Trends über alle Szenarien hinweg?
+Methodology: Compiler Flags, Hardware, Environment (OS, BIOS), warmups/iteratons/samples
+
+
+---------------------------------------------------------------------------
 |				11. MEETING				  |
 |				17.07.2026				  |
 ---------------------------------------------------------------------------
