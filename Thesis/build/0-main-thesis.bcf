@@ -2415,18 +2415,19 @@
     <bcf:citekey order="19" intorder="1">redmond2025ecs</bcf:citekey>
     <bcf:citekey order="20" intorder="1">klabnik2023rust</bcf:citekey>
     <bcf:citekey order="21" intorder="1">bevy_storage</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">klabnik2023rust</bcf:citekey>
-    <bcf:citekey order="23" intorder="1">drepper2007every</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">kleppner2014mechanics</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">klabnik2023rust</bcf:citekey>
     <bcf:citekey order="24" intorder="1">drepper2007every</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">redmond2025ecs</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">bevy_storage</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">glam_vec3a</bcf:citekey>
-    <bcf:citekey order="28" intorder="1">drepper2007every</bcf:citekey>
-    <bcf:citekey order="29" intorder="1">cargo_show_asm</bcf:citekey>
-    <bcf:citekey order="30" intorder="1">ida_free</bcf:citekey>
-    <bcf:citekey order="31" intorder="1">amd_uprof</bcf:citekey>
-    <bcf:citekey order="32" intorder="1">cargo_show_asm</bcf:citekey>
-    <bcf:citekey order="33" intorder="1">clap</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">drepper2007every</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">redmond2025ecs</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">bevy_storage</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">glam_vec3a</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">drepper2007every</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">cargo_show_asm</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">ida_free</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">amd_uprof</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">cargo_show_asm</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">clap</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

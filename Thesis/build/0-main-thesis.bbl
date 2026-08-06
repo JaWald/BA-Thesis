@@ -460,6 +460,52 @@
       \verb https://doc.rust-lang.org/book/
       \endverb
     \endentry
+    \entry{kleppner2014mechanics}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=0f9d26ff6d9900263bd06697aa4d9d62}{%
+           family={Kleppner},
+           familyi={K\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=ef47ddc4d8f55e5b54f4005ac86e40eb}{%
+           family={Kolenkow},
+           familyi={K\bibinitperiod},
+           given={Robert\bibnamedelima J.},
+           giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cambridge}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{2b38fb533c7f833d229ff8d46f2c5a66}
+      \strng{fullhash}{2b38fb533c7f833d229ff8d46f2c5a66}
+      \strng{fullhashraw}{2b38fb533c7f833d229ff8d46f2c5a66}
+      \strng{bibnamehash}{2b38fb533c7f833d229ff8d46f2c5a66}
+      \strng{authorbibnamehash}{2b38fb533c7f833d229ff8d46f2c5a66}
+      \strng{authornamehash}{2b38fb533c7f833d229ff8d46f2c5a66}
+      \strng{authorfullhash}{2b38fb533c7f833d229ff8d46f2c5a66}
+      \strng{authorfullhashraw}{2b38fb533c7f833d229ff8d46f2c5a66}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{isbn}{978-0-521-19811-0}
+      \field{title}{An Introduction to Mechanics}
+      \field{urlday}{6}
+      \field{urlmonth}{8}
+      \field{urlyear}{2026}
+      \field{year}{2014}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://archive.org/details/KleppnerD.KolenkowR.J.IntroductionToMechanics2014
+      \endverb
+      \verb{url}
+      \verb https://archive.org/details/KleppnerD.KolenkowR.J.IntroductionToMechanics2014
+      \endverb
+    \endentry
     \entry{clap}{manual}{}{}
       \name{author}{2}{}{%
         {{hash=4e1aeff63379203de89c697fe5d2e65d}{%
