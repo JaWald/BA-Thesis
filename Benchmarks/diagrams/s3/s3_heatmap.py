@@ -10,15 +10,15 @@ reuse = 'false'
 suffix = f'_w-{warmups}_i-{iterations}_s-{samples}_r-{reuse}'
 variant = 'Reuse' if reuse == 'true' else 'Drop'
 
-architecture = 'Bevy'
-file = f'csv/Bevy{suffix}.csv'
+architecture = 'SoA'
+file = f'csv/both_linux/SoA_{suffix}.csv'
 df = pd.read_csv(file)
 
 df['time_us'] = df['time_ns'] / df['iteration_count'] / 1000
 
 df['object_size'] = df['payload'] + 24
 start = 0
-stop = 27000
+stop = 6000
 df = df[df['object_size'].between(start, stop)]
 
 pivot = df.pivot_table(
