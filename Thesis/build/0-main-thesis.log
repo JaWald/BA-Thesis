@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2026.2.27)  5 AUG 2026 14:46
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2026.2.27)  6 AUG 2026 16:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2192,6 +2192,11 @@ Underfull \hbox (badness 1596) in paragraph at lines 70--70
  []
 
 
+Underfull \hbox (badness 1412) in paragraph at lines 70--70
+[]\TU/Merriweather(0)/m/n/12 Daniel Kleppner and Robert J. Kolenkow. 2014. \TU/Merriweather(0)/m/it/12 An Introduction
+ []
+
+
 Underfull \hbox (badness 1286) in paragraph at lines 70--70
 []\TU/Merriweather(0)/m/n/12 cargo-show-asm Contributors pacac. 2026. \TU/Inconsolata(0)/m/it/12 cargo-show-asm \TU/Merriweather(0)/m/it/12 —
  []
@@ -2243,12 +2248,12 @@ Package logreq Info: Writing requests to '0-main-thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 61097 strings out of 468174
- 1367762 string characters out of 5436827
- 2759549 words of memory out of 5000000
- 88933 multiletter control sequences out of 15000+600000
- 632858 words of font info for 138 fonts, out of 8000000 for 9000
+ 61106 strings out of 468174
+ 1368190 string characters out of 5436827
+ 2759629 words of memory out of 5000000
+ 88939 multiletter control sequences out of 15000+600000
+ 632882 words of font info for 141 fonts, out of 8000000 for 9000
  1350 hyphenation exceptions out of 8191
- 130i,26n,137p,11247b,32833s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 130i,26n,137p,11247b,32832s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on build/0-main-thesis.xdv (35 pages, 644588 bytes).
+Output written on build/0-main-thesis.xdv (35 pages, 653024 bytes).
