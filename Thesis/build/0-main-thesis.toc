@@ -19,11 +19,11 @@
 \contentsline {section}{\numberline {3.2}Evaluated Architectures}{9}{section.3.2}%
 \contentsline {paragraph}{\nonumberline (1) \ac {PC}}{10}{paragraph*.13}%
 \contentsline {paragraph}{\nonumberline (2) Array of Structures (AoS)}{10}{paragraph*.15}%
-\contentsline {paragraph}{\nonumberline (3) Structure of Arrays (SoA)}{10}{paragraph*.16}%
+\contentsline {paragraph}{\nonumberline (3) Structure of Arrays (SoA)}{11}{paragraph*.16}%
 \contentsline {paragraph}{\nonumberline (4) Bevy ECS}{11}{paragraph*.17}%
-\contentsline {paragraph}{\nonumberline Vector Types and Comparability}{11}{paragraph*.18}%
+\contentsline {paragraph}{\nonumberline Vector Types and Comparability}{12}{paragraph*.18}%
 \contentsline {section}{\numberline {3.3}Scenario 1: Compute-Bound}{12}{section.3.3}%
-\contentsline {paragraph}{\nonumberline Parametrization}{12}{paragraph*.19}%
+\contentsline {paragraph}{\nonumberline Parametrization}{13}{paragraph*.19}%
 \contentsline {paragraph}{\nonumberline Update Logic}{13}{paragraph*.20}%
 \contentsline {paragraph}{\nonumberline Verification}{15}{paragraph*.21}%
 \contentsline {section}{\numberline {3.4}Scenario 2: Memory-Bound}{15}{section.3.4}%
@@ -34,18 +34,18 @@
 \contentsline {paragraph}{\nonumberline Parametrization}{18}{paragraph*.25}%
 \contentsline {paragraph}{\nonumberline Update Logic}{18}{paragraph*.26}%
 \contentsline {paragraph}{\nonumberline Verification}{19}{paragraph*.27}%
-\contentsline {section}{\numberline {3.6}Execution and Configuration}{20}{section.3.6}%
-\contentsline {chapter}{\numberline {4}Evaluation}{22}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Methodology}{22}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Scenario 1: Compute-Bound}{22}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Scenario 2: Memory-Bound}{22}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Scenario 3: Allocation and Deallocation}{22}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Discussion}{22}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Limitations}{23}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Related Work}{24}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Future Work}{25}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Conclusion}{26}{chapter.7}%
-\contentsline {chapter}{\nonumberline Bibliography}{27}{chapter*.30}%
+\contentsline {section}{\numberline {3.6}Execution and Configuration}{19}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Evaluation}{21}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Methodology}{21}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Scenario 1: Compute-Bound}{21}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Scenario 2: Memory-Bound}{21}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Scenario 3: Allocation and Deallocation}{21}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Discussion}{21}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Limitations}{22}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Related Work}{23}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Future Work}{24}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Conclusion}{25}{chapter.7}%
+\contentsline {chapter}{\nonumberline Bibliography}{26}{chapter*.30}%
 \contentsline {chapter}{\nonumberline List of Figures}{29}{chapter*.31}%
 \contentsline {chapter}{\nonumberline List of Acronyms}{30}{chapter*.32}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
