@@ -132,6 +132,9 @@
            family={{Bevy Project Contributors}},
            familyi={B\bibinitperiod}}}%
       }
+      \list{organization}{1}{%
+        {Bevy Engine}%
+      }
       \strng{namehash}{da7e81fb21da9b24ef5bc2e9608d524d}
       \strng{fullhash}{da7e81fb21da9b24ef5bc2e9608d524d}
       \strng{fullhashraw}{da7e81fb21da9b24ef5bc2e9608d524d}
@@ -411,6 +414,41 @@
       \endverb
       \verb{url}
       \verb https://hex-rays.com/ida-free
+      \endverb
+    \endentry
+    \entry{bevy_contiguous}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=4b4b060d33ae16565c64954cfbc85bd9}{%
+           family={Jenya705},
+           familyi={J\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Bevy Engine}%
+      }
+      \strng{namehash}{4b4b060d33ae16565c64954cfbc85bd9}
+      \strng{fullhash}{4b4b060d33ae16565c64954cfbc85bd9}
+      \strng{fullhashraw}{4b4b060d33ae16565c64954cfbc85bd9}
+      \strng{bibnamehash}{4b4b060d33ae16565c64954cfbc85bd9}
+      \strng{authorbibnamehash}{4b4b060d33ae16565c64954cfbc85bd9}
+      \strng{authornamehash}{4b4b060d33ae16565c64954cfbc85bd9}
+      \strng{authorfullhash}{4b4b060d33ae16565c64954cfbc85bd9}
+      \strng{authorfullhashraw}{4b4b060d33ae16565c64954cfbc85bd9}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Contiguous access (\texttt{Query::contiguous\_iter\_mut})}
+      \field{type}{Pull Request \#21984}
+      \field{urlday}{7}
+      \field{urlmonth}{8}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/bevyengine/bevy/pull/21984
+      \endverb
+      \verb{url}
+      \verb https://github.com/bevyengine/bevy/pull/21984
       \endverb
     \endentry
     \entry{klabnik2023rust}{book}{}{}
