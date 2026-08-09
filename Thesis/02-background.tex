@@ -7,6 +7,7 @@ This section describes the relevant parts of \ac{DOP}, which also include \ac{SI
 
 \section{Data-oriented Programming}
 \label{sec:background:dop}
+
 \begin{figure}[b]
 \centering
 \includegraphics[width=\linewidth]{images/aos_vs_soa}
@@ -14,6 +15,7 @@ This section describes the relevant parts of \ac{DOP}, which also include \ac{SI
     Memory Layout Visualization: AoS vs. SoA (taken from \cite{pennycook2013investigation})
 }\label{fig:aos_vs_soa}
 \end{figure}
+
 The \ac{OOP} paradigm undoubtedly has many useful features such as encapsulation, polymorphism and inheritance. These features enable software developers to think of problems in terms of objects and their interactions, with objects ideally being self-contained. Due to this, programmers are able to easily reuse and maintain them without having to fear side effects \cite{albrecht2009pitfalls}. Nevertheless, objects encapsulating the entirety of their data and logic is a double-edged sword. 
 
 For example, a program that solely updates the position of some objects, where each object also holds further attributes, e.g. color or weight. Due to encapsulation, the CPU has to load all the data of these objects into its cache, even though it should only have to load the location for its computation. This phenomenon is often called "cache pollution" \cite{drepper2007every} which poses a problem due to another phenomenon called the "memory wall", which describes the growing

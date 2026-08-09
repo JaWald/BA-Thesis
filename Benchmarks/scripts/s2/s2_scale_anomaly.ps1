@@ -6,7 +6,7 @@ for($i = 995; $i -le 20500; $i += 1024) {
         "pub const PAYLOAD_SIZE: usize = $j;" | Out-File -FilePath "src/payload.rs" -Encoding utf8
 
         $env:RUSTFLAGS = "-C target-cpu=native -C linker=rust-lld.exe"
-        cargo run --profile o3 -- -b s2 -w 500 -i 1000 -s 5
+        cargo run --profile run -- -b s2 -w 500 -i 1000 -s 5
         }
 }
 

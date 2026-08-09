@@ -7,7 +7,7 @@ for i in $(seq 0 1000 20000); do
     echo "pub const PAYLOAD_SIZE: usize = $i;" > src/payload.rs
 
     export RUSTFLAGS="-C target-cpu=native"
-    cargo run --profile o3 -- -b s3 -w 1000 -i 5000 -s 5 -c 100
+    cargo run --profile run -- -b s3 -w 1000 -i 5000 -s 5 -c 100
 done
 
 echo -e "\e[32mBenchmarks finished\e[0m"

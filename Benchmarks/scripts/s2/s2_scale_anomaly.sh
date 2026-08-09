@@ -7,7 +7,7 @@ for ((i=222; i<=51200; i+=256)); do
         echo -e "\e[33m>>> Starting benchmark with: $j Bytes Payload\e[0m"
         echo "pub const PAYLOAD_SIZE: usize = $j;" > src/payload.rs
         # -C link-arg=-fuse-ld=mold
-        RUSTFLAGS="-C target-cpu=native" cargo run --profile o3 -- -b s2 -w 500 -i 1000 -s 5
+        RUSTFLAGS="-C target-cpu=native" cargo run --profile run -- -b s2 -w 500 -i 1000 -s 5
     done
 done
 
