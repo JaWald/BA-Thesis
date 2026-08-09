@@ -1,23 +1,66 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 \cleardoubleoddpage
 \chapter{Evaluation}
 \label{sec:evaluation}
+Chapter~\ref{ch:benchmarks} defined the benchmark design and introduced the four architectures under comparison, as well as the three scenarios. This chapter presents and interprets the measurements obtained from the benchmark runs. First, the setup and environment are documented. The subsequent sections then present the measurements of the three scenarios. A final discussion draws together the trends observed across all scenarios, followed by a discussion of the limitations of this evaluation.
 
+% ── Methodology ──────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Methodology}
 \label{sec:evaluation:methodology}
-\begin{itemize}
-    \item Benchmark Setup incl. Compiler Flags
-    \item Hardware/System Description incl. CPU values
-\end{itemize}
+\paragraph{Hardware}
+All benchmark runs were performed on a desktop machine equipped with an AMD~Ryzen~7~5800X processor and \qty{32}{\giga\byte} of DDR4-3200 memory. The processor provides eight physical cores, each exposing two hardware threads through \ac{SMT}. Its L1 data cache is \qty{32}{\kibi\byte} in size, 8-way set associative, and organized in \qty{64}{byte} cache lines. The processor further supports the AVX2 instruction-set extensions, which the vectorized code paths rely on.
 
+\paragraph{Environment}
+The benchmarks were run on Ubuntu~XXXX (kernel~XXXX). Two settings were configured in the BIOS: \ac{PBO} and the processor's C-states were disabled --- the former to prevent frequency boosting, the latter to keep the benchmark core from entering low-power idle states. The remaining modifications were made at runtime by a setup script. \ac{CPB}, AMD's counterpart to Intel's Turbo~Boost, was disabled, and the frequency of every core was locked to \qty{3.6}{\giga\hertz}, so that the clock stays fixed. The \ac{SMT} sibling sharing the physical core with logical CPU~2 (logical CPU~10) was taken offline, so that no tasks running on logical CPU~10 would consume resources of core~2, to which the benchmark was pinned via \texttt{taskset}.
+
+\paragraph{Build/Compiler}
+The benchmarks were compiled with rustc~XXXX. Rust supports compilation profiles, which let the programmer declaratively define a set of compilation options. For the benchmark program, the profile \texttt{run} was defined, which inherits from the standard \texttt{release} profile, explicitly disables debug information, and sets the optimization level to \num{3}. Two further compiler flags were set in the execution scripts: {\texttt{-C~target-cpu=native}} and {\texttt{-C~link-arg=-fuse-ld=mold}}. The former targets the CPU and enables the AVX2 supported by the Zen~3 architecture, the latter selects the mold linker, which shortens linking time. Because a linker does not alter the generated machine code, this choice has no effect on the run time of the architectures.
+
+\paragraph{Measurement Protocol}
+To further diminish the impact of OS jitter, a setup with iterations and samples is used. In a given scenario, the four architectures perform a number of warmup runs, whose results are discarded, followed by a number of measured iterations. The warmup lets the caches reach a steady state before timing begins. The architectures are measured in the order of \texttt{PC}~$\to$~\texttt{AoS}~$\to$~\texttt{SoA}~$\to$~\texttt{Bevy}. This whole procedure is executed \texttt{samples} times. 
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{c|ccc|c}
+    \toprule
+    Scenario & Warmups    & Iterations & Samples  & Measured Iterations \\
+    \midrule
+    S1       & \num{100}  & \num{50}   & \num{10} & \num{500}\\
+    S2       & \num{200}  & \num{200}  & \num{5}  & \num{1000}\\
+    S3       & \num{100}  & \num{50}   & \num{5}  & \num{250}\\
+    \bottomrule
+  \end{tabular}
+  \vspace{\medskipamount}
+  \caption{Per-scenario measurement parameters.}
+  \label{tab:methodology}
+  \vspace{-\bigskipamount}
+\end{table}
+
+As an example, consider the measurement parameters for Scenario~2 in Table~\ref{tab:methodology}. Instead of each architecture being measured in one block of \num{1000} iterations, the architectures are measured in interleaved, smaller blocks, namely \num{5} samples of \num{200} iterations in the case of Scenario~2. Thus, a larger system interrupt would be more likely to affect multiple or all architectures instead of only one. Each sample stores the run time over its \texttt{iterations} update steps as a single \texttt{time\_ns} value in the \ac{CSV}. The division by the iteration count, resulting in the time per iteration, as well as the averaging over the samples are performed when the plots are generated, which display the mean per-iteration time across all samples.
+
+% ── Scenario 1 ───────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Scenario 1: Compute-Bound}
 \label{sec:evaluation:scenario1}
-\begin{itemize}
-    \item Results and Analysis
-    \item SIMD Details
-\end{itemize}
+Scenario~1 measures the performance when the computational workload becomes the bottleneck, i.e., this scenario represents the case where performance is compute-bound. First, every architecture calculates the acceleration of each planet towards the origin, then the velocity and position fields and components are updated. The only parameter being swept is the planet count. All architectures calculate the same physical update. The difference lies in how the data is laid out in memory, and as a consequence, how that update is expressed in code. 
 
+\paragraph{Scaling Behavior}
+As is clearly visible in Figure~\ref{fig:s1}, all four architectures scale linearly. However, there are clear differences in the performance between architectures. The most performant one in calculating the positional update of \num{30000} planets is, with a big margin, the \ac{SoA} architecture, only taking \qty{22.62}{\micro\second} per iteration. Second in place is the other data-oriented approach, the Bevy architecture, requiring \qty{106.34}{\micro\second} per iteration. Then follows the \ac{AoS} architecture with \qty{138.32}{\micro\second} and concluding with the \ac{PC} architecture with \qty{213.91}{\micro\second}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{images/S1.pdf}
+\caption{Scenario 1 (Compute-Bound): Average time per iteration versus planet count}
+\label{fig:s1}
+\end{figure}
+
+To be noted is the broad and relatively consistent variation in measurements regarding the \ac{PC} architecture, which lessens after \num{16383} planets. Additionally, a number of spikes in execution time are visible in the measurements of the Bevy and \ac{SoA} architecture. However, these spikes do not negate the overall trend. 
+
+\paragraph{Assembly Analysis}
+
+\paragraph{Interpretation}
+
+% ── Scenario 2 ───────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Scenario 2: Memory-Bound}
 \label{sec:evaluation:scenario2}
 \begin{itemize}
@@ -25,6 +68,7 @@
     \item "Anomalies", Cache
 \end{itemize}
 
+% ── Scenario 3 ───────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Scenario 3: Allocation and Deallocation}
 \label{sec:evaluation:scenario3}
 \begin{itemize}
@@ -32,12 +76,14 @@
     \item drop vs reuse
 \end{itemize}
 
+% ── Discussion ───────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Discussion}
 \label{sec:evaluation:discussion}
 \begin{itemize}
     \item High Level Overview and Comparison of findings
 \end{itemize}
 
+% ── Limitations ──────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Limitations}
 \label{sec:evaluation:limitations}
 

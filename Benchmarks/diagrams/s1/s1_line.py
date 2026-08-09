@@ -21,15 +21,15 @@ for label, file in files.items():
     temp_df['architecture'] = label
     dataframes.append(temp_df)
 
-start = 0
-stop = 30000
+start = 16370
+stop = 16390
 
 df = pd.concat(dataframes, ignore_index=True)
 df = df[df['planet_count'].between(start, stop)]
 df['time_us'] = df['time_ns'] / df['iteration_count'] / 1000
 
 sns.set_theme(style="whitegrid")
-plt.figure(figsize=(12, 7))
+plt.figure(figsize=(7, 4.5))
 
 ax = sns.lineplot(
     data=df,
@@ -40,17 +40,16 @@ ax = sns.lineplot(
     markers=False,
     dashes=False,
     palette="magma",
-    errorbar=None
+    errorbar=None,
+    linewidth=1.5
 )
 
-plt.title('Scenario 1: Compute Bound', fontsize=15)
+plt.xlabel('Planet Count [×1000]', fontsize=11)
+ticks = np.arange(start, stop + 1, 2)
+plt.xticks(ticks, [f'{int(t/1)}' for t in ticks])
 
-plt.xlabel('Planet Count [×1000]', fontsize=12)
-ticks = np.arange(start, stop + 1, 2000)
-plt.xticks(ticks, [f'{int(t/1000)}' for t in ticks])
+plt.ylabel('Average Time per Iteration [µs]', fontsize=11)
 
-plt.ylabel('Average Time per Iteration [µs]', fontsize=12)
-
-plt.legend(title='Architecture', fontsize=12)
-plt.savefig('svg/S1_.svg', bbox_inches='tight')
+plt.legend(title='Architecture', fontsize=11)
+plt.savefig('svg/S1_pc.pdf', bbox_inches='tight')
 plt.show()

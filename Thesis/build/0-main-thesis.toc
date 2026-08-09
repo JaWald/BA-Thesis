@@ -37,15 +37,23 @@
 \contentsline {section}{\numberline {3.6}Execution and Configuration}{19}{section.3.6}%
 \contentsline {chapter}{\numberline {4}Evaluation}{21}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Methodology}{21}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Scenario 1: Compute-Bound}{21}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Scenario 2: Memory-Bound}{21}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Scenario 3: Allocation and Deallocation}{21}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Discussion}{21}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Limitations}{22}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Related Work}{23}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Future Work}{24}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Conclusion}{25}{chapter.7}%
-\contentsline {chapter}{\nonumberline Bibliography}{26}{chapter*.30}%
-\contentsline {chapter}{\nonumberline List of Figures}{29}{chapter*.31}%
-\contentsline {chapter}{\nonumberline List of Acronyms}{30}{chapter*.32}%
+\contentsline {paragraph}{\nonumberline Hardware}{21}{paragraph*.30}%
+\contentsline {paragraph}{\nonumberline Environment}{21}{paragraph*.32}%
+\contentsline {paragraph}{\nonumberline Build/Compiler}{22}{paragraph*.35}%
+\contentsline {paragraph}{\nonumberline Measurement Protocol}{22}{paragraph*.36}%
+\contentsline {section}{\numberline {4.2}Scenario 1: Compute-Bound}{23}{section.4.2}%
+\contentsline {paragraph}{\nonumberline Scaling Behavior}{23}{paragraph*.37}%
+\contentsline {paragraph}{\nonumberline Assembly Analysis}{24}{paragraph*.38}%
+\contentsline {paragraph}{\nonumberline Interpretation}{24}{paragraph*.39}%
+\contentsline {section}{\numberline {4.3}Scenario 2: Memory-Bound}{24}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Scenario 3: Allocation and Deallocation}{24}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Discussion}{24}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Limitations}{24}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Related Work}{25}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Future Work}{26}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Conclusion}{27}{chapter.7}%
+\contentsline {chapter}{\nonumberline Bibliography}{28}{chapter*.40}%
+\contentsline {chapter}{\nonumberline List of Tables}{31}{chapter*.41}%
+\contentsline {chapter}{\nonumberline List of Figures}{32}{chapter*.42}%
+\contentsline {chapter}{\nonumberline List of Acronyms}{33}{chapter*.43}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
