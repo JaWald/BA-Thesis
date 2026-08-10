@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.10)  10 AUG 2026 09:35
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.10)  10 AUG 2026 07:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2151,6 +2151,11 @@ Package acronym Info: Label `acro:PBO' newly defined as it shall be overridden
 although it is yet undefined on input line 15.
 Package acronym Info: Label `acro:CPB' newly defined as it shall be overridden
 although it is yet undefined on input line 15.
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--16
+[] \TU/PublicSans(0)/b/n/12 Environment[][] \TU/Merriweather(0)/m/n/12 The benchmarks were run on Ubuntu 26.04 LTS
+ []
+
 [21
 
 
@@ -2296,10 +2301,10 @@ Package logreq Info: Writing requests to '0-main-thesis.run.xml'.
 Here is how much of TeX's memory you used:
  61801 strings out of 468168
  1376503 string characters out of 5436524
- 2832869 words of memory out of 5000000
+ 2832868 words of memory out of 5000000
  89613 multiletter control sequences out of 15000+600000
  632930 words of font info for 147 fonts, out of 8000000 for 9000
  1350 hyphenation exceptions out of 8191
- 130i,25n,137p,11240b,32833s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 130i,25n,137p,11240b,32832s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on build/0-main-thesis.xdv (40 pages, 835460 bytes).
+Output written on build/0-main-thesis.xdv (40 pages, 835400 bytes).
