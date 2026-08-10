@@ -75,10 +75,10 @@ samples = '5'
 suffix = f'_w-{warmups}_i-{iterations}_s-{samples}'
 
 files = {
-    'Bevy': f'csv/Bevy{suffix}.csv',
-    'SoA': f'csv/SoA_{suffix}.csv',
-    'AoS': f'csv/AoS_{suffix}.csv',
-    'PC': f'csv/PC___{suffix}.csv'
+    'Bevy': f'csv/final/Bevy{suffix}.csv',
+    'SoA': f'csv/final/SoA_{suffix}.csv',
+    'AoS': f'csv/final/AoS_{suffix}.csv',
+    'PC': f'csv/final/PC___{suffix}.csv'
 }
 
 dataframes = []
@@ -98,7 +98,7 @@ df_agg = df.groupby(['architecture', 'payload'], as_index=False)['time_us'].mean
 order = ['Bevy', 'SoA', 'AoS', 'PC']
 
 sns.set_theme(style="whitegrid")
-plt.figure(figsize=(14, 8))
+plt.figure(figsize=(7, 4.5))
 
 ax = sns.lineplot(
     data=df,
@@ -112,16 +112,14 @@ ax = sns.lineplot(
     dashes=False,
     palette="magma",
     errorbar=None,
-    alpha=0.9,
+    alpha=1.0,
 )
 
-plt.title('Scenario 2: Memory Bound', fontsize=16)
-
 plt.xticks(np.arange(start, stop + 1, 64))
-plt.xlabel('Payload Size [Bytes]', fontsize=12)
+plt.xlabel('Payload Size [Bytes]', fontsize=11)
 
-plt.ylabel('Average Time per Iteration [µs]', fontsize=12)
-plt.legend(title='Architecture', loc='upper left', fontsize=12)
+plt.ylabel('Average Time per Iteration [µs]', fontsize=11)
+plt.legend(title='Architecture', loc='upper left', fontsize=11)
 
-plt.savefig('svg/S2__.svg', bbox_inches='tight')
+plt.savefig('svg/S2_pattern.pdf', bbox_inches='tight')
 plt.show()
