@@ -78,8 +78,7 @@ files = {
     'Bevy': f'csv/Bevy{suffix}.csv',
     'SoA': f'csv/SoA_{suffix}.csv',
     'AoS': f'csv/AoS_{suffix}.csv',
-    'PC': f'csv/PC___{suffix}.csv'
-}
+    'PC': f'csv/PC___{suffix}.csv'}
 
 dataframes = []
 for label, file in files.items():
