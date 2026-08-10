@@ -12,6 +12,8 @@
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Scenario 1 (Compute-Bound): Average time per iteration versus planet count}}{23}{figure.4.1}%
 \contentsline {figure}{\numberline {4.2}{\ignorespaces ASM arithmetic: SoA versus AoS}}{24}{figure.4.2}%
 \contentsline {figure}{\numberline {4.3}{\ignorespaces ASM Load sequence: AoS versus PC}}{25}{figure.4.3}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Scenario 2 (Memory-Bound): Average time per iteration versus payload size}}{27}{figure.4.4}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Scenario 2 (Memory-Bound): Pattern in execution time of \ac {PC} and \ac {AoS} architectures}}{27}{figure.4.5}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

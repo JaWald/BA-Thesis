@@ -177,10 +177,60 @@ To summarize, memory layout dictates whether vectorization can occur or not. As 
 % ── Scenario 2 ───────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Scenario 2: Memory-Bound}
 \label{sec:evaluation:scenario2}
-\begin{itemize}
-    \item Results and Analysis
-    \item "Anomalies", Cache
-\end{itemize}
+In contrast to Scenario 1 which measured the performance difference between architectures when compute-bound, Scenario 2 measures the performance impact when computational workload is negligible, but large amounts of data are accessed. The hot loop now solely consists of a positional update based on existing velocity, however, with varying payload size. The object-oriented architectures carry this payload within the \texttt{PlanetAoS} struct, while the \ac{SoA} architecture holds the payload in a separate vector and the Bevy architecture holds it in a separate \texttt{Payload} component. Thus, the \ac{SoA} architecture is able to only iterate over the relevant vectors, whereas in the Bevy architecture the \texttt{Query} of the \texttt{Position} and \texttt{Velocity} components explicitly leaves out the \texttt{Payload} component. 
+
+% ── scaling ──────────────────────────────────────────────
+\paragraph{Scaling Behavior}
+As was stated in Section~\ref{sec:background:ecs}, an \ac{ECS} benefits greatly from the separation of relevant and irrelevant data, which is clearly visible in the results in Figure~\ref{fig:s2}. While the execution time of the \ac{PC} and \ac{AoS} architectures scales directly with payload size, the \ac{SoA} and Bevy architectures remain constant. The order of performance follows suit with Scenario 1, with \ac{SoA} being in first place with an average time per iteration of \qty{2.32}{\micro\second}. In second place is the Bevy architecture with \qty{5.03}{\micro\second}, followed by the \ac{AoS} architecture with \qty{26.69}{\micro\second} and the \ac{PC} architecture with \qty{37.94}{\micro\second}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{images/S2.pdf}
+\caption{Scenario 2 (Memory-Bound): Average time per iteration versus payload size}
+\label{fig:s2}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{images/S2_pattern.pdf}
+\caption{Scenario 2 (Memory-Bound): Pattern in execution time of \ac{PC} and \ac{AoS} architectures}
+\label{fig:s2-pattern}
+\end{figure}
+
+While the data-oriented architectures feature smooth curves in Figure~\ref{fig:s2}, the object-oriented architectures feature a distinct pattern of spikes. Both architectures possess large spikes in execution time at multiples of \qty{4}{\kibi\byte}, whereas the \ac{AoS} architecture, in addition, features medium spikes at \qty{2}{\kibi\byte}, \qty{6}{\kibi\byte} and \qty{10}{\kibi\byte} and so on, as well as small spikes when the payload size is an odd multiple of \qty{1}{\kibi\byte}. 
+
+Additionally, what originally appeared as jitter in Figure~\ref{fig:s2} is another pattern in execution times, as Figure~\ref{fig:s2-pattern} clearly shows. Especially for the \ac{AoS} architecture, a clear period of \qty{64}{bytes} can be noted when looking at the taller spikes of the micro-pattern. 
+
+% ── interpretation ───────────────────────────────────────
+\paragraph{Interpretation}
+
+% HALLO WAKO DU SCHAFFST DAAAAAAAAAAS
+% Erinner dich wer du bist, du hast des drauf!
+
+
+\begin{table}[htbp]
+  \centering
+  \setlength{\tabcolsep}{5pt}
+  \begin{tabular}{c cc cc cc cc}
+    \toprule
+    & \multicolumn{2}{c}{\acs{PC}} & \multicolumn{2}{c}{\acs{AoS}} & \multicolumn{2}{c}{\acs{SoA}} & \multicolumn{2}{c}{Bevy} \\
+    \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+    {Payload} & {CPI} & {L1 [\unit{\percent}]} & {CPI} & {L1 [\unit{\percent}]} & {CPI} & {L1 [\unit{\percent}]} & {CPI} & {L1 [\unit{\percent}]} \\
+    \midrule
+    998  & 1.079 & 21.19 &  1.474 & 26.67 & 0.786 & 32.25 & 0.644 & 18.86 \\
+    1010 & 1.049 & 21.23 &  0.709 & 20.88 & 0.767 & 31.80 & 0.659 & 18.93 \\
+    \addlinespace
+    2022 & 1.267 & 25.52 &  6.426 & 77.11 & 0.679 & 31.66 & 0.579 & 18.86 \\
+    2034 & 1.284 & 26.04 &  0.721 & 21.10 & 0.976 & 37.18 & 0.564 & 18.77 \\
+    \addlinespace
+    4070 & 1.552 & 29.97 & 12.680 & 96.79 & 0.771 & 31.66 & 0.726 & 18.94 \\
+    4082 & 1.754 & 33.10 &  0.812 & 23.83 & 0.750 & 31.57 & 0.553 & 19.10 \\
+    \bottomrule
+  \end{tabular}
+  \vspace{\medskipamount}
+  \caption{\acs{CPI} and L1 data cache miss ratio per architecture. Payload pairs represent spikes at \qtylist{1024;2048;4096}{\byte}}
+  \label{tab:s2:cache}
+\end{table}
 
 % ── Scenario 3 ───────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Scenario 3: Allocation and Deallocation}
