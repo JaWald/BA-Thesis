@@ -15,7 +15,7 @@ All benchmark runs were performed on a desktop machine equipped with an AMD~Ryze
 The benchmarks were run on Ubuntu~XXXX (kernel~XXXX). Two settings were configured in the BIOS: \ac{PBO} and the processor's C-states were disabled --- the former to prevent frequency boosting, the latter to keep the benchmark core from entering low-power idle states. The remaining modifications were made at runtime by a setup script. \ac{CPB}, AMD's counterpart to Intel's Turbo~Boost, was disabled, and the frequency of every core was locked to \qty{3.6}{\giga\hertz}, so that the clock stays fixed. The \ac{SMT} sibling sharing the physical core with logical CPU~2 (logical CPU~10) was taken offline, so that no tasks running on logical CPU~10 would consume resources of core~2, to which the benchmark was pinned via \texttt{taskset}.
 
 \paragraph{Build/Compiler}
-The benchmarks were compiled with rustc~XXXX. Rust supports compilation profiles, which let the programmer declaratively define a set of compilation options. For the benchmark program, the profile \texttt{run} was defined, which inherits from the standard \texttt{release} profile, explicitly disables debug information, and sets the optimization level to \num{3}. Two further compiler flags were set in the execution scripts: {\texttt{-C~target-cpu=native}} and {\texttt{-C~link-arg=-fuse-ld=mold}}. The former targets the CPU and enables the AVX2 supported by the Zen~3 architecture, the latter selects the mold linker, which shortens linking time. Because a linker does not alter the generated machine code, this choice has no effect on the run time of the architectures.
+The benchmarks were compiled with the rustc~1.95.0 compiler. Rust supports compilation profiles, which let the programmer declaratively define a set of compilation options. For the benchmark program, the profile \texttt{run} was defined, which inherits from the standard \texttt{release} profile, explicitly disables debug information, and sets the optimization level to \num{3}. Two further compiler flags were set in the execution scripts: {\texttt{-C~target-cpu=native}} and {\texttt{-C~link-arg=-fuse-ld=mold}}. The former targets the CPU and enables the AVX2 supported by the Zen~3 architecture, the latter selects the mold linker, which shortens linking time. Because a linker does not alter the generated machine code, this choice has no effect on the run time of the architectures.
 
 \paragraph{Measurement Protocol}
 To further diminish the impact of OS jitter, a setup with iterations and samples is used. In a given scenario, the four architectures perform a number of warmup runs, whose results are discarded, followed by a number of measured iterations. The warmup lets the caches reach a steady state before timing begins. The architectures are measured in the order of \texttt{PC}~$\to$~\texttt{AoS}~$\to$~\texttt{SoA}~$\to$~\texttt{Bevy}. This whole procedure is executed \texttt{samples} times. 
@@ -42,10 +42,11 @@ As an example, consider the measurement parameters for Scenario~2 in Table~\ref{
 % ── Scenario 1 ───────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Scenario 1: Compute-Bound}
 \label{sec:evaluation:scenario1}
-Scenario~1 measures the performance when the computational workload becomes the bottleneck, i.e., this scenario represents the case where performance is compute-bound. First, every architecture calculates the acceleration of each planet towards the origin, then the velocity and position fields and components are updated. The only parameter being swept is the planet count. All architectures calculate the same physical update. The difference lies in how the data is laid out in memory, and as a consequence, how that update is expressed in code. 
+Scenario~1 measures the performance when the computational workload becomes the bottleneck, i.e., this scenario represents the case where performance is compute-bound. First, every architecture calculates the acceleration of each planet towards the origin, then the velocity and position of each planet are updated. The only parameter being swept is the planet count. All architectures calculate the same physical update. The difference lies in how the data is laid out in memory, and as a consequence, how that update is expressed in code. 
 
+% ── scaling ──────────────────────────────────────────────
 \paragraph{Scaling Behavior}
-As is clearly visible in Figure~\ref{fig:s1}, all four architectures scale linearly. However, there are clear differences in the performance between architectures. The most performant one in calculating the positional update of \num{30000} planets is, with a big margin, the \ac{SoA} architecture, only taking \qty{22.62}{\micro\second} per iteration. Second in place is the other data-oriented approach, the Bevy architecture, requiring \qty{106.34}{\micro\second} per iteration. Then follows the \ac{AoS} architecture with \qty{138.32}{\micro\second} and concluding with the \ac{PC} architecture with \qty{213.91}{\micro\second}.
+As is clearly visible in Figure~\ref{fig:s1}, all four architectures scale linearly. However, there are clear differences in the performance between architectures. The most performant one in calculating the positional update of \num{30000} planets is, with a big margin, the \ac{SoA} architecture, only taking \qty{22.62}{\micro\second} per iteration. In second place is the other data-oriented approach, the Bevy architecture, requiring \qty{106.34}{\micro\second} per iteration. Then follows the \ac{AoS} architecture with \qty{138.32}{\micro\second} and concluding with the \ac{PC} architecture with \qty{213.91}{\micro\second}.
 
 \begin{figure}[htbp]
 \centering
@@ -54,11 +55,124 @@ As is clearly visible in Figure~\ref{fig:s1}, all four architectures scale linea
 \label{fig:s1}
 \end{figure}
 
-To be noted is the broad and relatively consistent variation in measurements regarding the \ac{PC} architecture, which lessens after \num{16383} planets. Additionally, a number of spikes in execution time are visible in the measurements of the Bevy and \ac{SoA} architecture. However, these spikes do not negate the overall trend. 
+To be noted is the wide yet relatively constant variation in measurements regarding the \ac{PC} architecture, which lessens after \num{16384} planets. Additionally, a number of spikes in execution time are visible in the measurements of the Bevy and \ac{SoA} architectures. However, these spikes do not affect the overall trend. 
 
+% ── assembly ─────────────────────────────────────────────
 \paragraph{Assembly Analysis}
+To verify the results visible in Figure~\ref{fig:s1}, the assembly code of the \texttt{bench\_s1\_pc}, \texttt{bench\_s1\_aos}, \texttt{bench\_s1\_soa}, and \texttt{bench\_s1\_bevy} functions is inspected for the usage of wider \texttt{ymm} registers and packed instructions. Note that these files can reach several hundred lines of code. Therefore, Figure~\ref{fig:s1:asm} mainly focuses on arithmetic of the hot loop, which is the calculation of acceleration and its application to velocity and position. The machine code instructions are reordered to match the source order. Regarding the \ac{SoA} architecture, for the per-component velocity and position update, only the x-component is shown.
 
+\begin{figure}[htbp]
+\centering
+\begin{minipage}[t]{0.42\linewidth}
+\centering\texttt{SoA}\par\smallskip
+\begin{lstlisting}[language={[x86masm]Assembler}, basicstyle=\scriptsize\ttfamily]
+; let px = planets.pos_x[i];
+vmovups ymm5, ymmword ptr [r10 + 4*rax]
+
+; let r_sq = px * px + py * py + pz * pz;
+vmulps  ymm8, ymm5, ymm5
+vmulps  ymm9, ymm6, ymm6
+vaddps  ymm8, ymm8, ymm9
+vmulps  ymm9, ymm7, ymm7
+vaddps  ymm8, ymm8, ymm9
+; let r_recip = 1.0 / r_sq.sqrt();
+vsqrtps ymm9, ymm8
+vdivps  ymm9, ymm3, ymm9
+
+; let a_scalar = G / r_sq;
+vdivps  ymm8, ymm4, ymm8
+; let nx = -px * r_recip;
+vmulps  ymm5, ymm9, ymm5
+
+; planets.vel_x[i] += nx * a_scalar * dt;
+vmulps  ymm5, ymm8, ymm5
+vmulps  ymm5, ymm0, ymm5
+vsubps  ymm5, ymm10, ymm5
+; planets.pos_x[i] += planets.vel_x[i] * dt;
+vmulps  ymm5, ymm0, ymmword ptr [r11 + 4*rax]
+vaddps  ymm5, ymm5, ymmword ptr [r10 + 4*rax]
+vmovups ymmword ptr [r10 + 4*rax], ymm5
+add     rax, 8
+\end{lstlisting}
+\end{minipage}%
+\hspace{3em}%
+\begin{minipage}[t]{0.42\linewidth}
+\centering\texttt{AoS}\par\smallskip
+\begin{lstlisting}[language={[x86masm]Assembler}, basicstyle=\scriptsize\ttfamily]
+; let dir = -planet.pos;
+vmovsd   xmm5, qword ptr [rax + rsi + 12]
+vmovss   xmm3, dword ptr [rax + rsi + 20]
+
+; let r_squared = dir.length_squared();
+vmulps    xmm6, xmm5, xmm5
+vmulss    xmm4, xmm3, xmm3
+vmovshdup xmm7, xmm6
+vaddss    xmm6, xmm6, xmm7
+vaddss    xmm4, xmm6, xmm4  
+
+; let a_scalar = G / r_squared;
+vdivss    xmm6, xmm1, xmm4
+; let a = a_scalar * direction.normalize();
+sqrtss    xmm4, xmm4
+vdivss    xmm4, xmm2, xmm4
+vmulps    xmm7, xmm7, xmm5
+vmulps    xmm6, xmm0, xmm7
+
+; planet.velocity += a * dt;
+vmovsd    xmm7, qword ptr [rax + rsi]
+vsubps    xmm6, xmm7, xmm6
+vmovlps   qword ptr [rax + rsi], xmm6
+; planet.pos += planet.vel * dt;
+vmulps  xmm6, xmm0, xmm6
+vaddps  xmm5, xmm5, xmm6
+vmulss  xmm4, xmm9, xmm4
+vmovlps qword ptr [rax + rsi + 12], xmm5
+vaddss  xmm3, xmm3, xmm4
+vmovss  dword ptr [rax + rsi + 20], xmm3
+add     rsi, 24
+\end{lstlisting}
+\end{minipage}
+\caption{ASM arithmetic: SoA versus AoS}
+\label{fig:s1:asm}
+\end{figure}
+
+Figure~\ref{fig:s1:asm} shows that the \ac{SoA} architecture is able to work with the wider \qty{256}{\bit} \texttt{ymm} registers, while the \ac{AoS} architecture is forced to operate on the narrower \qty{128}{\bit} \texttt{xmm} registers. Additionally, the \ac{SoA} architecture is able to vectorize, relying heavily on packed instructions such as \texttt{vmulps} and \texttt{vsqrtps}. Finally, the \texttt{add~rax,~8} advances the index by eight elements, so the next eight planets are processed. 
+
+In contrast, the \ac{AoS} architecture cannot vectorize fully, falling back to scalar instructions such as \texttt{vdivss} and \texttt{sqrtss}. Additionally, the stride \texttt{add~rsi,~24} equals the size of the \texttt{PlanetAoS} struct in bytes, confirming that only one planet is processed per iteration rather than eight.
+
+\begin{figure}[htbp]
+\centering
+\begin{minipage}[t]{0.42\linewidth}
+\centering\texttt{AoS}\par\smallskip
+\begin{lstlisting}[language={[x86masm]Assembler}, basicstyle=\scriptsize\ttfamily]
+; planet.position (direct load)
+vmovsd xmm5, qword ptr [rax + rsi + 12]
+; ... identical arithmetic ...
+add    rsi, 24
+\end{lstlisting}
+\end{minipage}%
+\hspace{3em}%
+\begin{minipage}[t]{0.42\linewidth}
+\centering\texttt{PC}\par\smallskip
+\begin{lstlisting}[language={[x86masm]Assembler}, basicstyle=\scriptsize\ttfamily]
+; planet.position (pointer load + deref)
+mov    rdi, qword ptr [rcx + rsi]
+vmovsd xmm5, qword ptr [rdi + 12]
+; ... identical arithmetic ...
+add    rsi, 8
+\end{lstlisting}
+\end{minipage}
+\caption{ASM Load sequence: AoS versus PC}
+\label{fig:s1:asm:pc}
+\end{figure}
+
+Regarding the low performance of the \ac{PC} architecture, the machine code shows that the arithmetic between the \ac{AoS} and \ac{PC} architectures is identical. As is visible in Figure~\ref{fig:s1:asm:pc}, the main difference lies in how the planet's data is accessed, with \ac{AoS} able to load data directly and \ac{PC} having to fetch the data through the pointer address. This is further confirmed by the stride length of \num{24} for \ac{AoS}, which is the \texttt{PlanetAoS} struct's size in bytes, whereas the stride length for \ac{PC} is \num{8}, a pointer's size in bytes.
+
+The Bevy architecture does not compile to a single, isolated hot loop, as the chunked entity iteration produces several separate loops, which is why no representative excerpt is shown. Its arithmetic is partially vectorized, as some \texttt{ymm} registers are present in comparison to the object-oriented architectures, which use only \texttt{xmm} registers. However, the usage of these \texttt{ymm} registers is interwoven with shuffle instructions, e.g., \texttt{vshufpd}, that assemble the lanes, reflecting only partial vectorization compared to \ac{SoA}, which in contrast can cleanly operate on eight planets in at once. This is likely a consequence of the \texttt{Vec3A} layout, which stores each entity's x, y, and z coordinates together unlike the \ac{SoA} architecture. However, the usage of the \ac{ECS} still enables a considerable performance improvement compared to the object-oriented architectures, as it enables at least partial vectorization and usage of wider registers. 
+
+% ── interpretation ───────────────────────────────────────
 \paragraph{Interpretation}
+To summarize, memory layout dictates whether vectorization can occur or not. As was seen, the \ac{SoA} architecture was able to fully exploit the usage of wide registers and packed instructions due to the component arrays, whereas the object-oriented approaches employing interleaved memory layouts were not able to vectorize. Bevy lies in the middle, achieving partial vectorization. Additionally, the effect of memory locality was isolated between the \ac{AoS} and \ac{PC} architectures, demonstrating that vectorization is not the only aspect that can improve performance. To conclude, in a compute-bound scenario, the benefit of a data-oriented approach lies not in performing each calculation faster (the arithmetic is identical) but in how many planets are processed per instruction. The performance of Bevy shows that a practical, ECS-based approach can outperform the object-oriented layouts in this compute-bound case, though the necessity to use structs such as \texttt{Vec3A} impedes the full speed-up that a pure \ac{SoA} architecture would achieve. Thus, programs do not adhere exactly to either \ac{DOP} or \ac{OOP}, but lie on a spectrum spanned between the two. 
 
 % ── Scenario 2 ───────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Scenario 2: Memory-Bound}
