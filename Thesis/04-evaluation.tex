@@ -181,7 +181,7 @@ In contrast to Scenario 1 which measured the performance difference between arch
 
 % ── scaling ──────────────────────────────────────────────
 \paragraph{Scaling Behavior}
-As was stated in Section~\ref{sec:background:ecs}, an \ac{ECS} benefits greatly from the separation of relevant and irrelevant data, which is clearly visible in the results in Figure~\ref{fig:s2}. While the execution time of the \ac{PC} and \ac{AoS} architectures scales directly with payload size, the \ac{SoA} and Bevy architectures remain constant. The order of performance follows suit with Scenario 1, with \ac{SoA} being in first place with an average time per iteration of \qty{2.32}{\micro\second}. In second place is the Bevy architecture with \qty{5.03}{\micro\second}, followed by the \ac{AoS} architecture with \qty{26.69}{\micro\second} and the \ac{PC} architecture with \qty{37.94}{\micro\second}.
+As was stated in Section~\ref{sec:background:ecs}, an \ac{ECS} benefits greatly from the separation of relevant and irrelevant data, which is visible in the results in Figure~\ref{fig:s2}. While the execution time of the \ac{PC} and \ac{AoS} architectures increases with payload size, the \ac{SoA} and Bevy architectures remain constant. The order of performance follows suit with Scenario 1, with \ac{SoA} being the fastest with an average time per iteration across the sweep of \qty{2.32}{\micro\second}. In second is the Bevy architecture with \qty{5.03}{\micro\second}, followed by the \ac{AoS} architecture with \qty{26.69}{\micro\second} and the \ac{PC} architecture with \qty{37.94}{\micro\second}.
 
 \begin{figure}[htbp]
 \centering
@@ -197,16 +197,22 @@ As was stated in Section~\ref{sec:background:ecs}, an \ac{ECS} benefits greatly 
 \label{fig:s2-pattern}
 \end{figure}
 
-While the data-oriented architectures feature smooth curves in Figure~\ref{fig:s2}, the object-oriented architectures feature a distinct pattern of spikes. Both architectures possess large spikes in execution time at multiples of \qty{4}{\kibi\byte}, whereas the \ac{AoS} architecture, in addition, features medium spikes at \qty{2}{\kibi\byte}, \qty{6}{\kibi\byte} and \qty{10}{\kibi\byte} and so on, as well as small spikes when the payload size is an odd multiple of \qty{1}{\kibi\byte}. 
+While the data-oriented architectures feature smooth curves in Figure~\ref{fig:s2}, the object-oriented architectures feature a distinct pattern of spikes. Both architectures possess large spikes in execution time at multiples of around \qty{4}{\kibi\byte}, whereas the \ac{AoS} architecture, in addition, features medium spikes at around \qty{2}{\kibi\byte}, \qty{6}{\kibi\byte} and \qty{10}{\kibi\byte} and so on, as well as small spikes when the payload size is an odd multiple of around \qty{1}{\kibi\byte}. 
 
 Additionally, what originally appeared as jitter in Figure~\ref{fig:s2} is another pattern in execution times, as Figure~\ref{fig:s2-pattern} clearly shows. Especially for the \ac{AoS} architecture, a clear period of \qty{64}{bytes} can be noted when looking at the taller spikes of the micro-pattern. 
 
-% ── interpretation ───────────────────────────────────────
-\paragraph{Interpretation}
+% ── analysis ─────────────────────────────────────────────
+\paragraph{Cache Analysis}
+The \texttt{PlanetAoS} struct possesses \qty{24}{\byte} of relevant data, i.e., \texttt{Vec3 velocity} and \texttt{Vec3 position}. Thus, the size of a planet in the object-oriented architectures is exactly these \qty{24}{\byte} plus the payload size, resulting in the aforementioned spikes in execution being situated at \emph{exactly} multiples of \qty{1024}{\byte}. Additionally, zooming in on the spikes reveals that the multiples of \qty{1024}{\byte} form an upper bound for the spikes, with the spikes always being \qty{4}{\byte} in width, as is visible in Figure~\ref{fig:s2-spikes}. This occurs for all spike sizes: small, medium, and large. 
 
-% HALLO WAKO DU SCHAFFST DAAAAAAAAAAS
-% Erinner dich wer du bist, du hast des drauf!
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{images/S2_spikes.pdf}
+\caption{Scenario 2 (Memory-Bound): Spike position in relation to offset to struct size}
+\label{fig:s2-spikes}
+\end{figure}
 
+This alignment to a power of two suggests the problem originating from a cache phenomenon called cache conflict misses, which Table~\ref{tab:s2:cache} and Figure~\ref{fig:s2-pattern} in combination can prove. Table~\ref{tab:s2:cache} presents the L1 cache miss rate as well as the \ac{CPI} of several binaries compiled for Scenario 2, the measurements being taken with AMD~µProf~\cite{amd_uprof}. 
 
 \begin{table}[htbp]
   \centering
@@ -215,7 +221,7 @@ Additionally, what originally appeared as jitter in Figure~\ref{fig:s2} is anoth
     \toprule
     & \multicolumn{2}{c}{\acs{PC}} & \multicolumn{2}{c}{\acs{AoS}} & \multicolumn{2}{c}{\acs{SoA}} & \multicolumn{2}{c}{Bevy} \\
     \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
-    {Payload} & {CPI} & {L1 [\unit{\percent}]} & {CPI} & {L1 [\unit{\percent}]} & {CPI} & {L1 [\unit{\percent}]} & {CPI} & {L1 [\unit{\percent}]} \\
+    {Payload [B]} & {CPI} & {L1 [\unit{\percent}]} & {CPI} & {L1 [\unit{\percent}]} & {CPI} & {L1 [\unit{\percent}]} & {CPI} & {L1 [\unit{\percent}]} \\
     \midrule
     998  & 1.079 & 21.19 &  1.474 & 26.67 & 0.786 & 32.25 & 0.644 & 18.86 \\
     1010 & 1.049 & 21.23 &  0.709 & 20.88 & 0.767 & 31.80 & 0.659 & 18.93 \\
@@ -231,6 +237,35 @@ Additionally, what originally appeared as jitter in Figure~\ref{fig:s2} is anoth
   \caption{\acs{CPI} and L1 data cache miss ratio per architecture. Payload pairs represent spikes at \qtylist{1024;2048;4096}{\byte}}
   \label{tab:s2:cache}
 \end{table}
+
+While the data-oriented architectures feature relatively constant values for \ac{CPI} and L1 cache miss rate with no clear pattern between the on-spike (\qtylist{998;2022;4070}{\byte}) and off-spike (\qtylist{1010;2034;4082}{\byte}) values, the opposite is true for the \ac{AoS} architecture. Here, the L1 cache miss rate clearly increases when execution time spikes, showing values of \qtylist{26.67;77.11;96.79}{\percent} respectively. Additionally, the \ac{CPI} increases significantly on spikes, with values of \numlist{1.474;6.426;12.680} respectively. For \ac{PC}, the miss rate and \ac{CPI} rise only gradually and shows no \mbox{on-/off-spike} difference. Its spikes are therefore not explained by this measurement and are likely shifted by the additional pointer indirection and allocator offsets.
+
+While the values in Table~\ref{tab:s2:cache} indicate that the spikes occur due to a cache phenomenon, they do not fully explain \emph{what} cache phenomenon is to blame. To find the cause, the cache architecture was inspected. For these benchmarks, an \mbox{AMD Ryzen 7 5800x} was used, which features an 8-way set associative cache with a L1 data cache \qtylist{32768}{\byte} in size and \qty{64}{\byte} cache lines. The L1 cache is divided into \num{64} sets, following \qty{32768}{\byte} / (\num{8} ways × \qty{64}{\byte}) \cite{hennessy2011computer}. Each planet's data maps to one of these sets based on its address, the set being calculated by dividing the address by the \qty{64}{\byte} line size and taking the result modulo \num{64}.
+
+Table~\ref{tab:s2:sets} lists this progression. When the struct size is a power of two, the planets fall onto only a few sets, e.g., a struct size of \qty{4096}{\byte} maps every planet to the same set, \qty{2048}{\byte} to two sets, \qty{1024}{\byte} to four and so on. Each set holds only eight planets at once, since the cache is 8-way set associative. When more than eight planets map to the same set, each new one evicts an earlier planet, which must then be reloaded from memory on its next access. This repeated eviction and reloading is what raises the L1 miss rate seen in Table~\ref{tab:s2:cache} and produces the spikes in execution time. It also explains their hierarchy, as at a struct size of \qty{4096}{\byte} every planet lands in the same set, at \qty{2048}{\byte} every second planet, and at \qty{1024}{\byte} every fourth. The fewer sets involved, the more planets collide, which is why the \qty{4096}{\byte} spikes are the largest and the \qty{1024}{\byte} spikes the smallest.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{S[table-format=4.0] S[table-format=2.0] l}
+    \toprule
+    {Struct size [\unit{\byte}]} & {Set jump} & {Sets touched (cycle)} \\
+    \midrule
+     128 &  2 & 2, 4, 6, 8, 10, \dots \\
+     256 &  4 & 4, 8, 12, 16, 20, \dots \\
+     512 &  8 & 8, 16, 24, 32, 40, \dots \\
+    1024 & 16 & 16, 32, 48, 0, 16, \dots \\
+    2048 & 32 & 32, 0, 32, 0, \dots \\
+    4096 &  0 & 0, 0, 0, 0, \dots \\
+    \bottomrule
+  \end{tabular}
+  \vspace{\medskipamount}
+  \caption{Cache set touched by planets as a function of struct size}
+  \label{tab:s2:sets}
+\end{table}
+
+% ── interpretation ───────────────────────────────────────
+\paragraph{Interpretation}
+In a memory-bound scenario the separation of relevant and irrelevant data decides the performance of an architecture. The \ac{SoA} and Bevy architectures hold the irrelevant data in separate arrays and components, resulting in constant execution times. In contrast, the object-oriented architectures hold the irrelevant data in the struct itself, polluting the cache and increasing execution times. The conflict-miss spikes are a structural artifact of this interleaved layout, which the data-oriented architectures cannot exhibit at all. While in Scenario 1 \ac{DOP} won by leveraging vectorization, it wins in this scenario through better cache efficiency. However, Bevy was able to close the gap to the \ac{SoA} architecture far better than in Scenario 1, as the usage of the \texttt{Query} mechanism omits the irrelevant data just as the \ac{SoA} architecture never touches its separate payload array. In conclusion, the performance is determined by the memory layout rather than by the computation itself.
 
 % ── Scenario 3 ───────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Scenario 3: Allocation and Deallocation}

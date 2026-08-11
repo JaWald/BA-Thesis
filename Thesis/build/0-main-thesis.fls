@@ -606,6 +606,9 @@ INPUT ./images/S2.pdf
 INPUT ./images/S2_pattern.pdf
 INPUT ./images/S2_pattern.pdf
 INPUT ./images/S2_pattern.pdf
+INPUT ./images/S2_spikes.pdf
+INPUT ./images/S2_spikes.pdf
+INPUT ./images/S2_spikes.pdf
 INPUT ./05-relatedwork.tex
 INPUT ./05-relatedwork.tex
 INPUT ././05-relatedwork.tex

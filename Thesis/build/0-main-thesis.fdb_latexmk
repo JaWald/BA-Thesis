@@ -1,23 +1,23 @@
 # Fdb version 4
-["biber build/0-main-thesis"] 1786340468.10796 "build/0-main-thesis.bcf" "build/0-main-thesis.bbl" "build/0-main-thesis" 1786394365.94745 0
-  "build/0-main-thesis.bcf" 1786394364 111918 ba6a8ba0baec662a9329fa99449b3675 "xelatex"
+["biber build/0-main-thesis"] 1786426408.61895 "build/0-main-thesis.bcf" "build/0-main-thesis.bbl" "build/0-main-thesis" 1786429129.02304 0
+  "build/0-main-thesis.bcf" 1786429127 112059 bfb41c3d8790416cc927e7ec110e98c3 "xelatex"
   "references.bib" 1786086687 9297 6c5b94e96968464890e1da2d41adffea ""
   (generated)
   "build/0-main-thesis.bbl"
   "build/0-main-thesis.blg"
   (rewritten before read)
-["xdvipdfmx"] 1786394364.92525 "build/0-main-thesis.xdv" "build/0-main-thesis.pdf" "build/0-main-thesis" 1786394365.96566 0
-  "build/0-main-thesis.xdv" 1786394364 879520 26eba3aa9588c0fe44f7fb4e8e8cc283 "xelatex"
+["xdvipdfmx"] 1786429127.99289 "build/0-main-thesis.xdv" "build/0-main-thesis.pdf" "build/0-main-thesis" 1786429129.04171 0
+  "build/0-main-thesis.xdv" 1786429127 935548 cfad7a0dac2caf728f1ecb67aab11ec9 "xelatex"
   (generated)
   "build/0-main-thesis.pdf"
   (rewritten before read)
-["xelatex"] 1786394358.01766 "d:/0_Projects/BA/Thesis/0-main-thesis.tex" "build/0-main-thesis.xdv" "0-main-thesis" 1786394365.94788 0
+["xelatex"] 1786429120.72113 "d:/0_Projects/BA/Thesis/0-main-thesis.tex" "build/0-main-thesis.xdv" "0-main-thesis" 1786429129.02347 0
   "./00-acronyms.tex" 1786393003 801 a715fac2ecb138429ca958a25614a64c ""
   "./000-abstract.tex" 1775106570 476 6ed5d85925a01b9ace4de0318289dbb6 ""
   "./01-introduction.tex" 1785304127 2926 7b3a9b11a900e429e4d83b301e598ab1 ""
   "./02-background.tex" 1786278722 9916 0a49f537a792a9af9851898557554e0d ""
   "./03-benchmarks.tex" 1786388210 36944 6399a26bcff4d353d57d4d4a3ba3fd52 ""
-  "./04-evaluation.tex" 1786394357 21511 d367032d4fc501d37bd160d5c6436d38 ""
+  "./04-evaluation.tex" 1786429120 27093 edfeb714a1eca6b97c208fd7b1a44708 ""
   "./05-relatedwork.tex" 1785742368 349 f3a24b37b1d995d44422a84d71492312 ""
   "./06-futurework.tex" 1785741357 353 b11c7cdccad3bc136423dc50625153ab ""
   "./07-conclusion.tex" 1784615794 236 d371787d94043cbc75954a41e2ea4a1c ""
@@ -27,20 +27,20 @@
   "01-introduction.tex" 1785304127 2926 7b3a9b11a900e429e4d83b301e598ab1 ""
   "02-background.tex" 1786278722 9916 0a49f537a792a9af9851898557554e0d ""
   "03-benchmarks.tex" 1786388210 36944 6399a26bcff4d353d57d4d4a3ba3fd52 ""
-  "04-evaluation.tex" 1786394357 21511 d367032d4fc501d37bd160d5c6436d38 ""
+  "04-evaluation.tex" 1786429120 27093 edfeb714a1eca6b97c208fd7b1a44708 ""
   "05-relatedwork.tex" 1785742368 349 f3a24b37b1d995d44422a84d71492312 ""
   "06-futurework.tex" 1785741357 353 b11c7cdccad3bc136423dc50625153ab ""
   "07-conclusion.tex" 1784615794 236 d371787d94043cbc75954a41e2ea4a1c ""
   "ACM-Reference-Format.bbx" 1775106570 19835 79a145932360a3a31a43dd5dd0425857 ""
   "ACM-Reference-Format.cbx" 1775106570 133 b4e61f38f98502f0bc0fb11409995406 ""
   "ACM-Reference-Format.dbx" 1775106570 664 bdc8ec55fb073cf83762fdbeee67ba2c ""
-  "build/0-main-thesis.aux" 1786394364 32912 f46e3286131d90317a14f38ec8d8f3d6 "xelatex"
-  "build/0-main-thesis.bbl" 1786340473 33611 34fc17b9bac80d48e3cda2e0eafeb119 "biber build/0-main-thesis"
-  "build/0-main-thesis.lof" 1786394364 1464 da4510c9a8d09f72a8c57661223f3aea "xelatex"
-  "build/0-main-thesis.log" 1786394364 114424 f105df23bd074d3060e348b793789ce7 "xelatex"
-  "build/0-main-thesis.lot" 1786394364 815 729630579ee55d989a17583a212bb008 "xelatex"
-  "build/0-main-thesis.run.xml" 1786394364 2636 c1c4b0b41eb3de6c77ae504f5a837f33 "xelatex"
-  "build/0-main-thesis.toc" 1786394364 4580 a22b731aa740615e49716196fdde5710 "xelatex"
+  "build/0-main-thesis.aux" 1786429127 34032 746221a71f7898af1c1083201dabaa2d "xelatex"
+  "build/0-main-thesis.bbl" 1786426410 33611 34fc17b9bac80d48e3cda2e0eafeb119 "biber build/0-main-thesis"
+  "build/0-main-thesis.lof" 1786429127 1617 7dc1a789b1cb4da9f5d568847844c6c0 "xelatex"
+  "build/0-main-thesis.log" 1786429127 114552 dc588177bce74ca3e4568adf1e55edfc "xelatex"
+  "build/0-main-thesis.lot" 1786429127 945 7c383186bf8457f1ca3613d2de21d818 "xelatex"
+  "build/0-main-thesis.run.xml" 1786429127 2636 59520dd45ef34a80af0d4d7903acc7af "xelatex"
+  "build/0-main-thesis.toc" 1786429127 4660 81a1576675dcf363cca3f9876ac01a09 "xelatex"
   "c:/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1773127822 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1773135100 1528 7e12f4c0fcf5a072cebdcfbfc610f54c ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1773124425 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -297,6 +297,7 @@
   "images/S1.pdf" 1786278722 284342 ad1657da7ada886fad6704d8e852d3be ""
   "images/S2.pdf" 1786388438 253790 4d0aaf1d30d1aebd9188c08919d72f56 ""
   "images/S2_pattern.pdf" 1786388515 33107 3faef527cf10e89e0559a0e7c8b000b4 ""
+  "images/S2_spikes.pdf" 1786424221 28522 e0da6352565bf1e256cda902ca3df295 ""
   "images/aos_vs_soa.png" 1775106570 18500 ef22ef3953f2968e7ec18ff57d806101 ""
   "images/ecs.png" 1775106570 108314 a612b55fd01f84bb221beb03569f0294 ""
   "jkureport.sty" 1775106570 106387 d7dbf33d8c6cc60e98ddba393b31662d ""
