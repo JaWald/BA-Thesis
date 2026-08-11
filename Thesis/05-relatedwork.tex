@@ -3,9 +3,13 @@
 \cleardoubleoddpage
 \chapter{Related Work}
 \label{sec:related-work}
-\begin{itemize}
-    \item Winqvist
-    \item Nyberg
-    \item Related Work aus Nyberg (1-2)
-\end{itemize}
+The impact of \ac{DOP} principles on execution time has been investigated in prior studies. In 2021, Nyberg \cite{nyberg2021dod} tested four aspects of \ac{DOP} for performance and cache utilization: removing polymorphism, switching from non-contiguous to contiguous structs, reducing struct size and contrasting a cache-friendly \ac{OOP} layout to an \ac{ECS}. All four improved performance and lowered miss rates for the data and unified caches, except for the removal of polymorphism, where the cache miss rate rose slightly.
+
+While Nyberg isolated the individual effects, Faryabi \cite{faryabi2018dataoriented} in 2018 examined whether they would materialize in practice. In one of three experiments, he converted the Unity game DwarfHeim to an \ac{ECS}, though the conversion was not purely \ac{DOP}. Performance increased in some cases, but Faryabi warned the gains could not be directly attributed to \ac{DOP}, as too many confounders remained.
+
+In 2020, Fedoseev \cite{fedoseev2020application} likewise studied \ac{DOP} in practice, comparing two nearly identical mobile games built with \ac{OOP} and \ac{DOP} across performance, maintainability and required skill level. The \ac{DOP} build's frame rate was roughly \qty{10}{percent} higher and maintainability was equal, though code reuse in follow-up projects was higher. On skill level, he noted \ac{DOP} might require a solid background in computer science, as it demands comprehension of computer architecture and memory.
+
+In 2022, Wingqvist et al. \cite{wingqvist2022evaluating} compared four builds of a small game: an \ac{OOP} and a \ac{DOP} build, each in single- and multi-threaded variants. Testing object counts of \num{5000} to \num{100000} with cache miss rates simulated via \texttt{Valgrind}, the results favoured \ac{DOP}, reaching a maximum speedup of \num{13.25} with the multi-threaded variant and a cache miss rate reduction of \num{5.57}. The authors note, however, that a real game seldom features more than \num{5000} objects, so practical speedups would likely be smaller.
+
+While these all focus on the impact of \ac{DOP} on video games through practical comparisons, none isolate the differences across the full memory layout spectrum of \ac{PC}, \ac{AoS} and \ac{SoA} in Rust, as done in this thesis.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
