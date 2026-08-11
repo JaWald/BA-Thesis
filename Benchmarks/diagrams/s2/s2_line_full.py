@@ -90,7 +90,7 @@ df = pd.concat(dataframes, ignore_index=True)
 df['time_us'] = df['time_ns'] / df['iteration_count'] / 1000
 
 start = 0
-stop = 20*1024
+stop = 4*1024
 
 df = df[df['payload'].between(start, stop)]
 df_agg = df.groupby(['architecture', 'payload'], as_index=False)['time_us'].mean()

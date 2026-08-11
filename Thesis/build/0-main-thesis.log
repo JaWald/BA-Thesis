@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.10)  10 AUG 2026 22:39
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.10)  11 AUG 2026 08:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1855,10 +1855,6 @@ Package csquotes Info: Redefining alias 'default' -> 'english'.
 (build/0-main-thesis.aux
 Package babel Info: 'ngerman' activates 'german' shorthands.
 (babel)             Reported on input line 18.
-
-
-LaTeX Warning: Label `acro:CPI@cref' multiply defined.
-
 )
 \openout1 = `0-main-thesis.aux'.
 
@@ -2191,32 +2187,38 @@ File: ./images/S2.pdf Graphic file (type pdf)
 <use ./images/S2.pdf>
 File: ./images/S2_pattern.pdf Graphic file (type pdf)
 <use ./images/S2_pattern.pdf>
-
-Underfull \hbox (badness 1540) in paragraph at lines 200--201
-\TU/Merriweather(0)/m/n/12 spikes. Both architectures possess large spikes in execution time at
+ [26] [27]
+File: ./images/S2_spikes.pdf Graphic file (type pdf)
+<use ./images/S2_spikes.pdf>
+Package acronym Info: Label `acro:CPI' newly defined as it shall be overridden
+although it is yet undefined on input line 215.
+ [28]
+Overfull \hbox (14.6406pt too wide) in paragraph at lines 220--237
+ [][] 
  []
 
-[26] [27]
-Package acronym Info: Label `acro:CPI' newly defined as it shall be overridden
-although it is yet undefined on input line 231.
-Package acronym Info: Label `acro:CPI' overridden on input line 231.
-) (././05-relatedwork.tex [28] [29]
+[29]
+Underfull \hbox (badness 1253) in paragraph at lines 268--269
+\TU/Merriweather(0)/m/n/12 and irrelevant data decides the performance of an architecture. The
+ []
+
+[30]) (././05-relatedwork.tex [31]
 chapter 5.
-) (././06-futurework.tex [30
+) (././06-futurework.tex [32
 
 
 
 
 ]
 chapter 6.
-) (././07-conclusion.tex [31
+) (././07-conclusion.tex [33
 
 
 
 
 ]
 chapter 7.
-) [32
+) [34
 
 
 
@@ -2235,7 +2237,7 @@ Underfull \hbox (badness 2809) in paragraph at lines 73--73
 \TU/Merriweather(0)/m/it/12 tecture: A Quantitative Approach\TU/Merriweather(0)/m/n/12 . (5th ed.). Morgan Kaufmann,
  []
 
-[33
+[35
 
 
 
@@ -2266,18 +2268,17 @@ Underfull \hbox (badness 1953) in paragraph at lines 73--73
  []
 
 Package cleveref Info: loaded `english' language definitions on input line 72.
-[34]
+[36]
 Package cleveref Info: loaded `english' language definitions on input line 74.
- [35] (build/0-main-thesis.lot
+ [37] (build/0-main-thesis.lot
 Package cleveref Info: loaded `english' language definitions on input line 1.
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
 Package cleveref Info: loaded `english' language definitions on input line 5.
-Package acronym Info: Label `acro:CPI' overridden on input line 12.
 )
 \tf@lot=\write6
 \openout6 = `0-main-thesis.lot'.
 
- [36
+ [38
 
 
 
@@ -2290,7 +2291,7 @@ Package cleveref Info: loaded `english' language definitions on input line 5.
 \tf@lof=\write7
 \openout7 = `0-main-thesis.lof'.
 
- [37
+ [39
 
 
 ] (././00-acronyms.tex
@@ -2299,7 +2300,7 @@ chapter without number
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 ) (c:/texlive/2026/texmf-dist/tex/generic/stringenc/se-utf32be.def
 File: se-utf32be.def 2019/11/29 v1.12 stringenc: UTF-32BE
-) [38
+) [40
 
 
 
@@ -2315,19 +2316,24 @@ L3 programming layer <2026-01-19>
  ***********
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: There were undefined references.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                0-main-thesis
+(biblatex)                and rerun LaTeX afterwards.
 
 Package logreq Info: Writing requests to '0-main-thesis.run.xml'.
 \openout1 = `0-main-thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 61844 strings out of 468168
- 1377379 string characters out of 5436524
- 2833764 words of memory out of 5000000
- 89654 multiletter control sequences out of 15000+600000
+ 61865 strings out of 468168
+ 1377864 string characters out of 5436524
+ 2834184 words of memory out of 5000000
+ 89674 multiletter control sequences out of 15000+600000
  632930 words of font info for 147 fonts, out of 8000000 for 9000
  1350 hyphenation exceptions out of 8191
  130i,25n,137p,11240b,32833s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on build/0-main-thesis.xdv (43 pages, 879520 bytes).
+Output written on build/0-main-thesis.xdv (45 pages, 935548 bytes).

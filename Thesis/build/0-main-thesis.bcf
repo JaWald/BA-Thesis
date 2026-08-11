@@ -2430,6 +2430,8 @@
     <bcf:citekey order="34" intorder="1">amd_uprof</bcf:citekey>
     <bcf:citekey order="35" intorder="1">cargo_show_asm</bcf:citekey>
     <bcf:citekey order="36" intorder="1">clap</bcf:citekey>
+    <bcf:citekey order="37" intorder="1">amd_uprof</bcf:citekey>
+    <bcf:citekey order="38" intorder="1">hennessy2011computer</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
