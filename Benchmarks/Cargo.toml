@@ -9,7 +9,7 @@ asm = "0.3.0"
 clap = { version = "4.6.0", features = ["derive"] }
 bevy = { path = "bevy-contiguous", default-features = false }
 
-[profile.run]
+[profile.o3]
 inherits = "release"
 debug = false
 opt-level = 3
