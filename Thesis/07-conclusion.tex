@@ -3,5 +3,10 @@
 \cleardoubleoddpage
 \chapter{Conclusion}
 \label{sec:conclusion}
+This work compared the performance of \ac{DOP} and \ac{OOP} memory layouts in Rust, featuring four architectures (Bevy, \ac{SoA}, \ac{AoS}, \ac{PC}) benchmarked in three scenarios (Compute-bound, Memory-Bound, Allocation / Deallocation). The data-oriented \ac{SoA} architecture led in all scenarios, with the \ac{PC} architecture clearly landing in last place. However, the reason for differences were, depending on the scenario, different mechanisms.
+
+In Scenario 1, vectorization primarily drove execution times, in Scenario 2, cache locality was of the most importance and in Scenario 3, the allocation strategy was the deciding factor. Bevy was able to beat the \ac{AoS} architecture in Scenario 1 and 2 but lost in Scenario 3, likely due to the \ac{ECS} overhead without the advantages of vectorization and cache locality. 
+
+To conclude, the memory layout decides on performance. However, the bottleneck decides which memory layout is optimal. \ac{DOP} and \ac{OOP} are neither one-size-fits-all solutions, but span a spectrum. Depending on the task at hand and present bottlenecks, a memory layout best suited for these should be chosen. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

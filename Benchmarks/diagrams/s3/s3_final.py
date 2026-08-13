@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 warmups = '100'
 iterations = '50'
 samples = '5'
-reuse = 'false'
+reuse = 'true'
 variant = 'reuse' if reuse == 'true' else 'drop'
 
 suffix = f'_w-{warmups}_i-{iterations}_s-{samples}_r-{reuse}'
@@ -49,7 +49,7 @@ ax.set_yscale('log')
 
 plt.xlabel('Payload Size [Bytes]', fontsize=11)
 plt.ylabel('Average Time per Iteration [µs]', fontsize=11)
-plt.ylim(, 10000)
+plt.ylim(1, 10000)
 
 plt.legend(title='Architecture', fontsize=9, loc='lower right')
 plt.savefig(f'svg/S3_{variant}.pdf', bbox_inches='tight')

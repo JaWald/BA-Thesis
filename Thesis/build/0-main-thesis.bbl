@@ -198,6 +198,42 @@
       \verb https://www.gamedevs.org/uploads/data-driven-game-object-system.pdf
       \endverb
     \endentry
+    \entry{delorie_malloc_internals}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=ab96b84e465166c8d957ab6d291a4050}{%
+           family={Delorie},
+           familyi={D\bibinitperiod},
+           given={D.\bibnamedelimi J.},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Red Hat Developer}%
+      }
+      \strng{namehash}{ab96b84e465166c8d957ab6d291a4050}
+      \strng{fullhash}{ab96b84e465166c8d957ab6d291a4050}
+      \strng{fullhashraw}{ab96b84e465166c8d957ab6d291a4050}
+      \strng{bibnamehash}{ab96b84e465166c8d957ab6d291a4050}
+      \strng{authorbibnamehash}{ab96b84e465166c8d957ab6d291a4050}
+      \strng{authornamehash}{ab96b84e465166c8d957ab6d291a4050}
+      \strng{authorfullhash}{ab96b84e465166c8d957ab6d291a4050}
+      \strng{authorfullhashraw}{ab96b84e465166c8d957ab6d291a4050}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Malloc Internals and You}
+      \field{urlday}{13}
+      \field{urlmonth}{8}
+      \field{urlyear}{2026}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://developers.redhat.com/blog/2017/03/02/malloc-internals-and-you
+      \endverb
+      \verb{url}
+      \verb https://developers.redhat.com/blog/2017/03/02/malloc-internals-and-you
+      \endverb
+    \endentry
     \entry{drepper2007every}{report}{}{}
       \name{author}{1}{}{%
         {{hash=bdb9c3658f483c939f0f649e51d31f2a}{%
@@ -820,6 +856,40 @@
       \range{pages}{28}
       \verb{doi}
       \verb 10.1145/3763050
+      \endverb
+    \endentry
+    \entry{glibc_tunables}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=76c93148c9a742a794a9e73bb29fa11e}{%
+           family={{The GNU C Library}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Free Software Foundation}%
+      }
+      \strng{namehash}{76c93148c9a742a794a9e73bb29fa11e}
+      \strng{fullhash}{76c93148c9a742a794a9e73bb29fa11e}
+      \strng{fullhashraw}{76c93148c9a742a794a9e73bb29fa11e}
+      \strng{bibnamehash}{76c93148c9a742a794a9e73bb29fa11e}
+      \strng{authorbibnamehash}{76c93148c9a742a794a9e73bb29fa11e}
+      \strng{authornamehash}{76c93148c9a742a794a9e73bb29fa11e}
+      \strng{authorfullhash}{76c93148c9a742a794a9e73bb29fa11e}
+      \strng{authorfullhashraw}{76c93148c9a742a794a9e73bb29fa11e}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{The GNU C Library Reference Manual}
+      \field{title}{Memory Allocation Tunables}
+      \field{urlday}{13}
+      \field{urlmonth}{8}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://sourceware.org/glibc/manual/latest/html_mono/libc.html#Memory-Allocation-Tunables
+      \endverb
+      \verb{url}
+      \verb https://sourceware.org/glibc/manual/latest/html_mono/libc.html#Memory-Allocation-Tunables
       \endverb
     \endentry
     \entry{tian2013simd}{inproceedings}{}{}
