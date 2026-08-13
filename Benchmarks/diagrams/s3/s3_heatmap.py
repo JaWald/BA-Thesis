@@ -7,11 +7,12 @@ warmups = '100'
 iterations = '50'
 samples = '5'
 reuse = 'true'
+tcache = 'on'
 suffix = f'_w-{warmups}_i-{iterations}_s-{samples}_r-{reuse}'
 variant = 'reuse' if reuse == 'true' else 'drop'
 
-architecture = 'PC___'
-file = f'csv/{architecture}{suffix}.csv'
+architecture = 'Bevy'
+file = f'csv/tcache_{tcache}/{architecture}{suffix}.csv'
 df = pd.read_csv(file)
 
 df['time_us'] = df['time_ns'] / df['iteration_count'] / 1000
@@ -29,7 +30,7 @@ pivot = df.pivot_table(
 )
 
 sns.set_theme(style="white")
-fig, ax = plt.subplots(figsize=(14, 10), constrained_layout=True)
+fig, ax = plt.subplots(figsize=(7, 4.5), constrained_layout=True)
 
 sns.heatmap(
     pivot,
@@ -54,5 +55,5 @@ ax.set_yticklabels(pivot.index[::ystep], rotation=0)
 ax.set_xlabel('Chunk Size [Objects]', fontsize=12)
 ax.set_ylabel('Payload Size [Bytes]', fontsize=12)
 
-plt.savefig(f'svg/S3_Heatmap_{architecture}_{variant}.pdf')
+plt.savefig(f'svg/S3_{architecture}_{variant}_tcache_{tcache}.pdf')
 plt.show()

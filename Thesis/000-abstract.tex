@@ -2,8 +2,7 @@
 
 \cleardoubleoddpage
 \begin{abstract*}
-
-< Abstract in english >
+In the past decades, processor speeds have increased vastly, with memory speeds lagging behind. This causes memory layouts and access patterns to increasingly define performance instead of only the computational workload. To address this, data-oriented principles may be employed, the impact of which is seldom quantified in isolation. This work attempts to measure said impact in Rust. For this, four architectures are implemented, namely Pointer Chasing (PC), Array of Structures (AoS), Structure of Arrays (SoA) and Bevy ECS, which all operate on an identical workload, isolating performance differences to the architecture at hand. These four architectures are benchmarked in three scenarios: Scenario 1 being compute-bound, Scenario 2 memory-bound and Scenario 3 inspecting allocation and deallocation. The results are supported by machine code inspection and profiling. The SoA architecture outperforms the others in all three scenarios, while PC consistently places last. Bevy beats AoS for second place in Scenarios 1 and 2 but loses to it in Scenario 3. Notably, the reason for SoA's lead differs by scenario, being SIMD vectorization, cache locality and allocation strategy respectively. The conclusion is that the choice of memory layout should not default to a data-oriented one, but to what best fits the task and bottleneck at hand.
 
 \end{abstract*}
 
@@ -12,7 +11,9 @@
 \cleardoubleoddpage
 \begin{otherlanguage}{ngerman}
 \begin{abstract*}
-< Abstract auf Deutsch >
+
+In den vergangenen Jahrzehnten sind Prozessorgeschwindigkeiten stark gestiegen, während  Speichergeschwindigkeiten zurückblieben. Dadurch bestimmen zunehmend das Speicherlayout und die Zugriffsmuster die Performance und nicht mehr allein die Rechenlast. Um dem zu begegnen, können datenorientierte Prinzipien eingesetzt werden, deren Auswirkungen jedoch selten isoliert quantifiziert werden. Diese Arbeit versucht, genannte Auswirkungen in Rust zu messen. Dazu werden vier Architekturen implementiert, nämlich Pointer Chasing (PC), Array of Structures (AoS), Structure of Arrays (SoA) und Bevy ECS, die alle auf einer identischen Arbeitslast operieren, sodass sich Performanceunterschiede allein auf die jeweilige Architektur zurückführen lassen. Diese vier Architekturen werden in drei Szenarien untersucht: Szenario 1 ist compute-bound, Szenario 2 memory-bound und Szenario 3 betrachtet Allokation und Deallokation. Die Ergebnisse werden durch Maschinencode-Inspektion und Profiling untermauert. Die SoA-Architektur übertrifft die anderen in allen drei Szenarien, während PC durchgehend den letzten Platz belegt. Bevy schlägt AoS in den Szenarien 1 und 2 um den zweiten Platz, unterliegt AoS aber in Szenario 3. Bemerkenswert ist, dass der Grund für den Vorsprung von SoA je nach Szenario ein anderer ist, nämlich SIMD-Vektorisierung, Cache-Lokalität und Allokationsstrategie. Die Schlussfolgerung ist, dass die Wahl des Speicherlayouts nicht standardmäßig auf ein datenorientiertes fallen sollte, sondern auf jenes, das am besten zur Aufgabe und zum vorliegenden Bottleneck passt.
+
 \end{abstract*}
 \end{otherlanguage}
 

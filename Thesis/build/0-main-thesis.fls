@@ -639,10 +639,6 @@ INPUT ././07-conclusion.tex
 INPUT ./07-conclusion.tex
 INPUT ./07-conclusion.tex
 INPUT ././07-conclusion.tex
-INPUT build/0-main-thesis.lot
-INPUT build/0-main-thesis.lot
-INPUT build/0-main-thesis.lot
-OUTPUT build/0-main-thesis.lot
 INPUT build/0-main-thesis.lof
 INPUT build/0-main-thesis.lof
 INPUT build/0-main-thesis.lof

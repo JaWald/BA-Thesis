@@ -64,7 +64,6 @@
 \contentsline {paragraph}{\nonumberline General}{39}{paragraph*.51}%
 \contentsline {chapter}{\numberline {7}Conclusion}{40}{chapter.7}%
 \contentsline {chapter}{\nonumberline Bibliography}{41}{chapter*.52}%
-\contentsline {chapter}{\nonumberline List of Tables}{44}{chapter*.53}%
-\contentsline {chapter}{\nonumberline List of Figures}{45}{chapter*.54}%
-\contentsline {chapter}{\nonumberline List of Acronyms}{46}{chapter*.55}%
+\contentsline {chapter}{\nonumberline List of Figures}{44}{chapter*.53}%
+\contentsline {chapter}{\nonumberline List of Acronyms}{45}{chapter*.54}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

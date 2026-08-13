@@ -51,10 +51,11 @@ As is clearly visible in Figure~\ref{fig:s1}, all four architectures scale linea
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{images/S1.pdf}
-\caption{Scenario 1 (Compute-Bound): Average time per iteration versus planet count}
+\caption{Average time per iteration versus planet count}
 \label{fig:s1}
 \end{figure}
 
+\clearpage
 To be noted is the wide yet relatively constant variation in measurements regarding the \ac{PC} architecture, which lessens after \num{16384} planets. Additionally, a number of spikes in execution time are visible in the measurements of the Bevy and \ac{SoA} architectures. However, these spikes do not affect the overall trend. 
 
 % ── assembly ─────────────────────────────────────────────
@@ -186,14 +187,14 @@ As was stated in Section~\ref{sec:background:ecs}, an \ac{ECS} benefits greatly 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{images/S2.pdf}
-\caption{Scenario 2 (Memory-Bound): Average time per iteration versus payload size}
+\caption{Average time per iteration versus payload size}
 \label{fig:s2}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{images/S2_pattern.pdf}
-\caption{Scenario 2 (Memory-Bound): Pattern in execution time of \ac{PC} and \ac{AoS} architectures}
+\caption{Pattern in execution time of \ac{PC} and \ac{AoS} architectures}
 \label{fig:s2-pattern}
 \end{figure}
 
@@ -208,10 +209,11 @@ The \texttt{PlanetAoS} struct possesses \qty{24}{\byte} of relevant data, i.e., 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{images/S2_spikes.pdf}
-\caption{Scenario 2 (Memory-Bound): Spike position in relation to offset to struct size}
+\caption{Spike position in relation to offset to struct size}
 \label{fig:s2-spikes}
 \end{figure}
 
+\clearpage
 This alignment to a power of two suggests the problem originating from a cache phenomenon called cache conflict misses, which Table~\ref{tab:s2:cache} and Figure~\ref{fig:s2-pattern} in combination can prove. Table~\ref{tab:s2:cache} presents the L1 cache miss rate as well as the \ac{CPI} of several binaries compiled for Scenario 2, the measurements being taken with AMD~µProf~\cite{amd_uprof}. 
 
 \begin{table}[htbp]
@@ -287,14 +289,14 @@ Lastly, while there are some variations in execution time in the vicinity of \qt
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{images/S3_reuse.pdf}
-\caption{Scenario 3: Reuse Case with a chunk size of 500}
+\caption{Reuse Case with a chunk size of 500}
 \label{fig:s3-reuse}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{images/S3_drop.pdf}
-\caption{Scenario 3: Drop Case with a chunk size of 500}
+\caption{Drop Case with a chunk size of 500}
 \label{fig:s3-drop}
 \end{figure}
 
@@ -361,10 +363,11 @@ Figure~\ref{fig:s3-reuse} and Figure~\ref{fig:s3-drop} both showed a steep rise 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{images/S3_tcache_on.pdf}
-\caption{Scenario 3: Finer sweep at \qty{1}{\kilo\byte} of payload}
+\caption{Finer sweep at \qty{1}{\kilo\byte} of payload}
 \label{fig:s3-tcache-on}
 \end{figure}
 
+\clearpage
 This exactly matches the default value of the glibc tunable \texttt{tcache\_max}, which on 64-bit systems is \qty{1032}{\byte}~\cite{glibc_tunables}. This value is the largest object size that glibc still keeps in a small per-thread cache of recently freed blocks. Reusing a block from this cache is considerably faster than a full allocation, as it needs no coordination between threads~\cite{delorie_malloc_internals}. As long as an object is at most \qty{1032}{\byte} in size, i.e., for payloads up to \qty{1008}{\byte}, every creation and removal in the \ac{PC} architecture is handled by this fast cache. Once the object grows beyond \qty{1032}{\byte}, the cache no longer applies and each object must instead be requested from and returned to the general allocator, which is what produces the sharp rise in execution time.
 
 To verify this, the fine sweep from Figure~\ref{fig:s3-tcache-on} was rerun with \texttt{GLIBC\_TUNABLES=glibc.malloc.tcache\_count=0}, which disables the per-thread cache~\cite{glibc_tunables}. Without the cache, the fast area below \qty{1008}{\byte} should disappear and the execution times should rise to the level otherwise seen only above the cutoff. Figure~\ref{fig:s3-tcache-off} confirms this: the sharp edge is gone, and the times below \qty{1008}{\byte} now match those measured above \qty{1008}{\byte} in the previous run. 
@@ -372,11 +375,12 @@ To verify this, the fine sweep from Figure~\ref{fig:s3-tcache-on} was rerun with
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{images/S3_tcache_off.pdf}
-\caption{Scenario 3: Finer sweep at \qty{1}{\kilo\byte} of payload, without per-thread cache}
+\caption{Finer sweep at \qty{1}{\kilo\byte} of payload, without per-thread cache}
 \label{fig:s3-tcache-off}
 \end{figure}
 
 % ── interpretation ───────────────────────────────────────
+\clearpage
 \paragraph{Interpretation}
 The deciding factor in Scenario 3 is the allocation strategy, namely whether objects are allocated individually or in bulk. The \ac{PC} architecture allocates and frees each planet separately and thus pays a per-object cost, whereas the \ac{AoS}, \ac{SoA} and Bevy architectures allocate in a contiguous buffer and avoid it. This is why \ac{PC} is an order of magnitude slower, while the differences among the bulk-allocating architectures stay small. Contrary to Scenarios 1 and 2, Bevy no longer outperforms the \ac{AoS} architecture, as without a compute or cache advantage the fixed overhead of its \ac{ECS} spawn and despawn functions dominate. The sharp cutoff for \ac{PC} follows from the per-object allocation, as only individual allocations hit the allocator's size threshold. To be noted is that the exact position at \qty{1032}{\byte} is specific to the glibc allocator, whereas the disadvantage of per-object over bulk allocation is general. Running this benchmark with another operating system, and thus likely a different allocator, may yield different results and different threshold effects. 
 
