@@ -2,22 +2,22 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-warmups = '50'
+warmups = '100'
 iterations = '50'
-samples = '1'
-reuse = 'true'
-variant = 'Reuse' if reuse == 'true' else 'Drop'
+samples = '5'
+reuse = 'false'
+variant = 'reuse' if reuse == 'true' else 'drop'
 
 suffix = f'_w-{warmups}_i-{iterations}_s-{samples}_r-{reuse}'
 
 files = {
-    'Bevy': f'csv/both_linux/Bevy{suffix}.csv',
-    'SoA': f'csv/both_linux/SoA_{suffix}.csv',
-    'AoS': f'csv/both_linux/AoS_{suffix}.csv',
-    'PC': f'csv/both_linux/PC___{suffix}.csv'
+    'PC':   f'csv/PC___{suffix}.csv',
+    'AoS':  f'csv/AoS_{suffix}.csv',
+    'SoA':  f'csv/SoA_{suffix}.csv',
+    'Bevy': f'csv/Bevy{suffix}.csv',
 }
 
-payloads_to_show = [4000]
+CHUNK = 500
 
 dataframes = []
 for label, file in files.items():
@@ -27,27 +27,30 @@ for label, file in files.items():
 
 df = pd.concat(dataframes, ignore_index=True)
 df['time_us'] = df['time_ns'] / df['iteration_count'] / 1000
+df = df[df['chunk_size'] == CHUNK]
 
-df = df[df['payload'].isin(payloads_to_show)]
-df['Payload'] = df['payload'].apply(lambda p: f'{p // 1000}k' if p >= 1000 else f'{p} B')
+order = ['Bevy', 'SoA', 'AoS', 'PC']
 
 sns.set_theme(style="whitegrid")
-plt.figure(figsize=(13, 8))
+plt.figure(figsize=(7, 4.5))
 
 ax = sns.lineplot(
     data=df,
-    x='chunk_size',
+    x='payload',
     y='time_us',
-    hue='architecture',      # colour = architecture
-    style='Payload',         # dash pattern = payload
-    markers=False,
-    palette="magma"
+    hue='architecture', hue_order=order,
+    style='architecture', style_order=order,
+    markers=False, dashes=False,
+    palette="magma",
+    errorbar=None,
+    linewidth=1.25,
 )
+ax.set_yscale('log')
 
-plt.title(f'Scenario 3: Allocation - Chunk Scaling / {variant}', fontsize=15)
-plt.xlabel('Chunk Size', fontsize=12)
-plt.ylabel('Average Time per Iteration [µs]', fontsize=12)
+plt.xlabel('Payload Size [Bytes]', fontsize=11)
+plt.ylabel('Average Time per Iteration [µs]', fontsize=11)
+plt.ylim(, 10000)
 
-plt.legend(title='Architecture / Payload', loc='upper left')
-plt.savefig('svg/S3_Line_Chunk_all_payloads.svg', bbox_inches='tight')
+plt.legend(title='Architecture', fontsize=9, loc='lower right')
+plt.savefig(f'svg/S3_{variant}.pdf', bbox_inches='tight')
 plt.show()

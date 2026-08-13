@@ -1,0 +1,595 @@
+bench_s3_soa:
+		// src/benches_s3.rs:61
+		pub fn bench_s3_soa(iterations: usize, chunk_size: usize, reuse: bool, planets: &mut PlanetsSoA, _rng: &mut StdRng) -> u128 {
+	push rbp
+	push r15
+	push r14
+	push r13
+	push r12
+	push rbx
+	sub rsp, 4072
+	mov rbx, rcx
+	mov dword ptr [rsp + 28], edx
+	mov qword ptr [rsp + 16], rsi
+	mov r14, rdi
+		// src/benches_s3.rs:62
+		let now = Instant::now();
+	call qword ptr [rip + <std::time::Instant>::now@GOTPCREL]
+	mov qword ptr [rsp + 48], rax
+	mov dword ptr [rsp + 56], edx
+	mov qword ptr [rsp + 32], r14
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1916
+		fn lt(&self, other: &Self) -> bool { *self <  *other }
+	test r14, r14
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/range.rs:772
+		if self.start < self.end {
+	je .LBB181_23
+	xor eax, eax
+	lea r15, [rsp + 68]
+	mov r14, qword ptr [rip + memset@GOTPCREL]
+	jmp .LBB181_2
+.LBB181_22:
+	mov rax, qword ptr [rsp + 40]
+	inc rax
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1916
+		fn lt(&self, other: &Self) -> bool { *self <  *other }
+	cmp rax, qword ptr [rsp + 32]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/range.rs:772
+		if self.start < self.end {
+	je .LBB181_23
+.LBB181_2:
+	mov qword ptr [rsp + 40], rax
+	mov rax, qword ptr [rsp + 16]
+	mov rbp, rax
+	test rax, rax
+	jne .LBB181_3
+	jmp .LBB181_22
+.LBB181_17:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/mut_ptr.rs:961
+		unsafe { intrinsics::offset(self, count) }
+	imul rdi, r12, 2000
+	add rdi, qword ptr [rbx + 152]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/mod.rs:1917
+		intrinsics::write_via_move(dst, src)
+	movzx esi, r13b
+	mov edx, 2000
+	call r14
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1034
+		self.len = len + 1;
+	inc r12
+	mov qword ptr [rbx + 160], r12
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1916
+		fn lt(&self, other: &Self) -> bool { *self <  *other }
+	dec rbp
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/range.rs:772
+		if self.start < self.end {
+	je .LBB181_18
+.LBB181_3:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/hint.rs:491
+		crate::intrinsics::black_box(dummy)
+	mov dword ptr [rsp + 68], 0
+	#APP
+	#NO_APP
+	movss xmm0, dword ptr [rsp + 68]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1025
+		let len = self.len;
+	mov r12, qword ptr [rbx + 88]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1028
+		if len == self.buf.capacity() {
+	cmp r12, qword ptr [rbx + 72]
+	je .LBB181_4
+.LBB181_5:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/raw_vec/mod.rs:612
+		self.ptr.cast().as_non_null_ptr()
+	mov rax, qword ptr [rbx + 80]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/mod.rs:1917
+		intrinsics::write_via_move(dst, src)
+	movss dword ptr [rax + 4*r12], xmm0
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1034
+		self.len = len + 1;
+	inc r12
+	mov qword ptr [rbx + 88], r12
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/hint.rs:491
+		crate::intrinsics::black_box(dummy)
+	mov dword ptr [rsp + 68], 0
+	#APP
+	#NO_APP
+	movss xmm0, dword ptr [rsp + 68]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1025
+		let len = self.len;
+	mov r12, qword ptr [rbx + 112]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1028
+		if len == self.buf.capacity() {
+	cmp r12, qword ptr [rbx + 96]
+	je .LBB181_6
+.LBB181_7:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/raw_vec/mod.rs:612
+		self.ptr.cast().as_non_null_ptr()
+	mov rax, qword ptr [rbx + 104]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/mod.rs:1917
+		intrinsics::write_via_move(dst, src)
+	movss dword ptr [rax + 4*r12], xmm0
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1034
+		self.len = len + 1;
+	inc r12
+	mov qword ptr [rbx + 112], r12
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/hint.rs:491
+		crate::intrinsics::black_box(dummy)
+	mov dword ptr [rsp + 68], 0
+	#APP
+	#NO_APP
+	movss xmm0, dword ptr [rsp + 68]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1025
+		let len = self.len;
+	mov r12, qword ptr [rbx + 136]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1028
+		if len == self.buf.capacity() {
+	cmp r12, qword ptr [rbx + 120]
+	je .LBB181_8
+.LBB181_9:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/raw_vec/mod.rs:612
+		self.ptr.cast().as_non_null_ptr()
+	mov rax, qword ptr [rbx + 128]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/mod.rs:1917
+		intrinsics::write_via_move(dst, src)
+	movss dword ptr [rax + 4*r12], xmm0
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1034
+		self.len = len + 1;
+	inc r12
+	mov qword ptr [rbx + 136], r12
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/hint.rs:491
+		crate::intrinsics::black_box(dummy)
+	mov dword ptr [rsp + 68], 0
+	#APP
+	#NO_APP
+	movss xmm0, dword ptr [rsp + 68]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1025
+		let len = self.len;
+	mov r12, qword ptr [rbx + 16]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1028
+		if len == self.buf.capacity() {
+	cmp r12, qword ptr [rbx]
+	je .LBB181_10
+.LBB181_11:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/raw_vec/mod.rs:612
+		self.ptr.cast().as_non_null_ptr()
+	mov rax, qword ptr [rbx + 8]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/mod.rs:1917
+		intrinsics::write_via_move(dst, src)
+	movss dword ptr [rax + 4*r12], xmm0
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1034
+		self.len = len + 1;
+	inc r12
+	mov qword ptr [rbx + 16], r12
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/hint.rs:491
+		crate::intrinsics::black_box(dummy)
+	mov dword ptr [rsp + 68], 0
+	#APP
+	#NO_APP
+	movss xmm0, dword ptr [rsp + 68]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1025
+		let len = self.len;
+	mov r12, qword ptr [rbx + 40]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1028
+		if len == self.buf.capacity() {
+	cmp r12, qword ptr [rbx + 24]
+	je .LBB181_12
+.LBB181_13:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/raw_vec/mod.rs:612
+		self.ptr.cast().as_non_null_ptr()
+	mov rax, qword ptr [rbx + 32]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/mod.rs:1917
+		intrinsics::write_via_move(dst, src)
+	movss dword ptr [rax + 4*r12], xmm0
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1034
+		self.len = len + 1;
+	inc r12
+	mov qword ptr [rbx + 40], r12
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/hint.rs:491
+		crate::intrinsics::black_box(dummy)
+	mov dword ptr [rsp + 68], 0
+	#APP
+	#NO_APP
+	movss xmm0, dword ptr [rsp + 68]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1025
+		let len = self.len;
+	mov r12, qword ptr [rbx + 64]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1028
+		if len == self.buf.capacity() {
+	cmp r12, qword ptr [rbx + 48]
+	je .LBB181_14
+.LBB181_15:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/raw_vec/mod.rs:612
+		self.ptr.cast().as_non_null_ptr()
+	mov rax, qword ptr [rbx + 56]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/mod.rs:1917
+		intrinsics::write_via_move(dst, src)
+	movss dword ptr [rax + 4*r12], xmm0
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1034
+		self.len = len + 1;
+	inc r12
+	mov qword ptr [rbx + 64], r12
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/hint.rs:491
+		crate::intrinsics::black_box(dummy)
+	mov byte ptr [rsp + 68], 0
+	#APP
+	#NO_APP
+	movzx r13d, byte ptr [rsp + 68]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1025
+		let len = self.len;
+	mov r12, qword ptr [rbx + 160]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1028
+		if len == self.buf.capacity() {
+	cmp r12, qword ptr [rbx + 144]
+	jne .LBB181_17
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:1029
+		self.buf.grow_one();
+	lea rdi, [rbx + 144]
+	call alloc::raw_vec::RawVec<T,A>::grow_one
+	jmp .LBB181_17
+.LBB181_4:
+	lea rdi, [rbx + 72]
+	movss dword ptr [rsp + 12], xmm0
+	call alloc::raw_vec::RawVec<T,A>::grow_one
+	movss xmm0, dword ptr [rsp + 12]
+	jmp .LBB181_5
+.LBB181_6:
+	lea rdi, [rbx + 96]
+	movss dword ptr [rsp + 12], xmm0
+	call alloc::raw_vec::RawVec<T,A>::grow_one
+	movss xmm0, dword ptr [rsp + 12]
+	jmp .LBB181_7
+.LBB181_8:
+	lea rdi, [rbx + 120]
+	movss dword ptr [rsp + 12], xmm0
+	call alloc::raw_vec::RawVec<T,A>::grow_one
+	movss xmm0, dword ptr [rsp + 12]
+	jmp .LBB181_9
+.LBB181_10:
+	mov rdi, rbx
+	movss dword ptr [rsp + 12], xmm0
+	call alloc::raw_vec::RawVec<T,A>::grow_one
+	movss xmm0, dword ptr [rsp + 12]
+	jmp .LBB181_11
+.LBB181_12:
+	lea rdi, [rbx + 24]
+	movss dword ptr [rsp + 12], xmm0
+	call alloc::raw_vec::RawVec<T,A>::grow_one
+	movss xmm0, dword ptr [rsp + 12]
+	jmp .LBB181_13
+.LBB181_14:
+	lea rdi, [rbx + 48]
+	movss dword ptr [rsp + 12], xmm0
+	call alloc::raw_vec::RawVec<T,A>::grow_one
+	movss xmm0, dword ptr [rsp + 12]
+	jmp .LBB181_15
+.LBB181_18:
+	mov rbp, qword ptr [rsp + 16]
+		// src/benches_s3.rs:85
+		if reuse {
+	cmp byte ptr [rsp + 28], 0
+	jne .LBB181_44
+	mov rax, qword ptr [rbx + 88]
+	mov rcx, qword ptr [rbx + 112]
+	mov rdx, qword ptr [rbx + 136]
+	mov rsi, qword ptr [rbx + 16]
+	mov rdi, qword ptr [rbx + 40]
+	mov r9, qword ptr [rbx + 64]
+	mov r10, qword ptr [rbx + 160]
+	mov r8, qword ptr [rsp + 16]
+	jmp .LBB181_20
+.LBB181_58:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2795
+		self.len -= 1;
+	dec rax
+	mov qword ptr [rbx + 160], rax
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/const_ptr.rs:863
+		unsafe { intrinsics::offset(self, count) }
+	imul rsi, rax, 2000
+	add rsi, qword ptr [rbx + 152]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/mod.rs:1717
+		crate::intrinsics::read_via_copy(src)
+	mov edx, 2000
+	lea r12, [rsp + 2072]
+	mov rdi, r12
+	mov r13, qword ptr [rip + memcpy@GOTPCREL]
+	call r13
+	mov rcx, r13
+	mov rsi, r12
+	mov al, 1
+.LBB181_59:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/hint.rs:491
+		crate::intrinsics::black_box(dummy)
+	mov byte ptr [rsp + 68], al
+	mov edx, 2000
+	lea rdi, [rsp + 69]
+	call rcx
+	#APP
+	#NO_APP
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1916
+		fn lt(&self, other: &Self) -> bool { *self <  *other }
+	dec rbp
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/range.rs:772
+		if self.start < self.end {
+	je .LBB181_22
+.LBB181_44:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2791
+		if self.len == 0 {
+	mov rcx, qword ptr [rbx + 88]
+	xor eax, eax
+	mov edx, 0
+	test rcx, rcx
+	je .LBB181_46
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2795
+		self.len -= 1;
+	lea rdx, [rcx - 1]
+	mov qword ptr [rbx + 88], rdx
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/raw_vec/mod.rs:612
+		self.ptr.cast().as_non_null_ptr()
+	mov rdx, qword ptr [rbx + 80]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/mod.rs:1717
+		crate::intrinsics::read_via_copy(src)
+	movss xmm0, dword ptr [rdx + 4*rcx - 4]
+	mov edx, 1
+.LBB181_46:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/hint.rs:491
+		crate::intrinsics::black_box(dummy)
+	mov dword ptr [rsp + 68], edx
+	movss dword ptr [rsp + 72], xmm0
+	#APP
+	#NO_APP
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2791
+		if self.len == 0 {
+	mov rcx, qword ptr [rbx + 112]
+	test rcx, rcx
+	je .LBB181_48
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2795
+		self.len -= 1;
+	lea rax, [rcx - 1]
+	mov qword ptr [rbx + 112], rax
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/raw_vec/mod.rs:612
+		self.ptr.cast().as_non_null_ptr()
+	mov rax, qword ptr [rbx + 104]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/mod.rs:1717
+		crate::intrinsics::read_via_copy(src)
+	movss xmm0, dword ptr [rax + 4*rcx - 4]
+	mov eax, 1
+.LBB181_48:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/hint.rs:491
+		crate::intrinsics::black_box(dummy)
+	mov dword ptr [rsp + 68], eax
+	movss dword ptr [rsp + 72], xmm0
+	#APP
+	#NO_APP
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2791
+		if self.len == 0 {
+	mov rcx, qword ptr [rbx + 136]
+	xor eax, eax
+	mov edx, 0
+	test rcx, rcx
+	je .LBB181_50
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2795
+		self.len -= 1;
+	lea rdx, [rcx - 1]
+	mov qword ptr [rbx + 136], rdx
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/raw_vec/mod.rs:612
+		self.ptr.cast().as_non_null_ptr()
+	mov rdx, qword ptr [rbx + 128]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/mod.rs:1717
+		crate::intrinsics::read_via_copy(src)
+	movss xmm0, dword ptr [rdx + 4*rcx - 4]
+	mov edx, 1
+.LBB181_50:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/hint.rs:491
+		crate::intrinsics::black_box(dummy)
+	mov dword ptr [rsp + 68], edx
+	movss dword ptr [rsp + 72], xmm0
+	#APP
+	#NO_APP
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2791
+		if self.len == 0 {
+	mov rcx, qword ptr [rbx + 16]
+	test rcx, rcx
+	je .LBB181_52
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2795
+		self.len -= 1;
+	lea rax, [rcx - 1]
+	mov qword ptr [rbx + 16], rax
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/raw_vec/mod.rs:612
+		self.ptr.cast().as_non_null_ptr()
+	mov rax, qword ptr [rbx + 8]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/mod.rs:1717
+		crate::intrinsics::read_via_copy(src)
+	movss xmm0, dword ptr [rax + 4*rcx - 4]
+	mov eax, 1
+.LBB181_52:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/hint.rs:491
+		crate::intrinsics::black_box(dummy)
+	mov dword ptr [rsp + 68], eax
+	movss dword ptr [rsp + 72], xmm0
+	#APP
+	#NO_APP
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2791
+		if self.len == 0 {
+	mov rcx, qword ptr [rbx + 40]
+	xor eax, eax
+	mov edx, 0
+	test rcx, rcx
+	je .LBB181_54
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2795
+		self.len -= 1;
+	lea rdx, [rcx - 1]
+	mov qword ptr [rbx + 40], rdx
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/raw_vec/mod.rs:612
+		self.ptr.cast().as_non_null_ptr()
+	mov rdx, qword ptr [rbx + 32]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/mod.rs:1717
+		crate::intrinsics::read_via_copy(src)
+	movss xmm0, dword ptr [rdx + 4*rcx - 4]
+	mov edx, 1
+.LBB181_54:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/hint.rs:491
+		crate::intrinsics::black_box(dummy)
+	mov dword ptr [rsp + 68], edx
+	movss dword ptr [rsp + 72], xmm0
+	#APP
+	#NO_APP
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2791
+		if self.len == 0 {
+	mov rcx, qword ptr [rbx + 64]
+	test rcx, rcx
+	je .LBB181_56
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2795
+		self.len -= 1;
+	lea rax, [rcx - 1]
+	mov qword ptr [rbx + 64], rax
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/raw_vec/mod.rs:612
+		self.ptr.cast().as_non_null_ptr()
+	mov rax, qword ptr [rbx + 56]
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/mod.rs:1717
+		crate::intrinsics::read_via_copy(src)
+	movss xmm0, dword ptr [rax + 4*rcx - 4]
+	mov eax, 1
+.LBB181_56:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/hint.rs:491
+		crate::intrinsics::black_box(dummy)
+	mov dword ptr [rsp + 68], eax
+	movss dword ptr [rsp + 72], xmm0
+	#APP
+	#NO_APP
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2791
+		if self.len == 0 {
+	mov rax, qword ptr [rbx + 160]
+	test rax, rax
+	jne .LBB181_58
+	xor eax, eax
+	lea rsi, [rsp + 2072]
+	mov rcx, qword ptr [rip + memcpy@GOTPCREL]
+	jmp .LBB181_59
+.LBB181_42:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2795
+		self.len -= 1;
+	dec r10
+	mov qword ptr [rbx + 160], r10
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1916
+		fn lt(&self, other: &Self) -> bool { *self <  *other }
+	dec r8
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/range.rs:772
+		if self.start < self.end {
+	je .LBB181_22
+.LBB181_20:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2791
+		if self.len == 0 {
+	test rax, rax
+	je .LBB181_21
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2795
+		self.len -= 1;
+	dec rax
+	mov qword ptr [rbx + 88], rax
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2791
+		if self.len == 0 {
+	test rcx, rcx
+	je .LBB181_26
+.LBB181_27:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2795
+		self.len -= 1;
+	dec rcx
+	mov qword ptr [rbx + 112], rcx
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2791
+		if self.len == 0 {
+	test rdx, rdx
+	je .LBB181_29
+.LBB181_30:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2795
+		self.len -= 1;
+	dec rdx
+	mov qword ptr [rbx + 136], rdx
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2791
+		if self.len == 0 {
+	test rsi, rsi
+	je .LBB181_32
+.LBB181_33:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2795
+		self.len -= 1;
+	dec rsi
+	mov qword ptr [rbx + 16], rsi
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2791
+		if self.len == 0 {
+	test rdi, rdi
+	je .LBB181_35
+.LBB181_36:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2795
+		self.len -= 1;
+	dec rdi
+	mov qword ptr [rbx + 40], rdi
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2791
+		if self.len == 0 {
+	test r9, r9
+	je .LBB181_38
+.LBB181_39:
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2795
+		self.len -= 1;
+	dec r9
+	mov qword ptr [rbx + 64], r9
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:2791
+		if self.len == 0 {
+	test r10, r10
+	jne .LBB181_42
+	jmp .LBB181_41
+.LBB181_21:
+	xor eax, eax
+	test rcx, rcx
+	jne .LBB181_27
+.LBB181_26:
+	xor ecx, ecx
+	test rdx, rdx
+	jne .LBB181_30
+.LBB181_29:
+	xor edx, edx
+	test rsi, rsi
+	jne .LBB181_33
+.LBB181_32:
+	xor esi, esi
+	test rdi, rdi
+	jne .LBB181_36
+.LBB181_35:
+	xor edi, edi
+	test r9, r9
+	jne .LBB181_39
+.LBB181_38:
+	xor r9d, r9d
+	test r10, r10
+	jne .LBB181_42
+.LBB181_41:
+	xor r10d, r10d
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/cmp.rs:1916
+		fn lt(&self, other: &Self) -> bool { *self <  *other }
+	dec r8
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/range.rs:772
+		if self.start < self.end {
+	jne .LBB181_20
+	jmp .LBB181_22
+.LBB181_23:
+	lea rdi, [rsp + 48]
+		// src/benches_s3.rs:107
+		now.elapsed().as_nanos()
+	call qword ptr [rip + <std::time::Instant>::elapsed@GOTPCREL]
+	mov ecx, edx
+	mov edx, 1000000000
+		// ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/time.rs:632
+		self.secs as u128 * NANOS_PER_SEC as u128 + self.nanos.as_inner() as u128
+	mul rdx
+	mov ecx, ecx
+	add rax, rcx
+	adc rdx, 0
+		// src/benches_s3.rs:108
+		}
+	add rsp, 4072
+	pop rbx
+	pop r12
+	pop r13
+	pop r14
+	pop r15
+	pop rbp
+	ret
+
