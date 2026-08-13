@@ -2432,6 +2432,10 @@
     <bcf:citekey order="36" intorder="1">clap</bcf:citekey>
     <bcf:citekey order="37" intorder="1">amd_uprof</bcf:citekey>
     <bcf:citekey order="38" intorder="1">hennessy2011computer</bcf:citekey>
+    <bcf:citekey order="39" intorder="1">nyberg2021dod</bcf:citekey>
+    <bcf:citekey order="40" intorder="1">faryabi2018dataoriented</bcf:citekey>
+    <bcf:citekey order="41" intorder="1">fedoseev2020application</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">wingqvist2022evaluating</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
