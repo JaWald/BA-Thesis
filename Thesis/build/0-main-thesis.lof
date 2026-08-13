@@ -15,6 +15,11 @@
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Scenario 2 (Memory-Bound): Average time per iteration versus payload size}}{27}{figure.4.4}%
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Scenario 2 (Memory-Bound): Pattern in execution time of \ac {PC} and \ac {AoS} architectures}}{27}{figure.4.5}%
 \contentsline {figure}{\numberline {4.6}{\ignorespaces Scenario 2 (Memory-Bound): Spike position in relation to offset to struct size}}{28}{figure.4.6}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Scenario 3: Reuse Case with a chunk size of 500}}{32}{figure.4.7}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Scenario 3: Drop Case with a chunk size of 500}}{32}{figure.4.8}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces ASM of \texttt {pop()}: AoS reuse versus drop (top), PC (bottom)}}{33}{figure.4.9}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Scenario 3: Finer sweep at \qty {1}{\kilo \byte } of payload}}{34}{figure.4.10}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Scenario 3: Finer sweep at \qty {1}{\kilo \byte } of payload, without per-thread cache}}{35}{figure.4.11}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

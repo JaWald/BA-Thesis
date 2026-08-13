@@ -15,7 +15,7 @@ All benchmark runs were performed on a desktop machine equipped with an AMD~Ryze
 The benchmarks were run on Ubuntu~26.04~LTS (\mbox{kernel}~7.0.0-28-generic). Two settings were configured in the BIOS: \ac{PBO} and C-states were disabled --- the former to prevent frequency boosting, the latter to keep the benchmark core from entering low-power idle states. The remaining modifications were made at runtime by a setup script. \ac{CPB}, AMD's counterpart to Intel's Turbo~Boost, was disabled, and the frequency of all cores was locked to \qty{3.6}{\giga\hertz}, so that the clock stays fixed. The \ac{SMT} sibling sharing the physical core with logical CPU~2 (logical CPU~10) was taken offline, so that no tasks running on logical CPU~10 would consume resources of core~2, to which the benchmark was pinned via \texttt{taskset}.
 
 \paragraph{Build/Compiler}
-The benchmarks were compiled with the rustc~1.95.0 compiler. Rust supports compilation profiles, which let the programmer declaratively define a set of compilation options. For the benchmark program, the profile \texttt{run} was defined, which inherits from the standard \texttt{release} profile, explicitly disables debug information, and sets the optimization level to \num{3}. Two further compiler flags were set in the execution scripts: {\texttt{-C~target-cpu=native}} and {\texttt{-C~link-arg=-fuse-ld=mold}}. The former targets the CPU and enables the AVX2 supported by the Zen~3 architecture, the latter selects the mold linker, which shortens linking time. Because a linker does not alter the generated machine code, this choice has no effect on the run time of the architectures.
+The benchmarks were compiled with the rustc~1.95.0 compiler. Rust supports compilation profiles, which let the programmer declaratively define a set of compilation options. For the benchmark program, the profile \texttt{o3} was defined, which inherits from the standard \texttt{release} profile, explicitly disables debug information, and sets the optimization level to \num{3}. Two further compiler flags were set in the execution scripts: {\texttt{-C~target-cpu=native}} and {\texttt{-C~link-arg=-fuse-ld=mold}}. The former targets the CPU and enables the AVX2 supported by the Zen~3 architecture, the latter selects the mold linker, which shortens linking time. Because a linker does not alter the generated machine code, this choice has no effect on the run time of the architectures.
 
 \paragraph{Measurement Protocol}
 To further diminish the impact of OS jitter, a setup with iterations and samples is used. In a given scenario, the four architectures perform a number of warmup runs, whose results are discarded, followed by a number of measured iterations. The warmup lets the caches reach a steady state before timing begins. The architectures are measured in the order of \texttt{PC}~$\to$~\texttt{AoS}~$\to$~\texttt{SoA}~$\to$~\texttt{Bevy}. This whole procedure is executed \texttt{samples} times. 
@@ -28,7 +28,7 @@ To further diminish the impact of OS jitter, a setup with iterations and samples
     \midrule
     S1       & \num{100}  & \num{50}   & \num{10} & \num{500}\\
     S2       & \num{200}  & \num{200}  & \num{5}  & \num{1000}\\
-    S3       & \num{50}  & \num{50}   & \num{5}  & \num{250}\\
+    S3       & \num{100}  & \num{50}   & \num{5}  & \num{250}\\
     \bottomrule
   \end{tabular}
   \vspace{\medskipamount}
@@ -270,20 +270,131 @@ In a memory-bound scenario the separation of relevant and irrelevant data decide
 % ── Scenario 3 ───────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Scenario 3: Allocation and Deallocation}
 \label{sec:evaluation:scenario3}
-\begin{itemize}
-    \item Results and Analysis
-    \item drop vs reuse
-\end{itemize}
+This scenario investigates the differences in performance regarding allocation and deallocation of data. Per iteration, \texttt{chunk\_size} planets are created and then removed, across a payload sweep, where the payload size influences the object size. To simulate both a particle system and a more complex simulation, two subscenarios are used, namely drop and reuse. In the drop case, the data is discarded once the planet is removed. In the reuse case, the popped value is passed to \texttt{black\_box}, which forces it to be materialized and thereby triggers a memcpy of the payload. 
+
+The four architectures differ in how their data is allocated. The PC architecture stores each planet in a \texttt{Box<T>}, so every object requires an individual allocation and deallocation (\texttt{malloc~/~free}). The AoS and SoA architectures hold their planets directly in vectors and can therefore be allocated in bulk. The Bevy architecture uses its own ECS spawn/despawn logic.
+
+Unlike the previous scenarios, no arithmetic is performed on the planets, as the timed region contains only the creation and removal of objects, isolating the cost of allocation and deallocation.
+
+% ── scaling ──────────────────────────────────────────────
+\paragraph{Scaling Behavior (Reuse)}
+Figure~\ref{fig:s3-reuse} shows the performance in the reuse case on a logarithmic scale. As is visible, the Bevy architecture, in contrast to Scenarios 1 and 2, no longer beats the \ac{AoS} architecture. Its execution times start high with an average iteration time of \qty{59.17}{\micro\second} with a payload of \qty{0}{\byte}, whereas the \ac{AoS} architecture is roughly ten times faster with \qty{5.95}{\micro\second}, closely followed by the \ac{SoA} architecture with \qty{6.06}{\micro\second}, which is followed by the \ac{PC} architecture with \qty{13.05}{\micro\second}. 
+
+However, this order does not last beyond a payload of \qty{1000}{\byte}, as the \ac{SoA} architecture outperforms \ac{AoS} with increasing payload and the relative gap to the Bevy architecture decreases. At a payload of \qty{5}{\kilo\byte}, Bevy takes, on average, \qty{194.61}{\micro\second} per iteration, \ac{AoS} takes \qty{127.59}{\micro\second} and \ac{SoA} takes \qty{94.81}{\micro\second}. The \ac{PC} architecture's execution times rise steeply at a payload of roughly \qty{1000}{\byte} but then follow the same scaling as the other three architectures, resulting in an average iteration time of \qty{2641.33}{\micro\second} at a payload of \qty{5}{\kilo\byte}.
+
+Lastly, while there are some variations in execution time in the vicinity of \qty{4}{\kilo\byte} and \qty{8}{\kilo\byte}, they do not undermine the trend or the ordering of architectures. However, below a payload of \qty{1000}{\byte}, the measurements for all architectures except Bevy overlap within the measurement noise and cannot be cleanly separated.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{images/S3_reuse.pdf}
+\caption{Scenario 3: Reuse Case with a chunk size of 500}
+\label{fig:s3-reuse}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{images/S3_drop.pdf}
+\caption{Scenario 3: Drop Case with a chunk size of 500}
+\label{fig:s3-drop}
+\end{figure}
+
+\paragraph{Scaling Behavior (Drop)}
+In contrast, the drop case does not feature the same variations in execution time at \qtylist{4;8}{\kilo\byte}, with the \ac{SoA} architecture leading in performance, followed by the \ac{AoS} architecture and then Bevy. While the \ac{PC} architecture does not experience a stark difference in performance, the other three architectures' average execution times drop significantly. At a payload of \qty{5}{\kilo\byte}, the values for \ac{SoA}, \ac{AoS}, Bevy and \ac{PC} are \qtylist{34.80;69.21;120.13;2744.62}{\micro\second} respectively which are \qtylist{36.70;54.24;61.73;103.91}{\percent} of the execution times measured in the reuse case. Again, the \ac{PC} architecture shows a steep rise in execution times at roughly \qty{1}{\kilo\byte} of payload. 
+
+% ── analysis ─────────────────────────────────────────────
+\paragraph{Analysis (Reuse versus Drop)}
+In the reuse case, the two bulk-storage architectures take substantially longer than in the drop case: the drop case completes in only \qtyrange{37}{62}{\percent} of the reuse time, while the \ac{PC} architecture is unaffected and stays within measurement noise. The cause is that \texttt{black\_box} forces the compiler to materialize the popped planet, which requires a \texttt{memcpy} the size of one planet (payload~+~\qty{24}{\byte}). In the drop case this copy is unnecessary, as the popped element is never read and the compiler only decrements the vector's length.
+
+\begin{figure}[htbp]
+\centering
+\begin{minipage}[t]{0.42\linewidth}
+\centering\texttt{AoS Reuse}
+\begin{lstlisting}[language={[x86masm]Assembler}, basicstyle=\scriptsize\ttfamily]
+; black_box(planets.pop());
+dec  rbp
+mov  qword ptr [rax + 16], rbp
+imul rsi, rbp, 2024
+add  rsi, r15
+mov  edx, 2024
+mov  rdi, r8
+call r13              ; r13 = memcpy
+\end{lstlisting}
+\end{minipage}%
+\hspace{3em}%
+\begin{minipage}[t]{0.42\linewidth}
+\centering\texttt{AoS Drop}
+\begin{lstlisting}[language={[x86masm]Assembler}, basicstyle=\scriptsize\ttfamily]
+; let _ = planets.pop();
+dec  rax
+mov  qword ptr [rdx + 16], rax
+mov  r14, rax
+test rax, rax
+\end{lstlisting}
+\end{minipage}
+
+\par\bigskip
+
+\begin{minipage}[t]{0.62\linewidth}
+\centering\texttt{PC Reuse}
+\begin{lstlisting}[language={[x86masm]Assembler}, basicstyle=\scriptsize\ttfamily]
+; black_box(planets.pop());
+lea  rcx, [r15 - 1]
+mov  qword ptr [rbx + 16], rcx
+mov  rax, qword ptr [r13 + 8*r15 - 8]
+mov  qword ptr [rsp + 80], rax
+mov  esi, 2024
+mov  edx, 4
+call __rust_dealloc
+\end{lstlisting}
+\end{minipage}
+\caption{ASM of \texttt{pop()}: AoS reuse versus drop (top), PC (bottom)}
+\label{fig:s3:asm}
+\end{figure}
+
+Figure~\ref{fig:s3:asm} shows the \ac{AoS} \texttt{pop} in both cases and the \ac{PC} \texttt{pop} in the reuse case, all with a payload of \qty{2}{\kilo\byte}. In the \ac{AoS} reuse case, the address of the popped element is first computed (lines~4--5) as its index times the object size of \qty{2024}{\byte}. Line~8, \texttt{call~r13}, is the decisive instruction: \texttt{r13} holds the address of \texttt{memcpy}, so the element is copied out in full. This call is not present in the drop case, where the popped element is never read and only the length is decremented (\texttt{dec~rax}). 
+
+In the \ac{PC} reuse case, no payload \texttt{memcpy} occurs. Instead, only the \qty{8}{\byte} \texttt{Box} pointer is read from the vector (line~4) and materialized for \texttt{black\_box} (line~5). The \texttt{Box} is then freed via \texttt{call~\_\_rust\_dealloc} (line~8), which is present in the drop case as well and dominates the cost in both. Thus \ac{AoS} and \ac{SoA} (not shown) differ between reuse and drop essentially by one payload-sized \texttt{memcpy}, whereas for \ac{PC} only a pointer is copied and the allocation cost dominates.
+
+\paragraph{Analysis (PC anomaly)}
+Figure~\ref{fig:s3-reuse} and Figure~\ref{fig:s3-drop} both showed a steep rise in execution time of the \ac{PC} architecture at a payload of roughly \qty{1}{\kilo\byte}. Figure~\ref{fig:s3-tcache-on} shows that the cutoff is located at exactly \qty{1008}{\byte} of payload and is independent of the chunk size, which only scales the height of the slow region. An identical cutoff exists in the drop case (not pictured). At this cutoff payload, the object size is \qty{1008}{\byte} plus the \qty{24}{\byte} of fixed fields, i.e., exactly \qty{1032}{\byte}. As the cutoff is not gradual but sharp, it points to an allocator threshold that is exceeded above a struct size of \qty{1032}{\byte}. 
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{images/S3_tcache_on.pdf}
+\caption{Scenario 3: Finer sweep at \qty{1}{\kilo\byte} of payload}
+\label{fig:s3-tcache-on}
+\end{figure}
+
+This exactly matches the default value of the glibc tunable \texttt{tcache\_max}, which on 64-bit systems is \qty{1032}{\byte}~\cite{glibc_tunables}. This value is the largest object size that glibc still keeps in a small per-thread cache of recently freed blocks. Reusing a block from this cache is considerably faster than a full allocation, as it needs no coordination between threads~\cite{delorie_malloc_internals}. As long as an object is at most \qty{1032}{\byte} in size, i.e., for payloads up to \qty{1008}{\byte}, every creation and removal in the \ac{PC} architecture is handled by this fast cache. Once the object grows beyond \qty{1032}{\byte}, the cache no longer applies and each object must instead be requested from and returned to the general allocator, which is what produces the sharp rise in execution time.
+
+To verify this, the fine sweep from Figure~\ref{fig:s3-tcache-on} was rerun with \texttt{GLIBC\_TUNABLES=glibc.malloc.tcache\_count=0}, which disables the per-thread cache~\cite{glibc_tunables}. Without the cache, the fast area below \qty{1008}{\byte} should disappear and the execution times should rise to the level otherwise seen only above the cutoff. Figure~\ref{fig:s3-tcache-off} confirms this: the sharp edge is gone, and the times below \qty{1008}{\byte} now match those measured above \qty{1008}{\byte} in the previous run. 
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{images/S3_tcache_off.pdf}
+\caption{Scenario 3: Finer sweep at \qty{1}{\kilo\byte} of payload, without per-thread cache}
+\label{fig:s3-tcache-off}
+\end{figure}
+
+% ── interpretation ───────────────────────────────────────
+\paragraph{Interpretation}
+The deciding factor in Scenario 3 is the allocation strategy, namely whether objects are allocated individually or in bulk. The \ac{PC} architecture allocates and frees each planet separately and thus pays a per-object cost, whereas the \ac{AoS}, \ac{SoA} and Bevy architectures allocate in a contiguous buffer and avoid it. This is why \ac{PC} is an order of magnitude slower, while the differences among the bulk-allocating architectures stay small. Contrary to Scenarios 1 and 2, Bevy no longer outperforms the \ac{AoS} architecture, as without a compute or cache advantage the fixed overhead of its \ac{ECS} spawn and despawn functions dominate. The sharp cutoff for \ac{PC} follows from the per-object allocation, as only individual allocations hit the allocator's size threshold. To be noted is that the exact position at \qty{1032}{\byte} is specific to the glibc allocator, whereas the disadvantage of per-object over bulk allocation is general. Running this benchmark with another operating system, and thus likely a different allocator, may yield different results and different threshold effects. 
 
 % ── Discussion ───────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Discussion}
 \label{sec:evaluation:discussion}
-\begin{itemize}
-    \item High Level Overview and Comparison of findings
-\end{itemize}
+The core message to be taken away from the results in the three Scenarios is that a memory layout outperforms the others due to different mechanisms, namely \ac{SIMD} vectorization, cache locality and allocation strategy. The \ac{SoA} architecture led throughout and \ac{PC} trailed in every scenario, while Bevy beat \ac{AoS} in Scenarios 1 and 2 through better vectorization and omitting irrelevant data, but lost in Scenario 3 once those advantages fell away and its \ac{ECS} overhead dominated.
 
+As the four architectures demonstrate, a program rarely fully adheres to \ac{DOP} or \ac{OOP}, but finds itself on a spectrum between the two. The \ac{SoA} architecture, as the purest form of \ac{DOP}, led in performance but requires manually managing several separate vectors, a trade-off between performance and convenience that is a recurring theme in the \ac{DOP} literature~\cite{fabian2018data}. The object-oriented approaches keep each planet's data together, which is often more convenient to work with, but could not match \ac{SoA} in performance. Bevy may offer a middle ground, enabling some benefits of \ac{DOP} while keeping the code closer to an object-like structure. 
+
+To conclude, choosing a memory layout should not be based solely on whether it is data-oriented or object-oriented, but on what best fits the requirements. Where performance is critical and the access pattern is regular, a \ac{SoA} architecture may be preferable, whereas where convenience and maintainability weigh more heavily, an object-oriented layout may be an acceptable trade-off.
 % ── Limitations ──────────────────────────────────────────────────────────────────────────────────────────────────────
 \section{Limitations}
 \label{sec:evaluation:limitations}
+The results of this evaluation are, to a certain extent, dependent on the environment in which they were measured. As cache sizes and associativity were instrumental for the spikes in Scenario 2 and the register width in Scenario 1, the scaling behavior may differ on processors different to the \mbox{AMD Ryzen 7 5800X} (Zen~3), which was used for all benchmark runs in this thesis. Likewise, the benchmarks were compiled with a single \texttt{rustc} version and ran on Linux with the glibc allocator. The allocation threshold observed in Scenario 3 is a property of that specific allocator, and both vectorization and allocation may differ under another compiler, allocator, or operating system.
+
+Regarding the benchmark design itself, the results should not be generalized without care. The workload is a synthetic micro-benchmark that attempted to isolate one bottleneck per scenario. While this approach makes the observed effects clearly visible, it does not reflect the complete behavior of real applications where all three effects and more occur together and may interact. Additionally, the payload used to control object size is likewise artificial and the Bevy \ac{ECS} used for the Bevy architecture represents only one framework rather than the \ac{ECS} approach in general. 
+
+Finally, although measures were undertaken to reduce OS jitter via core pinning, a fixed clock and warmup runs, residual jitter remained visible occasionally, most noticeable in the results of the \ac{PC} architecture. Thus, the results are best read as trends and orders of magnitude and less as exact values. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
