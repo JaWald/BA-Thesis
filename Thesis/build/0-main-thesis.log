@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.10)  13 AUG 2026 11:01
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.10)  13 AUG 2026 13:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1858,45 +1858,45 @@ Package babel Info: 'ngerman' activates 'german' shorthands.
 )
 \openout1 = `0-main-thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-Package scrbase Info: activating english \partname on input line 38.
-Package scrbase Info: activating english \chaptername on input line 38.
-Package scrbase Info: activating english \appendixname on input line 38.
-Package scrbase Info: activating english \figurename on input line 38.
-Package scrbase Info: activating english \tablename on input line 38.
-Package scrbase Info: activating english \contentsname on input line 38.
-Package scrbase Info: activating english \listfigurename on input line 38.
-Package scrbase Info: activating english \listtablename on input line 38.
-Package scrbase Info: activating english \bibname on input line 38.
-Package scrbase Info: activating english \indexname on input line 38.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+Package scrbase Info: activating english \partname on input line 40.
+Package scrbase Info: activating english \chaptername on input line 40.
+Package scrbase Info: activating english \appendixname on input line 40.
+Package scrbase Info: activating english \figurename on input line 40.
+Package scrbase Info: activating english \tablename on input line 40.
+Package scrbase Info: activating english \contentsname on input line 40.
+Package scrbase Info: activating english \listfigurename on input line 40.
+Package scrbase Info: activating english \listtablename on input line 40.
+Package scrbase Info: activating english \bibname on input line 40.
+Package scrbase Info: activating english \indexname on input line 40.
  (c:/texlive/2026/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 38.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 40.
  (c:/texlive/2026/texmf-dist/tex/latex/translations/translations-basic-dictionary-german.trsl
 File: translations-basic-dictionary-german.trsl (german translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `german'. on input line 38.
-Package hyperref Info: Link coloring OFF on input line 38.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `german'. on input line 40.
+Package hyperref Info: Link coloring OFF on input line 40.
 
 
 Package scrlayer-scrpage Warning: Very small head height detected!
@@ -1908,37 +1908,37 @@ Package scrlayer-scrpage Warning: Very small head height detected!
 (scrlayer-scrpage)                typearea option `headheight=15.95009pt'
 (scrlayer-scrpage)                \relax to avoid this warning.
 
-LaTeX Encoding Info:    Undeclare text command \textquotesingle (encoding TU) on input line 38.
-LaTeX Encoding Info:    Redeclaring text symbol \textquotesingle (encoding TS1) on input line 38.
+LaTeX Encoding Info:    Undeclare text command \textquotesingle (encoding TU) on input line 40.
+LaTeX Encoding Info:    Redeclaring text symbol \textquotesingle (encoding TS1) on input line 40.
 (c:/texlive/2026/texmf-dist/tex/latex/upquote/upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
 )
 Package babel Info: 'english' activates 'german' shorthands.
-(babel)             Reported on input line 38.
-Package scrbase Info: activating english \keywordsname on input line 38.
-Package scrbase Info: activating english \acronymname on input line 38.
-Package scrbase Info: activating english \acksname on input line 38.
-Package scrbase Info: activating english \subsectionautorefname on input line 38.
-Package scrbase Info: activating english \subsubsectionautorefname on input line 38.
-Package scrbase Info: activating english \subsubsubsectionautorefname on input line 38.
-Package scrbase Info: activating english \subfigureautorefname on input line 38.
-Package scrbase Info: activating english \jkureport@authorname on input line 38.
-Package scrbase Info: activating english \jkureport@submissiondepartmentname on input line 38.
-Package scrbase Info: activating english \jkureport@supervisorname on input line 38.
-Package scrbase Info: activating english \jkureport@firstsupervisorname on input line 38.
-Package scrbase Info: activating english \jkureport@secondsupervisorname on input line 38.
-Package scrbase Info: activating english \jkureport@thirdsupervisorname on input line 38.
-Package scrbase Info: activating english \jkureport@assistantsupervisorname on input line 38.
-Package scrbase Info: activating english \jkureport@phdthesisname on input line 38.
-Package scrbase Info: activating english \jkureport@mastersthesisname on input line 38.
-Package scrbase Info: activating english \jkureport@diplomathesisname on input line 38.
-Package scrbase Info: activating english \jkureport@bachelorsthesisname on input line 38.
-Package scrbase Info: activating english \jkureport@conferdegreename on input line 38.
-Package scrbase Info: activating english \jkureport@phdprogramname on input line 38.
-Package scrbase Info: activating english \jkureport@mastersprogramname on input line 38.
-Package scrbase Info: activating english \jkureport@diplomaprogramname on input line 38.
-Package scrbase Info: activating english \jkureport@bachelorsprogramname on input line 38.
-Package scrbase Info: activating english \jkureport@declarationname on input line 38.
+(babel)             Reported on input line 40.
+Package scrbase Info: activating english \keywordsname on input line 40.
+Package scrbase Info: activating english \acronymname on input line 40.
+Package scrbase Info: activating english \acksname on input line 40.
+Package scrbase Info: activating english \subsectionautorefname on input line 40.
+Package scrbase Info: activating english \subsubsectionautorefname on input line 40.
+Package scrbase Info: activating english \subsubsubsectionautorefname on input line 40.
+Package scrbase Info: activating english \subfigureautorefname on input line 40.
+Package scrbase Info: activating english \jkureport@authorname on input line 40.
+Package scrbase Info: activating english \jkureport@submissiondepartmentname on input line 40.
+Package scrbase Info: activating english \jkureport@supervisorname on input line 40.
+Package scrbase Info: activating english \jkureport@firstsupervisorname on input line 40.
+Package scrbase Info: activating english \jkureport@secondsupervisorname on input line 40.
+Package scrbase Info: activating english \jkureport@thirdsupervisorname on input line 40.
+Package scrbase Info: activating english \jkureport@assistantsupervisorname on input line 40.
+Package scrbase Info: activating english \jkureport@phdthesisname on input line 40.
+Package scrbase Info: activating english \jkureport@mastersthesisname on input line 40.
+Package scrbase Info: activating english \jkureport@diplomathesisname on input line 40.
+Package scrbase Info: activating english \jkureport@bachelorsthesisname on input line 40.
+Package scrbase Info: activating english \jkureport@conferdegreename on input line 40.
+Package scrbase Info: activating english \jkureport@phdprogramname on input line 40.
+Package scrbase Info: activating english \jkureport@mastersprogramname on input line 40.
+Package scrbase Info: activating english \jkureport@diplomaprogramname on input line 40.
+Package scrbase Info: activating english \jkureport@bachelorsprogramname on input line 40.
+Package scrbase Info: activating english \jkureport@declarationname on input line 40.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
  (c:/texlive/2026/texmf-dist/tex/latex/biblatex/lbx/english.lbx
@@ -1967,28 +1967,28 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file '0-main-thesis.bbl' found.
  (build/0-main-thesis.bbl)
-Package biblatex Info: Reference section=0 on input line 38.
-Package biblatex Info: Reference segment=0 on input line 38.
+Package biblatex Info: Reference section=0 on input line 40.
+Package biblatex Info: Reference segment=0 on input line 40.
 \c@lstlisting=\count548
-Package tocbasic Info: setting babel extension for `lol' on input line 38.
+Package tocbasic Info: setting babel extension for `lol' on input line 40.
 \scr@dte@lstlisting@maxnumwidth=\skip131
 LaTeX Font Info:    Font shape `TU/Euler-Math.otf(2)/m/n' will be
-(Font)              scaled to size 12.00128pt on input line 49.
+(Font)              scaled to size 12.00128pt on input line 51.
 LaTeX Font Info:    Font shape `TU/Euler-Math.otf(2)/m/n' will be
-(Font)              scaled to size 8.40088pt on input line 49.
+(Font)              scaled to size 8.40088pt on input line 51.
 LaTeX Font Info:    Font shape `TU/Euler-Math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00064pt on input line 49.
+(Font)              scaled to size 6.00064pt on input line 51.
 LaTeX Font Info:    Font shape `TU/Euler-Math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 49.
+(Font)              scaled to size 11.99872pt on input line 51.
 LaTeX Font Info:    Font shape `TU/Euler-Math.otf(3)/m/n' will be
-(Font)              scaled to size 8.3991pt on input line 49.
+(Font)              scaled to size 8.3991pt on input line 51.
 LaTeX Font Info:    Font shape `TU/Euler-Math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 49.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 49.
+(Font)              scaled to size 5.99936pt on input line 51.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 51.
  (c:/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 49.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 51.
  (c:/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -2000,7 +2000,7 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                processing, but you should do this yourself,
 (scrlayer-scrpage)                e.g., setting typearea's option
 (scrlayer-scrpage)                `headheight=15.95007pt'.
-(scrlayer-scrpage)                I'll also decrease \topmargin on input line 49.
+(scrlayer-scrpage)                I'll also decrease \topmargin on input line 51.
 
 
 Overfull \vbox (1.72371pt too high) has occurred while \output is active []
@@ -2019,10 +2019,10 @@ chapter without number
 
 
 ]
-Package cleveref Info: loaded `ngerman' language definitions on input line 13.
+Package cleveref Info: loaded `ngerman' language definitions on input line 12.
 
 chapter without number
-Package cleveref Info: loaded `english' language definitions on input line 17.
+Package cleveref Info: loaded `english' language definitions on input line 18.
 ) [3
 
 
@@ -2032,17 +2032,16 @@ Package cleveref Info: loaded `english' language definitions on input line 17.
 Package cleveref Info: loaded `english' language definitions on input line 1.
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
 Package cleveref Info: loaded `english' language definitions on input line 5.
+)
+\tf@toc=\write5
+\openout5 = `0-main-thesis.toc'.
+
  [4
 
 
 
 
-])
-\tf@toc=\write5
-\openout5 = `0-main-thesis.toc'.
-
-Package cleveref Info: loaded `english' language definitions on input line 60.
- [5] (././01-introduction.tex
+] (././01-introduction.tex
 chapter 1.
 Package acronym Info: Label `acro:OOP' newly defined as it shall be overridden
 although it is yet undefined on input line 13.
@@ -2165,7 +2164,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--16
 File: ./images/S1.pdf Graphic file (type pdf)
 <use ./images/S1.pdf>
  [23]
-Underfull \hbox (badness 2111) in paragraph at lines 62--63
+Underfull \hbox (badness 2111) in paragraph at lines 63--64
 \TU/Merriweather(0)/m/n/12 sembly code of the \TU/Inconsolata(0)/m/n/12 bench_s1_pc\TU/Merriweather(0)/m/n/12 , \TU/Inconsolata(0)/m/n/12 bench_s1_aos\TU/Merriweather(0)/m/n/12 , \TU/Inconsolata(0)/m/n/12 bench_s1_soa\TU/Merriweather(0)/m/n/12 , and
  []
 
@@ -2177,12 +2176,14 @@ File: lstlang2.sty 2025/11/14 1.11b listings language file
 File: lstlang3.sty 2025/11/14 1.11b listings language file
 )
 LaTeX Font Info:    Font shape `TU/Inconsolata(0)/m/n' will be
-(Font)              scaled to size 9.28003pt on input line 68.
-LaTeX Font Info:    Font shape `TU/Inconsolata(0)/m/it' will be
 (Font)              scaled to size 9.28003pt on input line 69.
-LaTeX Font Info:    Font shape `TU/Inconsolata(0)/b/n' will be
+LaTeX Font Info:    Font shape `TU/Inconsolata(0)/m/it' will be
 (Font)              scaled to size 9.28003pt on input line 70.
- [24] [25]
+LaTeX Font Info:    Font shape `TU/Inconsolata(0)/b/n' will be
+(Font)              scaled to size 9.28003pt on input line 71.
+ [24
+
+] [25]
 File: ./images/S2.pdf Graphic file (type pdf)
 <use ./images/S2.pdf>
 File: ./images/S2_pattern.pdf Graphic file (type pdf)
@@ -2190,15 +2191,18 @@ File: ./images/S2_pattern.pdf Graphic file (type pdf)
  [26] [27]
 File: ./images/S2_spikes.pdf Graphic file (type pdf)
 <use ./images/S2_spikes.pdf>
-Package acronym Info: Label `acro:CPI' newly defined as it shall be overridden
-although it is yet undefined on input line 215.
  [28]
-Overfull \hbox (14.6406pt too wide) in paragraph at lines 220--237
+Package acronym Info: Label `acro:CPI' newly defined as it shall be overridden
+although it is yet undefined on input line 217.
+
+Overfull \hbox (14.6406pt too wide) in paragraph at lines 222--239
  [][] 
  []
 
-[29]
-Underfull \hbox (badness 1253) in paragraph at lines 268--269
+[29
+
+]
+Underfull \hbox (badness 1253) in paragraph at lines 270--271
 \TU/Merriweather(0)/m/n/12 and irrelevant data decides the performance of an architecture. The
  []
 
@@ -2211,23 +2215,22 @@ File: ./images/S3_drop.pdf Graphic file (type pdf)
 File: ./images/S3_tcache_on.pdf Graphic file (type pdf)
 <use ./images/S3_tcache_on.pdf>
  [34]
-Underfull \hbox (badness 7047) in paragraph at lines 370--371
+Underfull \hbox (badness 7047) in paragraph at lines 373--374
 []\TU/Merriweather(0)/m/n/12 To verify this, the fine sweep from Figure []4.10[] was rerun with
  []
 
 
-Underfull \hbox (badness 8075) in paragraph at lines 370--371
+Underfull \hbox (badness 8075) in paragraph at lines 373--374
 \TU/Inconsolata(0)/m/n/12 GLIBC_TUNABLES=glibc.malloc.tcache_count=0\TU/Merriweather(0)/m/n/12 , which disables the
  []
 
 File: ./images/S3_tcache_off.pdf Graphic file (type pdf)
 <use ./images/S3_tcache_off.pdf>
+[35
 
-Underfull \hbox (badness 1264) in paragraph at lines 375--375
-[][][]\TU/Merriweather(0)/m/n/12 Scenario 3: Finer sweep at $[]$$[]$ of payload, without per-
- []
+] [36
 
-[35] [36]) (././05-relatedwork.tex [37]
+]) (././05-relatedwork.tex [37]
 chapter 5.
 ) (././06-futurework.tex [38
 
@@ -2251,76 +2254,65 @@ chapter 7.
 ]
 chapter without number
 
-Underfull \hbox (badness 1072) in paragraph at lines 73--73
+Underfull \hbox (badness 1072) in paragraph at lines 75--75
 []\TU/Merriweather(0)/m/n/12 Tony Albrecht. 2009. Pitfalls of Object Oriented Programming.
  []
 
 LaTeX Font Info:    Font shape `TU/Inconsolata(0)/m/it' will be
-(Font)              scaled to size 13.92004pt on input line 72.
+(Font)              scaled to size 13.92004pt on input line 74.
 [41
 
 
 
 
 ]
-Underfull \hbox (badness 1990) in paragraph at lines 73--73
+Underfull \hbox (badness 1990) in paragraph at lines 75--75
 []\TU/Merriweather(0)/m/n/12 John L. Hennessy and David A. Patterson. 2011. \TU/Merriweather(0)/m/it/12 Computer Ar-
  []
 
 
-Overfull \hbox (9.12048pt too wide) in paragraph at lines 73--73
+Overfull \hbox (9.12048pt too wide) in paragraph at lines 75--75
 []\TU/Merriweather(0)/m/n/12 Jenya705. 2026. Contiguous access (\TU/Inconsolata(0)/m/n/12 Query::contiguous_iter_mut\TU/Merriweather(0)/m/n/12 ).
  []
 
 
-Underfull \hbox (badness 1210) in paragraph at lines 73--73
+Underfull \hbox (badness 1210) in paragraph at lines 75--75
 \TU/Merriweather(0)/m/n/12 Press, San Francisco, CA. ISBN: 978-1-7185-0310-6. Retrieved
  []
 
 
-Underfull \hbox (badness 1142) in paragraph at lines 73--73
+Underfull \hbox (badness 1142) in paragraph at lines 75--75
 []\TU/Merriweather(0)/m/n/12 Daniel Kleppner and Robert J. Kolenkow. 2014. \TU/Merriweather(0)/m/it/12 An Introduction
  []
 
 
-Underfull \hbox (badness 1688) in paragraph at lines 73--73
+Underfull \hbox (badness 1688) in paragraph at lines 75--75
 \TU/Merriweather(0)/m/it/12 Oriented Design Principles on Performance and Cache Utilization\TU/Merriweather(0)/m/n/12 .
  []
 
-Package cleveref Info: loaded `english' language definitions on input line 72.
+Package cleveref Info: loaded `english' language definitions on input line 74.
 [42]
-Underfull \hbox (badness 3701) in paragraph at lines 73--73
+Underfull \hbox (badness 3701) in paragraph at lines 75--75
 \TU/Merriweather(0)/m/n/12 Kozhukhov, Matt Masten, Aleksei G. Cherkasov, and Nikolay
  []
 
 
-Underfull \hbox (badness 1888) in paragraph at lines 73--73
+Underfull \hbox (badness 1888) in paragraph at lines 75--75
 \TU/Merriweather(0)/m/n/12 Panchenko. 2013. Practical SIMD Vectorization Techniques for
  []
 
-Package cleveref Info: loaded `english' language definitions on input line 74.
-[43] (build/0-main-thesis.lot
+Package cleveref Info: loaded `english' language definitions on input line 79.
+[43] (build/0-main-thesis.lof
 Package cleveref Info: loaded `english' language definitions on input line 1.
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
 Package cleveref Info: loaded `english' language definitions on input line 5.
 )
-\tf@lot=\write6
-\openout6 = `0-main-thesis.lot'.
+\tf@lof=\write6
+\openout6 = `0-main-thesis.lof'.
 
  [44
 
 
-
-
-] (build/0-main-thesis.lof
-Package cleveref Info: loaded `english' language definitions on input line 1.
-Package cleveref Info: loaded `ngerman' language definitions on input line 3.
-Package cleveref Info: loaded `english' language definitions on input line 5.
-)
-\tf@lof=\write7
-\openout7 = `0-main-thesis.lof'.
-
- [45
 
 
 ] (././00-acronyms.tex
@@ -2329,7 +2321,7 @@ chapter without number
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 ) (c:/texlive/2026/texmf-dist/tex/generic/stringenc/se-utf32be.def
 File: se-utf32be.def 2019/11/29 v1.12 stringenc: UTF-32BE
-) [46
+) [45
 
 
 
@@ -2348,12 +2340,12 @@ Package logreq Info: Writing requests to '0-main-thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 61978 strings out of 468168
- 1380788 string characters out of 5436524
- 2835802 words of memory out of 5000000
- 89783 multiletter control sequences out of 15000+600000
+ 61957 strings out of 468168
+ 1380377 string characters out of 5436524
+ 2835696 words of memory out of 5000000
+ 89765 multiletter control sequences out of 15000+600000
  632930 words of font info for 147 fonts, out of 8000000 for 9000
  1350 hyphenation exceptions out of 8191
- 130i,25n,137p,11240b,32832s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 130i,25n,137p,11240b,32833s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on build/0-main-thesis.xdv (51 pages, 1154800 bytes).
+Output written on build/0-main-thesis.xdv (49 pages, 1169340 bytes).
