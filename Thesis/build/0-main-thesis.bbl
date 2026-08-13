@@ -274,6 +274,85 @@
       \verb https://dataorienteddesign.com/dodbook.pdf
       \endverb
     \endentry
+    \entry{faryabi2018dataoriented}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{hash=ccc248b102091e4d102e9aab168468d4}{%
+           family={Faryabi},
+           familyi={F\bibinitperiod},
+           given={Walid},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{institution}{2}{%
+        {Norwegian University of Science}%
+        {Technology (NTNU)}%
+      }
+      \strng{namehash}{ccc248b102091e4d102e9aab168468d4}
+      \strng{fullhash}{ccc248b102091e4d102e9aab168468d4}
+      \strng{fullhashraw}{ccc248b102091e4d102e9aab168468d4}
+      \strng{bibnamehash}{ccc248b102091e4d102e9aab168468d4}
+      \strng{authorbibnamehash}{ccc248b102091e4d102e9aab168468d4}
+      \strng{authornamehash}{ccc248b102091e4d102e9aab168468d4}
+      \strng{authorfullhash}{ccc248b102091e4d102e9aab168468d4}
+      \strng{authorfullhashraw}{ccc248b102091e4d102e9aab168468d4}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Data-Oriented Design Approach for Processor Intensive Games}
+      \field{type}{Master's thesis}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2575669
+      \endverb
+      \verb{url}
+      \verb https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2575669
+      \endverb
+    \endentry
+    \entry{fedoseev2020application}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=650526effa278c16ed25be0fd344b47d}{%
+           family={Fedoseev},
+           familyi={F\bibinitperiod},
+           given={Kirill},
+           giveni={K\bibinitperiod}}}%
+        {{hash=a48a32bb63f24d2a699570d75f059bd6}{%
+           family={Askarbekuly},
+           familyi={A\bibinitperiod},
+           given={Nursultan},
+           giveni={N\bibinitperiod}}}%
+        {{hash=9af6be1f066b7cb4d011a039d58d3f7a}{%
+           family={Uzbekova},
+           familyi={U\bibinitperiod},
+           given={Ekaterina},
+           giveni={E\bibinitperiod}}}%
+        {{hash=147f187ab39b8aa10377370e35dd100c}{%
+           family={Mazzara},
+           familyi={M\bibinitperiod},
+           given={Manuel},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IOP Publishing}%
+      }
+      \strng{namehash}{021735f3961f12ba74c302c97a4c5da6}
+      \strng{fullhash}{526396489beeceec150c06a109e0f760}
+      \strng{fullhashraw}{526396489beeceec150c06a109e0f760}
+      \strng{bibnamehash}{526396489beeceec150c06a109e0f760}
+      \strng{authorbibnamehash}{526396489beeceec150c06a109e0f760}
+      \strng{authornamehash}{021735f3961f12ba74c302c97a4c5da6}
+      \strng{authorfullhash}{526396489beeceec150c06a109e0f760}
+      \strng{authorfullhashraw}{526396489beeceec150c06a109e0f760}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Physics: Conference Series}
+      \field{title}{Application of Data-Oriented Design in Game Development}
+      \field{year}{2020}
+      \verb{doi}
+      \verb 10.1088/1742-6596/1694/1/012035
+      \endverb
+    \endentry
     \entry{harkonen2019advantages}{thesis}{}{}
       \name{author}{1}{}{%
         {{hash=4c7aaf198234e665ca87231c10f408df}{%
@@ -580,6 +659,33 @@
       \verb https://docs.rs/clap/4.6.0/clap/
       \endverb
     \endentry
+    \entry{nyberg2021dod}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{hash=f98400d810d3cb777343e7eac50eeefe}{%
+           family={Nyberg},
+           familyi={N\bibinitperiod},
+           given={Frank},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Ume{å} University}%
+      }
+      \strng{namehash}{f98400d810d3cb777343e7eac50eeefe}
+      \strng{fullhash}{f98400d810d3cb777343e7eac50eeefe}
+      \strng{fullhashraw}{f98400d810d3cb777343e7eac50eeefe}
+      \strng{bibnamehash}{f98400d810d3cb777343e7eac50eeefe}
+      \strng{authorbibnamehash}{f98400d810d3cb777343e7eac50eeefe}
+      \strng{authornamehash}{f98400d810d3cb777343e7eac50eeefe}
+      \strng{authorfullhash}{f98400d810d3cb777343e7eac50eeefe}
+      \strng{authorfullhashraw}{f98400d810d3cb777343e7eac50eeefe}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Investigating the Effect of Implementing Data-Oriented Design Principles on Performance and Cache Utilization}
+      \field{type}{Bachelor's thesis}
+      \field{year}{2021}
+    \endentry
     \entry{cargo_show_asm}{manual}{}{}
       \name{author}{1}{}{%
         {{hash=247484cf069860fecf93005d1a66d96a}{%
@@ -784,6 +890,46 @@
       \range{pages}{10}
       \verb{doi}
       \verb 10.1109/IPDPSW.2013.245
+      \endverb
+    \endentry
+    \entry{wingqvist2022evaluating}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=82eed216c53cd07a2081d3eb9f7e19ba}{%
+           family={Wingqvist},
+           familyi={W\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=a85af9a5ad6d844f5020bf1b2aa38732}{%
+           family={Wickström},
+           familyi={W\bibinitperiod},
+           given={Filip},
+           giveni={F\bibinitperiod}}}%
+        {{hash=bc791a377dc06108e0d332e57f5e557e}{%
+           family={Memeti},
+           familyi={M\bibinitperiod},
+           given={Suejb},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{14e6c24c6397dcc966c5d218a9ac7e8e}
+      \strng{fullhash}{9b85f3fe26b111eca5346e054475024b}
+      \strng{fullhashraw}{9b85f3fe26b111eca5346e054475024b}
+      \strng{bibnamehash}{9b85f3fe26b111eca5346e054475024b}
+      \strng{authorbibnamehash}{9b85f3fe26b111eca5346e054475024b}
+      \strng{authornamehash}{14e6c24c6397dcc966c5d218a9ac7e8e}
+      \strng{authorfullhash}{9b85f3fe26b111eca5346e054475024b}
+      \strng{authorfullhashraw}{9b85f3fe26b111eca5346e054475024b}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2022 IEEE Games, Entertainment, Media Conference (GEM)}
+      \field{title}{Evaluating the Performance of Object-Oriented and Data-Oriented Design with Multi-Threading in Game Development}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.1109/GEM56474.2022.10017610
       \endverb
     \endentry
     \entry{wulf1995hitting}{article}{}{}
