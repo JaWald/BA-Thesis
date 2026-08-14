@@ -1,4 +1,23 @@
 ---------------------------------------------------------------------------
+|				13. MEETING				  |
+|				14.08.2026				  |
+---------------------------------------------------------------------------
+[] Ausständig:
+   [] Intro
+   [] Background
+   [] GitHub Readme/Doku
+   [] Finaler refactor
+[] Zahlenfont/format
+
+[] Euler font weg, normale Font rein
+[] compactfont bei listings weg, schöne umbrüche
+[] AT&T probieren für asm
+[] List of Tables
+[] List of Listings
+[] emph für acronyms first usage
+[] png heatmap, skalen abe svg lassen (png in pdf einfügen der faben)
+
+---------------------------------------------------------------------------
 |				12. MEETING				  |
 |				31.07.2026				  |
 ---------------------------------------------------------------------------

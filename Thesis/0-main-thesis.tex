@@ -1,9 +1,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[a4paper,oneside,12pt,ngerman,english]{scrbook}
+\documentclass[a4paper,oneside,12pt,ngerman,english]{scrbook} %nocompactmono
 
 \usepackage[utf8]{inputenc}
-\usepackage[bathesis,fancyfonts,TNF,equalmargins]{jkureport}
+\usepackage[bathesis,fancyfonts,TNF,equalmargins]{jkureport}  %nocompactmono
 \usepackage{csquotes}
 \usepackage[backend=biber,citestyle=numeric,sortcites=true,maxcitenames=2,style=ACM-Reference-Format]{biblatex}
 
@@ -23,6 +23,8 @@
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{varwidth}
+
+\renewcommand*{\acffont}[1]{\emph{#1}}
 
 \lstset{
   aboveskip=\bigskipamount,
@@ -44,7 +46,7 @@
 \author{ Jakob~Waldhäusl }
 \supervisor{\prefix{Dipl.-Ing.} Thomas~Schrott \suffix{BSc}}
 \degree{Bachelor of Science}{Computer Science}
-\submissiondepartment{Institute for System Software (SSW)}
+\submissiondepartment{Institute for System Software}
 \date{2026-08-01}
 
 \maketitle
