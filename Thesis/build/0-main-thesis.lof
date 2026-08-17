@@ -5,8 +5,7 @@
 \babel@toc {english}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Memory Layout Visualization: AoS vs. SoA (taken from \blx@tocontentsinit {0}\cite {pennycook2013investigation}) }}{3}{figure.2.1}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Visualization of the \ac {ECS} pattern depicting (1) Entities, (2) Components and (3) Systems (taken from \blx@tocontentsinit {0}\cite {redmond2025ecs}) }}{7}{figure.2.2}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Conceptual \texttt {Planet} struct (left) and the corresponding physical memory layouts (right)}}{4}{figure.2.1}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Average time per iteration versus planet count}}{23}{figure.4.1}%
