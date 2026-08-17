@@ -7,15 +7,16 @@
    [] Background
    [] GitHub Readme/Doku
    [] Finaler refactor
-[] Zahlenfont/format
 
-[] Euler font weg, normale Font rein
+[] AT&T probieren für asm (kompakter, kein qword)
 [] compactfont bei listings weg, schöne umbrüche
-[] AT&T probieren für asm
-[] List of Tables
-[] List of Listings
-[] emph für acronyms first usage
-[] png heatmap, skalen abe svg lassen (png in pdf einfügen der faben)
+
+
+[X] Euler font weg, normale Font rein
+[X] List of Tables
+[X] List of Listings
+[X] emph für acronyms first usage
+[X] heatmap rasterized
 
 ---------------------------------------------------------------------------
 |				12. MEETING				  |

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2026.2.27)  14 AUG 2026 09:41
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2026.2.27)  14 AUG 2026 15:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -792,8 +792,8 @@ Package: fontawesome5-utex-helper 2022/05/02 v5.15.4 uTeX helper for fontawesome
 LaTeX Font Info:    Trying to load font information for TU+fontawesomefree on input line 69.
  (c:/texlive/2025/texmf-dist/tex/latex/fontawesome5/tufontawesomefree.fd)
 LaTeX Font Info:    Trying to load font information for TU+fontawesomebrands on input line 70.
- (c:/texlive/2025/texmf-dist/tex/latex/fontawesome5/tufontawesomebrands.fd))) (c:/texlive/2025/texmf-dist/tex/latex/euler-math/euler-math.sty
-Package: euler-math 2026-02-18 0.75
+ (c:/texlive/2025/texmf-dist/tex/latex/fontawesome5/tufontawesomebrands.fd))) (c:/texlive/2025/texmf-dist/tex/latex/firamath-otf/firamath-otf.sty
+Package: firamath-otf 2023/09/08 v. 0.03b (Herbert Voss) Supports fira math fonts for all luatex/xetex .
  (c:/texlive/2025/texmf-dist/tex/latex/unicode-math/unicode-math.sty
 Package: unicode-math 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLaTeX
  (c:/texlive/2025/texmf-dist/tex/latex/unicode-math/unicode-math-xetex.sty
@@ -956,125 +956,376 @@ LaTeX Encoding Info:    Redeclaring text symbol \textdiv (encoding TS1) on input
 \l__um_primecount_int=\count378
 \g__um_primekern_muskip=\muskip19
  (c:/texlive/2025/texmf-dist/tex/latex/unicode-math/unicode-math-table.tex)))
-\NEUtoks=\toks50
+Requested font "[FiraMath-Regular.otf]/OT" at 11.99997pt
+ -> c:/texlive/2025/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf
+Requested font "[FiraMath-Regular.otf]/OT" at 12.00003pt
+ -> c:/texlive/2025/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf
 
 Package fontspec Info: 
-(fontspec)             Font family 'Euler-Math.otf(0)' created for font
-(fontspec)             'Euler-Math.otf' with options
-(fontspec)             [BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math].
+(fontspec)             FiraMath-Regular scale = 1.
+
+Requested font "[FiraMath-Regular.otf]/OT:script=math;language=dflt;" at 12.00003pt
+ -> c:/texlive/2025/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'FiraMath-Regular.otf(0)' created for font
+(fontspec)             'FiraMath-Regular.otf' with options
+(fontspec)             [BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,Scale={1},Numbers={Lining,Monospaced}].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"[Euler-Math.otf]/OT:script=math;language=dflt;"
+(fontspec)             <->s*[1]"[FiraMath-Regular.otf]/OT:script=math;language=dflt;+lnum;+tnum;"
+
+LaTeX Font Info:    Font shape `TU/FiraMath-Regular.otf(0)/m/n' will be
+(Font)              scaled to size 12.0pt on input line 72.
+Requested font "[FiraMath-Regular.otf]/OT:script=math;language=dflt;+lnum;+tnum;" at 12.0pt
+ -> c:/texlive/2025/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.
 
 
 Package fontspec Info: 
-(fontspec)             Font family 'Euler-Math.otf(1)' created for font
-(fontspec)             'Euler-Math.otf' with options
-(fontspec)             [BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=10.2-},{Size=7.2-10.2,Font=Euler-Math.otf,Style=MathScript},{Size=-7.2,Font=Euler-Math.otf,Style=MathScriptScript}}].
+(fontspec)             FiraMath-Regular scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'FiraMath-Regular.otf(1)' created for font
+(fontspec)             'FiraMath-Regular.otf' with options
+(fontspec)             [BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=10.32-},{Size=7.8-10.32,Font=FiraMath-Regular.otf,Style=MathScript},{Size=-7.8,Font=FiraMath-Regular.otf,Style=MathScriptScript}},Scale={1},Numbers={Lining,Monospaced}].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <10.2->"[Euler-Math.otf]/OT:script=math;language=dflt;"<7.2-10.2>"[Euler-Math.otf]/OT:script=math;language=dflt;+ssty=0;"<-7.2>"[Euler-Math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             <10.32->s*[1]"[FiraMath-Regular.otf]/OT:script=math;language=dflt;+lnum;+tnum;"<7.8-10.32>s*[1]"[FiraMath-Regular.otf]/OT:script=math;language=dflt;+lnum;+tnum;+ssty=0;"<-7.8>s*[1]"[FiraMath-Regular.otf]/OT:script=math;language=dflt;+lnum;+tnum;+ssty=1;"
 
+LaTeX Font Info:    Font shape `TU/FiraMath-Regular.otf(1)/m/n' will be
+(Font)              scaled to size 12.0pt on input line 72.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 36.
+(Font)              `operators' in the math version `normal' on input line 72.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/Euler-Math.otf(1)/m/n on input line 36.
+(Font)                  OT1/cmr/m/n --> TU/FiraMath-Regular.otf(1)/m/n on input line 72.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 36.
+(Font)              `operators' in the math version `bold' on input line 72.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/Euler-Math.otf(1)/b/n on input line 36.
+(Font)                  OT1/cmr/bx/n --> TU/FiraMath-Regular.otf(1)/b/n on input line 72.
 
 Package fontspec Info: 
-(fontspec)             Euler-Math scale = 1.0001.
-
-
-Package fontspec Info: 
-(fontspec)             Euler-Math scale = 1.0001.
+(fontspec)             FiraMath-Regular scale = 1.
 
 
 Package fontspec Info: 
-(fontspec)             Euler-Math scale = 1.0001.
+(fontspec)             FiraMath-Regular scale = 1.0001.
 
 
 Package fontspec Info: 
-(fontspec)             Euler-Math scale = 1.0001.
+(fontspec)             FiraMath-Regular scale = 1.
 
 
 Package fontspec Info: 
-(fontspec)             Font family 'Euler-Math.otf(2)' created for font
-(fontspec)             'Euler-Math.otf' with options
-(fontspec)             [BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=10.2-},{Size=7.2-10.2,Font=Euler-Math.otf,Style=MathScript},{Size=-7.2,Font=Euler-Math.otf,Style=MathScriptScript}},ScaleAgain=1.0001,FontAdjustment={\fontdimen
-(fontspec)             8\font =8.124pt\relax \fontdimen 9\font =4.728pt\relax
-(fontspec)             \fontdimen 10\font =5.328pt\relax \fontdimen 11\font
-(fontspec)             =8.232pt\relax \fontdimen 12\font =4.14pt\relax
-(fontspec)             \fontdimen 13\font =5.4pt\relax \fontdimen 14\font
-(fontspec)             =5.4pt\relax \fontdimen 15\font =4.2pt\relax \fontdimen
-(fontspec)             16\font =1.8pt\relax \fontdimen 17\font =1.8pt\relax
-(fontspec)             \fontdimen 18\font =2.964pt\relax \fontdimen 19\font
-(fontspec)             =0.6pt\relax \fontdimen 22\font =3.0pt\relax \fontdimen
-(fontspec)             20\font =0pt\relax \fontdimen 21\font =0pt\relax }].
+(fontspec)             FiraMath-Regular scale = 1.0001.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.0001.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.0001.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'FiraMath-Regular.otf(2)' created for font
+(fontspec)             'FiraMath-Regular.otf' with options
+(fontspec)             [BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=10.32-},{Size=7.8-10.32,Font=FiraMath-Regular.otf,Style=MathScript},{Size=-7.8,Font=FiraMath-Regular.otf,Style=MathScriptScript}},Scale={1},Numbers={Lining,Monospaced},ScaleAgain=1.0001,FontAdjustment={\fontdimen
+(fontspec)             8\font =6.96pt\relax \fontdimen 9\font =5.4pt\relax
+(fontspec)             \fontdimen 10\font =5.4pt\relax \fontdimen 11\font
+(fontspec)             =8.4pt\relax \fontdimen 12\font =5.76pt\relax
+(fontspec)             \fontdimen 13\font =4.8pt\relax \fontdimen 14\font
+(fontspec)             =4.8pt\relax \fontdimen 15\font =3.24pt\relax
+(fontspec)             \fontdimen 16\font =4.2pt\relax \fontdimen 17\font
+(fontspec)             =4.2pt\relax \fontdimen 18\font =4.32pt\relax
+(fontspec)             \fontdimen 19\font =3.0pt\relax \fontdimen 22\font
+(fontspec)             =3.36pt\relax \fontdimen 20\font =0pt\relax \fontdimen
+(fontspec)             21\font =0pt\relax }].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <10.2->s*[1.0001]"[Euler-Math.otf]/OT:script=math;language=dflt;"<7.2-10.2>s*[1.0001]"[Euler-Math.otf]/OT:script=math;language=dflt;+ssty=0;"<-7.2>s*[1.0001]"[Euler-Math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             <10.32->s*[1.0001]"[FiraMath-Regular.otf]/OT:script=math;language=dflt;+lnum;+tnum;"<7.8-10.32>s*[1.0001]"[FiraMath-Regular.otf]/OT:script=math;language=dflt;+lnum;+tnum;+ssty=0;"<-7.8>s*[1.0001]"[FiraMath-Regular.otf]/OT:script=math;language=dflt;+lnum;+tnum;+ssty=1;"
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 36.
+(Font)              `symbols' in the math version `normal' on input line 72.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/cmsy/m/n --> TU/Euler-Math.otf(2)/m/n on input line 36.
+(Font)                  OMS/cmsy/m/n --> TU/FiraMath-Regular.otf(2)/m/n on input line 72.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 36.
+(Font)              `symbols' in the math version `bold' on input line 72.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/cmsy/b/n --> TU/Euler-Math.otf(2)/b/n on input line 36.
+(Font)                  OMS/cmsy/b/n --> TU/FiraMath-Regular.otf(2)/b/n on input line 72.
 
 Package fontspec Info: 
-(fontspec)             Euler-Math scale = 0.9999.
-
-
-Package fontspec Info: 
-(fontspec)             Euler-Math scale = 0.9999.
+(fontspec)             FiraMath-Regular scale = 1.
 
 
 Package fontspec Info: 
-(fontspec)             Euler-Math scale = 0.9999.
+(fontspec)             FiraMath-Regular scale = 0.9999.
 
 
 Package fontspec Info: 
-(fontspec)             Euler-Math scale = 0.9999.
+(fontspec)             FiraMath-Regular scale = 1.
 
 
 Package fontspec Info: 
-(fontspec)             Font family 'Euler-Math.otf(3)' created for font
-(fontspec)             'Euler-Math.otf' with options
-(fontspec)             [BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=10.2-},{Size=7.2-10.2,Font=Euler-Math.otf,Style=MathScript},{Size=-7.2,Font=Euler-Math.otf,Style=MathScriptScript}},ScaleAgain=0.9999,FontAdjustment={\fontdimen
-(fontspec)             8\font =0.48pt\relax \fontdimen 9\font =1.332pt\relax
-(fontspec)             \fontdimen 10\font =2.004pt\relax \fontdimen 11\font
-(fontspec)             =2.4pt\relax \fontdimen 12\font =7.2pt\relax \fontdimen
+(fontspec)             FiraMath-Regular scale = 0.9999.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 0.9999.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 0.9999.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'FiraMath-Regular.otf(3)' created for font
+(fontspec)             'FiraMath-Regular.otf' with options
+(fontspec)             [BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=10.32-},{Size=7.8-10.32,Font=FiraMath-Regular.otf,Style=MathScript},{Size=-7.8,Font=FiraMath-Regular.otf,Style=MathScriptScript}},Scale={1},Numbers={Lining,Monospaced},ScaleAgain=0.9999,FontAdjustment={\fontdimen
+(fontspec)             8\font =0.912pt\relax \fontdimen 9\font =1.8pt\relax
+(fontspec)             \fontdimen 10\font =1.8pt\relax \fontdimen 11\font
+(fontspec)             =1.8pt\relax \fontdimen 12\font =7.2pt\relax \fontdimen
 (fontspec)             13\font =0pt\relax }].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <10.2->s*[0.9999]"[Euler-Math.otf]/OT:script=math;language=dflt;"<7.2-10.2>s*[0.9999]"[Euler-Math.otf]/OT:script=math;language=dflt;+ssty=0;"<-7.2>s*[0.9999]"[Euler-Math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             <10.32->s*[0.9999]"[FiraMath-Regular.otf]/OT:script=math;language=dflt;+lnum;+tnum;"<7.8-10.32>s*[0.9999]"[FiraMath-Regular.otf]/OT:script=math;language=dflt;+lnum;+tnum;+ssty=0;"<-7.8>s*[0.9999]"[FiraMath-Regular.otf]/OT:script=math;language=dflt;+lnum;+tnum;+ssty=1;"
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 36.
+(Font)              `largesymbols' in the math version `normal' on input line 72.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/cmex/m/n --> TU/Euler-Math.otf(3)/m/n on input line 36.
+(Font)                  OMX/cmex/m/n --> TU/FiraMath-Regular.otf(3)/m/n on input line 72.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 36.
+(Font)              `largesymbols' in the math version `bold' on input line 72.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/cmex/m/n --> TU/Euler-Math.otf(3)/b/n on input line 36.
+(Font)                  OMX/cmex/m/n --> TU/FiraMath-Regular.otf(3)/b/n on input line 72.
+\c@mv@pnum=\count379
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'FiraMath-Regular.otf(4)' created for font
+(fontspec)             'FiraMath-Regular.otf' with options
+(fontspec)             [BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,Numbers={Proportional},Scale={1}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[FiraMath-Regular.otf]/OT:script=math;language=dflt;+pnum;"
+
+LaTeX Font Info:    Font shape `TU/FiraMath-Regular.otf(4)/m/n' will be
+(Font)              scaled to size 12.0pt on input line 74.
+Requested font "[FiraMath-Regular.otf]/OT:script=math;language=dflt;+pnum;" at 12.0pt
+ -> c:/texlive/2025/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'FiraMath-Regular.otf(5)' created for font
+(fontspec)             'FiraMath-Regular.otf' with options
+(fontspec)             [BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=10.32-},{Size=7.8-10.32,Font=FiraMath-Regular.otf,Style=MathScript},{Size=-7.8,Font=FiraMath-Regular.otf,Style=MathScriptScript}},Numbers={Proportional},Scale={1}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <10.32->s*[1]"[FiraMath-Regular.otf]/OT:script=math;language=dflt;+pnum;"<7.8-10.32>s*[1]"[FiraMath-Regular.otf]/OT:script=math;language=dflt;+pnum;+ssty=0;"<-7.8>s*[1]"[FiraMath-Regular.otf]/OT:script=math;language=dflt;+pnum;+ssty=1;"
+
+LaTeX Font Info:    Font shape `TU/FiraMath-Regular.otf(5)/m/n' will be
+(Font)              scaled to size 12.0pt on input line 74.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `pnum' on input line 74.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `pnum'
+(Font)                  OT1/cmr/m/n --> TU/FiraMath-Regular.otf(5)/m/n on input line 74.
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.0001.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.0001.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.0001.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.0001.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'FiraMath-Regular.otf(6)' created for font
+(fontspec)             'FiraMath-Regular.otf' with options
+(fontspec)             [BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=10.32-},{Size=7.8-10.32,Font=FiraMath-Regular.otf,Style=MathScript},{Size=-7.8,Font=FiraMath-Regular.otf,Style=MathScriptScript}},Numbers={Proportional},Scale={1},ScaleAgain=1.0001,FontAdjustment={\fontdimen
+(fontspec)             8\font =6.96pt\relax \fontdimen 9\font =5.4pt\relax
+(fontspec)             \fontdimen 10\font =5.4pt\relax \fontdimen 11\font
+(fontspec)             =8.4pt\relax \fontdimen 12\font =5.76pt\relax
+(fontspec)             \fontdimen 13\font =4.8pt\relax \fontdimen 14\font
+(fontspec)             =4.8pt\relax \fontdimen 15\font =3.24pt\relax
+(fontspec)             \fontdimen 16\font =4.2pt\relax \fontdimen 17\font
+(fontspec)             =4.2pt\relax \fontdimen 18\font =4.32pt\relax
+(fontspec)             \fontdimen 19\font =3.0pt\relax \fontdimen 22\font
+(fontspec)             =3.36pt\relax \fontdimen 20\font =0pt\relax \fontdimen
+(fontspec)             21\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <10.32->s*[1.0001]"[FiraMath-Regular.otf]/OT:script=math;language=dflt;+pnum;"<7.8-10.32>s*[1.0001]"[FiraMath-Regular.otf]/OT:script=math;language=dflt;+pnum;+ssty=0;"<-7.8>s*[1.0001]"[FiraMath-Regular.otf]/OT:script=math;language=dflt;+pnum;+ssty=1;"
+
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `pnum' on input line 74.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `pnum'
+(Font)                  OMS/cmsy/m/n --> TU/FiraMath-Regular.otf(6)/m/n on input line 74.
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 0.9999.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 0.9999.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 0.9999.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             FiraMath-Regular scale = 0.9999.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'FiraMath-Regular.otf(7)' created for font
+(fontspec)             'FiraMath-Regular.otf' with options
+(fontspec)             [BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=10.32-},{Size=7.8-10.32,Font=FiraMath-Regular.otf,Style=MathScript},{Size=-7.8,Font=FiraMath-Regular.otf,Style=MathScriptScript}},Numbers={Proportional},Scale={1},ScaleAgain=0.9999,FontAdjustment={\fontdimen
+(fontspec)             8\font =0.912pt\relax \fontdimen 9\font =1.8pt\relax
+(fontspec)             \fontdimen 10\font =1.8pt\relax \fontdimen 11\font
+(fontspec)             =1.8pt\relax \fontdimen 12\font =7.2pt\relax \fontdimen
+(fontspec)             13\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <10.32->s*[0.9999]"[FiraMath-Regular.otf]/OT:script=math;language=dflt;+pnum;"<7.8-10.32>s*[0.9999]"[FiraMath-Regular.otf]/OT:script=math;language=dflt;+pnum;+ssty=0;"<-7.8>s*[0.9999]"[FiraMath-Regular.otf]/OT:script=math;language=dflt;+pnum;+ssty=1;"
+
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `pnum' on input line 74.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `pnum'
+(Font)                  OMX/cmex/m/n --> TU/FiraMath-Regular.otf(7)/m/n on input line 74.
 )
+Requested font "[fonts/PublicSans-Regular.ttf]" at 11.99998pt
+ -> ./fonts/PublicSans-Regular.ttf
+Requested font "[fonts/Merriweather-Regular.ttf]/OT" at 11.99997pt
+ -> ./fonts/Merriweather-Regular.ttf
+Requested font "[fonts/Merriweather-Regular.ttf]/OT" at 12.00003pt
+ -> ./fonts/Merriweather-Regular.ttf
+Requested font "[fonts/Merriweather-Regular.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/Merriweather-Regular.ttf
+Requested font "[fonts/Merriweather-Bold.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/Merriweather-Bold.ttf
+Requested font "[fonts/Merriweather-Italic.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/Merriweather-Italic.ttf
+Requested font "[fonts/Merriweather-BoldItalic.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/Merriweather-BoldItalic.ttf
 
 Package fontspec Info: 
 (fontspec)             Font family 'Merriweather(0)' created for font
@@ -1112,11 +1363,25 @@ Package fontspec Info:
 (fontspec)             <->"[fonts/Merriweather-BoldItalic.ttf]/OT:script=latn;language=dflt;"
 
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  TU/Euler-Math.otf(1)/m/n --> TU/Merriweather(1)/m/n on input line 705.
+(Font)                  TU/FiraMath-Regular.otf(1)/m/n --> TU/Merriweather(1)/m/n on input line 705.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/Merriweather(1)/m/it on input line 705.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/Merriweather(1)/b/n on input line 705.
+Requested font "[fonts/Merriweather-Regular.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 12.0pt
+ -> ./fonts/Merriweather-Regular.ttf
+Requested font "[fonts/PublicSans-Regular.ttf]/OT" at 11.99997pt
+ -> ./fonts/PublicSans-Regular.ttf
+Requested font "[fonts/PublicSans-Regular.ttf]/OT" at 12.00003pt
+ -> ./fonts/PublicSans-Regular.ttf
+Requested font "[fonts/PublicSans-Regular.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/PublicSans-Regular.ttf
+Requested font "[fonts/PublicSans-Bold.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/PublicSans-Bold.ttf
+Requested font "[fonts/PublicSans-Italic.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/PublicSans-Italic.ttf
+Requested font "[fonts/PublicSans-BoldItalic.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/PublicSans-BoldItalic.ttf
 
 Package fontspec Info: 
 (fontspec)             Font family 'PublicSans(0)' created for font
@@ -1157,10 +1422,16 @@ LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
 (Font)                  OT1/cmss/m/n --> TU/PublicSans(1)/m/n on input line 705.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 (Font)                  OT1/cmss/bx/n --> TU/PublicSans(1)/b/n on input line 705.
+Requested font "[fonts/Inconsolata-Regular.ttf]/OT" at 11.99997pt
+ -> ./fonts/Inconsolata-Regular.ttf
+Requested font "[fonts/Inconsolata-Regular.ttf]/OT" at 12.00003pt
+ -> ./fonts/Inconsolata-Regular.ttf
 
 Package fontspec Info: 
 (fontspec)             Inconsolata-Regular scale = 1.16.
 
+Requested font "[fonts/Inconsolata-Regular.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/Inconsolata-Regular.ttf
 
 Package fontspec Info: 
 (fontspec)             Inconsolata-Regular scale = 1.16.
@@ -1237,6 +1508,14 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
 (Font)                  OT1/cmtt/m/n --> TU/Inconsolata(1)/m/n on input line 705.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> TU/Inconsolata(1)/b/n on input line 705.
+Requested font "[fonts/Merriweather-Light.ttf]/OT" at 11.99997pt
+ -> ./fonts/Merriweather-Light.ttf
+Requested font "[fonts/Merriweather-Light.ttf]/OT" at 12.00003pt
+ -> ./fonts/Merriweather-Light.ttf
+Requested font "[fonts/Merriweather-Light.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/Merriweather-Light.ttf
+Requested font "[fonts/Merriweather-LightItalic.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/Merriweather-LightItalic.ttf
 
 Package fontspec Info: 
 (fontspec)             Font family 'rmlight' created for font 'Merriweather'
@@ -1255,6 +1534,14 @@ Package fontspec Info:
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
 (fontspec)             <->"[fonts/Merriweather-Italic.ttf]/OT:script=latn;language=dflt;mapping=tex-text;"
 
+Requested font "[fonts/Merriweather-Black.ttf]/OT" at 11.99997pt
+ -> ./fonts/Merriweather-Black.ttf
+Requested font "[fonts/Merriweather-Black.ttf]/OT" at 12.00003pt
+ -> ./fonts/Merriweather-Black.ttf
+Requested font "[fonts/Merriweather-Black.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/Merriweather-Black.ttf
+Requested font "[fonts/Merriweather-BlackItalic.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/Merriweather-BlackItalic.ttf
 
 Package fontspec Info: 
 (fontspec)             Font family 'rmblack' created for font 'Merriweather'
@@ -1273,6 +1560,18 @@ Package fontspec Info:
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
 (fontspec)             <->"[fonts/Merriweather-BlackItalic.ttf]/OT:script=latn;language=dflt;mapping=tex-text;"
 
+Requested font "[fonts/PublicSans-Thin.ttf]/OT" at 11.99997pt
+ -> ./fonts/PublicSans-Thin.ttf
+Requested font "[fonts/PublicSans-Thin.ttf]/OT" at 12.00003pt
+ -> ./fonts/PublicSans-Thin.ttf
+Requested font "[fonts/PublicSans-Thin.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/PublicSans-Thin.ttf
+Requested font "[fonts/PublicSans-Medium.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/PublicSans-Medium.ttf
+Requested font "[fonts/PublicSans-ThinItalic.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/PublicSans-ThinItalic.ttf
+Requested font "[fonts/PublicSans-MediumItalic.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/PublicSans-MediumItalic.ttf
 
 Package fontspec Info: 
 (fontspec)             Font family 'sflight' created for font 'PublicSans'
@@ -1291,6 +1590,18 @@ Package fontspec Info:
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
 (fontspec)             <->"[fonts/PublicSans-MediumItalic.ttf]/OT:script=latn;language=dflt;mapping=tex-text;"
 
+Requested font "[fonts/PublicSans-ExtraBold.ttf]/OT" at 11.99997pt
+ -> ./fonts/PublicSans-ExtraBold.ttf
+Requested font "[fonts/PublicSans-ExtraBold.ttf]/OT" at 12.00003pt
+ -> ./fonts/PublicSans-ExtraBold.ttf
+Requested font "[fonts/PublicSans-ExtraBold.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/PublicSans-ExtraBold.ttf
+Requested font "[fonts/PublicSans-Black.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/PublicSans-Black.ttf
+Requested font "[fonts/PublicSans-ExtraBoldItalic.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/PublicSans-ExtraBoldItalic.ttf
+Requested font "[fonts/PublicSans-BlackItalic.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/PublicSans-BlackItalic.ttf
 
 Package fontspec Info: 
 (fontspec)             Font family 'sfblack' created for font 'PublicSans'
@@ -1309,10 +1620,16 @@ Package fontspec Info:
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
 (fontspec)             <->"[fonts/PublicSans-BlackItalic.ttf]/OT:script=latn;language=dflt;mapping=tex-text;"
 
+Requested font "[fonts/Inconsolata-Light.ttf]/OT" at 11.99997pt
+ -> ./fonts/Inconsolata-Light.ttf
+Requested font "[fonts/Inconsolata-Light.ttf]/OT" at 12.00003pt
+ -> ./fonts/Inconsolata-Light.ttf
 
 Package fontspec Info: 
 (fontspec)             Inconsolata-Light scale = 1.16.
 
+Requested font "[fonts/Inconsolata-Light.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/Inconsolata-Light.ttf
 
 Package fontspec Info: 
 (fontspec)             Inconsolata-Light scale = 1.16.
@@ -1347,10 +1664,16 @@ Package fontspec Info:
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
 (fontspec)             <->s*[1.16]"[fonts/Inconsolata-Light.ttf]/OT:script=latn;language=dflt;slant=0.2;embolden=1.5;"
 
+Requested font "[fonts/InconsolataCondensed-Regular.ttf]/OT" at 11.99997pt
+ -> ./fonts/InconsolataCondensed-Regular.ttf
+Requested font "[fonts/InconsolataCondensed-Regular.ttf]/OT" at 12.00003pt
+ -> ./fonts/InconsolataCondensed-Regular.ttf
 
 Package fontspec Info: 
 (fontspec)             InconsolataCondensed-Regular scale = 1.16.
 
+Requested font "[fonts/InconsolataCondensed-Regular.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/InconsolataCondensed-Regular.ttf
 
 Package fontspec Info: 
 (fontspec)             InconsolataCondensed-Regular scale = 1.16.
@@ -1385,10 +1708,16 @@ Package fontspec Info:
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
 (fontspec)             <->s*[1.16]"[fonts/InconsolataCondensed-Regular.ttf]/OT:script=latn;language=dflt;slant=0.2;embolden=1.5;"
 
+Requested font "[fonts/InconsolataCondensed-Light.ttf]/OT" at 11.99997pt
+ -> ./fonts/InconsolataCondensed-Light.ttf
+Requested font "[fonts/InconsolataCondensed-Light.ttf]/OT" at 12.00003pt
+ -> ./fonts/InconsolataCondensed-Light.ttf
 
 Package fontspec Info: 
 (fontspec)             InconsolataCondensed-Light scale = 1.16.
 
+Requested font "[fonts/InconsolataCondensed-Light.ttf]/OT:script=latn;language=dflt;" at 12.00003pt
+ -> ./fonts/InconsolataCondensed-Light.ttf
 
 Package fontspec Info: 
 (fontspec)             InconsolataCondensed-Light scale = 1.16.
@@ -1424,6 +1753,89 @@ Package fontspec Info:
 (fontspec)             <->s*[1.16]"[fonts/InconsolataCondensed-Light.ttf]/OT:script=latn;language=dflt;slant=0.2;embolden=1.5;"
 
 \jkureport@subtitleparskip=\skip96
+ (c:/texlive/2025/texmf-dist/tex/latex/mathastext/mathastext.sty
+Package: mathastext 2024/10/26 v1.4e Use the text font in math mode (JFB)
+
+Package mathastext Info: Starting the math mode configuration.
+
+
+Package mathastext Warning: `everymath' will be removed at next major release.
+(mathastext)                Please report to the author the circumstances
+(mathastext)                which mandated its use in the present document.
+
+\mst@exists@muskip=\muskip20
+\mst@forall@muskip=\muskip21
+\mst@prime@muskip=\muskip22
+\mst@do@nonletters=\toks50
+\mst@do@easynonletters=\toks51
+\symmtoperatorfont=\mathgroup4
+\symmtletterfont=\mathgroup5
+(   mathastext:   ) will use Euler font; command \MTEulerScale
+\symmteulervm=\mathgroup6
+(   mathastext:   ) ! and ?
+(   mathastext:   ) punctuation: , . : ; and \colon
+LaTeX Info: Redefining \relbar on input line 1197.
+LaTeX Info: Redefining \rightarrowfill on input line 1198.
+LaTeX Info: Redefining \leftarrowfill on input line 1201.
+(   mathastext:   ) + and =
+LaTeX Info: Redefining \Relbar on input line 1344.
+(   mathastext:   ) adding = ; and + to \nfss@catcodes
+(   mathastext:   ) parentheses ( ) [ ] and slash /
+(   mathastext:   ) alldelims: < > \backslash \setminus | \vert \mid \{ \}
+LaTeX Font Info:    Redeclaring math symbol \setminus on input line 1410.
+LaTeX Info: Redefining \models on input line 1429.
+(   mathastext:   ) \# \mathdollar \% \& 
+(   mathastext:   ) \imath and \jmath 
+LaTeX Font Info:    Overwriting math alphabet `\Mathnormalbold' in version `normal'
+(Font)                  TU/Merriweather(0)/b/it --> TU/Merriweather(0)/b/it on input line 2934.
+LaTeX Font Info:    Overwriting math alphabet `\Mathnormalbold' in version `bold'
+(Font)                  TU/Merriweather(0)/b/it --> TU/Merriweather(0)/b/it on input line 2934.
+LaTeX Font Info:    Overwriting symbol font `mtletterfont' in version `normal'
+(Font)                  TU/Merriweather(0)/m/it --> TU/Merriweather(0)/m/it on input line 2934.
+LaTeX Font Info:    Overwriting symbol font `mtletterfont' in version `bold'
+(Font)                  TU/Merriweather(0)/m/it --> TU/Merriweather(0)/b/it on input line 2934.
+LaTeX Font Info:    Overwriting symbol font `mtoperatorfont' in version `normal'
+(Font)                  TU/Merriweather(0)/m/n --> TU/Merriweather(0)/m/n on input line 2934.
+LaTeX Font Info:    Overwriting symbol font `mtoperatorfont' in version `bold'
+(Font)                  TU/Merriweather(0)/m/n --> TU/Merriweather(0)/b/n on input line 2934.
+LaTeX Font Info:    Overwriting math alphabet `\Mathbf' in version `normal'
+(Font)                  TU/Merriweather(0)/b/n --> TU/Merriweather(0)/b/n on input line 2934.
+LaTeX Font Info:    Overwriting math alphabet `\Mathbf' in version `bold'
+(Font)                  TU/Merriweather(0)/b/n --> TU/Merriweather(0)/b/n on input line 2934.
+LaTeX Font Info:    Overwriting math alphabet `\Mathit' in version `normal'
+(Font)                  TU/Merriweather(0)/m/it --> TU/Merriweather(0)/m/it on input line 2934.
+LaTeX Font Info:    Overwriting math alphabet `\Mathit' in version `bold'
+(Font)                  TU/Merriweather(0)/m/it --> TU/Merriweather(0)/b/it on input line 2934.
+LaTeX Font Info:    Overwriting math alphabet `\Mathsf' in version `normal'
+(Font)                  TU/PublicSans(0)/m/n --> TU/PublicSans(0)/m/n on input line 2934.
+LaTeX Font Info:    Overwriting math alphabet `\Mathsf' in version `bold'
+(Font)                  TU/PublicSans(0)/m/n --> TU/PublicSans(0)/b/n on input line 2934.
+LaTeX Font Info:    Overwriting math alphabet `\Mathtt' in version `normal'
+(Font)                  TU/Inconsolata(0)/m/n --> TU/Inconsolata(0)/m/n on input line 2934.
+LaTeX Font Info:    Overwriting math alphabet `\Mathtt' in version `bold'
+(Font)                  TU/Inconsolata(0)/m/n --> TU/Inconsolata(0)/b/n on input line 2934.
+LaTeX Font Info:    Overwriting symbol font `mteulervm' in version `bold'
+(Font)                  U/zeur/m/n --> U/zeur/b/n on input line 2934.
+LaTeX Font Info:    Overwriting math alphabet `\MathEulerBold' in version `normal'
+(Font)                  U/zeur/b/n --> U/zeur/b/n on input line 2934.
+LaTeX Font Info:    Overwriting math alphabet `\MathEulerBold' in version `bold'
+(Font)                  U/zeur/b/n --> U/zeur/b/n on input line 2934.
+(   mathastext:   ) Latin letters in the `normal', resp. `bold',
+(   mathastext:   ) math versions are now set up to use the fonts
+(   mathastext:   ) TU/Merriweather(0)/m/it, resp. TU/Merriweather(0)/b/it.
+(   mathastext:   ) Other characters (digits, ...) and \log-like names will be
+(   mathastext:   ) typeset with the n shape.
+(   mathastext:   ) \hbar
+(   mathastext:   ) minus either as endash, Unicode minus, emdash or hyphen
+(   mathastext:   ) The italic option is in effect.
+(   mathastext:   ) Greek letters will use the Euler font.
+(   mathastext:   ) Use \MathastextEulerScale{<factor>} to scale the font.
+
+Package mathastext Info: Loading is complete.  You can now use \Mathastext to
+(mathastext)             modify the normal and bold math versions.  Use it
+(mathastext)             with optional argument or use \MTDeclareVersion to
+(mathastext)             declare additional math versions.
+)
 \jkureport@logoblack@K=\box85
 File: logos/jku_k_black.pdf Graphic file (type pdf)
 <use logos/jku_k_black.pdf>
@@ -1452,13 +1864,13 @@ File: logos/jku_de_white.pdf Graphic file (type pdf)
 \jkureport@outerparskip=\skip99
 ) (c:/texlive/2025/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2024-04-04 v5.2o context-sensitive quotations (JAW)
-\csq@reset=\count379
-\csq@gtype=\count380
-\csq@glevel=\count381
-\csq@qlevel=\count382
-\csq@maxlvl=\count383
-\csq@tshold=\count384
-\csq@ltx@everypar=\toks51
+\csq@reset=\count380
+\csq@gtype=\count381
+\csq@glevel=\count382
+\csq@qlevel=\count383
+\csq@maxlvl=\count384
+\csq@tshold=\count385
+\csq@ltx@everypar=\toks52
  (c:/texlive/2025/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2024-04-04 v5.2o csquotes generic definitions (JAW)
 )
@@ -1470,53 +1882,53 @@ File: csquotes.cfg
 Package: biblatex 2025/07/10 v3.21 programmable bibliographies (PK/MW)
  (c:/texlive/2025/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count385
+\lrq@indent=\count386
  (c:/texlive/2025/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
-\c@tabx@nest=\count386
-\c@listtotal=\count387
-\c@listcount=\count388
-\c@liststart=\count389
-\c@liststop=\count390
-\c@citecount=\count391
-\c@citetotal=\count392
-\c@multicitecount=\count393
-\c@multicitetotal=\count394
-\c@instcount=\count395
-\c@maxnames=\count396
-\c@minnames=\count397
-\c@maxitems=\count398
-\c@minitems=\count399
-\c@citecounter=\count400
-\c@maxcitecounter=\count401
-\c@savedcitecounter=\count402
-\c@uniquelist=\count403
-\c@uniquename=\count404
-\c@refsection=\count405
-\c@refsegment=\count406
-\c@maxextratitle=\count407
-\c@maxextratitleyear=\count408
-\c@maxextraname=\count409
-\c@maxextradate=\count410
-\c@maxextraalpha=\count411
-\c@abbrvpenalty=\count412
-\c@highnamepenalty=\count413
-\c@lownamepenalty=\count414
-\c@maxparens=\count415
-\c@parenlevel=\count416
-\blx@tempcnta=\count417
-\blx@tempcntb=\count418
-\blx@tempcntc=\count419
-\c@blx@maxsection=\count420
-\blx@maxsegment@0=\count421
-\blx@notetype=\count422
-\blx@parenlevel@text=\count423
-\blx@parenlevel@foot=\count424
-\blx@sectionciteorder@0=\count425
-\blx@sectionciteorderinternal@0=\count426
-\blx@entrysetcounter=\count427
-\blx@biblioinstance=\count428
+\c@tabx@nest=\count387
+\c@listtotal=\count388
+\c@listcount=\count389
+\c@liststart=\count390
+\c@liststop=\count391
+\c@citecount=\count392
+\c@citetotal=\count393
+\c@multicitecount=\count394
+\c@multicitetotal=\count395
+\c@instcount=\count396
+\c@maxnames=\count397
+\c@minnames=\count398
+\c@maxitems=\count399
+\c@minitems=\count400
+\c@citecounter=\count401
+\c@maxcitecounter=\count402
+\c@savedcitecounter=\count403
+\c@uniquelist=\count404
+\c@uniquename=\count405
+\c@refsection=\count406
+\c@refsegment=\count407
+\c@maxextratitle=\count408
+\c@maxextratitleyear=\count409
+\c@maxextraname=\count410
+\c@maxextradate=\count411
+\c@maxextraalpha=\count412
+\c@abbrvpenalty=\count413
+\c@highnamepenalty=\count414
+\c@lownamepenalty=\count415
+\c@maxparens=\count416
+\c@parenlevel=\count417
+\blx@tempcnta=\count418
+\blx@tempcntb=\count419
+\blx@tempcntc=\count420
+\c@blx@maxsection=\count421
+\blx@maxsegment@0=\count422
+\blx@notetype=\count423
+\blx@parenlevel@text=\count424
+\blx@parenlevel@foot=\count425
+\blx@sectionciteorder@0=\count426
+\blx@sectionciteorderinternal@0=\count427
+\blx@entrysetcounter=\count428
+\blx@biblioinstance=\count429
 \labelnumberwidth=\skip100
 \labelalphawidth=\skip101
 \biblabelsep=\skip102
@@ -1528,9 +1940,9 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 \blx@bcfin=\read5
 \blx@bcfout=\write4
 \blx@langwohyphens=\language91
-\c@mincomprange=\count429
-\c@maxcomprange=\count430
-\c@mincompwidth=\count431
+\c@mincomprange=\count430
+\c@maxcomprange=\count431
+\c@mincompwidth=\count432
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
  (c:/texlive/2025/texmf-dist/tex/latex/biblatex/blx-dm.def
@@ -1541,80 +1953,80 @@ Package biblatex Info: ... file 'ACM-Reference-Format.dbx' found.
  (./ACM-Reference-Format.dbx)
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count432
-\c@savedafterword=\count433
-\c@annotator=\count434
-\c@savedannotator=\count435
-\c@author=\count436
-\c@savedauthor=\count437
-\c@bookauthor=\count438
-\c@savedbookauthor=\count439
-\c@commentator=\count440
-\c@savedcommentator=\count441
-\c@editor=\count442
-\c@savededitor=\count443
-\c@editora=\count444
-\c@savededitora=\count445
-\c@editorb=\count446
-\c@savededitorb=\count447
-\c@editorc=\count448
-\c@savededitorc=\count449
-\c@foreword=\count450
-\c@savedforeword=\count451
-\c@holder=\count452
-\c@savedholder=\count453
-\c@introduction=\count454
-\c@savedintroduction=\count455
-\c@namea=\count456
-\c@savednamea=\count457
-\c@nameb=\count458
-\c@savednameb=\count459
-\c@namec=\count460
-\c@savednamec=\count461
-\c@translator=\count462
-\c@savedtranslator=\count463
-\c@shortauthor=\count464
-\c@savedshortauthor=\count465
-\c@shorteditor=\count466
-\c@savedshorteditor=\count467
-\c@labelname=\count468
-\c@savedlabelname=\count469
-\c@institution=\count470
-\c@savedinstitution=\count471
-\c@lista=\count472
-\c@savedlista=\count473
-\c@listb=\count474
-\c@savedlistb=\count475
-\c@listc=\count476
-\c@savedlistc=\count477
-\c@listd=\count478
-\c@savedlistd=\count479
-\c@liste=\count480
-\c@savedliste=\count481
-\c@listf=\count482
-\c@savedlistf=\count483
-\c@location=\count484
-\c@savedlocation=\count485
-\c@organization=\count486
-\c@savedorganization=\count487
-\c@origlocation=\count488
-\c@savedoriglocation=\count489
-\c@origpublisher=\count490
-\c@savedorigpublisher=\count491
-\c@publisher=\count492
-\c@savedpublisher=\count493
-\c@language=\count494
-\c@savedlanguage=\count495
-\c@origlanguage=\count496
-\c@savedoriglanguage=\count497
-\c@urls=\count498
-\c@savedurls=\count499
-\c@urlsraw=\count500
-\c@savedurlsraw=\count501
-\c@school=\count502
-\c@savedschool=\count503
-\c@pageref=\count504
-\c@savedpageref=\count505
+\c@afterword=\count433
+\c@savedafterword=\count434
+\c@annotator=\count435
+\c@savedannotator=\count436
+\c@author=\count437
+\c@savedauthor=\count438
+\c@bookauthor=\count439
+\c@savedbookauthor=\count440
+\c@commentator=\count441
+\c@savedcommentator=\count442
+\c@editor=\count443
+\c@savededitor=\count444
+\c@editora=\count445
+\c@savededitora=\count446
+\c@editorb=\count447
+\c@savededitorb=\count448
+\c@editorc=\count449
+\c@savededitorc=\count450
+\c@foreword=\count451
+\c@savedforeword=\count452
+\c@holder=\count453
+\c@savedholder=\count454
+\c@introduction=\count455
+\c@savedintroduction=\count456
+\c@namea=\count457
+\c@savednamea=\count458
+\c@nameb=\count459
+\c@savednameb=\count460
+\c@namec=\count461
+\c@savednamec=\count462
+\c@translator=\count463
+\c@savedtranslator=\count464
+\c@shortauthor=\count465
+\c@savedshortauthor=\count466
+\c@shorteditor=\count467
+\c@savedshorteditor=\count468
+\c@labelname=\count469
+\c@savedlabelname=\count470
+\c@institution=\count471
+\c@savedinstitution=\count472
+\c@lista=\count473
+\c@savedlista=\count474
+\c@listb=\count475
+\c@savedlistb=\count476
+\c@listc=\count477
+\c@savedlistc=\count478
+\c@listd=\count479
+\c@savedlistd=\count480
+\c@liste=\count481
+\c@savedliste=\count482
+\c@listf=\count483
+\c@savedlistf=\count484
+\c@location=\count485
+\c@savedlocation=\count486
+\c@organization=\count487
+\c@savedorganization=\count488
+\c@origlocation=\count489
+\c@savedoriglocation=\count490
+\c@origpublisher=\count491
+\c@savedorigpublisher=\count492
+\c@publisher=\count493
+\c@savedpublisher=\count494
+\c@language=\count495
+\c@savedlanguage=\count496
+\c@origlanguage=\count497
+\c@savedoriglanguage=\count498
+\c@urls=\count499
+\c@savedurls=\count500
+\c@urlsraw=\count501
+\c@savedurlsraw=\count502
+\c@school=\count503
+\c@savedschool=\count504
+\c@pageref=\count505
+\c@savedpageref=\count506
 \shorthandwidth=\skip108
 \shortjournalwidth=\skip109
 \shortserieswidth=\skip110
@@ -1641,19 +2053,19 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
  (c:/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
-\c@textcitecount=\count506
-\c@textcitetotal=\count507
-\c@textcitemaxnames=\count508
-\c@biburlbigbreakpenalty=\count509
-\c@biburlbreakpenalty=\count510
-\c@biburlnumpenalty=\count511
-\c@biburlucpenalty=\count512
-\c@biburllcpenalty=\count513
-\biburlbigskip=\muskip20
-\biburlnumskip=\muskip21
-\biburlucskip=\muskip22
-\biburllcskip=\muskip23
-\c@smartand=\count514
+\c@textcitecount=\count507
+\c@textcitetotal=\count508
+\c@textcitemaxnames=\count509
+\c@biburlbigbreakpenalty=\count510
+\c@biburlbreakpenalty=\count511
+\c@biburlnumpenalty=\count512
+\c@biburlucpenalty=\count513
+\c@biburllcpenalty=\count514
+\biburlbigskip=\muskip23
+\biburlnumskip=\muskip24
+\biburlucskip=\muskip25
+\biburllcskip=\muskip26
+\c@smartand=\count515
 )
 Package biblatex Info: Trying to load bibliography style 'ACM-Reference-Format'...
 Package biblatex Info: ... file 'ACM-Reference-Format.bbx' found.
@@ -1671,8 +2083,8 @@ Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
  (c:/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count515
-\c@bbx:relatedtotal=\count516
+\c@bbx:relatedcount=\count516
+\c@bbx:relatedtotal=\count517
 ))))
 Package biblatex Info: Trying to load citation style 'ACM-Reference-Format'...
 Package biblatex Info: ... file 'ACM-Reference-Format.cbx' found.
@@ -1715,24 +2127,24 @@ Package: todonotes 2024/01/05
 File: tikzlibrarypositioning.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (c:/texlive/2025/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
-\calc@Acount=\count517
-\calc@Bcount=\count518
+\calc@Acount=\count518
+\calc@Bcount=\count519
 \calc@Adimen=\dimen297
 \calc@Bdimen=\dimen298
 \calc@Askip=\skip122
 \calc@Bskip=\skip123
 LaTeX Info: Redefining \setlength on input line 86.
 LaTeX Info: Redefining \addtolength on input line 87.
-\calc@Ccount=\count519
+\calc@Ccount=\count520
 \calc@Cskip=\skip124
 )
-\c@@todonotes@numberoftodonotes=\count520
+\c@@todonotes@numberoftodonotes=\count521
 ) (c:/texlive/2025/texmf-dist/tex/latex/import/import.sty
 Package: import 2020/04/01  v 6.2
 ) (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\symAMSa=\mathgroup4
-\symAMSb=\mathgroup5
+\symAMSa=\mathgroup7
+\symAMSb=\mathgroup8
 LaTeX Font Info:    Redeclaring math delimiter \ulcorner on input line 74.
 LaTeX Font Info:    Redeclaring math delimiter \urcorner on input line 75.
 LaTeX Font Info:    Redeclaring math delimiter \llcorner on input line 76.
@@ -1746,10 +2158,10 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfigbottomskip=\skip127
 \subfigcapmargin=\dimen300
 \subfiglabelskip=\skip128
-\c@subfigure=\count521
-\c@lofdepth=\count522
-\c@subtable=\count523
-\c@lotdepth=\count524
+\c@subfigure=\count522
+\c@lofdepth=\count523
+\c@subtable=\count524
+\c@lotdepth=\count525
 
 ****************************************
 * Local config file subfigure.cfg used *
@@ -1759,20 +2171,20 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfig@bottom=\skip130
 ) (c:/texlive/2025/texmf-dist/tex/latex/siunitx/siunitx.sty
 Package: siunitx 2025-07-09 v3.4.14 A comprehensive (SI) units package
-\l__siunitx_number_uncert_offset_int=\count525
-\l__siunitx_number_exponent_fixed_int=\count526
-\l__siunitx_number_min_decimal_int=\count527
-\l__siunitx_number_min_integer_int=\count528
-\l__siunitx_number_round_precision_int=\count529
-\l__siunitx_number_lower_threshold_int=\count530
-\l__siunitx_number_upper_threshold_int=\count531
-\l__siunitx_number_group_first_int=\count532
-\l__siunitx_number_group_size_int=\count533
-\l__siunitx_number_group_minimum_int=\count534
+\l__siunitx_number_uncert_offset_int=\count526
+\l__siunitx_number_exponent_fixed_int=\count527
+\l__siunitx_number_min_decimal_int=\count528
+\l__siunitx_number_min_integer_int=\count529
+\l__siunitx_number_round_precision_int=\count530
+\l__siunitx_number_lower_threshold_int=\count531
+\l__siunitx_number_upper_threshold_int=\count532
+\l__siunitx_number_group_first_int=\count533
+\l__siunitx_number_group_size_int=\count534
+\l__siunitx_number_group_minimum_int=\count535
 \l__siunitx_angle_tmp_dim=\dimen301
 \l__siunitx_angle_marker_box=\box96
 \l__siunitx_angle_unit_box=\box97
-\l__siunitx_compound_count_int=\count535
+\l__siunitx_compound_count_int=\count536
 \l__siunitx_table_tmp_box=\box98
 \l__siunitx_table_tmp_dim=\dimen302
 \l__siunitx_table_column_width_dim=\dimen303
@@ -1783,15 +2195,15 @@ Package: siunitx 2025-07-09 v3.4.14 A comprehensive (SI) units package
 \l__siunitx_table_after_box=\box103
 \l__siunitx_table_before_dim=\dimen304
 \l__siunitx_table_carry_dim=\dimen305
-\l__siunitx_unit_tmp_int=\count536
-\l__siunitx_unit_position_int=\count537
-\l__siunitx_unit_total_int=\count538
+\l__siunitx_unit_tmp_int=\count537
+\l__siunitx_unit_position_int=\count538
+\l__siunitx_unit_total_int=\count539
 ) (c:/texlive/2025/texmf-dist/tex/latex/acronym/acronym.sty
 Package: acronym 2025/01/17 v1.50 Support for acronyms (Tobias Oetiker)
  (c:/texlive/2025/texmf-dist/tex/latex/bigfoot/suffix.sty
 Package: suffix 2006/07/15 1.5a Variant command support
 )
-\AC@clearlist=\toks52
+\AC@clearlist=\toks53
 ) (c:/texlive/2025/texmf-dist/tex/latex/cleveref/cleveref.sty
 Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
 Package cleveref Info: `hyperref' support loaded on input line 2370.
@@ -1810,24 +2222,24 @@ Package cleveref Info: include cross-reference names in hyperlinks on input line
 )
 ==> First Aid for cleveref.sty applied!
 (c:/texlive/2025/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count539
+\lst@mode=\count540
 \lst@gtempboxa=\box104
-\lst@token=\toks53
-\lst@length=\count540
+\lst@token=\toks54
+\lst@length=\count541
 \lst@currlwidth=\dimen306
-\lst@column=\count541
-\lst@pos=\count542
+\lst@column=\count542
+\lst@pos=\count543
 \lst@lostspace=\dimen307
 \lst@width=\dimen308
-\lst@newlines=\count543
-\lst@lineno=\count544
+\lst@newlines=\count544
+\lst@lineno=\count545
 \lst@maxwidth=\dimen309
  (c:/texlive/2025/texmf-dist/tex/latex/listings/lstpatch.sty
 File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
 ) (c:/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
-\c@lstnumber=\count545
-\lst@skipnumbers=\count546
+\c@lstnumber=\count546
+\lst@skipnumbers=\count547
 \lst@framebox=\box105
 ) (c:/texlive/2025/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2025/11/14 1.11b listings configuration
@@ -1843,7 +2255,7 @@ Package: listings 2025/11/14 1.11b (Carsten Heinz)
 (c:/texlive/2025/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box106
-\sift@deathcycles=\count547
+\sift@deathcycles=\count548
 \@vwid@loff=\dimen310
 \@vwid@roff=\dimen311
 )
@@ -1871,45 +2283,45 @@ LaTeX Warning: Label `acro:OOP@cref' multiply defined.
 )
 \openout1 = `0-main-thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-Package scrbase Info: activating english \partname on input line 42.
-Package scrbase Info: activating english \chaptername on input line 42.
-Package scrbase Info: activating english \appendixname on input line 42.
-Package scrbase Info: activating english \figurename on input line 42.
-Package scrbase Info: activating english \tablename on input line 42.
-Package scrbase Info: activating english \contentsname on input line 42.
-Package scrbase Info: activating english \listfigurename on input line 42.
-Package scrbase Info: activating english \listtablename on input line 42.
-Package scrbase Info: activating english \bibname on input line 42.
-Package scrbase Info: activating english \indexname on input line 42.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+Package scrbase Info: activating english \partname on input line 40.
+Package scrbase Info: activating english \chaptername on input line 40.
+Package scrbase Info: activating english \appendixname on input line 40.
+Package scrbase Info: activating english \figurename on input line 40.
+Package scrbase Info: activating english \tablename on input line 40.
+Package scrbase Info: activating english \contentsname on input line 40.
+Package scrbase Info: activating english \listfigurename on input line 40.
+Package scrbase Info: activating english \listtablename on input line 40.
+Package scrbase Info: activating english \bibname on input line 40.
+Package scrbase Info: activating english \indexname on input line 40.
  (c:/texlive/2025/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 42.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 40.
  (c:/texlive/2025/texmf-dist/tex/latex/translations/translations-basic-dictionary-german.trsl
 File: translations-basic-dictionary-german.trsl (german translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `german'. on input line 42.
-Package hyperref Info: Link coloring OFF on input line 42.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `german'. on input line 40.
+Package hyperref Info: Link coloring OFF on input line 40.
 
 
 Package scrlayer-scrpage Warning: Very small head height detected!
@@ -1921,37 +2333,37 @@ Package scrlayer-scrpage Warning: Very small head height detected!
 (scrlayer-scrpage)                typearea option `headheight=15.95009pt'
 (scrlayer-scrpage)                \relax to avoid this warning.
 
-LaTeX Encoding Info:    Undeclare text command \textquotesingle (encoding TU) on input line 42.
-LaTeX Encoding Info:    Redeclaring text symbol \textquotesingle (encoding TS1) on input line 42.
+LaTeX Encoding Info:    Undeclare text command \textquotesingle (encoding TU) on input line 40.
+LaTeX Encoding Info:    Redeclaring text symbol \textquotesingle (encoding TS1) on input line 40.
 (c:/texlive/2025/texmf-dist/tex/latex/upquote/upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
 )
 Package babel Info: 'english' activates 'german' shorthands.
-(babel)             Reported on input line 42.
-Package scrbase Info: activating english \keywordsname on input line 42.
-Package scrbase Info: activating english \acronymname on input line 42.
-Package scrbase Info: activating english \acksname on input line 42.
-Package scrbase Info: activating english \subsectionautorefname on input line 42.
-Package scrbase Info: activating english \subsubsectionautorefname on input line 42.
-Package scrbase Info: activating english \subsubsubsectionautorefname on input line 42.
-Package scrbase Info: activating english \subfigureautorefname on input line 42.
-Package scrbase Info: activating english \jkureport@authorname on input line 42.
-Package scrbase Info: activating english \jkureport@submissiondepartmentname on input line 42.
-Package scrbase Info: activating english \jkureport@supervisorname on input line 42.
-Package scrbase Info: activating english \jkureport@firstsupervisorname on input line 42.
-Package scrbase Info: activating english \jkureport@secondsupervisorname on input line 42.
-Package scrbase Info: activating english \jkureport@thirdsupervisorname on input line 42.
-Package scrbase Info: activating english \jkureport@assistantsupervisorname on input line 42.
-Package scrbase Info: activating english \jkureport@phdthesisname on input line 42.
-Package scrbase Info: activating english \jkureport@mastersthesisname on input line 42.
-Package scrbase Info: activating english \jkureport@diplomathesisname on input line 42.
-Package scrbase Info: activating english \jkureport@bachelorsthesisname on input line 42.
-Package scrbase Info: activating english \jkureport@conferdegreename on input line 42.
-Package scrbase Info: activating english \jkureport@phdprogramname on input line 42.
-Package scrbase Info: activating english \jkureport@mastersprogramname on input line 42.
-Package scrbase Info: activating english \jkureport@diplomaprogramname on input line 42.
-Package scrbase Info: activating english \jkureport@bachelorsprogramname on input line 42.
-Package scrbase Info: activating english \jkureport@declarationname on input line 42.
+(babel)             Reported on input line 40.
+Package scrbase Info: activating english \keywordsname on input line 40.
+Package scrbase Info: activating english \acronymname on input line 40.
+Package scrbase Info: activating english \acksname on input line 40.
+Package scrbase Info: activating english \subsectionautorefname on input line 40.
+Package scrbase Info: activating english \subsubsectionautorefname on input line 40.
+Package scrbase Info: activating english \subsubsubsectionautorefname on input line 40.
+Package scrbase Info: activating english \subfigureautorefname on input line 40.
+Package scrbase Info: activating english \jkureport@authorname on input line 40.
+Package scrbase Info: activating english \jkureport@submissiondepartmentname on input line 40.
+Package scrbase Info: activating english \jkureport@supervisorname on input line 40.
+Package scrbase Info: activating english \jkureport@firstsupervisorname on input line 40.
+Package scrbase Info: activating english \jkureport@secondsupervisorname on input line 40.
+Package scrbase Info: activating english \jkureport@thirdsupervisorname on input line 40.
+Package scrbase Info: activating english \jkureport@assistantsupervisorname on input line 40.
+Package scrbase Info: activating english \jkureport@phdthesisname on input line 40.
+Package scrbase Info: activating english \jkureport@mastersthesisname on input line 40.
+Package scrbase Info: activating english \jkureport@diplomathesisname on input line 40.
+Package scrbase Info: activating english \jkureport@bachelorsthesisname on input line 40.
+Package scrbase Info: activating english \jkureport@conferdegreename on input line 40.
+Package scrbase Info: activating english \jkureport@phdprogramname on input line 40.
+Package scrbase Info: activating english \jkureport@mastersprogramname on input line 40.
+Package scrbase Info: activating english \jkureport@diplomaprogramname on input line 40.
+Package scrbase Info: activating english \jkureport@bachelorsprogramname on input line 40.
+Package scrbase Info: activating english \jkureport@declarationname on input line 40.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
  (c:/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx
@@ -1980,31 +2392,114 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file '0-main-thesis.bbl' found.
  (build/0-main-thesis.bbl)
-Package biblatex Info: Reference section=0 on input line 42.
-Package biblatex Info: Reference segment=0 on input line 42.
-\c@lstlisting=\count548
-Package tocbasic Info: setting babel extension for `lol' on input line 42.
+Package biblatex Info: Reference section=0 on input line 40.
+Package biblatex Info: Reference segment=0 on input line 40.
+\c@lstlisting=\count549
+Package tocbasic Info: setting babel extension for `lol' on input line 40.
 \scr@dte@lstlisting@maxnumwidth=\skip131
-LaTeX Font Info:    Font shape `TU/Euler-Math.otf(2)/m/n' will be
-(Font)              scaled to size 12.00128pt on input line 53.
-LaTeX Font Info:    Font shape `TU/Euler-Math.otf(2)/m/n' will be
-(Font)              scaled to size 8.40088pt on input line 53.
-LaTeX Font Info:    Font shape `TU/Euler-Math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00064pt on input line 53.
-LaTeX Font Info:    Font shape `TU/Euler-Math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 53.
-LaTeX Font Info:    Font shape `TU/Euler-Math.otf(3)/m/n' will be
-(Font)              scaled to size 8.3991pt on input line 53.
-LaTeX Font Info:    Font shape `TU/Euler-Math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 53.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 53.
+Requested font "cmr10" at 0.00043pt
+ -> c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+Requested font "[fonts/PublicSans-Regular.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 12.0pt
+ -> ./fonts/PublicSans-Regular.ttf
+Requested font "[fonts/PublicSans-Regular.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 8.0pt
+ -> ./fonts/PublicSans-Regular.ttf
+Requested font "[fonts/PublicSans-ExtraBold.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 8.0pt
+ -> ./fonts/PublicSans-ExtraBold.ttf
+Requested font "[fonts/PublicSans-ExtraBold.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 9.0pt
+ -> ./fonts/PublicSans-ExtraBold.ttf
+Requested font "[fonts/PublicSans-Regular.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 9.0pt
+ -> ./fonts/PublicSans-Regular.ttf
+Requested font "[fonts/PublicSans-Bold.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 9.0pt
+ -> ./fonts/PublicSans-Bold.ttf
+Requested font "[fonts/PublicSans-ExtraBold.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 12.0pt
+ -> ./fonts/PublicSans-ExtraBold.ttf
+Requested font "[fonts/PublicSans-ExtraBold.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 28.0pt
+ -> ./fonts/PublicSans-ExtraBold.ttf
+Requested font "[fonts/PublicSans-Regular.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 28.0pt
+ -> ./fonts/PublicSans-Regular.ttf
+Requested font "[fonts/PublicSans-Regular.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 14.0pt
+ -> ./fonts/PublicSans-Regular.ttf
+Requested font "[fonts/PublicSans-Regular.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 11.0pt
+ -> ./fonts/PublicSans-Regular.ttf
+LaTeX Font Info:    Font shape `TU/FiraMath-Regular.otf(1)/m/n' will be
+(Font)              scaled to size 8.64pt on input line 51.
+Requested font "[FiraMath-Regular.otf]/OT:script=math;language=dflt;+lnum;+tnum;+ssty=0;" at 8.64pt
+ -> c:/texlive/2025/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf
+LaTeX Font Info:    Font shape `TU/FiraMath-Regular.otf(1)/m/n' will be
+(Font)              scaled to size 6.96pt on input line 51.
+Requested font "[FiraMath-Regular.otf]/OT:script=math;language=dflt;+lnum;+tnum;+ssty=1;" at 6.96pt
+ -> c:/texlive/2025/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf
+Requested font "cmmi12" at 12.0pt
+ -> c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+Requested font "cmmi8" at 8.64pt
+ -> c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
+Requested font "cmmi6" at 6.96pt
+ -> c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
+LaTeX Font Info:    Font shape `TU/FiraMath-Regular.otf(2)/m/n' will be
+(Font)              scaled to size 12.00128pt on input line 51.
+Requested font "[FiraMath-Regular.otf]/OT:script=math;language=dflt;+lnum;+tnum;" at 12.00128pt
+ -> c:/texlive/2025/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf
+LaTeX Font Info:    Font shape `TU/FiraMath-Regular.otf(2)/m/n' will be
+(Font)              scaled to size 8.64091pt on input line 51.
+Requested font "[FiraMath-Regular.otf]/OT:script=math;language=dflt;+lnum;+tnum;+ssty=0;" at 8.64091pt
+ -> c:/texlive/2025/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf
+LaTeX Font Info:    Font shape `TU/FiraMath-Regular.otf(2)/m/n' will be
+(Font)              scaled to size 6.96074pt on input line 51.
+Requested font "[FiraMath-Regular.otf]/OT:script=math;language=dflt;+lnum;+tnum;+ssty=1;" at 6.96074pt
+ -> c:/texlive/2025/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf
+LaTeX Font Info:    Font shape `TU/FiraMath-Regular.otf(3)/m/n' will be
+(Font)              scaled to size 11.99872pt on input line 51.
+Requested font "[FiraMath-Regular.otf]/OT:script=math;language=dflt;+lnum;+tnum;" at 11.99872pt
+ -> c:/texlive/2025/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf
+LaTeX Font Info:    Font shape `TU/FiraMath-Regular.otf(3)/m/n' will be
+(Font)              scaled to size 8.63907pt on input line 51.
+Requested font "[FiraMath-Regular.otf]/OT:script=math;language=dflt;+lnum;+tnum;+ssty=0;" at 8.63907pt
+ -> c:/texlive/2025/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf
+LaTeX Font Info:    Font shape `TU/FiraMath-Regular.otf(3)/m/n' will be
+(Font)              scaled to size 6.95926pt on input line 51.
+Requested font "[FiraMath-Regular.otf]/OT:script=math;language=dflt;+lnum;+tnum;+ssty=1;" at 6.95926pt
+ -> c:/texlive/2025/texmf-dist/fonts/opentype/public/firamath/FiraMath-Regular.otf
+Requested font "[fonts/Merriweather-Regular.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 8.64pt
+ -> ./fonts/Merriweather-Regular.ttf
+Requested font "[fonts/Merriweather-Regular.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 6.96pt
+ -> ./fonts/Merriweather-Regular.ttf
+Requested font "[fonts/Merriweather-Italic.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 12.0pt
+ -> ./fonts/Merriweather-Italic.ttf
+Requested font "[fonts/Merriweather-Italic.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 8.64pt
+ -> ./fonts/Merriweather-Italic.ttf
+Requested font "[fonts/Merriweather-Italic.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 6.96pt
+ -> ./fonts/Merriweather-Italic.ttf
+LaTeX Font Info:    Trying to load font information for U+zeur on input line 51.
+ (c:/texlive/2025/texmf-dist/tex/latex/eulervm/uzeur.fd
+File: uzeur.fd 2005/01/11 v4.0 (WaS)
+)
+Requested font "zeurm10" at 12.0pt
+ -> c:/texlive/2025/texmf-dist/fonts/tfm/public/eulervm/zeurm10.tfm
+Requested font "zeurm7" at 8.64pt
+ -> c:/texlive/2025/texmf-dist/fonts/tfm/public/eulervm/zeurm7.tfm
+Requested font "zeurm7" at 6.96pt
+ -> c:/texlive/2025/texmf-dist/fonts/tfm/public/eulervm/zeurm7.tfm
+LaTeX Font Info:    Trying to load font information for U+msa on input line 51.
  (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 53.
+Requested font "msam10" at 12.0pt
+ -> c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+Requested font "msam10" at 8.64pt
+ -> c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+Requested font "msam7" at 6.96pt
+ -> c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+LaTeX Font Info:    Trying to load font information for U+msb on input line 51.
  (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+Requested font "msbm10" at 12.0pt
+ -> c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+Requested font "msbm10" at 8.64pt
+ -> c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+Requested font "msbm7" at 6.96pt
+ -> c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+
 
 Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                At least 15.95007pt needed,
@@ -2013,7 +2508,7 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                processing, but you should do this yourself,
 (scrlayer-scrpage)                e.g., setting typearea's option
 (scrlayer-scrpage)                `headheight=15.95007pt'.
-(scrlayer-scrpage)                I'll also decrease \topmargin on input line 53.
+(scrlayer-scrpage)                I'll also decrease \topmargin on input line 51.
 
 
 Overfull \vbox (1.72371pt too high) has occurred while \output is active []
@@ -2025,6 +2520,10 @@ Overfull \vbox (1.72371pt too high) has occurred while \output is active []
 
 ] (././000-abstract.tex
 chapter without number
+Requested font "[fonts/PublicSans-Bold.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 12.0pt
+ -> ./fonts/PublicSans-Bold.ttf
+Requested font "[fonts/PublicSans-Bold.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 24.88pt
+ -> ./fonts/PublicSans-Bold.ttf
 [2
 
 
@@ -2045,17 +2544,20 @@ Package cleveref Info: loaded `english' language definitions on input line 18.
 Package cleveref Info: loaded `english' language definitions on input line 1.
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
 Package cleveref Info: loaded `english' language definitions on input line 5.
-)
-\tf@toc=\write5
-\openout5 = `0-main-thesis.toc'.
-
  [4
 
 
 
 
-] (././01-introduction.tex
+])
+\tf@toc=\write5
+\openout5 = `0-main-thesis.toc'.
+
+Package cleveref Info: loaded `english' language definitions on input line 62.
+ [5] (././01-introduction.tex
 chapter 1.
+Requested font "[fonts/PublicSans-Bold.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 17.28pt
+ -> ./fonts/PublicSans-Bold.ttf
 Package acronym Info: Label `acro:OOP' newly defined as it shall be overridden
 although it is yet undefined on input line 13.
 Package acronym Info: Label `acro:DOP' newly defined as it shall be overridden
@@ -2100,6 +2602,8 @@ Package acronym Info: Label `acro:SoA' newly defined as it shall be overridden
 although it is yet undefined on input line 26.
 LaTeX Font Info:    Font shape `TU/Inconsolata(0)/m/n' will be
 (Font)              scaled to size 13.92004pt on input line 28.
+Requested font "[fonts/Inconsolata-Regular.ttf]/OT:script=latn;language=dflt;" at 13.92004pt
+ -> ./fonts/Inconsolata-Regular.ttf
  [4]
 Package acronym Info: Label `acro:GPR' newly defined as it shall be overridden
 although it is yet undefined on input line 37.
@@ -2119,6 +2623,14 @@ chapter 3.
 
 
 ]
+Requested font "[fonts/Merriweather-Regular.ttf]/OT:script=latn;language=dflt;" at 12.0pt
+ -> ./fonts/Merriweather-Regular.ttf
+Requested font "[fonts/Merriweather-Regular.ttf]/OT:script=latn;language=dflt;" at 8.64pt
+ -> ./fonts/Merriweather-Regular.ttf
+Requested font "[fonts/Merriweather-Regular.ttf]/OT:script=latn;language=dflt;" at 6.96pt
+ -> ./fonts/Merriweather-Regular.ttf
+Requested font "[fonts/PublicSans-BoldItalic.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 12.0pt
+ -> ./fonts/PublicSans-BoldItalic.ttf
 Package acronym Info: Label `acro:PC' newly defined as it shall be overridden
 although it is yet undefined on input line 32.
 
@@ -2135,14 +2647,26 @@ File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
 )
 LaTeX Font Info:    Font shape `TU/ttcondensed/m/n' will be
 (Font)              scaled to size 11.60004pt on input line 72.
+Requested font "[fonts/InconsolataCondensed-Regular.ttf]/OT:script=latn;language=dflt;" at 11.60004pt
+ -> ./fonts/InconsolataCondensed-Regular.ttf
+Requested font "[fonts/Merriweather-Regular.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 10.0pt
+ -> ./fonts/Merriweather-Regular.ttf
 LaTeX Font Info:    Font shape `TU/ttcondensed/m/n' will be
 (Font)              scaled to size 6.96002pt on input line 73.
+Requested font "[fonts/InconsolataCondensed-Regular.ttf]/OT:script=latn;language=dflt;" at 6.96002pt
+ -> ./fonts/InconsolataCondensed-Regular.ttf
 LaTeX Font Info:    Font shape `TU/ttcondensed/b/n' will be
 (Font)              scaled to size 11.60004pt on input line 73.
+Requested font "[fonts/InconsolataCondensed-Regular.ttf]/OT:script=latn;language=dflt;embolden=1.5;" at 11.60004pt
+ -> ./fonts/InconsolataCondensed-Regular.ttf
 LaTeX Font Info:    Font shape `TU/ttcondensed/m/it' will be
 (Font)              scaled to size 11.60004pt on input line 74.
+Requested font "[fonts/InconsolataCondensed-Regular.ttf]/OT:script=latn;language=dflt;slant=0.2;" at 11.60004pt
+ -> ./fonts/InconsolataCondensed-Regular.ttf
 LaTeX Font Info:    Font shape `TU/ttcondensed/m/n' will be
 (Font)              scaled to size 13.92004pt on input line 84.
+Requested font "[fonts/InconsolataCondensed-Regular.ttf]/OT:script=latn;language=dflt;" at 13.92004pt
+ -> ./fonts/InconsolataCondensed-Regular.ttf
  [13] [14
 
 ] [15] [16] [17] [18]
@@ -2157,6 +2681,8 @@ Underfull \hbox (badness 1028) in paragraph at lines 193--194
 
 Package acronym Info: Label `acro:CLI' newly defined as it shall be overridden
 although it is yet undefined on input line 201.
+Requested font "[fonts/Merriweather-Bold.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 12.0pt
+ -> ./fonts/Merriweather-Bold.ttf
 
 Underfull \hbox (badness 1789) in paragraph at lines 227--228
 []\TU/Merriweather(0)/m/n/12 The program itself does not contain the functionality of parameter
@@ -2198,12 +2724,20 @@ File: lstlang2.sty 2025/11/14 1.11b listings language file
 ) (c:/texlive/2025/texmf-dist/tex/latex/listings/lstlang3.sty
 File: lstlang3.sty 2025/11/14 1.11b listings language file
 )
+Requested font "[fonts/Merriweather-Regular.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 8.0pt
+ -> ./fonts/Merriweather-Regular.ttf
 LaTeX Font Info:    Font shape `TU/Inconsolata(0)/m/n' will be
 (Font)              scaled to size 9.28003pt on input line 69.
+Requested font "[fonts/Inconsolata-Regular.ttf]/OT:script=latn;language=dflt;" at 9.28003pt
+ -> ./fonts/Inconsolata-Regular.ttf
 LaTeX Font Info:    Font shape `TU/Inconsolata(0)/m/it' will be
 (Font)              scaled to size 9.28003pt on input line 70.
+Requested font "[fonts/Inconsolata-Regular.ttf]/OT:script=latn;language=dflt;slant=0.2;" at 9.28003pt
+ -> ./fonts/Inconsolata-Regular.ttf
 LaTeX Font Info:    Font shape `TU/Inconsolata(0)/b/n' will be
 (Font)              scaled to size 9.28003pt on input line 71.
+Requested font "[fonts/Inconsolata-Regular.ttf]/OT:script=latn;language=dflt;embolden=1.5;" at 9.28003pt
+ -> ./fonts/Inconsolata-Regular.ttf
  [24
 
 ] [25]
@@ -2218,13 +2752,18 @@ File: ./images/S2_spikes.pdf Graphic file (type pdf)
 Package acronym Info: Label `acro:CPI' newly defined as it shall be overridden
 although it is yet undefined on input line 217.
 
-Overfull \hbox (14.6406pt too wide) in paragraph at lines 222--239
+Overfull \hbox (24.09659pt too wide) in paragraph at lines 222--239
  [][] 
  []
 
 [29
 
 ]
+Overfull \hbox (0.94803pt too wide) detected at line 260
+$[][][][]$
+ []
+
+
 Underfull \hbox (badness 1253) in paragraph at lines 270--271
 \TU/Merriweather(0)/m/n/12 and irrelevant data decides the performance of an architecture. The
  []
@@ -2277,54 +2816,56 @@ chapter 7.
 ]
 chapter without number
 
-Underfull \hbox (badness 1072) in paragraph at lines 77--77
+Underfull \hbox (badness 1072) in paragraph at lines 75--75
 []\TU/Merriweather(0)/m/n/12 Tony Albrecht. 2009. Pitfalls of Object Oriented Programming.
  []
 
 LaTeX Font Info:    Font shape `TU/Inconsolata(0)/m/it' will be
-(Font)              scaled to size 13.92004pt on input line 76.
+(Font)              scaled to size 13.92004pt on input line 74.
+Requested font "[fonts/Inconsolata-Regular.ttf]/OT:script=latn;language=dflt;slant=0.2;" at 13.92004pt
+ -> ./fonts/Inconsolata-Regular.ttf
 [41
 
 
 
 
 ]
-Underfull \hbox (badness 1990) in paragraph at lines 77--77
+Underfull \hbox (badness 1990) in paragraph at lines 75--75
 []\TU/Merriweather(0)/m/n/12 John L. Hennessy and David A. Patterson. 2011. \TU/Merriweather(0)/m/it/12 Computer Ar-
  []
 
 
-Overfull \hbox (9.12048pt too wide) in paragraph at lines 77--77
+Overfull \hbox (9.12048pt too wide) in paragraph at lines 75--75
 []\TU/Merriweather(0)/m/n/12 Jenya705. 2026. Contiguous access (\TU/Inconsolata(0)/m/n/12 Query::contiguous_iter_mut\TU/Merriweather(0)/m/n/12 ).
  []
 
 
-Underfull \hbox (badness 1210) in paragraph at lines 77--77
+Underfull \hbox (badness 1210) in paragraph at lines 75--75
 \TU/Merriweather(0)/m/n/12 Press, San Francisco, CA. ISBN: 978-1-7185-0310-6. Retrieved
  []
 
 
-Underfull \hbox (badness 1142) in paragraph at lines 77--77
+Underfull \hbox (badness 1142) in paragraph at lines 75--75
 []\TU/Merriweather(0)/m/n/12 Daniel Kleppner and Robert J. Kolenkow. 2014. \TU/Merriweather(0)/m/it/12 An Introduction
  []
 
 
-Underfull \hbox (badness 1688) in paragraph at lines 77--77
+Underfull \hbox (badness 1688) in paragraph at lines 75--75
 \TU/Merriweather(0)/m/it/12 Oriented Design Principles on Performance and Cache Utilization\TU/Merriweather(0)/m/n/12 .
  []
 
-Package cleveref Info: loaded `english' language definitions on input line 76.
+Package cleveref Info: loaded `english' language definitions on input line 74.
 [42]
-Underfull \hbox (badness 3701) in paragraph at lines 77--77
+Underfull \hbox (badness 3701) in paragraph at lines 75--75
 \TU/Merriweather(0)/m/n/12 Kozhukhov, Matt Masten, Aleksei G. Cherkasov, and Nikolay
  []
 
 
-Underfull \hbox (badness 1888) in paragraph at lines 77--77
+Underfull \hbox (badness 1888) in paragraph at lines 75--75
 \TU/Merriweather(0)/m/n/12 Panchenko. 2013. Practical SIMD Vectorization Techniques for
  []
 
-Package cleveref Info: loaded `english' language definitions on input line 81.
+Package cleveref Info: loaded `english' language definitions on input line 76.
 [43] (build/0-main-thesis.lof
 Package cleveref Info: loaded `english' language definitions on input line 1.
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
@@ -2338,13 +2879,39 @@ Package cleveref Info: loaded `english' language definitions on input line 5.
 
 
 
+] (build/0-main-thesis.lol
+Package cleveref Info: loaded `english' language definitions on input line 1.
+Package cleveref Info: loaded `ngerman' language definitions on input line 3.
+Package cleveref Info: loaded `english' language definitions on input line 5.
+)
+\tf@lol=\write7
+\openout7 = `0-main-thesis.lol'.
+
+ [45
+
+
+
+
+] (build/0-main-thesis.lot
+Package cleveref Info: loaded `english' language definitions on input line 1.
+Package cleveref Info: loaded `ngerman' language definitions on input line 3.
+Package cleveref Info: loaded `english' language definitions on input line 5.
+)
+\tf@lot=\write8
+\openout8 = `0-main-thesis.lot'.
+
+ [46
+
+
+
+
 ] (././00-acronyms.tex
 chapter without number
 ) (c:/texlive/2025/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 ) (c:/texlive/2025/texmf-dist/tex/generic/stringenc/se-utf32be.def
 File: se-utf32be.def 2019/11/29 v1.12 stringenc: UTF-32BE
-) [45
+) [47
 
 
 
@@ -2367,12 +2934,12 @@ Package logreq Info: Writing requests to '0-main-thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 61965 strings out of 468174
- 1380696 string characters out of 5436827
- 2835617 words of memory out of 5000000
- 89771 multiletter control sequences out of 15000+600000
- 632938 words of font info for 148 fonts, out of 8000000 for 9000
+ 63025 strings out of 468174
+ 1399252 string characters out of 5436827
+ 2834554 words of memory out of 5000000
+ 90810 multiletter control sequences out of 15000+600000
+ 634003 words of font info for 154 fonts, out of 8000000 for 9000
  1350 hyphenation exceptions out of 8191
  130i,25n,137p,11247b,32833s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on build/0-main-thesis.xdv (49 pages, 1170348 bytes).
+Output written on build/0-main-thesis.xdv (52 pages, 1186764 bytes).

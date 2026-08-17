@@ -354,8 +354,8 @@ INPUT c:/texlive/2025/texmf-dist/tex/latex/fontawesome5/tufontawesomefree.fd
 INPUT c:/texlive/2025/texmf-dist/tex/latex/fontawesome5/tufontawesomebrands.fd
 INPUT c:/texlive/2025/texmf-dist/tex/latex/fontawesome5/tufontawesomebrands.fd
 INPUT c:/texlive/2025/texmf-dist/tex/latex/fontawesome5/tufontawesomebrands.fd
-INPUT c:/texlive/2025/texmf-dist/tex/latex/euler-math/euler-math.sty
-INPUT c:/texlive/2025/texmf-dist/tex/latex/euler-math/euler-math.sty
+INPUT c:/texlive/2025/texmf-dist/tex/latex/firamath-otf/firamath-otf.sty
+INPUT c:/texlive/2025/texmf-dist/tex/latex/firamath-otf/firamath-otf.sty
 INPUT c:/texlive/2025/texmf-dist/tex/latex/unicode-math/unicode-math.sty
 INPUT c:/texlive/2025/texmf-dist/tex/latex/unicode-math/unicode-math.sty
 INPUT c:/texlive/2025/texmf-dist/tex/latex/unicode-math/unicode-math-xetex.sty
@@ -376,6 +376,8 @@ INPUT c:/texlive/2025/texmf-dist/tex/latex/unicode-math/unicode-math-table.tex
 INPUT c:/texlive/2025/texmf-dist/tex/latex/unicode-math/unicode-math-table.tex
 INPUT ./fonts/PublicSans-Regular.ttf
 INPUT ./fonts/PublicSans-Regular.ttf
+INPUT c:/texlive/2025/texmf-dist/tex/latex/mathastext/mathastext.sty
+INPUT c:/texlive/2025/texmf-dist/tex/latex/mathastext/mathastext.sty
 INPUT ./logos/jku_k_black.pdf
 INPUT ./logos/jku_k_black.pdf
 INPUT ./logos/jku_k_white.pdf
@@ -522,6 +524,12 @@ INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
+INPUT c:/texlive/2025/texmf-dist/tex/latex/eulervm/uzeur.fd
+INPUT c:/texlive/2025/texmf-dist/tex/latex/eulervm/uzeur.fd
+INPUT c:/texlive/2025/texmf-dist/tex/latex/eulervm/uzeur.fd
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/eulervm/zeurm10.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/eulervm/zeurm7.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/eulervm/zeurm7.tfm
 INPUT c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 INPUT c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 INPUT c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -643,6 +651,14 @@ INPUT build/0-main-thesis.lof
 INPUT build/0-main-thesis.lof
 INPUT build/0-main-thesis.lof
 OUTPUT build/0-main-thesis.lof
+INPUT build/0-main-thesis.lol
+INPUT build/0-main-thesis.lol
+INPUT build/0-main-thesis.lol
+OUTPUT build/0-main-thesis.lol
+INPUT build/0-main-thesis.lot
+INPUT build/0-main-thesis.lot
+INPUT build/0-main-thesis.lot
+OUTPUT build/0-main-thesis.lot
 INPUT ./00-acronyms.tex
 INPUT ./00-acronyms.tex
 INPUT ././00-acronyms.tex
