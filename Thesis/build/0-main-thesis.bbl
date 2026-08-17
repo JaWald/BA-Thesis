@@ -91,6 +91,34 @@
       \verb https://www.gamedevs.org/uploads/pitfalls-of-object-oriented-programming.pdf
       \endverb
     \endentry
+    \entry{bevy_engine}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=da7e81fb21da9b24ef5bc2e9608d524d}{%
+           family={{Bevy Project Contributors}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{da7e81fb21da9b24ef5bc2e9608d524d}
+      \strng{fullhash}{da7e81fb21da9b24ef5bc2e9608d524d}
+      \strng{fullhashraw}{da7e81fb21da9b24ef5bc2e9608d524d}
+      \strng{bibnamehash}{da7e81fb21da9b24ef5bc2e9608d524d}
+      \strng{authorbibnamehash}{da7e81fb21da9b24ef5bc2e9608d524d}
+      \strng{authornamehash}{da7e81fb21da9b24ef5bc2e9608d524d}
+      \strng{authorfullhash}{da7e81fb21da9b24ef5bc2e9608d524d}
+      \strng{authorfullhashraw}{da7e81fb21da9b24ef5bc2e9608d524d}
+      \field{extraname}{1}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://bevy.org/}}
+      \field{note}{A data-driven game engine built in Rust}
+      \field{title}{Bevy Engine}
+      \field{urlday}{17}
+      \field{urlmonth}{8}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+    \endentry
     \entry{bevy_quickstart_ecs}{manual}{}{}
       \name{author}{1}{}{%
         {{hash=da7e81fb21da9b24ef5bc2e9608d524d}{%
@@ -108,7 +136,7 @@
       \strng{authornamehash}{da7e81fb21da9b24ef5bc2e9608d524d}
       \strng{authorfullhash}{da7e81fb21da9b24ef5bc2e9608d524d}
       \strng{authorfullhashraw}{da7e81fb21da9b24ef5bc2e9608d524d}
-      \field{extraname}{1}
+      \field{extraname}{2}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
       \field{labelnamesource}{author}
@@ -143,7 +171,7 @@
       \strng{authornamehash}{da7e81fb21da9b24ef5bc2e9608d524d}
       \strng{authorfullhash}{da7e81fb21da9b24ef5bc2e9608d524d}
       \strng{authorfullhashraw}{da7e81fb21da9b24ef5bc2e9608d524d}
-      \field{extraname}{2}
+      \field{extraname}{3}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
       \field{labelnamesource}{author}
@@ -389,44 +417,6 @@
       \verb 10.1088/1742-6596/1694/1/012035
       \endverb
     \endentry
-    \entry{harkonen2019advantages}{thesis}{}{}
-      \name{author}{1}{}{%
-        {{hash=4c7aaf198234e665ca87231c10f408df}{%
-           family={Härkönen},
-           familyi={H\bibinitperiod},
-           given={Toni},
-           giveni={T\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {Tampere University}%
-      }
-      \strng{namehash}{4c7aaf198234e665ca87231c10f408df}
-      \strng{fullhash}{4c7aaf198234e665ca87231c10f408df}
-      \strng{fullhashraw}{4c7aaf198234e665ca87231c10f408df}
-      \strng{bibnamehash}{4c7aaf198234e665ca87231c10f408df}
-      \strng{authorbibnamehash}{4c7aaf198234e665ca87231c10f408df}
-      \strng{authornamehash}{4c7aaf198234e665ca87231c10f408df}
-      \strng{authorfullhash}{4c7aaf198234e665ca87231c10f408df}
-      \strng{authorfullhashraw}{4c7aaf198234e665ca87231c10f408df}
-      \field{sortinit}{H}
-      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{month}{4}
-      \field{title}{Advantages and Implementation of Entity-Component-Systems}
-      \field{type}{Bachelor's thesis}
-      \field{urlday}{27}
-      \field{urlmonth}{7}
-      \field{urlyear}{2026}
-      \field{year}{2019}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://urn.fi/URN:NBN:fi:tty-201905231735
-      \endverb
-      \verb{url}
-      \verb https://urn.fi/URN:NBN:fi:tty-201905231735
-      \endverb
-    \endentry
     \entry{glam_vec3a}{manual}{}{}
       \name{author}{1}{}{%
         {{hash=5d1b3dd3ef6e5c6dde9d85240c47492f}{%
@@ -529,6 +519,71 @@
       \endverb
       \verb{url}
       \verb https://hex-rays.com/ida-free
+      \endverb
+    \endentry
+    \entry{hill1987aspects}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{hash=071adedc1fcf5c783d74f13b5e05c01a}{%
+           family={Hill},
+           familyi={H\bibinitperiod},
+           given={Mark\bibnamedelima Donald},
+           giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {University of California, Berkeley}%
+      }
+      \strng{namehash}{071adedc1fcf5c783d74f13b5e05c01a}
+      \strng{fullhash}{071adedc1fcf5c783d74f13b5e05c01a}
+      \strng{fullhashraw}{071adedc1fcf5c783d74f13b5e05c01a}
+      \strng{bibnamehash}{071adedc1fcf5c783d74f13b5e05c01a}
+      \strng{authorbibnamehash}{071adedc1fcf5c783d74f13b5e05c01a}
+      \strng{authornamehash}{071adedc1fcf5c783d74f13b5e05c01a}
+      \strng{authorfullhash}{071adedc1fcf5c783d74f13b5e05c01a}
+      \strng{authorfullhashraw}{071adedc1fcf5c783d74f13b5e05c01a}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{11}
+      \field{note}{Technical Report UCB/CSD 87/381}
+      \field{title}{Aspects of Cache Memory and Instruction Buffer Performance}
+      \field{type}{Ph.D. thesis}
+      \field{year}{1987}
+    \endentry
+    \entry{intel_sdm}{report}{}{}
+      \name{author}{1}{}{%
+        {{hash=b7f0fb90e404efb48f8a85a517dec3c9}{%
+           family={{Intel Corporation}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Intel Corporation}%
+      }
+      \strng{namehash}{b7f0fb90e404efb48f8a85a517dec3c9}
+      \strng{fullhash}{b7f0fb90e404efb48f8a85a517dec3c9}
+      \strng{fullhashraw}{b7f0fb90e404efb48f8a85a517dec3c9}
+      \strng{bibnamehash}{b7f0fb90e404efb48f8a85a517dec3c9}
+      \strng{authorbibnamehash}{b7f0fb90e404efb48f8a85a517dec3c9}
+      \strng{authornamehash}{b7f0fb90e404efb48f8a85a517dec3c9}
+      \strng{authorfullhash}{b7f0fb90e404efb48f8a85a517dec3c9}
+      \strng{authorfullhashraw}{b7f0fb90e404efb48f8a85a517dec3c9}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{253665-U92US}
+      \field{title}{Intel®{} 64 and IA-32 Architectures Software Developer's Manual, Volume 1: Basic Architecture}
+      \field{type}{techreport}
+      \field{urlday}{17}
+      \field{urlmonth}{8}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html
+      \endverb
+      \verb{url}
+      \verb https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html
       \endverb
     \endentry
     \entry{bevy_contiguous}{online}{}{}
@@ -756,62 +811,6 @@
       \verb https://docs.rs/cargo-show-asm/0.2.57
       \endverb
     \endentry
-    \entry{pennycook2013investigation}{article}{}{}
-      \name{author}{6}{}{%
-        {{hash=c9cec16187df6eb7f4db02b6d587d437}{%
-           family={Pennycook},
-           familyi={P\bibinitperiod},
-           given={Simon\bibnamedelima J.},
-           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
-        {{hash=f28f4e92d7d614a299732b0f8dd4dc83}{%
-           family={Hammond},
-           familyi={H\bibinitperiod},
-           given={Simon\bibnamedelima D.},
-           giveni={S\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
-        {{hash=c00d1f75f0b7317d8a5802fb070b92eb}{%
-           family={Wright},
-           familyi={W\bibinitperiod},
-           given={Steven\bibnamedelima A.},
-           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=b3cdfc99514bd139240d32cf4e39e1ee}{%
-           family={Herdman},
-           familyi={H\bibinitperiod},
-           given={J.\bibnamedelimi A.},
-           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=a82809f9493b9332c93bd802158aabaf}{%
-           family={Miller},
-           familyi={M\bibinitperiod},
-           given={I.},
-           giveni={I\bibinitperiod}}}%
-        {{hash=23b8640dbf6e120bddedaccef54a0814}{%
-           family={Jarvis},
-           familyi={J\bibinitperiod},
-           given={Stephen\bibnamedelima A.},
-           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-      }
-      \strng{namehash}{a9de66d31b6d7ecfa493fdd77435d20f}
-      \strng{fullhash}{44f4cc3daec027fea64afcb6036f9eda}
-      \strng{fullhashraw}{44f4cc3daec027fea64afcb6036f9eda}
-      \strng{bibnamehash}{44f4cc3daec027fea64afcb6036f9eda}
-      \strng{authorbibnamehash}{44f4cc3daec027fea64afcb6036f9eda}
-      \strng{authornamehash}{a9de66d31b6d7ecfa493fdd77435d20f}
-      \strng{authorfullhash}{44f4cc3daec027fea64afcb6036f9eda}
-      \strng{authorfullhashraw}{44f4cc3daec027fea64afcb6036f9eda}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of Parallel and Distributed Computing}
-      \field{number}{11}
-      \field{title}{An investigation of the performance portability of {OpenCL}}
-      \field{volume}{73}
-      \field{year}{2013}
-      \field{pages}{1439\bibrangedash 1450}
-      \range{pages}{12}
-      \verb{doi}
-      \verb 10.1016/j.jpdc.2012.07.005
-      \endverb
-    \endentry
     \entry{redmond2025ecs}{article}{}{}
       \name{author}{4}{}{%
         {{hash=a8983132d67e58bff0155b4a43d55818}{%
@@ -890,76 +889,6 @@
       \endverb
       \verb{url}
       \verb https://sourceware.org/glibc/manual/latest/html_mono/libc.html#Memory-Allocation-Tunables
-      \endverb
-    \endentry
-    \entry{tian2013simd}{inproceedings}{}{}
-      \name{author}{8}{}{%
-        {{hash=44b6a35e70f95867732f23c911062040}{%
-           family={Tian},
-           familyi={T\bibinitperiod},
-           given={Xinmin},
-           giveni={X\bibinitperiod}}}%
-        {{hash=854d9bdffc9d8c50e6df26b59b5a40d7}{%
-           family={Saito},
-           familyi={S\bibinitperiod},
-           given={Hideki},
-           giveni={H\bibinitperiod}}}%
-        {{hash=754ad92617ac06874c4b10af6a34117e}{%
-           family={Preis},
-           familyi={P\bibinitperiod},
-           given={Serguei},
-           giveni={S\bibinitperiod}}}%
-        {{hash=3ece5728947acc65f2a86d4a74224e4c}{%
-           family={Garcia},
-           familyi={G\bibinitperiod},
-           given={Eric\bibnamedelima N.},
-           giveni={E\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
-        {{hash=2442091e0b4ca14cf07cfa73a493eb1b}{%
-           family={Kozhukhov},
-           familyi={K\bibinitperiod},
-           given={Sergey},
-           giveni={S\bibinitperiod}}}%
-        {{hash=9d4829e38f094629d932dfd4b37b852c}{%
-           family={Masten},
-           familyi={M\bibinitperiod},
-           given={Matt},
-           giveni={M\bibinitperiod}}}%
-        {{hash=a85ed3903ac82f91153feb2c72b60d3e}{%
-           family={Cherkasov},
-           familyi={C\bibinitperiod},
-           given={Aleksei\bibnamedelima G.},
-           giveni={A\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
-        {{hash=0515524c64e9bc345234ffbb18c78eef}{%
-           family={Panchenko},
-           familyi={P\bibinitperiod},
-           given={Nikolay},
-           giveni={N\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Cambridge, MA, USA}%
-      }
-      \list{publisher}{1}{%
-        {IEEE}%
-      }
-      \strng{namehash}{ca2aceb0a21827aeecc1a63e430e53a9}
-      \strng{fullhash}{040c487f82582cb64cde4d08efd5a02b}
-      \strng{fullhashraw}{040c487f82582cb64cde4d08efd5a02b}
-      \strng{bibnamehash}{040c487f82582cb64cde4d08efd5a02b}
-      \strng{authorbibnamehash}{040c487f82582cb64cde4d08efd5a02b}
-      \strng{authornamehash}{ca2aceb0a21827aeecc1a63e430e53a9}
-      \strng{authorfullhash}{040c487f82582cb64cde4d08efd5a02b}
-      \strng{authorfullhashraw}{040c487f82582cb64cde4d08efd5a02b}
-      \field{sortinit}{T}
-      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{2013 {IEEE} International Symposium on Parallel {\&} Distributed Processing, Workshops and PhD Forum}
-      \field{title}{Practical {SIMD} Vectorization Techniques for Intel{®} Xeon Phi Coprocessors}
-      \field{year}{2013}
-      \field{pages}{1149\bibrangedash 1158}
-      \range{pages}{10}
-      \verb{doi}
-      \verb 10.1109/IPDPSW.2013.245
       \endverb
     \endentry
     \entry{wingqvist2022evaluating}{inproceedings}{}{}

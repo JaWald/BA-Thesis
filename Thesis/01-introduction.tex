@@ -1,24 +1,24 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% ── Introduction ───────────────────────────────────────────────────────────────────────
 \cleardoubleoddpage
 \chapter{Introduction}
 \label{sec:introduction}
 
-\section{Motivation}
+\paragraph{Motivation}
 \label{sec:introduction:motivation}
 In the past decades, processor speeds have vastly increased due to increased clock frequency and higher core counts, while DRAM has not been able to keep up. This phenomenon is colloquially known as the "memory wall". The resulting problem is that execution speed may no longer be limited by processing power, but by the processor having to wait for data from the DRAM \cite{drepper2007every}. To address this gap, modern software development has to take into consideration the underlying hardware constraints. 
 
-\section{The Shift to DOP}
+\paragraph{The Shift to DOP}
 \label{sec:introduction:shift-dop}
-\ac{OOP} has enjoyed wide adoption and is usually taught long before \ac{DOP} in most curricula. However, \ac{OOP} poses challenges when it comes to cache-optimization, for example, due to objects bundling data and logic, which leads to inefficient memory layouts and cache pollution \cite{harkonen2019advantages}. More modern approaches, such as \ac{DOP}, aim to  mitigate challenges such as these by decoupling logic and data. However, there are more mechanisms that \ac{DOP} employs to improve cache efficiency and execution time, some of the more significant ones being \ac{SIMD} vectorization (\Cref{sec:background:simd}) and use of the \ac{ECS} software architecture design pattern (\Cref{sec:background:ecs}).
+\ac{OOP} has enjoyed wide adoption and is usually taught long before \ac{DOP} in most curricula. However, \ac{OOP} poses challenges when it comes to cache-optimization, for example, due to objects bundling data and logic, which leads to inefficient memory layouts and cache pollution \cite{drepper2007every}. More modern approaches, such as \ac{DOP}, aim to  mitigate challenges such as these by decoupling logic and data. However, there are more mechanisms that \ac{DOP} employs to improve cache efficiency and execution time, some of the more significant ones being \ac{SIMD} vectorization (\Cref{sec:background:simd}) and use of the \ac{ECS} software architecture design pattern (\Cref{sec:background:ecs}).
 
-
-\section{Objectives and Methodology}
+\paragraph{Objectives and Methodology}
 \label{sec:introduction:objectives}
-The aim of this thesis is to measure the difference in execution time between \ac{OOP} and \ac{DOP} approaches, as the exact difference is hardly ever quantified. The created benchmarks aim to reflect realistic use cases and lean towards the gaming industry, as there has been a significant push in recent years to adopt the \ac{ECS} pattern. Rust will act as the programming language with the Bevy engine providing the framework. Rust provides memory safety without requiring a garbage collector \cite{klabnik2023rust}. The absence of garbage collection is especially desirable for benchmarking, as it eliminates nondeterministic collection pauses that would otherwise distort time measurements. Bevy builds directly on these properties. According to its documentation, Bevy ECS represents components as plain Rust structs and systems as ordinary functions, which the project contrasts with other Rust ECS implementations that often rely on more complex constructs such as lifetimes or builder
-patterns~\cite{bevy_quickstart_ecs}. This keeps the framework-based implementation close in form to the hand-written architectures it is compared against, which is
-desirable when the comparison is meant to isolate memory layout rather than API design.
+The aim of this thesis is to measure the difference in execution time between \ac{OOP} and \ac{DOP} approaches, as it is hardly ever quantified. The benchmarks lean towards the gaming industry, where there has been a significant push to adopt the \ac{ECS} pattern. Four architectures are implemented, spanning a spectrum from maximum pointer indirection to maximum contiguity. They are ordered so that each differs from the preceding one in primarily one property, isolating measured differences to it rather than to a combination of several.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+These architectures are \ac{PC}, \ac{AoS}, \ac{SoA} and Bevy ECS, where the former two represent \ac{OOP} and the latter two \ac{DOP} design. These architectures are measured in three scenarios, each of which isolates a different bottleneck: a compute-bound scenario, a memory-bound scenario, and one concerning allocation and deallocation. Because all architectures operate on an identical simulation, any measured difference can be attributed to the memory layout rather than to the workload. The results are further backed by machine-code inspection and profiling. 
+
+Rust acts as the programming language with the Bevy engine providing the framework. Rust provides memory safety without requiring a garbage collector \cite{klabnik2023rust}. The absence of garbage collection is especially desirable for benchmarking, as it eliminates nondeterministic collection pauses that would otherwise distort time measurements. Bevy builds directly on these properties. According to its documentation, Bevy ECS represents components as plain Rust structs and systems as ordinary functions, which the project contrasts with other Rust ECS implementations that often rely on more complex constructs such as lifetimes or builder patterns~\cite{bevy_quickstart_ecs}. This keeps the framework-based implementation close in form to the hand-written architectures it is compared against, which is desirable when the comparison is meant to isolate memory layout rather than API design.
+
+% ───────────────────────────────────────────────────────────────────────────────────────
 
 \acresetall

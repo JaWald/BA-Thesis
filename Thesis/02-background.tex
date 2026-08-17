@@ -1,72 +1,118 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ───────────────────────────────────────────────────────────────────────────────────────
 
 \cleardoubleoddpage
 \chapter{Background}
 \label{sec:background}
 This section describes the relevant parts of \ac{DOP}, which also include \ac{SIMD} vectorization and the \ac{ECS} design pattern, as they are integral to the nature of the systems under inspection. Furthermore, a brief overview of Rust and the Bevy engine is presented. 
 
+% ─── DOP ───────────────────────────────────────────────────────────────────────────────
 \section{Data-oriented Programming}
 \label{sec:background:dop}
-
-\begin{figure}[b]
-\centering
-\includegraphics[width=\linewidth]{images/aos_vs_soa}
-\caption{
-    Memory Layout Visualization: AoS vs. SoA (taken from \cite{pennycook2013investigation})
-}\label{fig:aos_vs_soa}
-\end{figure}
-
 The \ac{OOP} paradigm undoubtedly has many useful features such as encapsulation, polymorphism and inheritance. These features enable software developers to think of problems in terms of objects and their interactions, with objects ideally being self-contained. Due to this, programmers are able to easily reuse and maintain them without having to fear side effects \cite{albrecht2009pitfalls}. Nevertheless, objects encapsulating the entirety of their data and logic is a double-edged sword. 
 
-For example, a program that solely updates the position of some objects, where each object also holds further attributes, e.g. color or weight. Due to encapsulation, the CPU has to load all the data of these objects into its cache, even though it should only have to load the location for its computation. This phenomenon is often called "cache pollution" \cite{drepper2007every} which poses a problem due to another phenomenon called the "memory wall", which describes the growing
-gap between processor and memory speeds: as processor speed increases faster than memory speed, an increasing number of programs becomes limited not by clock
-frequency but by the time spent waiting for data from memory. Over the past decades, processor performance has improved far more quickly than
-memory speed. Wulf and McKee \cite{wulf1995hitting} illustrated this disparity in 1995, reporting an annual increase of roughly 80\,\% in processor speed against only 7\,\% for memory. While the exact rates have changed since, the underlying trend has persisted, and the resulting gap has become one of the biggest bottlenecks in high-performance computing, as the CPU often stays idle while waiting for data to be fetched from main memory  \cite{hennessy2011computer}.
+For example, consider a program that solely updates the \texttt{position} field of a number of objects, where each object also holds further attributes, e.g., \texttt{color} or \texttt{weight}. Due to encapsulation, the CPU has to load all the data of these objects into its cache, even though it should only have to load \texttt{position} for its computation. This phenomenon is often called "cache pollution" \cite{drepper2007every} which poses a problem due to another phenomenon called the "memory wall", which describes the growing gap between processor and memory speeds: as processor speed increases faster than memory speed, an increasing number of programs becomes limited not by clock frequency but by the time spent waiting for data from memory. Over the past decades, processor performance has improved far more quickly than memory speed. Wulf and McKee \cite{wulf1995hitting} illustrated this disparity in 1995, reporting an annual increase of roughly 80\,\% in processor speed against only 7\,\% for memory. While the exact rates have changed since, the underlying trend has persisted, and the resulting gap has become one of the biggest bottlenecks in high-performance computing, as the CPU often stays idle while waiting for data to be fetched from main memory  \cite{hennessy2011computer}.
 
 One of the most promising solutions to these problems is \ac{DOP}, as it aims to decouple data from logic and thus reduce cache pollution and the CPU idling \cite{fabian2018data}. \ac{DOP} improves CPU utilization by fundamentally changing how data is handled by moving away from the classical \ac{OOP} memory layout called \ac{AoS} and instead using a more optimized \ac{SoA} layout \cite{fabian2018data}. 
 
-In \Cref{fig:aos_vs_soa}, both memory layouts are compared. On the conceptual level, there are simply structs with data, e.g. objects with fields. The more conventional \ac{AoS} layout stores these structs sequentially within an array, thus the name. In contrast, the \ac{SoA} layout creates multiple arrays which contain only one type of field. As an example, one could want to manage 1000 \texttt{Person} objects which possess the fields \texttt{String name}, \texttt{float weight} and \texttt{Color hairColor}. The \ac{AoS} layout would result in a \texttt{Person} Array with 1000 entries. Contrarily, the \ac{SoA} layout would result in three arrays, one of type \texttt{String} containing the \texttt{name} values of all 1000 \texttt{Person} instances. Similarly, an array is created for \texttt{weight} and \texttt{hairColor}. 
-
-This is due to CPU caches exploiting a principle called spatial locality. Drepper argues \cite{drepper2007every} that since neighboring data is likely to be used together, it should be loaded into the cache together. This is what the entire idea of \ac{SoA} is based upon. If one wants to perform a read or write operation on only the \texttt{name} of these 1000 \texttt{Person} instances, the CPU can load much more relevant data than with the \ac{AoS} layout, as the cache is not clogged by the irrelevant \texttt{weight} and \texttt{hairColor} data. Thus, while the \ac{SoA} layout might appear confusing to programmers used to the \ac{AoS} layout, it is necessary in order to properly achieve the performance gains granted by \ac{SIMD} vectorization.
-
-\section{Caching and CPU-Architecture}
-\label{sec:background:cache}
-
-\section{Data-Level Parallelism via SIMD}
-\label{sec:background:simd}
-Traditionally, to perform operations on data, the CPU has to load these values into a \ac{GPR}. These usually have a fixed size of 32-bit or 64-bit, meaning an instruction can operate on two values of this size at once. For example, assuming a 32-bit environment, a scalar add instruction can add no more than two 32-bit values per cycle. 
-
-In order to overcome this limitation, modern CPUs contain specialized \ac{SIMD} vector units. These units use much wider registers, such as the 512-bit registers found in the Intel MIC architecture, which allow the CPU to treat a single register as a vector of values. By using 512-bit registers, operations can be performed on up to 16 single-precision or 8 double-precision floating-point values in parallel \cite{tian2013simd}. On consumer grade CPUs, the AVX2 instruction set is widely adopted, using 256-bit registers.
-
-This effectively parallelizes the computation and significantly increases throughput, under the condition that the data is laid out in memory as explained in \Cref{sec:background:dop}.
-When looking at the memory layouts in \Cref{fig:aos_vs_soa} it becomes clear why \ac{SIMD} vectorization can only bring significant performance gains when the data is stored in a \ac{SoA} layout. If the data was instead organized as in the \ac{AoS} layout, \ac{SIMD} units could not be fed with packed, homogenous data, causing the cache to be filled with irrelevant data that hinders the aspired parallel execution of operations. To achieve the outlined hardware efficiencies without the programmer having to manually manage memory, the \ac{ECS} design pattern may be employed.
-
-\section{Entity Component Systems}
-\label{sec:background:ecs}
-As the presentation by Bilas \cite{bilas2002data} at the Game Developers Conference in 2002 shows, there has been a desperate need for the \ac{ECS} pattern since at least the early 2000s. He explains that with increasing complexity of game systems, the resulting hardcoded class tree must undergo repeated refactoring and will naturally stray further and further from clean \ac{OOP} principles. He noticed that when re-examining the problem of complex object schemes or structures, that he could also view it as a database and that in the end, only the data matters. 
-
-This data-centric perspective is the essence of the \ac{ECS} pattern. It encourages clean separation of data and logic by employing a 3-level architecture as can be seen in \Cref{fig:ecs}. (1) Entities can be viewed as an identifier value to which components may be attributed. (2) A Component is a domain-specific datatype and its value is comparable to the field value of an object. One entity may possess multiple components. (3) Lastly, a system is a domain-specific piece of logic or behavior. This system performs computations on entities and their components. Entities and Components represent a game state, with the Systems performing the transitions between states \cite{redmond2025ecs}. 
-
-As an example, we revisit the \texttt{Person} objects from \Cref{sec:background:dop}. We discussed that the \ac{SoA} memory layout would greatly improve performance, but we did not explain how this layout would be achieved. Traditionally, one would define a \texttt{Person} class with fields and methods and then instantiate objects. To transform this into a \ac{SoA} memory layout, the \ac{ECS} pattern is applied as follows: 
-
-\begin{itemize}
-    \item Entities are created as unique identifiers. 
-    \item Components such as \texttt{name}, \texttt{weight} and \texttt{hairColor} are associated with these entities. In an archetype based ECS like Bevy, this ensures that all \texttt{weight} components are stored in a contiguous array, separate from \texttt{hairColor} \cite{bevy_storage}. 
-    \item  Lastly, Systems are defined to perform transformations by querying for entities that possess a certain set of components. For example, updating the \texttt{hairColor} component of all \texttt{Person} instances that possess the \texttt{name} and \texttt{hairColor} components. This allows the system to iterate over a tightly packed array of only relevant data, enabling the use of \ac{SIMD} instructions.
-\end{itemize}
-
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.75\linewidth]{images/ecs}
-\caption{
-    Visualization of the \ac{ECS} pattern depicting (1) Entities, (2) Components and (3) Systems (taken from \cite{redmond2025ecs})
-}\label{fig:ecs}
+\definecolor{pcol}{RGB}{245,178,178}
+\definecolor{vcol}{RGB}{206,206,236}
+\definecolor{mcol}{RGB}{198,164,198}
+\begin{tikzpicture}[
+  cell/.style={draw, thin, minimum width=7.0mm, minimum height=6.4mm,
+               font=\small, inner sep=0pt, outer sep=0pt},
+  pc/.style={cell, fill=pcol},
+  vc/.style={cell, fill=vcol},
+  mc/.style={cell, fill=mcol},
+  subhead/.style={font=\sffamily\small\bfseries},
+  dots/.style={font=\small, inner sep=1pt},
+]
+\def\xs{4.4}\def\cw{0.70}\def\gap{0.55}\def\yaos{0.55}\def\ysoa{-0.78}
+\pgfmathsetmacro\xmid{\xs+4*\cw+\gap/2}
+% left: conceptual
+\node[align=left, font=\ttfamily\small, inner sep=0pt] (code) at (0.0,-0.15) {%
+  {\color{blue!70!black}\textbf{struct}} Planet \{\\
+  \hspace*{1.5em}position: {\color{teal!65!black}Vec3},\\
+  \hspace*{1.5em}velocity: {\color{teal!65!black}Vec3},\\
+  \hspace*{1.5em}mass: {\color{teal!65!black}f32},\\
+  \}%
+};
+% arrow
+\draw[-{Stealth[length=3.5mm,width=4.5mm]}, line width=1.1mm, black!45]
+  ([xshift=5mm]code.east) -- ++(1.2,0);
+% right: physical
+\begin{scope}[yshift=-1mm]
+  % --- AoS: contiguous planets, trailing ellipsis ---
+  \foreach [count=\i from 0] \lab/\sty in {%
+     p_1/pc, v_1/vc, m_1/mc, p_2/pc, v_2/vc, m_2/mc, p_3/pc, v_3/vc, m_3/mc} {
+     \pgfmathsetmacro\xx{\xs+0.4+\i*\cw}
+     \node[\sty] at (\xx,\yaos) {$\lab$};
+  }
+  \pgfmathsetmacro\xaosend{\xs+8*\cw+0.6+0.4}
+  \node[dots] at (\xaosend,\yaos) {$\cdots$};
+  % --- SoA: three field arrays separated by ellipses ---
+  \pgfmathsetmacro\vbase{\xs+3*\cw+\gap}
+  \pgfmathsetmacro\mbase{\xs+6*\cw+2*\gap}
+  \foreach [count=\j from 0] \k in {1,2,3} {\pgfmathsetmacro\xx{\xs+\j*\cw}\node[pc] at (\xx,\ysoa) {$p_\k$};}
+  \foreach [count=\j from 0] \k in {1,2,3} {\pgfmathsetmacro\xx{\vbase+\j*\cw}\node[vc] at (\xx,\ysoa) {$v_\k$};}
+  \foreach [count=\j from 0] \k in {1,2,3} {\pgfmathsetmacro\xx{\mbase+\j*\cw}\node[mc] at (\xx,\ysoa) {$m_\k$};}
+  \pgfmathsetmacro\xea{(\xs+2*\cw+\vbase)/2}
+  \pgfmathsetmacro\xeb{(\vbase+2*\cw+\mbase)/2}
+  \node[dots] at (\xea,\ysoa) {$\cdots$};
+  \node[dots] at (\xeb,\ysoa) {$\cdots$};
+  % subheads
+  \node[subhead] at (\xmid+0.30,{\yaos+0.60}) {Array of Structures (AoS)};
+  \node[subhead] at (\xmid+0.30,{\ysoa+0.60}) {Structure of Arrays (SoA)};
+\end{scope}
+\end{tikzpicture}
+\caption{Conceptual \texttt{Planet} struct (left) and the corresponding physical memory layouts (right)}
+\label{fig:background:memory-layout}
 \end{figure}
 
+In \Cref{fig:background:memory-layout}, both memory layouts are compared. On the conceptual level, there are simply structs with data, e.g., objects with fields. The more conventional \ac{AoS} layout stores these structs sequentially within an array, thus the name. In contrast, the \ac{SoA} layout creates multiple arrays which contain only one type of field. As an example, one could manage \num{1000} \texttt{Planet} objects that possess the fields \texttt{position}, \texttt{velocity} (each a \texttt{Vec3}) and \texttt{mass} (an \texttt{f32}). The \ac{AoS} layout stores these as a single array of \num{1000} \texttt{Planet} entries, with each planet's \texttt{position}, \texttt{velocity} and \texttt{mass} kept adjacently in memory. The \ac{SoA} layout instead uses one array per field: one holding the \texttt{position} of every planet, one for \texttt{velocity} and one for \texttt{mass}. This \texttt{Planet} struct loosely represents the structs used in the benchmarks. However, the \texttt{mass} field is replaced by a variably sized payload (see \Cref{sec:benchmarks:simulation}).
+
+The reason this layout matters lies in a principle called spatial locality. Drepper argues \cite{drepper2007every} that since neighboring data is likely to be used together, it should be loaded into the cache together. This is what the entire idea of \ac{SoA} is based upon. If one wants to perform a read or write operation on only the \texttt{position} and \texttt{velocity} of these \num{1000} planets, the CPU can load much more relevant data than with the \ac{AoS} layout, as the cache is not clogged by the irrelevant \texttt{mass} data. Thus, while the \ac{SoA} layout might appear confusing to programmers used to the \ac{AoS} layout, it is necessary in order to properly achieve the performance gains granted by \ac{SIMD} vectorization.
+
+% ─── Cache ─────────────────────────────────────────────────────────────────────────────
+\section{CPU Caches}
+\label{sec:background:cache}
+As has been established, processor speeds have outgrown DRAM speeds. To reduce the time the CPU spends waiting on data from DRAM, CPU caches are used. The goal of a CPU cache is to hold data that has been recently used and is likely to be used again in the near future \cite{hill1987aspects}. A typical CPU cache hierarchy is separated into three layers, called L1, L2 and L3, with the L1 cache being further split into a data cache and an instruction cache. From L1 to L3, each cache layer becomes slower but grows bigger in size \cite{drepper2007every}.
+
+A cache does not transfer data in single bytes but in fixed-size blocks called cache lines, which are usually \qty{64}{\byte} in size \cite{drepper2007every}. Because a cache line is the smallest unit that can be transferred, no smaller piece of data, e.g., only the \qty{24}{\byte} of a planet's position and velocity, can be loaded on its own. The surrounding bytes of the same line are always fetched as well. The data at hand is therefore ideally laid out contiguously, so that the cache lines are filled with relevant rather than irrelevant data, as it would otherwise result in cache pollution.
+
+A cache is additionally organized as a number of sets, and every memory block maps to exactly one set, determined by its address. Within that set the block may occupy any one of $n$ slots, called ways, which makes the cache $n$-way set associative \cite{hennessy2011computer}. When more blocks map to the same set than it has ways, they evict one another and must be reloaded on their next access, even though the cache as a whole is not full. Such a conflict miss \cite{hill1987aspects} therefore depends not on how much data is accessed, but on how the accessed addresses distribute across the sets, which becomes relevant in \Cref{sec:evaluation:scenario2}.
+
+% ─── SIMD ──────────────────────────────────────────────────────────────────────────────
+\section{Data-Level Parallelism via SIMD}
+\label{sec:background:simd}
+Traditionally, to perform an operation on data, the CPU loads the operands into a \ac{GPR} and computes a single result. Such registers hold one value of fixed width, on modern processors typically \qty{64}{\bit}, so that a scalar instruction like an addition consumes two operands and produces exactly one result per operation. Therefore, throughput is bound by one result per instruction, regardless of how many data elements have to be processed. In order to overcome this limitation, modern CPUs contain specialized \ac{SIMD} vector units.
+
+These units use much wider registers that the CPU treats as a vector of several values, applying a single instruction to all of them at once. The AVX2 instruction set, widely available on current consumer CPUs, provides \qty{256}{\bit} registers, which hold eight single-precision or four double-precision floating-point values \cite{intel_sdm}. This doubles the width of the preceding \qty{128}{\bit} SSE extension, and is doubled again by AVX-512. Although the examples in this thesis concern floating-point data, the same principle applies to integer operations.
+
+This effectively parallelizes the computation and significantly increases throughput, under the condition that the data is laid out in memory as explained in \Cref{sec:background:dop}.
+In a \ac{SoA} layout, the values of a single field are stored contiguously and can be loaded directly into a vector register. In an \ac{AoS} layout, the same values are separated by the other fields of each struct, so the vector unit cannot be fed as intended and vectorization is inhibited. Thus, whether the compiler can vectorize a loop is a direct consequence of the memory layout. To achieve these hardware efficiencies without the programmer having to manually manage memory, the \ac{ECS} design pattern may be employed.
+
+% ─── ECS ───────────────────────────────────────────────────────────────────────────────
+\section{Entity Component Systems}
+\label{sec:background:ecs}
+As the presentation by Bilas \cite{bilas2002data} at the Game Developers Conference in 2002 shows, there has been a desperate need for the \ac{ECS} pattern since at least the early 2000s. He explains that with increasing complexity of game systems, the resulting hardcoded class tree must undergo repeated refactoring and will naturally stray further and further from clean \ac{OOP} principles. He noticed that when re-examining the problem of complex object schemes or structures, he could also view it as a database and that in the end, only the data matters.
+
+This data-centric perspective is the essence of the \ac{ECS} pattern. It encourages a clean separation of data and logic by distributing these across three kinds of constructs: entities, components and systems. An \emph{entity} is an identifier value to which components may be attributed. A \emph{component} is a domain-specific datatype whose value is comparable to the field value of an object, and a single entity may possess multiple components. Lastly, a \emph{system}, is a domain-specific piece of logic that performs computations on entities and their components. Entities and components represent a game state, with the systems performing the transitions between states \cite{redmond2025ecs}.
+
+As an example, we revisit the \texttt{Planet} objects from \Cref{sec:background:dop}. We discussed that the \ac{SoA} memory layout would greatly improve performance, but not how this layout would be achieved. Traditionally, one would define a \texttt{Planet} class with fields and methods and then instantiate objects. To transform this into a \ac{SoA} memory layout, the \ac{ECS} pattern is applied as follows:
+
+\begin{itemize}
+    \item Entities are created as unique identifiers.
+    \item Components such as \texttt{position}, \texttt{velocity} and \texttt{mass} are associated with these entities. In an archetype-based ECS like Bevy, this ensures that all \texttt{position} components are stored in a contiguous array, separate from \texttt{velocity} and \texttt{mass} \cite{bevy_storage}.
+    \item Systems are defined to perform transformations by querying for entities that possess a certain set of components. For example, a system may update the \texttt{position} component of all \texttt{Planet} instances that possess a \texttt{position} and a \texttt{velocity} component. This allows the system to iterate over a tightly packed array of only relevant data, enabling the use of \ac{SIMD} instructions and filling the CPU cache with only relevant data.
+\end{itemize}
+
+% ─── Rust ──────────────────────────────────────────────────────────────────────────────
 \section{Rust and Bevy engine}
 \label{sec:background:rustandbevy}
-Rust is a systems programming language which provides performance comparable to C++ and memory safety through its unique ownership system. The compiler enforces strict rules on how data may be accessed and modified at compile-time. By doing so, Rust eliminates entire classes of bugs such as data races, and without requiring a garbage collector \cite{klabnik2023rust}.
+Rust \cite{klabnik2023rust} is a systems programming language which provides performance comparable to C++ and memory safety through its unique ownership system. The compiler enforces strict rules on how data may be accessed and modified at compile-time. By doing so, Rust eliminates entire classes of bugs such as data races, and does so without a garbage collector, whose collection pauses would otherwise be undesirable for benchmarking \cite{klabnik2023rust}.
 
-The Bevy engine expands upon this foundation, using an archetype-based \ac{ECS} framework that prioritizes performance and modularity. Archetypes group entities with identical combinations of components, which enforces the \ac{SoA} memory layout \cite{bevy_storage}. 
+Bevy \cite{bevy_engine} is a data-driven game engine written in Rust, built around an archetype-based \ac{ECS} as its core abstraction \cite{bevy_quickstart_ecs}. It expands upon Rust's foundation with a framework that prioritizes performance and modularity: archetypes group entities with identical combinations of components, storing each component in a contiguous, per-component array and thereby enforcing the \ac{SoA} memory layout \cite{bevy_storage}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
