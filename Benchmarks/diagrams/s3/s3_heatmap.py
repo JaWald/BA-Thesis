@@ -11,7 +11,7 @@ tcache = 'on'
 suffix = f'_w-{warmups}_i-{iterations}_s-{samples}_r-{reuse}'
 variant = 'reuse' if reuse == 'true' else 'drop'
 
-architecture = 'Bevy'
+architecture = 'PC___'
 file = f'csv/tcache_{tcache}/{architecture}{suffix}.csv'
 df = pd.read_csv(file)
 
@@ -40,7 +40,7 @@ sns.heatmap(
     square=False,
     linewidths=0,
     linecolor='none',
-    rasterized=False,
+    rasterized=True,
 )
 
 ax.invert_yaxis()
