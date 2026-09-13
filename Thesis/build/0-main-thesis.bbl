@@ -891,6 +891,36 @@
       \verb https://sourceware.org/glibc/manual/latest/html_mono/libc.html#Memory-Allocation-Tunables
       \endverb
     \endentry
+    \entry{mold}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=2b47aeb004129493af9e9d035665c7fb}{%
+           family={Ueyama},
+           familyi={U\bibinitperiod},
+           given={Rui},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{2b47aeb004129493af9e9d035665c7fb}
+      \strng{fullhash}{2b47aeb004129493af9e9d035665c7fb}
+      \strng{fullhashraw}{2b47aeb004129493af9e9d035665c7fb}
+      \strng{bibnamehash}{2b47aeb004129493af9e9d035665c7fb}
+      \strng{authorbibnamehash}{2b47aeb004129493af9e9d035665c7fb}
+      \strng{authornamehash}{2b47aeb004129493af9e9d035665c7fb}
+      \strng{authorfullhash}{2b47aeb004129493af9e9d035665c7fb}
+      \strng{authorfullhashraw}{2b47aeb004129493af9e9d035665c7fb}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2026-09-13}
+      \field{title}{mold: A Modern Linker}
+      \field{year}{2026}
+      \verb{urlraw}
+      \verb https://github.com/rui314/mold
+      \endverb
+      \verb{url}
+      \verb https://github.com/rui314/mold
+      \endverb
+    \endentry
     \entry{wingqvist2022evaluating}{inproceedings}{}{}
       \name{author}{3}{}{%
         {{hash=82eed216c53cd07a2081d3eb9f7e19ba}{%

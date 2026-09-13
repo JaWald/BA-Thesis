@@ -16,56 +16,56 @@
 \contentsline {chapter}{\numberline {3}Benchmark Design and Implementation}{8}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Simulation}{8}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Evaluated Architectures}{9}{section.3.2}%
-\contentsline {paragraph}{\nonumberline (1) \ac {PC}}{10}{paragraph*.22}%
-\contentsline {paragraph}{\nonumberline (2) Array of Structures (AoS)}{10}{paragraph*.24}%
-\contentsline {paragraph}{\nonumberline (3) Structure of Arrays (SoA)}{11}{paragraph*.25}%
-\contentsline {paragraph}{\nonumberline (4) Bevy ECS}{11}{paragraph*.26}%
-\contentsline {paragraph}{\nonumberline Vector Types and Comparability}{12}{paragraph*.27}%
+\contentsline {paragraph}{\nonumberline (1) \ac {PC}}{10}{paragraph*.23}%
+\contentsline {paragraph}{\nonumberline (2) Array of Structures}{10}{paragraph*.25}%
+\contentsline {paragraph}{\nonumberline (3) Structure of Arrays}{11}{paragraph*.26}%
+\contentsline {paragraph}{\nonumberline (4) Bevy ECS}{11}{paragraph*.27}%
+\contentsline {paragraph}{\nonumberline Vector Types and Comparability}{12}{paragraph*.28}%
 \contentsline {section}{\numberline {3.3}Scenario 1: Compute-Bound}{12}{section.3.3}%
-\contentsline {paragraph}{\nonumberline Parametrization}{13}{paragraph*.28}%
-\contentsline {paragraph}{\nonumberline Update Logic}{13}{paragraph*.29}%
-\contentsline {paragraph}{\nonumberline Verification}{15}{paragraph*.30}%
+\contentsline {paragraph}{\nonumberline Parametrization}{13}{paragraph*.29}%
+\contentsline {paragraph}{\nonumberline Update Logic}{13}{paragraph*.30}%
+\contentsline {paragraph}{\nonumberline Verification}{15}{paragraph*.31}%
 \contentsline {section}{\numberline {3.4}Scenario 2: Memory-Bound}{15}{section.3.4}%
-\contentsline {paragraph}{\nonumberline Parametrization}{16}{paragraph*.31}%
-\contentsline {paragraph}{\nonumberline Update Logic}{16}{paragraph*.32}%
-\contentsline {paragraph}{\nonumberline Verification}{17}{paragraph*.33}%
+\contentsline {paragraph}{\nonumberline Parametrization}{16}{paragraph*.32}%
+\contentsline {paragraph}{\nonumberline Update Logic}{16}{paragraph*.33}%
+\contentsline {paragraph}{\nonumberline Verification}{17}{paragraph*.34}%
 \contentsline {section}{\numberline {3.5}Scenario 3: Allocation and Deallocation}{17}{section.3.5}%
-\contentsline {paragraph}{\nonumberline Parametrization}{18}{paragraph*.34}%
-\contentsline {paragraph}{\nonumberline Update Logic}{18}{paragraph*.35}%
-\contentsline {paragraph}{\nonumberline Verification}{19}{paragraph*.36}%
+\contentsline {paragraph}{\nonumberline Parametrization}{18}{paragraph*.35}%
+\contentsline {paragraph}{\nonumberline Update Logic}{18}{paragraph*.36}%
+\contentsline {paragraph}{\nonumberline Verification}{19}{paragraph*.37}%
 \contentsline {section}{\numberline {3.6}Execution and Configuration}{19}{section.3.6}%
 \contentsline {chapter}{\numberline {4}Evaluation}{21}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Methodology}{21}{section.4.1}%
-\contentsline {paragraph}{\nonumberline Hardware}{21}{paragraph*.39}%
-\contentsline {paragraph}{\nonumberline Environment}{21}{paragraph*.41}%
+\contentsline {paragraph}{\nonumberline Hardware}{21}{paragraph*.41}%
+\contentsline {paragraph}{\nonumberline Environment}{21}{paragraph*.43}%
 \contentsline {paragraph}{\nonumberline Build/Compiler}{22}{paragraph*.44}%
 \contentsline {paragraph}{\nonumberline Measurement Protocol}{22}{paragraph*.45}%
 \contentsline {section}{\numberline {4.2}Scenario 1: Compute-Bound}{23}{section.4.2}%
-\contentsline {paragraph}{\nonumberline Scaling Behavior}{23}{paragraph*.46}%
-\contentsline {paragraph}{\nonumberline Assembly Analysis}{24}{paragraph*.47}%
-\contentsline {paragraph}{\nonumberline Interpretation}{26}{paragraph*.48}%
+\contentsline {paragraph}{\nonumberline Scaling Behavior}{23}{paragraph*.47}%
+\contentsline {paragraph}{\nonumberline Assembly Analysis}{24}{paragraph*.49}%
+\contentsline {paragraph}{\nonumberline Interpretation}{26}{paragraph*.54}%
 \contentsline {section}{\numberline {4.3}Scenario 2: Memory-Bound}{26}{section.4.3}%
-\contentsline {paragraph}{\nonumberline Scaling Behavior}{26}{paragraph*.49}%
-\contentsline {paragraph}{\nonumberline Cache Analysis}{28}{paragraph*.50}%
-\contentsline {paragraph}{\nonumberline Interpretation}{30}{paragraph*.52}%
+\contentsline {paragraph}{\nonumberline Scaling Behavior}{26}{paragraph*.55}%
+\contentsline {paragraph}{\nonumberline Cache Analysis}{28}{paragraph*.58}%
+\contentsline {paragraph}{\nonumberline Interpretation}{30}{paragraph*.63}%
 \contentsline {section}{\numberline {4.4}Scenario 3: Allocation and Deallocation}{31}{section.4.4}%
-\contentsline {paragraph}{\nonumberline Scaling Behavior (Reuse)}{31}{paragraph*.53}%
-\contentsline {paragraph}{\nonumberline Scaling Behavior (Drop)}{33}{paragraph*.54}%
-\contentsline {paragraph}{\nonumberline Analysis (Reuse versus Drop)}{33}{paragraph*.55}%
-\contentsline {paragraph}{\nonumberline Analysis (PC anomaly)}{34}{paragraph*.56}%
-\contentsline {paragraph}{\nonumberline Interpretation}{36}{paragraph*.57}%
+\contentsline {paragraph}{\nonumberline Scaling Behavior (Reuse)}{31}{paragraph*.64}%
+\contentsline {paragraph}{\nonumberline Scaling Behavior (Drop)}{33}{paragraph*.67}%
+\contentsline {paragraph}{\nonumberline Analysis (Reuse versus Drop)}{33}{paragraph*.68}%
+\contentsline {paragraph}{\nonumberline Analysis (PC anomaly)}{34}{paragraph*.71}%
+\contentsline {paragraph}{\nonumberline Interpretation}{36}{paragraph*.74}%
 \contentsline {section}{\numberline {4.5}Discussion}{36}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Limitations}{37}{section.4.6}%
 \contentsline {chapter}{\numberline {5}Related Work}{38}{chapter.5}%
 \contentsline {chapter}{\numberline {6}Future Work}{39}{chapter.6}%
-\contentsline {paragraph}{\nonumberline Scenario 1}{39}{paragraph*.58}%
-\contentsline {paragraph}{\nonumberline Scenario 2}{39}{paragraph*.59}%
-\contentsline {paragraph}{\nonumberline Scenario 3}{39}{paragraph*.60}%
-\contentsline {paragraph}{\nonumberline General}{39}{paragraph*.61}%
+\contentsline {paragraph}{\nonumberline Scenario 1}{39}{paragraph*.75}%
+\contentsline {paragraph}{\nonumberline Scenario 2}{39}{paragraph*.76}%
+\contentsline {paragraph}{\nonumberline Scenario 3}{39}{paragraph*.77}%
+\contentsline {paragraph}{\nonumberline General}{39}{paragraph*.78}%
 \contentsline {chapter}{\numberline {7}Conclusion}{40}{chapter.7}%
-\contentsline {chapter}{\nonumberline Bibliography}{41}{chapter*.62}%
-\contentsline {chapter}{\nonumberline Listings}{44}{chapter*.63}%
-\contentsline {chapter}{\nonumberline List of Figures}{45}{chapter*.64}%
-\contentsline {chapter}{\nonumberline List of Tables}{46}{chapter*.65}%
-\contentsline {chapter}{\nonumberline List of Acronyms}{47}{chapter*.66}%
+\contentsline {chapter}{\nonumberline Bibliography}{41}{chapter*.79}%
+\contentsline {chapter}{\nonumberline Listings}{44}{chapter*.80}%
+\contentsline {chapter}{\nonumberline List of Figures}{45}{chapter*.81}%
+\contentsline {chapter}{\nonumberline List of Tables}{46}{chapter*.82}%
+\contentsline {chapter}{\nonumberline List of Acronyms}{47}{chapter*.83}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

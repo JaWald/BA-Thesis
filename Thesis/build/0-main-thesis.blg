@@ -1,15 +1,15 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'build/0-main-thesis.blg'
-[99] biber-MSWIN64:342> INFO - === 
-[137] Biber.pm:421> INFO - Reading 'build/0-main-thesis.bcf'
-[243] Biber.pm:1002> INFO - Found 26 citekeys in bib section 0
-[255] Biber.pm:4487> INFO - Processing section 0
-[265] Biber.pm:4678> INFO - Looking for bibtex file 'references.bib' for section 0
-[308] bibtex.pm:1713> INFO - LaTeX decoding ...
-[346] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
-[477] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[477] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[477] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[477] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
-[499] bbl.pm:676> INFO - Writing 'build/0-main-thesis.bbl' with encoding 'UTF-8'
-[508] bbl.pm:779> INFO - Output to build/0-main-thesis.bbl
+[118] biber-MSWIN64:342> INFO - === 
+[157] Biber.pm:421> INFO - Reading 'build/0-main-thesis.bcf'
+[258] Biber.pm:1002> INFO - Found 27 citekeys in bib section 0
+[272] Biber.pm:4487> INFO - Processing section 0
+[283] Biber.pm:4678> INFO - Looking for bibtex file 'references.bib' for section 0
+[337] bibtex.pm:1713> INFO - LaTeX decoding ...
+[378] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
+[520] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[520] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[520] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[520] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[550] bbl.pm:676> INFO - Writing 'build/0-main-thesis.bbl' with encoding 'UTF-8'
+[561] bbl.pm:779> INFO - Output to build/0-main-thesis.bbl
