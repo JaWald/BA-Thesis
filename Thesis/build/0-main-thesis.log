@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2026.2.27)  13 SEP 2026 19:10
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2026.2.27)  13 SEP 2026 19:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2797,19 +2797,7 @@ Underfull \hbox (badness 1205) in paragraph at lines 29--30
 [] \TU/Merriweather(0)/m/n/12 for the payload. Every planet is allocated indi-
  []
 
-[9] [10] [11] [12]
-Requested font "[fonts/Merriweather-Bold.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 12.0pt
- -> ./fonts/Merriweather-Bold.ttf
-
-
-LaTeX Warning: Reference `eq:gravity' on page 13 undefined on input line 67.
-
-
-Underfull \hbox (badness 1082) in paragraph at lines 67--68
-[] \TU/PublicSans(0)/b/n/12 Update Logic[][] \TU/Merriweather(0)/m/n/12 Equation [] is translated directly into code. For every
- []
-
-(c:/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+[9] [10] [11] [12] (c:/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 ) (c:/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
@@ -2857,6 +2845,8 @@ Underfull \hbox (badness 1715) in paragraph at lines 198--199
 \TU/Merriweather(0)/m/n/12 An individual benchmark run is configured almost entirely through
  []
 
+Requested font "[fonts/Merriweather-Bold.ttf]/OT:script=latn;language=dflt;mapping=tex-text;" at 12.0pt
+ -> ./fonts/Merriweather-Bold.ttf
 
 Underfull \hbox (badness 1789) in paragraph at lines 224--225
 []\TU/Merriweather(0)/m/n/12 The program itself does not contain the functionality of parameter
@@ -2975,21 +2965,23 @@ File: ./images/S3_tcache_off.pdf Graphic file (type pdf)
 
 ]) (././05-relatedwork.tex [37]
 chapter 5.
-) (././06-futurework.tex [38
+[38
 
 
 
+
+]) (././06-futurework.tex [39
 
 ]
 chapter 6.
-) (././07-conclusion.tex [39
+) (././07-conclusion.tex [40
 
 
 
 
 ]
 chapter 7.
-) [40
+) [41
 
 
 
@@ -3005,7 +2997,7 @@ LaTeX Font Info:    Font shape `TU/Inconsolata(0)/m/it' will be
 (Font)              scaled to size 13.92004pt on input line 77.
 Requested font "[fonts/Inconsolata-Regular.ttf]/OT:script=latn;language=dflt;slant=0.2;" at 13.92004pt
  -> ./fonts/Inconsolata-Regular.ttf
-[41
+[42
 
 
 
@@ -3036,9 +3028,9 @@ Underfull \hbox (badness 1688) in paragraph at lines 78--78
  []
 
 Package cleveref Info: loaded `english' language definitions on input line 77.
-[42]
+[43]
 Package cleveref Info: loaded `english' language definitions on input line 79.
- [43] (build/0-main-thesis.lol
+ [44] (build/0-main-thesis.lol
 Package cleveref Info: loaded `english' language definitions on input line 1.
 Package cleveref Info: loaded `ngerman' language definitions on input line 3.
 Package cleveref Info: loaded `english' language definitions on input line 5.
@@ -3046,7 +3038,7 @@ Package cleveref Info: loaded `english' language definitions on input line 5.
 \tf@lol=\write6
 \openout6 = `0-main-thesis.lol'.
 
- [44
+ [45
 
 
 
@@ -3064,7 +3056,7 @@ Underfull \hbox (badness 5091) in paragraph at lines 8--8
 \tf@lof=\write7
 \openout7 = `0-main-thesis.lof'.
 
- [45
+ [46
 
 
 
@@ -3077,7 +3069,7 @@ Package cleveref Info: loaded `english' language definitions on input line 5.
 \tf@lot=\write8
 \openout8 = `0-main-thesis.lot'.
 
- [46
+ [47
 
 
 
@@ -3085,22 +3077,22 @@ Package cleveref Info: loaded `english' language definitions on input line 5.
 ] (././00-acronyms.tex
 chapter without number
 
-LaTeX Warning: Hyper reference `acro:CPB' on page 47 undefined on input line 8.
+LaTeX Warning: Hyper reference `acro:CPB' on page 48 undefined on input line 8.
 
 
-LaTeX Warning: Hyper reference `acro:CPB' on page 47 undefined on input line 8.
+LaTeX Warning: Hyper reference `acro:CPB' on page 48 undefined on input line 8.
 
 
-LaTeX Warning: Hyper reference `acro:PBO' on page 47 undefined on input line 14.
+LaTeX Warning: Hyper reference `acro:PBO' on page 48 undefined on input line 14.
 
 
-LaTeX Warning: Hyper reference `acro:PBO' on page 47 undefined on input line 14.
+LaTeX Warning: Hyper reference `acro:PBO' on page 48 undefined on input line 14.
 
 ) (c:/texlive/2025/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 ) (c:/texlive/2025/texmf-dist/tex/generic/stringenc/se-utf32be.def
 File: se-utf32be.def 2019/11/29 v1.12 stringenc: UTF-32BE
-) [47
+) [48
 
 
 
@@ -3126,12 +3118,12 @@ Package logreq Info: Writing requests to '0-main-thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 65241 strings out of 468174
- 1452973 string characters out of 5436827
- 2875469 words of memory out of 5000000
- 92992 multiletter control sequences out of 15000+600000
+ 65244 strings out of 468174
+ 1453047 string characters out of 5436827
+ 2875561 words of memory out of 5000000
+ 92995 multiletter control sequences out of 15000+600000
  637950 words of font info for 184 fonts, out of 8000000 for 9000
  1350 hyphenation exceptions out of 8191
- 130i,25n,137p,11247b,32833s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 130i,25n,137p,11247b,32832s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on build/0-main-thesis.xdv (52 pages, 1237272 bytes).
+Output written on build/0-main-thesis.xdv (53 pages, 1247340 bytes).
