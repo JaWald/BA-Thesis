@@ -110,7 +110,6 @@
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://bevy.org/}}
       \field{note}{A data-driven game engine built in Rust}
       \field{title}{Bevy Engine}
       \field{urlday}{17}
@@ -118,6 +117,12 @@
       \field{urlyear}{2026}
       \field{year}{2026}
       \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://bevy.org/
+      \endverb
+      \verb{url}
+      \verb https://bevy.org/
+      \endverb
     \endentry
     \entry{bevy_quickstart_ecs}{manual}{}{}
       \name{author}{1}{}{%

@@ -22,7 +22,7 @@ for j in $(seq 980 1 1035); do
     for k in $(seq 20 20 1000); do
         echo -e "\e[33m    drop  | chunk $k\e[0m"
         #taskset -c $CORE ./target/o3/Benchmarks -b s3 -w 100 -i 50 -s 5 -c $k
-	GLIBC_TUNABLES=glibc.malloc.tcache_count=0 taskset -c $CORE ./target/o3/Benchmarks -b s3 -w 100 -i 50 -s 5 -c $k
+	      GLIBC_TUNABLES=glibc.malloc.tcache_count=0 taskset -c $CORE ./target/o3/Benchmarks -b s3 -w 100 -i 50 -s 5 -c $k
 
         echo -e "\e[33m    reuse | chunk $k\e[0m"
         #taskset -c $CORE ./target/o3/Benchmarks -b s3 -w 100 -i 50 -s 5 -c $k -r
