@@ -3,7 +3,7 @@
 \cleardoubleoddpage
 \chapter{Future Work}
 \label{sec:future-work}
-\paragraph{Scenario 1} Bevy's partial vectorization remains a subject of further inspection as it poses the question whether a \ac{SoA}-like component layout \cite{bevy_contiguous} would allow for full vectorization and not be overshadowed by the increased overhead from component management. Additionally, the processor used for this thesis only allowed for the usage of \qty{256}{\bit} \texttt{ymm} registers. A processor featuring AVX-512 would allow for even broader registers and potentially increase the gap between the data-oriented and object-oriented architectures.
+\paragraph{Scenario 1} Bevy's partial vectorization remains a subject of further inspection as it poses the question whether a \ac{SoA}-like component layout \cite{bevy_contiguous} would allow for full vectorization and not be overshadowed by the increased overhead from component management. Additionally, the processor used for this thesis only allowed for the usage of \num{256}-bit \texttt{ymm} registers. A processor featuring AVX-512 would allow for even broader registers and potentially increase the gap between the data-oriented and object-oriented architectures.
 
 \paragraph{Scenario 2} 
 The source of the spikes in the execution time of the \ac{PC} architecture (see \Cref{fig:s2}) remains open and could be investigated, as it is not explained by the cache conflict misses relevant for the \ac{AoS} architecture. Additionally, this thesis only scaled the payload to \qty{20}{\kibi\byte} which primarily surfaced L1 conflict-miss effects. Increasing the payload to higher values may reveal additional effects attributable to the L2 and L3 caches. 
