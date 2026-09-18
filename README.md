@@ -59,15 +59,15 @@ The binary itself runs a single configuration, parameter sweeping is done via th
 For Scenarios 2 and 3 the payload size is a compile-time constant, so these scripts recompile the binary for every payload value. The **Python scripts (`s*_*.py`)** read the resulting CSVs and generate the SVG figures.
 
 ## 📦 Build
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/JaWald/BA-Thesis.git
-   cd BA-Thesis
-   ```
-2. **Compile the optimized binary:**
-   ```bash
-   cargo build --profile o3
-   ```
-3. The executable is created in the `./target/o3/` directory.
+1.  **Clone the repository:**
+```bash
+git clone https://github.com/JaWald/BA-Thesis.git
+cd BA-Thesis/Benchmarks
+```
+2.  **Compile the optimized binary:**
+```bash
+cargo build --profile o3
+```
+3.  The executable is created in the `./target/o3/` directory.
 
 > To reproduce the thesis measurements exactly, the benchmarks are built with a custom `o3` profile, `-C target-cpu=native` (for AVX2) and the `mold` linker. See the execution scripts and `Benchmarks/Cargo.toml` for the full flags.
