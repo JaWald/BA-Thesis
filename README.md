@@ -1,4 +1,4 @@
-# DOP-Benchmarks
+# Rust/DOP Benchmarks
 A command-line benchmark suite comparing the performance of object-oriented and data-oriented memory layouts in Rust.
 
 It runs an identical gravitational simulation across four architectures, namely Pointer Chasing (PC), Array of Structures (AoS), Structure of Arrays (SoA) and Bevy ECS, so that any measured difference can be attributed to the memory layout rather than the workload. Each run appends its timings to a CSV, which the included Python scripts turn into plots.
