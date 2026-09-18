@@ -61,8 +61,8 @@ For Scenarios 2 and 3 the payload size is a compile-time constant, so these scri
 ## 📦 Build
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/JaWald/DOP-Benchmarks.git
-   cd DOP-Benchmarks
+   git clone https://github.com/JaWald/BA-Thesis.git
+   cd BA-Thesis
    ```
 2. **Compile the optimized binary:**
    ```bash
