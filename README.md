@@ -66,7 +66,7 @@ For Scenarios 2 and 3 the payload size is a compile-time constant, so these scri
    ```
 2. **Compile the optimized binary:**
    ```bash
-   cargo build --release
+   cargo build --profile o3
    ```
 3. The executable is created in the `./target/release/` directory.
 
