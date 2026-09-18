@@ -73,7 +73,8 @@ pub fn bench_s3_soa(iterations: usize, chunk_size: usize, reuse: bool, planets: 
 
         /*
         for _ in 0..chunk_size {
-            let index = rng.random_range(0..planets.positions_x.len());            black_box(planets.positions_x.remove(index));
+            let index = rng.random_range(0..planets.positions_x.len());
+            black_box(planets.positions_x.remove(index));
             black_box(planets.positions_y.swap_remove(index));
             black_box(planets.positions_z.swap_remove(index));
             black_box(planets.velocities_x.swap_remove(index));

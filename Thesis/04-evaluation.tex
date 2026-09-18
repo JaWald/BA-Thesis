@@ -60,7 +60,7 @@ Note the wide yet relatively constant variation in measurements regarding the \a
 
 % ── assembly ─────────────────────────────────────────────
 \paragraph{Assembly Analysis}
-To verify the results visible in Figure~\ref{fig:s1}, the assembly code of the \texttt{bench\_s1\_pc}, \texttt{bench\_s1\_aos}, \texttt{bench\_s1\_soa}, and \texttt{bench\_s1\_bevy} functions is inspected for the usage of the wider \texttt{ymm} registers and packed instructions. Note that the machine code can reach several hundred lines of code. Therefore, Listing~\ref{fig:s1:asm} mainly focuses on arithmetic of the hot loop, which is the calculation of acceleration and its application to velocity and position. The machine code instructions are reordered to match the source order. Regarding the \ac{SoA} architecture, for the per-component velocity and position update, only the x-component is shown.
+To verify the results in Figure~\ref{fig:s1}, the machine code of the \texttt{bench\_s1\_pc}, \texttt{bench\_s1\_aos}, \texttt{bench\_s1\_soa}, and \texttt{bench\_s1\_bevy} functions is inspected for the wider \texttt{ymm} registers and packed instructions. As it can reach several hundred lines, Listing~\ref{fig:s1:asm} focuses on the hot loop's arithmetic, i.e., the calculation of acceleration and its application to velocity and position. The instructions are reordered to match the source order. For the \ac{SoA} architecture, only the x-component of the update is shown for brevity.
 
 \begin{figure}[htbp]
 \centering
@@ -69,6 +69,10 @@ To verify the results visible in Figure~\ref{fig:s1}, the assembly code of the \
 \begin{lstlisting}[language={[x86masm]Assembler}, basicstyle=\scriptsize\ttfamily]
 ; let px = planets.pos_x[i];
 vmovups ymm5, ymmword ptr [r10 + 4*rax]
+; let py = planets.pos_y[i];
+vmovups ymm6, ymmword ptr [r12 + 4*rax]
+; let pz = planets.pos_z[i];
+vmovups ymm7, ymmword ptr [r14 + 4*rax]
 
 ; let r_sq = px * px + py * py + pz * pz;
 vmulps  ymm8, ymm5, ymm5
@@ -133,7 +137,7 @@ vmovss  dword ptr [rax + rsi + 20], xmm3
 add     rsi, 24
 \end{lstlisting}
 \end{minipage}
-\captionof{lstlisting}{ASM arithmetic: SoA versus AoS}
+\captionof{lstlisting}{ASM arithmetic, SoA versus AoS. In line~1, \texttt{r10} is the base address of the \texttt{pos\_x} array and \texttt{rax} the element index. \texttt{4*rax} turns it into a byte offset, an \texttt{f32} being \qty{4}{\byte}.}
 \label{fig:s1:asm}
 \end{figure}
 
