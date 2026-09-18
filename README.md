@@ -1,4 +1,4 @@
-# DOP-Benchmarks
+# Rust/DOP Benchmarks
 A command-line benchmark suite comparing the performance of object-oriented and data-oriented memory layouts in Rust.
 
 It runs an identical gravitational simulation across four architectures, namely Pointer Chasing (PC), Array of Structures (AoS), Structure of Arrays (SoA) and Bevy ECS, so that any measured difference can be attributed to the memory layout rather than the workload. Each run appends its timings to a CSV, which the included Python scripts turn into plots.
@@ -59,15 +59,15 @@ The binary itself runs a single configuration, parameter sweeping is done via th
 For Scenarios 2 and 3 the payload size is a compile-time constant, so these scripts recompile the binary for every payload value. The **Python scripts (`s*_*.py`)** read the resulting CSVs and generate the SVG figures.
 
 ## 📦 Build
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/JaWald/DOP-Benchmarks.git
-   cd DOP-Benchmarks
-   ```
-2. **Compile the optimized binary:**
-   ```bash
-   cargo build --release
-   ```
-3. The executable is created in the `./target/release/` directory.
+1.  **Clone the repository:**
+```bash
+git clone https://github.com/JaWald/BA-Thesis.git
+cd BA-Thesis/Benchmarks
+```
+2.  **Compile the optimized binary:**
+```bash
+cargo build --profile o3
+```
+3.  The executable is created in the `./target/o3/` directory.
 
 > To reproduce the thesis measurements exactly, the benchmarks are built with a custom `o3` profile, `-C target-cpu=native` (for AVX2) and the `mold` linker. See the execution scripts and `Benchmarks/Cargo.toml` for the full flags.
