@@ -68,6 +68,6 @@ For Scenarios 2 and 3 the payload size is a compile-time constant, so these scri
    ```bash
    cargo build --profile o3
    ```
-3. The executable is created in the `./target/release/` directory.
+3. The executable is created in the `./target/o3/` directory.
 
 > To reproduce the thesis measurements exactly, the benchmarks are built with a custom `o3` profile, `-C target-cpu=native` (for AVX2) and the `mold` linker. See the execution scripts and `Benchmarks/Cargo.toml` for the full flags.
