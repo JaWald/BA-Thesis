@@ -5,6 +5,36 @@ A command-line benchmark suite comparing the performance of object-oriented and 
 
 It runs an identical gravitational simulation across four architectures, namely Pointer Chasing (PC), Array of Structures (AoS), Structure of Arrays (SoA) and Bevy ECS, so that any measured difference can be attributed to the memory layout rather than the workload. Each run appends its timings to a CSV, which the included Python scripts turn into plots.
 
+## 📈 Results
+
+**Scenario 1 – Compute-bound:** SoA processes eight planets per instruction via AVX2, while the interleaved layouts fall back to scalar code.
+
+<p align="center"><img src="Images/S1.png" width="700"></p>
+
+**Scenario 2 – Memory-bound:** SoA and Bevy stay flat as the payload grows. AoS and PC spike at power-of-two struct sizes due to L1 cache set conflicts.
+
+<p align="center"><img src="Images/S2.png" width="700"></p>
+
+**Scenario 3 – Allocation:** Per-object allocation makes PC an order of magnitude slower than the bulk-allocating architectures.
+
+<p align="center"><img src="Images/S3_reuse.png" width="700"></p>
+
+### 🔍 The glibc threshold
+PC's execution time jumps sharply at exactly 1008 B of payload, i.e. an object size of 1032 B, independent of the chunk size. This matches the default `tcache_max` of glibc's per-thread cache, which only serves objects up to 1032 B. Rerunning with the cache disabled (`GLIBC_TUNABLES=glibc.malloc.tcache_count=0`) removes the edge entirely, confirming the allocator as the cause.
+
+<div align="center">
+  <table>
+    <tr>
+      <th>tcache enabled</th>
+      <th>tcache disabled</th>
+    </tr>
+    <tr>
+      <td><img src="Images/S3_tcache_on.png" width="400"></td>
+      <td><img src="Images/S3_tcache_off.png" width="400"></td>
+    </tr>
+  </table>
+</div>
+
 ## ℹ️ Arguments
 Mandatory argument: `-b <SCENARIO>`
 
