@@ -1,0 +1,1 @@
+Benchmarks/bevy-contiguous/** linguist-vendored

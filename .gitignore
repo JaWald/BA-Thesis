@@ -1,8 +1,11 @@
 Benchmarks/target*
+Benchmarks/asm/**/Benchmarks_*
 Organization/*
 Literature/*
+Thesis/build/
 
 .idea
+perf.data*
 
  
  
