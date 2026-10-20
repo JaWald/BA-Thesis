@@ -3,12 +3,6 @@ A command-line benchmark suite comparing the performance of object-oriented and 
 
 It runs an identical gravitational simulation across four architectures, namely Pointer Chasing (PC), Array of Structures (AoS), Structure of Arrays (SoA) and Bevy ECS, so that any measured difference can be attributed to the memory layout rather than the workload. Each run appends its timings to a CSV, which the included Python scripts turn into plots.
 
-## 🗂️ Repository
-- **`Literature/`** — the papers and sources referenced in the thesis.
-- **`Organisation/`** — meeting notes with the supervisor as `.txt` files.
-- **`Thesis/`** — the LaTeX project of the written thesis.
-- **`Benchmarks/`** — the Rust project (this tool), including the `asm/` folder with the relevant machine code.
-
 ## ℹ️ Arguments
 Mandatory argument: `-b <SCENARIO>`
 
