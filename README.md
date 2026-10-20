@@ -1,4 +1,6 @@
 # Rust/DOP Benchmarks
+Bachelor's thesis (BSc Computer Science, JKU Linz, 2026) - [(PDF)](Thesis/BA_Rust-DOP.pdf)
+  
 A command-line benchmark suite comparing the performance of object-oriented and data-oriented memory layouts in Rust.
 
 It runs an identical gravitational simulation across four architectures, namely Pointer Chasing (PC), Array of Structures (AoS), Structure of Arrays (SoA) and Bevy ECS, so that any measured difference can be attributed to the memory layout rather than the workload. Each run appends its timings to a CSV, which the included Python scripts turn into plots.
@@ -30,17 +32,17 @@ Each scenario isolates a different bottleneck:
 - **reset:** deletes the generated CSV files to start from a clean slate.
 
 ## 🛠️ Example usage
-```c++
- // Scenario 1 (compute-bound) with 30k planets
+```bash
+ # Scenario 1 (compute-bound) with 30k planets
  cargo run --release -- -b s1 -p 30000
 
- // Scenario 2 (memory-bound), default parameters
+ # Scenario 2 (memory-bound), default parameters
  cargo run --release -- -b s2
 
- // Scenario 3 (alloc/dealloc), reuse variant, chunk size 500, with summary
+ # Scenario 3 (alloc/dealloc), reuse variant, chunk size 500, with summary
  cargo run --release -- -b s3 -c 500 -r -d
 
- // Clear all generated CSV files
+ # Clear all generated CSV files
  cargo run --release -- -b reset
 ```
 Results are appended to one CSV per architecture and scenario (e.g. `soa.csv`, `bevy.csv`).
