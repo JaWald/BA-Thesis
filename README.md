@@ -1,5 +1,5 @@
 # Rust/DOP Benchmarks
-Bachelor's thesis (BSc Computer Science, JKU Linz, 2026) - [(PDF)](Thesis/BA_Rust-DOP.pdf)
+Bachelor's thesis (BSc Computer Science, JKU Linz, 2026) - [Read the thesis (PDF)](Thesis/BA_Rust-DOP.pdf)
   
 A command-line benchmark suite comparing the performance of object-oriented and data-oriented memory layouts in Rust.
 
